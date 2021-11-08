@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "VSCode Theme Studio JSON Schema",
+  "type": "object",
+  "patternProperties": {
+    "^(bg|text|border)@.*$": {
+      "type": "object",
+      "properties": {
+        "variable": {
+          "description": "The variable name",
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/group"
+        },
+        "tab": {
+          "description": "The tab the variable should be placed in.",
+          "type": "string",
+          "enum": ["palette", "editor", "syntax"]
+        },
+        "description": {
+          "description": "Variable Description",
+          "type": "string"
+        },
+        "category": {
+          "description": "Category the variable should be placed in",
+          "type": "string"
+        },
+        "hover": {
+          "description": "Should only be triggered on hover.",
+          "type": "boolean"
+        },
+        "action": {
+          "description": "A action that should be triggered when hovering or clicking on sidebar",
+          "type": "string"
+        }
+      },
+      "required": ["variable", "group", "description"]
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "group": {
+      "type": "object",
+      "properties": {
+        "light": {
+          "type": ["string", "null"],
+          "description": "The light color for the group.",
+          "examples": ["#ffffff", "#00ffffff"]
+        },
+        "dark": {
+          "type": ["string", "null"],
+          "description": "The dark color for the group.",
+          "examples": ["#ffffff", "#00ffffff"]
+        },
+        "hc": {
+          "type": ["string", "null"],
+          "description": "The high contrast color for the group.",
+          "examples": ["#ffffff", "#00ffffff"]
+        }
+      },
+      "required": ["light", "dark", "hc"]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "text@titleBar.activeForeground": {
+    "variable": "titleBar.activeForeground",
+    "group": {
+      "dark": "#CCCCCC",
+      "light": "#333333",
+      "hc": "#FFFFFF"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Title bar foreground when the window is active."
+  },
+  "text@titleBar.inactiveForeground": {
+    "variable": "titleBar.inactiveForeground",
+    "group": {
+      "dark": "func@transparent(var@titleBar.activeForeground, 0.6)",
+      "light": "func@transparent(var@titleBar.activeForeground, 0.6)",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Title bar foreground when the window is inactive."
+  },
+  "bg@titleBar.activeBackground": {
+    "variable": "titleBar.activeBackground",
+    "group": {
+      "dark": "#3C3C3C",
+      "light": "#DDDDDD",
+      "hc": "#000000"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Title bar background when the window is active."
+  },
+  "bg@titleBar.inactiveBackground": {
+    "variable": "titleBar.inactiveBackground",
+    "group": {
+      "dark": "func@transparent(var@titleBar.activeBackground, 0.6)",
+      "light": "func@transparent(var@titleBar.activeBackground, 0.6)",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Title bar background when the window is inactive."
+  },
+  "border@titleBar.border": {
+    "variable": "titleBar.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Title bar border color."
+  }
+}

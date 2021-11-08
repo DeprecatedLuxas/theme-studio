@@ -1,0 +1,74 @@
+{
+  "text@foreground": {
+    "variable": "foreground",
+    "group": {
+      "dark": "#CCCCCC",
+      "light": "#616161",
+      "hc": "#FFFFFF"
+    },
+    "description": "Overall foreground color. This color is only used if not overridden by a component."
+  },
+  "text@errorForeground": {
+    "variable": "errorForeground",
+    "group": {
+      "dark": "#F48771",
+      "light": "#A1260D",
+      "hc": "#F48771"
+    },
+    "description": "Overall foreground color for error messages. This color is only used if not overridden by a component."
+  },
+  "text@descriptionForeground": {
+    "variable": "descriptionForeground",
+    "group": {
+      "dark": "func@transparent(var@foreground, 0.7)",
+      "light": "#717171",
+      "hc": "func@transparent(var@foreground, 0.7)"
+    },
+    "description": "Foreground color for description text providing additional information, for example for a label."
+  },
+  "text@iconForeground": {
+    "variable": "icon.foreground",
+    "group": {
+      "dark": "#C5C5C5",
+      "light": "#424242",
+      "hc": "#FFFFFF"
+    },
+    "description": "The default color for icons in the workbench."
+  },
+  "border@focusBorder": {
+    "variable": "focusBorder",
+    "group": {
+      "dark": "#007FD4",
+      "light": "#0090F1",
+      "hc": "#F38518"
+    },
+    "description": "Overall border color for focused elements. This color is only used if not overridden by a component."
+  },
+  "border@contrastBorder": {
+    "variable": "contrastBorder",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "#6FC3DF"
+    },
+    "description": "An extra border around elements to separate them from others for greater contrast."
+  },
+  "border@contrastActiveBorder": {
+    "variable": "contrastActiveBorder",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@focusBorder"
+    },
+    "description": "An extra border around active elements to separate them from others for greater contrast."
+  },
+  "bg@selectionBackground": {
+    "variable": "selection.background",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "description": "The background color of text selections in the workbench (e.g. for input fields or text areas). Note that this does not apply to selections within the editor."
+  }
+}
