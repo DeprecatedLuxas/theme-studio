@@ -1,7 +1,10 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-  purge: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}"],
+  purge: [
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -17,6 +20,9 @@ module.exports = {
         activitybar: "50px",
         activityicon: "50px",
         sidebar: "250px",
+      },
+      minWidth: {
+        10: "2.5rem",
       },
       height: {
         4.5: "1.125rem",
