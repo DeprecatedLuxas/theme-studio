@@ -1,8 +1,8 @@
 
 
-Todo for tomorrow:
+Todo for today:
 
-- [ ] Get the milk my father didn't come back with :'(
+- [x] Get the milk my father didn't come back with :'(
 - [ ] Create a tab component
 - [ ] Create a tooltip component
 - [ ] Display current config on setup component.

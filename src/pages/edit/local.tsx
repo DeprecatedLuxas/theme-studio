@@ -7,6 +7,7 @@ import { useState } from "react";
 import windy from "@helpers/windy";
 import Settings from "@components/Editor/Settings";
 import { BsStars, BsCloudDownload } from "react-icons/bs";
+import Tooltip from "@components/Tooltip";
 
 const Spacer = windy.div`
   h-1
@@ -55,12 +56,12 @@ export default function EditLocal() {
           <div className="w-72 flex flex-col p-2 bg-gray-900">
             <div className="flex justify-between items-center">
               <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
-              <Settings />
+              <Tooltip label="What">
+                <Settings />
+              </Tooltip>
             </div>
             <Spacer />
-            <div className="flex justify-between px-16 py-4">
-              
-            </div>
+            <div className="flex justify-between px-16 py-4"></div>
             <Spacer />
             <div className="w-full h-auto">
               <button

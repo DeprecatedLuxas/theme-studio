@@ -1,10 +1,19 @@
 import {
+  ElementType,
   ForwardRefExoticComponent,
   PropsWithoutRef,
   RefAttributes,
 } from "react";
 
 export type Nullable<T> = T | null;
+export type PropGetter<T extends ElementType, P = {}> = (
+  props?: Omit<
+    React.ComponentPropsWithoutRef<T>,
+    "color" | "width" | "height"
+  > &
+    P,
+  ref?: React.Ref<any> | React.RefObject<any>
+) => Omit<React.ComponentPropsWithRef<T>, "color" | "width" | "height">;
 
 export interface SetupConfig {
   name: string;
