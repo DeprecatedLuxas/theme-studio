@@ -48,9 +48,29 @@ interface SetupProps {
 }
 
 export default function Setup({ onComplete }: SetupProps) {
+  const [config, setConfig] = useState<SetupConfig>({
+    name: "Untitled",
+    type: "dark",
+  });
   const nameRef = useRef<HTMLInputElement>(null);
-  const [type, setType] = useState<"dark" | "light">("dark");
+  const handleNameChange = () => {
+    if (nameRef.current) {
+      const name = nameRef.current.value.trim();
+      if (name && name.length > 0 && name.length < 15) {
+        setConfig({
+          ...config,
+          name: name,
+        });
+      }
+    }
+  };
 
+  const handleTypeChange = (type: "dark" | "light") => {
+    setConfig({
+      ...config,
+      type: type,
+    });
+  };
   return (
     <div className="h-screen w-full bg-gray-700 flex justify-center items-center">
       <div className="max-w-3xl w-full">
@@ -59,32 +79,37 @@ export default function Setup({ onComplete }: SetupProps) {
           <div className="flex flex-row">
             <div className="flex-1">
               <label className="block font-roboto">Theme Name</label>
-              <Input placeholder="Theme Name" ref={nameRef} />
+              <Input
+                placeholder="Theme Name"
+                ref={nameRef}
+                onChange={handleNameChange}
+              />
               <label className="block font-roboto mt-4">Theme Type</label>
               <div className="w-40 flex justify-between">
-                <Button onClick={() => setType("dark")}>Dark</Button>
-                <Button onClick={() => setType("light")}>Light</Button>
+                <Button onClick={() => handleTypeChange("dark")}>Dark</Button>
+                <Button onClick={() => handleTypeChange("light")}>Light</Button>
+
               </div>
             </div>
-            <Config />
+            <Config conf={config} />
           </div>
           <Spacer />
           <div className="flex-1 flex justify-end items-end">
-            <Button>Set Defaults</Button>
+            <Button
+              onClick={() => {
+                setConfig({
+                  name: "Untitled",
+                  type: "dark",
+                });
+              }}
+            >
+              Set Defaults
+            </Button>
 
             <Button
               className="ml-4"
               onClick={() => {
-                if (nameRef.current) {
-                  const name = nameRef.current.value;
-                  if (name) {
-                    onComplete &&
-                      onComplete({
-                        name,
-                        type,
-                      });
-                  }
-                }
+                onComplete && onComplete(config);
               }}
             >
               Done

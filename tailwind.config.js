@@ -33,6 +33,7 @@ module.exports = {
       },
       minHeight: {
         56: "17rem",
+        96: "24rem",
         24: "24px",
       },
       fontSize: {

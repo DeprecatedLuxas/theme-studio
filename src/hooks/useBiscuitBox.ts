@@ -10,6 +10,7 @@ export function useBiscuitBox({
   onOpen: onOpenProp,
   onClose: onCloseProp,
 }: UseBiscuitBoxProps = {}) {
+  
   const onOpenPropCallbackRef = useCallbackRef(onOpenProp);
   const onClosePropCallbackRef = useCallbackRef(onCloseProp);
   const [isOpen, setIsOpen] = useState(false);

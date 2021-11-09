@@ -6,14 +6,30 @@ import {
 } from "react";
 
 export type Nullable<T> = T | null;
-export type PropGetter<T extends ElementType, P = {}> = (
-  props?: Omit<
-    React.ComponentPropsWithoutRef<T>,
-    "color" | "width" | "height"
-  > &
-    P,
-  ref?: React.Ref<any> | React.RefObject<any>
-) => Omit<React.ComponentPropsWithRef<T>, "color" | "width" | "height">;
+export type Arrayable<T> = T | T[];
+
+export type VariableTab = "palette" | "editor" | "syntax";
+
+export interface VariableGroup {
+  dark: Nullable<string>;
+  light: Nullable<string>;
+  hc: Nullable<string>;
+}
+export interface Variable {
+  variable: string;
+  group: VariableGroup;
+  tab?: VariableTab;
+  description: string;
+  category?: string;
+  action?: string;
+  hover?: boolean;
+}
+
+export interface CompiledVariable {
+  description: string;
+  action?: string;
+  hover?: boolean;
+}
 
 export interface SetupConfig {
   name: string;
