@@ -1,6 +1,8 @@
 - [ ] Create a context menu component
+- [ ] Create a tab component
 - [ ] Create a tooltip component
 - [x] Display current config on setup component.
 - [ ] Complete the settings on editor local
+- [ ] Complete setup component
 - [x] Start on registry
 - [x] Start on the foundation of the vscode components

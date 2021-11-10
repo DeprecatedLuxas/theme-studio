@@ -20,7 +20,7 @@ export default function Home() {
   const { user, error, isLoading } = useUser();
 
   return (
-    <div className="h-screen bg-gray-700 flex flex-col">
+    <div className="min-h-screen h-auto bg-gray-700 flex flex-col">
       <Header />
       <div className="max-w-screen-xl w-full mx-auto flex-1 px-20 py-36">
         <Badge className="mb-2">Beta v0.0.1</Badge>

@@ -2,6 +2,8 @@ import { ReactNode, useState } from "react";
 import { Tab } from "@headlessui/react";
 import windy from "@helpers/windy";
 import Button from "@components/Button";
+import { setupState } from "src/recoil/atoms/setup";
+import { useRecoilState } from "recoil";
 
 const Spacer = windy.div`
   h-1
@@ -10,11 +12,13 @@ const Spacer = windy.div`
   border-b-2
 `;
 
+
 interface SetupProps {
   children?: ReactNode;
 }
 
 export default function Setup({ children }: SetupProps) {
+  const [config, setConfig] = useRecoilState(setupState);
   const [tab, setTab] = useState<number>(0);
 
   return (

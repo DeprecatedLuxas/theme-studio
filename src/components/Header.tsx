@@ -16,14 +16,13 @@ export default function Header() {
       <nav className="flex items-center flex-wrap p-3">
         <Link href="/">
           <a className="inline-flex items-center p-2 mr-4 ">
-            {/* LOGO HERE */}
             <span className="text-xl text-white font-bold uppercase tracking-wide">
               VSCode Studio
             </span>
           </a>
         </Link>
         <button
-          className="inline-flex p-3 rounded lg:hidden text-white ml-auto outline-none"
+          className="inline-flex p-3 rounded md:hidden text-white ml-auto outline-none"
           onClick={handleClick}
         >
           <svg
@@ -44,23 +43,23 @@ export default function Header() {
         <div
           className={`${
             open ? "" : "hidden"
-          }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+          } w-full md:inline-flex md:flex-grow md:w-auto`}
         >
-          <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
+          <div className="md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start flex flex-col md:h-auto">
             <Link href="/">
-              <a className="lg:inline-flex lg:w-auto w-full px-3 py-1 rounded text-white font-bold items-center justify-center">
+              <a className="md:inline-flex md:w-auto w-full px-3 py-1 rounded text-white font-bold items-center justify-center">
                 Home
               </a>
             </Link>
             <Link href="/browse">
-              <a className="lg:inline-flex lg:w-auto w-full px-3 py-1 rounded text-white font-bold items-center justify-center">
+              <a className="md:inline-flex md:w-auto w-full px-3 py-1 rounded text-white font-bold items-center justify-center">
                 Browse
               </a>
             </Link>
 
             {user && (
               <Link href="/dashboard">
-                <a className="lg:inline-flex lg:w-auto w-full md:ml-12 px-3 py-1 rounded text-white font-bold items-center justify-center">
+                <a className="md:inline-flex md:w-auto w-full md:ml-12 px-3 py-1 rounded text-white font-bold items-center justify-center">
                   Dashboard
                 </a>
               </Link>
@@ -68,7 +67,7 @@ export default function Header() {
 
             <a
               href={`${user ? "/api/auth/logout" : "/api/auth/login"}`}
-              className="lg:inline-flex lg:w-auto w-full mx-auto px-3 py-1 rounded text-white font-bold items-center justify-center md:bg-purple-700"
+              className="md:inline-flex md:w-auto w-full mx-auto px-3 py-1 rounded text-white font-bold items-center justify-center md:bg-purple-700"
             >
               {user ? "Logout" : "Login"}
             </a>

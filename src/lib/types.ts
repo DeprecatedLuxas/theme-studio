@@ -34,7 +34,10 @@ export interface CompiledVariable {
 export interface SetupConfig {
   name: string;
   type: "dark" | "light";
+  palette: Palette[];
 }
+
+export type Palette = string;
 
 export type WindyElement<P, E> = <K extends Record<`$${string}`, any> = {}>(
   element: TemplateStringsArray,
