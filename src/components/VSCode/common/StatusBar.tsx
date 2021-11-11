@@ -20,7 +20,10 @@ export default function StatusBar() {
   const { functional } = useVSC();
 
   return (
-    <Element className="flex justify-between h-statusbar text-xs">
+    <Element
+      className="flex justify-between h-statusbar text-xs"
+      bind={["bg@statusBar.background", "border@statusBar.border"]}
+    >
       <Element className="flex">
         <Element
           className="cursor-pointer h-full w-remote-icon flex items-center justify-center px-1.5"
@@ -66,10 +69,10 @@ export default function StatusBar() {
             <Element
               key={uuid()}
               className="cursor-pointer px-1.5 py-0.5 h-full"
-              // v={[
-              //   "h:bg@statusBarItem.hoverBackground",
-              //   "text@statusBar.foreground",
-              // ]}
+              bind={[
+                "h:bg@statusBarItem.hoverBackground",
+                "text@statusBar.foreground",
+              ]}
             >
               {item}
             </Element>

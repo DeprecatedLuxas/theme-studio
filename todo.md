@@ -1,6 +1,8 @@
 - [ ] Create a context menu component
-- [ ] Create a tab component
-- [ ] Create a tooltip component
+- [ ] Create a color picker component
+- [x] Create a tooltip component
+- [ ] Style tooltip component
+- [ ] Improve performance
 - [x] Display current config on setup component.
 - [ ] Complete the settings on editor local
 - [ ] Complete setup component

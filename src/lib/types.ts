@@ -4,13 +4,20 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
+import { Variables } from "./generated/variables";
+
+export * from "./generated/variables";
 
 export type Nullable<T> = T | null;
 export type Arrayable<T> = T | T[];
 
 export type VariableTab = "palette" | "editor" | "syntax";
 
-export interface VariableGroup {
+export interface Indexable {
+  [key: string]: any;
+}
+
+export interface VariableGroup extends Indexable {
   dark: Nullable<string>;
   light: Nullable<string>;
   hc: Nullable<string>;
@@ -25,10 +32,18 @@ export interface Variable {
   hover?: boolean;
 }
 
-export interface CompiledVariable {
-  description: string;
-  action?: string;
-  hover?: boolean;
+export type ThemeType = "dark" | "light" | "hoc";
+
+export type CompiledVariable = string;
+export type CompiledVariables = Record<CompiledVariable, string>;
+
+export interface VSCThemeFormat {
+  name: string;
+  type?: "dark" | "light";
+  colors?: {};
+  tokenColors?: {};
+  semanticHighlighting?: boolean;
+  semanticTokenColors?: {};
 }
 
 export interface SetupConfig {

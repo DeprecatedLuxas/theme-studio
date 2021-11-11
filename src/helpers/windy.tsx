@@ -5,9 +5,6 @@ import { ComponentType, forwardRef } from "react";
 import elements from "./elements";
 import classes from "tailwindcss-classnames";
 
-
-
-
 const cleanTemplate = (
   template: TemplateStringsArray,
   inheritedClasses: string = ""

@@ -1,4 +1,5 @@
 {
+  "exclude": true,
   "text@foreground": {
     "variable": "foreground",
     "group": {

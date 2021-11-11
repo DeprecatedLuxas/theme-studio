@@ -10,17 +10,27 @@ const generatedNote = `//
 const keys = [];
 
 variableFiles.forEach((file) => {
+  console.log(file);
   const variableFile = JSON.parse(
     fs.readFileSync(`./variables/${file}`, "utf-8")
   );
-  keys.push(...Object.keys(variableFile));
+  if (variableFile.exclude) {
+    return;
+  }
+  Object.keys(variableFile).forEach((key) => {
+    const value = variableFile[key];
+    let newKey = key;
+    if (value.hover) {
+      newKey = `h:${key}`;
+    }
+    keys.push(newKey);
+  });
 });
-
 
 fs.writeFileSync(
   "./src/lib/generated/variables.ts",
   `${generatedNote}
 
-export type ValidVariables = "${keys.join('" | "')}";
+export type Variables = "${keys.join('" | "')}";
 `
 );

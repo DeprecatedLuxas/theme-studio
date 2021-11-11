@@ -2,6 +2,12 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "VSCode Theme Studio JSON Schema",
   "type": "object",
+  "properties": {
+    "exclude": {
+      "type": "boolean",
+      "description": "Should file be excluded from registry variables."
+    }
+  },
   "patternProperties": {
     "^(bg|text|border)@.*$": {
       "type": "object",

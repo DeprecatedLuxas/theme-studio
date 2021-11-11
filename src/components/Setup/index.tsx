@@ -51,6 +51,7 @@ export default function Setup({ onComplete }: SetupProps) {
   const [config, setConfig] = useState<SetupConfig>({
     name: "Untitled",
     type: "dark",
+    palette: [],
   });
   const nameRef = useRef<HTMLInputElement>(null);
   const handleNameChange = () => {
@@ -88,7 +89,6 @@ export default function Setup({ onComplete }: SetupProps) {
               <div className="w-40 flex justify-between">
                 <Button onClick={() => handleTypeChange("dark")}>Dark</Button>
                 <Button onClick={() => handleTypeChange("light")}>Light</Button>
-
               </div>
             </div>
             <Config conf={config} />
@@ -100,6 +100,7 @@ export default function Setup({ onComplete }: SetupProps) {
                 setConfig({
                   name: "Untitled",
                   type: "dark",
+                  palette: [],
                 });
               }}
             >

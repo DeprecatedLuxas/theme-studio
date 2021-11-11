@@ -10,7 +10,7 @@ const Badge = windy.span`
   align-middle
   rounded
   text-gray-200
-  bg-purple-700
+  bg-blue-700
   px-1
   font-roboto
   select-none
@@ -30,7 +30,7 @@ export default function Home() {
           Theme editor
         </h1>
         <Link href={`${!user ? "/edit/local" : `/edit/${uuidv4()}`}`}>
-          <a className="py-2 px-2 bg-purple-700 text-white font-bold rounded-md">
+          <a className="py-2 px-2 bg-blue-700 text-white font-bold rounded-md">
             Get Started
           </a>
         </Link>

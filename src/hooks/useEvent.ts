@@ -4,7 +4,7 @@ import { useCallbackRef } from "./useCallbackRef";
 export function useEvent<K extends keyof DocumentEventMap>(
   event: K | (string & {}),
   handler: (event: DocumentEventMap[K]) => void,
-  ele?: Document | HTMLElement
+  ele?: Document | HTMLElement | Window
 ) {
   const listener = useCallbackRef(handler) as EventListener;
 

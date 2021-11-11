@@ -67,7 +67,7 @@ export default function Header() {
 
             <a
               href={`${user ? "/api/auth/logout" : "/api/auth/login"}`}
-              className="md:inline-flex md:w-auto w-full mx-auto px-3 py-1 rounded text-white font-bold items-center justify-center md:bg-purple-700"
+              className="md:inline-flex md:w-auto w-full mx-auto px-3 py-1 rounded text-white font-bold items-center justify-center md:bg-blue-700"
             >
               {user ? "Logout" : "Login"}
             </a>

@@ -12,49 +12,62 @@ const Spacer = windy.div`
   border-b-2
 `;
 
-
 interface SetupProps {
   children?: ReactNode;
 }
 
 export default function Setup({ children }: SetupProps) {
   const [config, setConfig] = useRecoilState(setupState);
-  const [tab, setTab] = useState<number>(0);
+  const [tab, setTab] = useState<number>(1);
 
   return (
     <div className="h-screen w-full flex justify-center items-center bg-gray-700">
       <div className="max-w-3xl w-full">
-        <Tab.Group defaultIndex={tab} onChange={(index) => setTab(index)}>
-          <Tab.Panels className="bg-white rounded shadow min-h-96 p-2 flex flex-col">
+        <div>
+          <div className="bg-white rounded shadow min-h-96 p-2 flex flex-col">
             <div className="flex-1">
-              <Tab.Panel>Tab 1</Tab.Panel>
-              <Tab.Panel>Tab 2</Tab.Panel>
-              <Tab.Panel>Tab 3</Tab.Panel>
+              {tab === 1 && <div>Tab 1</div>}
+              {tab === 2 && <div>Tab 2</div>}
+              {tab === 3 && (
+                <div>
+                  <h1>H</h1>
+                </div>
+              )}
             </div>
             <Spacer />
             <div className="flex justify-end items-end">
-              <Button>{tab !== 2 ? "Next" : "Done"}</Button>
+              <Button
+                onClick={() => {
+                  const newTab = tab === 3 ? 1 : tab + 1;
+                  setTab(newTab);
+                }}
+              >
+                {tab !== 3 ? "Next" : "Done"}
+              </Button>
             </div>
-          </Tab.Panels>
-          <Tab.List className="w-64 mt-8 mx-auto flex justify-between">
-            <Tab
-              className={`h-1 w-12 rounded cursor-pointer ${
-                tab === 0 ? "bg-blue-700" : "bg-blue-300"
-              }`}
-            />
-            <Tab
+          </div>
+          <div className="w-64 mt-8 mx-auto flex justify-between">
+            <div
               className={`h-1 w-12 rounded cursor-pointer ${
                 tab === 1 ? "bg-blue-700" : "bg-blue-300"
               }`}
+              onClick={() => setTab(1)}
             />
-
-            <Tab
+            <div
               className={`h-1 w-12 rounded cursor-pointer ${
                 tab === 2 ? "bg-blue-700" : "bg-blue-300"
               }`}
+              onClick={() => setTab(2)}
             />
-          </Tab.List>
-        </Tab.Group>
+
+            <div
+              className={`h-1 w-12 rounded cursor-pointer ${
+                tab === 3 ? "bg-blue-700" : "bg-blue-300"
+              }`}
+              onClick={() => setTab(3)}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
