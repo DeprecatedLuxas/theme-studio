@@ -46,6 +46,13 @@ export interface VSCThemeFormat {
   semanticTokenColors?: {};
 }
 
+export interface ThemeStorage {
+  name: string;
+  type: "dark" | "light";
+  palette: Palette[];
+  variables: Record<CompiledVariable, string>;
+}
+
 export interface SetupConfig {
   name: string;
   type: "dark" | "light";

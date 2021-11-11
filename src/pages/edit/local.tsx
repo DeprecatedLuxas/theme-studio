@@ -35,17 +35,18 @@ export default function EditLocal() {
   const [state, dispatch] = useReducer(reducer, {
     variables: registry.compile("dark"),
   });
-  // useEffect(() => {
-  //   setStorage(
-  //     JSON.parse(
-  //       JSON.stringify({
-  //         name: "Untitled",
-  //         type: "dark",
-  //         palette: [],
-  //       })
-  //     )
-  //   );
-  // }, []);
+  useEffect(() => {
+    setStorage(
+      JSON.parse(
+        JSON.stringify({
+          name: "Test",
+          type: "dark",
+          palette: [],
+          variables: {}
+        })
+      )
+    );
+  }, []);
 
   if (isLoading) {
     return <Loading />;

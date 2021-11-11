@@ -1,9 +1,7 @@
-import { useUser } from "@auth0/nextjs-auth0";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import windy from "@helpers/windy";
 import Link from "next/link";
-import { v4 as uuidv4 } from "uuid";
 
 const Badge = windy.span`
   inline-block
@@ -17,8 +15,6 @@ const Badge = windy.span`
 `;
 
 export default function Home() {
-  const { user, error, isLoading } = useUser();
-
   return (
     <div className="min-h-screen h-auto bg-gray-700 flex flex-col">
       <Header />
@@ -29,7 +25,7 @@ export default function Home() {
           <br />
           Theme editor
         </h1>
-        <Link href={`${!user ? "/edit/local" : `/edit/${uuidv4()}`}`}>
+        <Link href="/edit/setup">
           <a className="py-2 px-2 bg-blue-700 text-white font-bold rounded-md">
             Get Started
           </a>
