@@ -1,4 +1,6 @@
 - [ ] Create a context menu component
+- [ ] Stop mobile users from viewing and creating themes.
+- [ ] Popover component
 - [ ] Create a color picker component
 - [ ] Clean up local page.
 - [x] Create a tooltip component
