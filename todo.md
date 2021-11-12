@@ -1,5 +1,6 @@
 - [ ] Create a context menu component
 - [ ] Create a color picker component
+- [ ] Clean up local page.
 - [x] Create a tooltip component
 - [ ] Style tooltip component
 - [ ] Improve performance

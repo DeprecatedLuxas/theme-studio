@@ -1,7 +1,6 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import { FaPalette, FaKeyboard, FaCode } from "react-icons/fa";
 import Loading from "@components/Editor/Loading";
-import Setup from "@components/Setup/Setup";
 import { useRouter } from "next/router";
 import windy from "@helpers/windy";
 import Settings from "@components/Editor/Settings";

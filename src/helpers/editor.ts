@@ -16,6 +16,7 @@ export default class EditorHelper {
     };
   }
 
+
   static compare(storage: ThemeStorage, storage2: ThemeStorage): boolean {
     return isEqual(storage, storage2);
   }
