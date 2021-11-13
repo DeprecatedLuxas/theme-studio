@@ -72,3 +72,12 @@ export type IntrinsicElements = {
     any
   >;
 };
+
+export interface Interaction {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  x: number;
+  y: number;
+}

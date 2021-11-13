@@ -8,8 +8,7 @@ import {
 import baseVars from "@variables/base.tstudio";
 import titleBarVars from "@variables/titlebar.tstudio";
 import statusBarVars from "@variables/statusbar.tstudio";
-import { Color } from "@helpers/color";
-
+import tinycolor from "tinycolor2";
 enum Functions {
   TRANSPARENT = "transparent",
   DARKEN = "darken",
@@ -85,13 +84,13 @@ class Registry implements IRegistry {
 
         switch (func) {
           case Functions.TRANSPARENT:
-            newGroup[key] = Color.fromHex(color).transparent(int).toHex();
+            newGroup[key] = tinycolor(color).setAlpha(int).toHexString();
             break;
           case Functions.DARKEN:
-            newGroup[key] = Color.fromHex(color).darken(int).toHex();
+            newGroup[key] = tinycolor(color).darken(int).toHexString();
             break;
           case Functions.LIGHTEN:
-            newGroup[key] = Color.fromHex(color).lighten(int).toHex();
+            newGroup[key] = tinycolor(color).lighten(int).toHexString();
             break;
           default:
             throw new Error("Unknown Function Error");

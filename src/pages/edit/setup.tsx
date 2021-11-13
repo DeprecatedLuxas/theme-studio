@@ -3,15 +3,15 @@ import windy from "@helpers/windy";
 import Button from "@components/Button";
 import { setupState } from "src/recoil/atoms/setup";
 import { useRecoilState } from "recoil";
-
+import { isMobile } from "react-device-detect";
 import EditorHelper from "@helpers/editor";
-import { BsFillTrashFill, BsSun, BsMoon } from "react-icons/bs";
 import useStorage from "@hooks/useStorage";
 import StorageFound from "@components/Editor/StorageFound";
 import Loading from "@components/Editor/Loading";
 import InputSection from "@components/Setup/InputSection";
 import TypeSection from "@components/Setup/TypeSection";
 import PaletteTab from "@components/Setup/PaletteTab";
+import EditWarning from "@components/EditWarning";
 
 const Spacer = windy.div`
   h-1
@@ -36,6 +36,10 @@ export default function Setup() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  if (isMobile) {
+    return <EditWarning />;
+  }
 
   if (!mounted) {
     return <Loading />;

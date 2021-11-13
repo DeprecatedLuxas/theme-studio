@@ -1,5 +1,6 @@
 - [ ] Create a context menu component
-- [ ] Stop mobile users from viewing and creating themes.
+- [x] Stop mobile users from viewing and creating themes.
+- [ ] Add a easter egg at a specific date to make a random palette.
 - [ ] Popover component
 - [ ] Create a color picker component
 - [ ] Clean up local page.

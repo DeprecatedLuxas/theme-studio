@@ -16,6 +16,8 @@ import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
 import { VariableTab } from "@lib/types";
 import Variable from "@components/Editor/Variable";
+import { isMobile } from "react-device-detect";
+import EditWarning from "@components/EditWarning";
 
 const Spacer = windy.div`
   h-1
@@ -41,14 +43,20 @@ export default function EditLocal() {
           name: "Test",
           type: "dark",
           palette: [],
-          variables: {}
+          variables: {},
         })
       )
     );
   }, []);
 
+
+
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isMobile) {
+    return <EditWarning />;
   }
 
   if (user) router.push("/");

@@ -1,13 +1,19 @@
 import { Palette } from "@lib/types";
+import { useRecoilState } from "recoil";
+import { setupState } from "src/recoil/atoms/setup";
 import { useState } from "react";
+import ColorPicker from "@components/ColorPicker";
 
 export default function PaletteTab() {
+  const [config, setConfig] = useRecoilState(setupState);
+
   const maxColors = 12;
 
   const [colors, setColors] = useState<Palette[]>([]);
   return (
     <div className="flex justify-between">
       <div className="w-60 bg-green-700 h-48">
+        <ColorPicker />
         <button
           disabled={colors.length >= maxColors}
           onClick={() => {
