@@ -9,6 +9,7 @@ import baseVars from "@variables/base.tstudio";
 import titleBarVars from "@variables/titlebar.tstudio";
 import statusBarVars from "@variables/statusbar.tstudio";
 import tinycolor from "tinycolor2";
+
 enum Functions {
   TRANSPARENT = "transparent",
   DARKEN = "darken",
@@ -43,7 +44,7 @@ class Registry implements IRegistry {
 
   register(key: string, variable: Variable): void {
     if (this.variables[key]) {
-      throw new Error("SHIT HAPPENDED");
+      throw new Error(`Variable with key ${key} already exists`);
     }
     variable.group = this.parseGroup(variable.group);
     this.variables[key] = variable;
@@ -107,6 +108,8 @@ class Registry implements IRegistry {
     });
     return this.variables[vari!].group;
   }
+
+
 
   compile(type: ThemeType): {
     palette: {

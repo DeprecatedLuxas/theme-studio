@@ -31,23 +31,24 @@ export default function EditLocal() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
 
+  
   const [storage, setStorage] = useLocalStorage("theme", "");
 
   const [state, dispatch] = useReducer(reducer, {
     variables: registry.compile("dark"),
   });
-  useEffect(() => {
-    setStorage(
-      JSON.parse(
-        JSON.stringify({
-          name: "Test",
-          type: "dark",
-          palette: [],
-          variables: {},
-        })
-      )
-    );
-  }, []);
+  // useEffect(() => {
+  //   setStorage(
+  //     JSON.parse(
+  //       JSON.stringify({
+  //         name: "Test",
+  //         type: "dark",
+  //         palette: [],
+  //         variables: {},
+  //       })
+  //     )
+  //   );
+  // }, []);
 
 
 
@@ -62,6 +63,9 @@ export default function EditLocal() {
   if (user) router.push("/");
 
   if (EditorHelper.isValidStorage(storage)) {
+    console.log(storage);
+    
+    // TODO: Set storage to the registry.
   }
 
   const handleSave = () => {};
@@ -69,7 +73,7 @@ export default function EditLocal() {
   const handleDownload = () => {
     let link = document.createElement("a");
     link.download = "theme.json";
-    let blob = new Blob([JSON.stringify({ hello: "what" })], {
+    let blob = new Blob([JSON.stringify(EditorHelper.toVSCFormat(registry.variables), null, 2)], {
       type: "application/json",
     });
     link.href = URL.createObjectURL(blob);
@@ -108,6 +112,7 @@ export default function EditLocal() {
               </Tab>
             </Tab.List>
             <Tab.Panels className="flex-1 overflow-y-auto">
+              {/* TODO: Clean up this part, to not re render every time when a variables changes. */}
               {Object.keys(state.variables!).map((key: string) => (
                 <Tab.Panel key={uuid()}>
                   {Object.keys(state.variables![key as VariableTab]).map(

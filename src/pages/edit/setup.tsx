@@ -12,6 +12,9 @@ import InputSection from "@components/Setup/InputSection";
 import TypeSection from "@components/Setup/TypeSection";
 import PaletteTab from "@components/Setup/PaletteTab";
 import EditWarning from "@components/EditWarning";
+import { useRouter } from "next/router";
+import { useUser } from "@auth0/nextjs-auth0";
+import { v4 as uuid } from "uuid";
 
 const Spacer = windy.div`
   h-1
@@ -22,32 +25,35 @@ const Spacer = windy.div`
 
 export default function Setup() {
   const [mounted, setMounted] = useState<boolean>(false);
+  const { user, isLoading, error } = useUser();
+  const [config, setConfig] = useRecoilState(setupState);
+
   const { storage, setStorage, clear } = useStorage(
     "theme",
     EditorHelper.getFakeStorage()
   );
 
-  const nameRef = useRef<HTMLInputElement>(null);
-  const typeRef = useRef<HTMLInputElement>(null);
-
-  const [config, setConfig] = useRecoilState(setupState);
   const [tab, setTab] = useState<number>(1);
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
+    
   }, []);
+  
+  if (!mounted && isLoading) {
+    return <Loading />;
+  }
 
   if (isMobile) {
     return <EditWarning />;
   }
 
-  if (!mounted) {
-    return <Loading />;
-  }
-
   if (!EditorHelper.compare(storage, EditorHelper.getFakeStorage())) {
     return <StorageFound clearStorage={clear} />;
   }
+
+
 
   return (
     <div className="h-screen w-full flex justify-center items-center bg-gray-700">
@@ -57,23 +63,17 @@ export default function Setup() {
             {tab === 1 && (
               <div>
                 <InputSection />
-
                 <TypeSection />
               </div>
             )}
             {tab === 2 && <PaletteTab />}
-            {tab === 3 && (
-              <div>
-                <h1>H</h1>
-              </div>
-            )}
+            {tab === 3 && <div>Currently not implemented.</div>}
           </div>
           <Spacer />
           <div className="flex justify-end items-end">
             {tab !== 1 && (
               <Button
                 onClick={() => {
-                  const newTab = tab === 3 ? 1 : tab + 1;
                   setTab(tab - 1);
                 }}
                 className="mr-2"
@@ -83,8 +83,13 @@ export default function Setup() {
             )}
             <Button
               onClick={() => {
-                const newTab = tab === 3 ? 1 : tab + 1;
-                setTab(newTab);
+                if (tab === 3) {
+                  setStorage(EditorHelper.getFromSetupConfig(config))
+                  router.push(`/edit/${!user ? "local" : `${uuid()}`}`);
+                } else {
+                  const newTab = tab === 3 ? 1 : tab + 1;
+                  setTab(newTab);
+                }
               }}
             >
               {tab !== 3 ? "Next" : "Done"}

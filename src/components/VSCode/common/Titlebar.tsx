@@ -7,7 +7,9 @@ export default function TitleBar() {
   const { functional } = useVSC();
 
   return (
-    <Element className="flex items-center justify-center h-titlebar text-titlebar relative">
+    <Element className="flex items-center justify-center h-titlebar text-titlebar relative"
+    bind={[]}
+  >
       <Element
         className="h-full flex justify-center items-center"
         style={{

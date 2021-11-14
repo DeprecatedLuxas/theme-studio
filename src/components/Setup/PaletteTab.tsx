@@ -1,46 +1,65 @@
 import { Palette } from "@lib/types";
 import { useRecoilState } from "recoil";
 import { setupState } from "src/recoil/atoms/setup";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ColorPicker from "@components/ColorPicker";
+import PalettePicker from "./PalettePicker";
+import Button from "@components/Button";
+import tinycolor from "tinycolor2";
 
 export default function PaletteTab() {
   const [config, setConfig] = useRecoilState(setupState);
-
   const maxColors = 12;
-
-  const [colors, setColors] = useState<Palette[]>([]);
+  const [currentColor, setCurrentColor] = useState<tinycolor.ColorFormats.HSVA>(
+    {
+      h: 209,
+      s: 36,
+      v: 90,
+      a: 1,
+    }
+  );
   return (
     <div className="flex justify-between">
-      <div className="w-60 bg-green-700 h-48">
-        <ColorPicker />
-        <button
-          disabled={colors.length >= maxColors}
+      <div>
+        <PalettePicker
+          color={currentColor}
+          onChange={(color) => {
+            setCurrentColor(tinycolor(color).toHsv());
+          }}
+        />
+        <Button
+          disabled={config.palette.length >= maxColors}
           onClick={() => {
-            const newColor = `#${Math.floor(Math.random() * 16777215).toString(
-              16
-            )}`;
-            setColors([...colors, newColor]);
+            setConfig({
+              ...config,
+              palette: [
+                ...config.palette,
+                tinycolor(currentColor).toHexString(),
+              ],
+            });
           }}
         >
-          Add new color
-        </button>
+          Add color
+        </Button>
       </div>
-      <div className="w-48 bg-green-700">
+      <div className="w-36">
         <h1 className="text-xl font-roboto mb-4">Your Palette</h1>
-        <div className="grid grid-cols-3 gap-3">
-          {colors.map((color, index) => (
+        <div className="grid grid-cols-3 gap-2">
+          {config.palette.map((color, index) => (
             <div
               key={`palette-${index}`}
-              className="w-8 h-8"
+              className="w-8 h-8 rounded-md"
               style={{
                 backgroundColor: color,
               }}
               onClick={() => {
-                setColors([
-                  ...colors.slice(0, index),
-                  ...colors.slice(index + 1),
-                ]);
+                setConfig({
+                  ...config,
+                  palette: [
+                    ...config.palette.slice(0, index),
+                    ...config.palette.slice(index + 1),
+                  ],
+                });
               }}
             />
           ))}

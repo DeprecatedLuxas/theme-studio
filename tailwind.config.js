@@ -89,7 +89,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      "cursor": ["disabled"]
+    },
   },
   plugins: [
     plugin(function ({ addUtilities }) {

@@ -10,7 +10,7 @@ const generatedNote = `//
 const keys = [];
 
 variableFiles.forEach((file) => {
-  console.log(file);
+  console.log("Generated:", file);
   const variableFile = JSON.parse(
     fs.readFileSync(`./variables/${file}`, "utf-8")
   );

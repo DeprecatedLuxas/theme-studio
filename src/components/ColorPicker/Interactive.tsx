@@ -20,9 +20,6 @@ export const getPosition = (
   event: MouseEvent
 ): Interaction => {
   const rect = node.getBoundingClientRect();
-
-  // Get user's pointer position from `touches` array if it's a `TouchEvent
-
   return {
     left: _.clamp(
       (event.pageX - (rect.left + window.pageXOffset)) / rect.width,
@@ -45,7 +42,9 @@ const Interactive = forwardRef<HTMLDivElement, InteractiveProps>(
   function Interactive(props, ref) {
     const { onMove, onDown, children, ...rest } = props;
     const container = useRef<HTMLDivElement>(null);
+
     const [isDragging, setDragging] = useState(false);
+
     const onMoveCallback = useEventCallback<Interaction, MouseEvent>(onMove);
     const onKeyCallback = useEventCallback<Interaction, MouseEvent>(onDown);
 
@@ -95,12 +94,9 @@ const Interactive = forwardRef<HTMLDivElement, InteractiveProps>(
       [onKeyCallback]
     );
     return (
-      <div
-        {...rest}
-        ref={container}
-        tabIndex={0}
-        onMouseDown={handleMoveStart}
-      />
+      <div {...rest} ref={container} tabIndex={0} onMouseDown={handleMoveStart}>
+        {children}
+      </div>
     );
   }
 );

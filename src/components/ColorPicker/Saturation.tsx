@@ -1,68 +1,37 @@
 import { Interaction } from "@lib/types";
-import { forwardRef, useMemo, useRef } from "react";
+import { CSSProperties, forwardRef, useMemo, useRef } from "react";
 import Interactive from "./Interactive";
 import tinycolor from "tinycolor2";
-
-export interface PointerProps extends React.HTMLAttributes<HTMLDivElement> {
-  prefixCls?: string;
-  top?: string;
-  left: string;
-  color?: string;
-}
-
-const BOXSHADOW =
-  "rgb(255 255 255) 0px 0px 0px 1.5px, rgb(0 0 0 / 30%) 0px 0px 1px 1px inset, rgb(0 0 0 / 40%) 0px 0px 1px 2px";
-
-export const Pointer = ({
-  className,
-  color,
-  left,
-  top,
-  prefixCls,
-}: PointerProps): JSX.Element => {
-  const style: React.CSSProperties = {
-    position: "absolute",
-    top,
-    left,
-  };
-  return useMemo(
-    () => (
-      <div className={`${prefixCls}-pointer ${className || ""}`} style={style}>
-        <div
-          className={`${prefixCls}-fill`}
-          style={{
-            width: 6,
-            height: 6,
-            transform: "translate(-3px, -3px)",
-            boxShadow: BOXSHADOW,
-            borderRadius: "50%",
-            backgroundColor: color,
-          }}
-        />
-      </div>
-    ),
-    [top, left, color, className, prefixCls]
-  );
-};
+import SaturationPointer from "./SaturationPointer";
 
 export interface SaturationProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   hsva: tinycolor.ColorFormats.HSVA;
+  height?: CSSProperties["height"];
+  width?: CSSProperties["width"];
+  radius?: CSSProperties["borderRadius"];
   onChange?: (newColor: tinycolor.ColorFormats.HSVA) => void;
 }
 
 const Saturation = forwardRef<HTMLDivElement, SaturationProps>(
   function Saturation(props, ref) {
-    const { hsva, onChange, ...rest } = props;
+    const {
+      hsva,
+      onChange,
+      height = 200,
+      width = 200,
+      radius = 0,
+      ...rest
+    } = props;
 
     const containerStyle: React.CSSProperties = {
-      width: 200,
-      height: 200,
-      borderRadius: 0,
+      width,
+      height,
+      borderRadius: radius,
       ...rest.style,
       position: "relative",
     };
-    
+
     const handleChange = (interaction: Interaction, event: MouseEvent) => {
       onChange &&
         onChange({
@@ -72,12 +41,6 @@ const Saturation = forwardRef<HTMLDivElement, SaturationProps>(
           a: hsva.a,
           // source: 'hsv',
         });
-    };
-
-    const comProps = {
-      top: `${100 - hsva.v}%`,
-      left: `${hsva.s}%`,
-      color: tinycolor(hsva).toHslString(),
     };
 
     return (
@@ -93,7 +56,11 @@ const Saturation = forwardRef<HTMLDivElement, SaturationProps>(
         onMove={handleChange}
         onDown={handleChange}
       >
-        <Pointer {...comProps} />
+        <SaturationPointer
+          top={`${100 - hsva.v}%`}
+          left={`${hsva.s}%`}
+          color={tinycolor(hsva).toHslString()}
+        />
       </Interactive>
     );
   }
