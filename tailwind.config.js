@@ -21,6 +21,9 @@ module.exports = {
         activityicon: "50px",
         sidebar: "250px",
       },
+      maxWidth: {
+        48: "12rem",
+      },
       minWidth: {
         10: "2.5rem",
       },
@@ -90,7 +93,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      "cursor": ["disabled"]
+      cursor: ["disabled"],
     },
   },
   plugins: [

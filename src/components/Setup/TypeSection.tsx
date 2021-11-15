@@ -13,7 +13,7 @@ export default function TypeSection() {
       <label>Theme Type</label>
       <div className="grid grid-cols-3 gap-2">
         <section
-          className="w-48 h-36 rounded-lg border-2 flex flex-col"
+          className="max-w-48 h-36 rounded-lg border-2 flex flex-col"
           onClick={() => {
             setConfig({ ...config, type: "dark" });
             darkRef.current!.checked = true;
@@ -37,7 +37,7 @@ export default function TypeSection() {
         </section>
 
         <section
-          className="w-48 h-36 rounded-lg border-2 flex flex-col"
+          className="max-w-48 h-36 rounded-lg border-2 flex flex-col"
           onClick={() => {
             setConfig({ ...config, type: "light" });
             lightRef.current!.checked = true;

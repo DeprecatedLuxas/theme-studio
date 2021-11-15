@@ -7,7 +7,7 @@ import PalettePicker from "./PalettePicker";
 import Button from "@components/Button";
 import tinycolor from "tinycolor2";
 
-export default function PaletteTab() {
+export default function SecondTab() {
   const [config, setConfig] = useRecoilState(setupState);
   const maxColors = 12;
   const [currentColor, setCurrentColor] = useState<tinycolor.ColorFormats.HSVA>(

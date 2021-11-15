@@ -1,11 +1,11 @@
 - [ ] Create a context menu component
 - [x] Stop mobile users from viewing and creating themes.
-- [ ] Clean up setup.
+- [x] Clean up setup.
 - [ ] Clean up color picker and fix it again. (taken from uiwjs/react-color and modified.)
-- [ ] Hook up setup palette to setup state.
-- [ ] Add a easter egg at a specific date to make a random palette.
+- [x] Hook up setup palette to setup state.
+- [ ] Add a easter egg at a specific date to make a random palette. (maybe)
 - [ ] Popover component
-- [ ] Implement last page of setup to show your config.
+- [ ] Implement last page of setup to show your config. (requires json parsing, to highlight palette array)
 - [x] Create a color picker component
 - [ ] Clean up local page.
 - [ ] Complete the toVSCFormat function.

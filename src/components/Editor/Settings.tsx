@@ -6,7 +6,6 @@ import { VscGear } from "react-icons/vsc";
 
 export default function Settings() {
   const { isOpen, onOpen, onClose } = useBiscuitBox();
-
   return (
     <>
       <span
@@ -15,6 +14,7 @@ export default function Settings() {
       >
         <VscGear />
       </span>
+
       {isOpen && (
         <Modal onClose={onClose}>
           <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
