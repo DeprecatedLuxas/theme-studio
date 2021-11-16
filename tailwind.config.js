@@ -5,7 +5,7 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       backgroundImage: {
@@ -15,6 +15,7 @@ module.exports = {
         titlebar: "rgb(204, 204, 204)",
       },
       width: {
+        0.25: "0.0625rem",
         4.5: "1.125rem",
         "remote-icon": "34px",
         activitybar: "50px",
@@ -28,6 +29,7 @@ module.exports = {
         10: "2.5rem",
       },
       height: {
+        0.25: "0.0625rem",
         4.5: "1.125rem",
         titlebar: "30px",
         statusbar: "22px",
@@ -97,12 +99,34 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addUtilities }) {
+    plugin(function ({ addUtilities, addComponents }) {
+      const sizes = [1, 2, 3, 4, 5, 6];
+
+      sizes.forEach((size) => {
+        spacer[`.spacer-${size}`] = {
+          marginTop: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
+          marginLeft: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
+        };
+      });
+
       const newUtilities = {
         ".border-b-transparent": {
           borderBottomColor: "transparent",
         },
+        ".divider-transform": {
+          transform: "translate(-50%, -50%)",
+        },
+        ".divider-end": {
+          transform: "translateY(-50%)",
+          left: "auto",
+          right: "7%",
+        },
+        ".divider-start": {
+          transform: "translateY(-50%)",
+          left: "7%",
+        },
       };
+
       addUtilities(newUtilities);
     }),
   ],

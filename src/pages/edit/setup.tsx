@@ -15,6 +15,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { v4 as uuid } from "uuid";
 import FirstTab from "@components/Setup/FirstTab";
 import ThirdTab from "@components/Setup/ThirdTab";
+import Divider from "@components/Divider";
 
 const Spacer = windy.div`
   h-1
@@ -75,7 +76,7 @@ export default function Setup() {
             {tab === 2 && <SecondTab />}
             {tab === 3 && <ThirdTab />}
           </div>
-          <Spacer />
+          <Divider />
           <div className="flex justify-end items-end">
             {tab !== 1 && (
               <Button onClick={handleBack} className="mr-2">

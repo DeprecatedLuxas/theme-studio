@@ -1,4 +1,4 @@
-import Dialog from "@components/Dialog";
+import { Dialog } from "@headlessui/react";
 import Modal from "@components/Modal";
 import Portal from "@components/Portal";
 import { useBiscuitBox } from "@hooks/useBiscuitBox";
@@ -16,23 +16,43 @@ export default function Settings() {
         <VscGear />
       </span>
 
-      <Dialog isOpen={isOpen} onClose={onClose}>
-        <Dialog.Overlay />
-        <Dialog.Content>
-          <Dialog.Header>Modal Title</Dialog.Header>
-          {/* <Dialog.CloseButton /> */}
-          <Dialog.Body>
-            <h1>Hello</h1>
-          </Dialog.Body>
+      <Dialog
+        open={isOpen}
+        onClose={onClose}
+        className="fixed z-10 inset-0 overflow-y-auto"
+      >
+        <div className="min-h-screen px-4 text-center">
+          <Dialog.Overlay className="fixed inset-0" />
+          <span
+            className="inline-block h-screen align-middle"
+            aria-hidden="true"
+          >
+            &#8203;
+          </span>
+          <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+            <Dialog.Title
+              as="h3"
+              className="text-lg font-medium leading-6 text-gray-900"
+            >
+              Your Settings
+            </Dialog.Title>
+            <div className="mt-2">
+              <p className="text-sm text-gray-500">
+                This feature will be implemented at some point of time in the near future.
+              </p>
+            </div>
 
-          <Dialog.Footer>
-            {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button> */}
-            <button onClick={onClose}>Close</button>
-          </Dialog.Footer>
-        </Dialog.Content>
+            <div className="mt-4">
+              <button
+                type="button"
+                className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                onClick={onClose}
+              >
+                Got it, thanks!
+              </button>
+            </div>
+          </div>
+        </div>
       </Dialog>
       {/* {isOpen && (
         <Modal onClose={onClose}>

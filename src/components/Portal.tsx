@@ -6,5 +6,5 @@ type PortalProps = {
 };
 
 export default function Portal({ children }: PortalProps) {
-  return createPortal(children, document.body);
+  return createPortal(<div>{children}</div>, document.body);
 }
