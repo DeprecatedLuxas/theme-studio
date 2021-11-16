@@ -1,3 +1,4 @@
+import Dialog from "@components/Dialog";
 import Modal from "@components/Modal";
 import Portal from "@components/Portal";
 import { useBiscuitBox } from "@hooks/useBiscuitBox";
@@ -15,7 +16,25 @@ export default function Settings() {
         <VscGear />
       </span>
 
-      {isOpen && (
+      <Dialog isOpen={isOpen} onClose={onClose}>
+        <Dialog.Overlay />
+        <Dialog.Content>
+          <Dialog.Header>Modal Title</Dialog.Header>
+          {/* <Dialog.CloseButton /> */}
+          <Dialog.Body>
+            <h1>Hello</h1>
+          </Dialog.Body>
+
+          <Dialog.Footer>
+            {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button> */}
+            <button onClick={onClose}>Close</button>
+          </Dialog.Footer>
+        </Dialog.Content>
+      </Dialog>
+      {/* {isOpen && (
         <Modal onClose={onClose}>
           <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
             <h3 className="text-lg font-medium leading-6 text-gray-900">
@@ -39,7 +58,7 @@ export default function Settings() {
             </div>
           </div>
         </Modal>
-      )}
+      )} */}
     </>
   );
 }
