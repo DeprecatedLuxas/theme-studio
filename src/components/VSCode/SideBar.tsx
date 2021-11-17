@@ -1,3 +1,4 @@
+import TreeView from "@components/TreeView";
 import { VscChevronRight, VscChevronDown, VscEllipsis } from "react-icons/vsc";
 import Element from "./Element";
 
@@ -19,22 +20,26 @@ export default function SideBar() {
         VSCODE-THEME
       </Element>
       <Element as="div" className="flex-1">
-        <Element as="div" className="flex">
-          <VscChevronRight />
-          <Element as="span">node_modules</Element>
-        </Element>
-        <Element as="div" className="flex">
-          <VscChevronRight />
-          <Element as="span">public</Element>
-        </Element>
-        <Element as="div" className="flex">
-          <VscChevronDown />
-          <Element as="span">src</Element>
-          <Element as="div" className="flex">
-            <VscChevronDown />
-            <Element as="span">assets</Element>
-          </Element>
-        </Element>
+        <TreeView>
+          <TreeView.Folder name="node_modules" />
+          <TreeView.Folder name="public" />
+          <TreeView.Folder name="src" canOpen defaultOpen>
+            <TreeView.Folder name="components" canOpen>
+              <TreeView.File name="Button.tsx" type="tsx" />
+              <TreeView.File name="Header.tsx" type="tsx" />
+              <TreeView.File name="Footer.tsx" type="tsx" />
+            </TreeView.Folder>
+
+            <TreeView.Folder name="pages" canOpen defaultOpen>
+              <TreeView.File name="index.tsx" type="tsx" />
+              <TreeView.File name="_app.tsx" type="tsx" />
+            </TreeView.Folder>
+          </TreeView.Folder>
+          <TreeView.File name="next.config.js" type="js" />
+          <TreeView.File name="package.json" type="json" />
+          <TreeView.File name="tsconfig.json" type="tsconfig" />
+          <TreeView.File name="yarn.lock" type="lock" />
+        </TreeView>
       </Element>
       <Element
         as="div"
