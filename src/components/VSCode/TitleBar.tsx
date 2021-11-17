@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 
-import useVSC from "@hooks/useVSC";
 import Element from "./Element";
 
 export default function TitleBar() {
-  const { functional } = useVSC();
-
   return (
-    <Element className="flex items-center justify-center h-titlebar text-titlebar relative"
-    bind={[]}
-  >
+    <Element
+      className="flex items-center justify-center h-titlebar text-titlebar relative"
+      bind={[]}
+    >
       <Element
         className="h-full flex justify-center items-center"
         style={{

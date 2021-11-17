@@ -16,3 +16,4 @@
 - [ ] Complete setup component
 - [x] Start on registry
 - [x] Start on the foundation of the vscode components
+- [ ] VSCode Extension to test the themes 

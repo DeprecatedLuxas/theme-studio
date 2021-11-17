@@ -81,3 +81,5 @@ export interface Interaction {
   x: number;
   y: number;
 }
+
+export type ComponentPropPlacement = "top" | "bottom" | "left" | "right";

@@ -1,18 +1,21 @@
-import { VSCContext } from "@contexts/VSCContext";
-import FunctionalVSCode from "./FunctionalVSCode";
-import UnfunctionalVSCode from "./UnfunctionalVSCode";
+import Element from "./Element";
+import TitleBar from "./TitleBar";
+import StatusBar from "./StatusBar";
+import ActivityBar from "./ActivityBar";
+import SideBar from "./SideBar";
 
-type VSCodeProps = {
-  functional?: boolean;
-};
-export default function VSCode({ functional }: VSCodeProps) {
+export default function VSCode() {
   return (
-    <VSCContext.Provider
-      value={{
-        functional,
-      }}
-    >
-      {functional ? <FunctionalVSCode /> : <UnfunctionalVSCode />}
-    </VSCContext.Provider>
+    <Element className="h-full">
+      <TitleBar />
+      <Element className="flex h-content">
+        <ActivityBar />
+        <SideBar />
+        <Element className="flex-1">
+
+        </Element>
+      </Element>
+      <StatusBar />
+    </Element>
   );
 }

@@ -2,14 +2,13 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { FaPalette, FaKeyboard, FaCode } from "react-icons/fa";
 import Loading from "@components/Editor/Loading";
 import { useRouter } from "next/router";
-import windy from "@helpers/windy";
 import Settings from "@components/Editor/Settings";
 import { BsStars, BsCloudDownload } from "react-icons/bs";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
 import { v4 as uuid } from "uuid";
 import { useLocalStorage } from "@hooks/useLocalStorage";
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import EditorHelper from "@helpers/editor";
 import Accordion from "@components/Accordion";
 import registry from "@lib/registry";
@@ -18,20 +17,13 @@ import { VariableTab } from "@lib/types";
 import Variable from "@components/Editor/Variable";
 import { isMobile } from "react-device-detect";
 import EditWarning from "@components/EditWarning";
-
-const Spacer = windy.div`
-  h-1
-  my-2
-  rounded-lg
-  border-gray-700
-  border-b-2
-`;
+import Divider from "@components/Divider";
+import Button from "@components/Button";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
 
-  
   const [storage, setStorage] = useLocalStorage("theme", "");
 
   const [state, dispatch] = useReducer(reducer, {
@@ -50,8 +42,6 @@ export default function EditLocal() {
   //   );
   // }, []);
 
-
-
   if (isLoading) {
     return <Loading />;
   }
@@ -64,7 +54,7 @@ export default function EditLocal() {
 
   if (EditorHelper.isValidStorage(storage)) {
     console.log(storage);
-    
+
     // TODO: Set storage to the registry.
   }
 
@@ -73,9 +63,12 @@ export default function EditLocal() {
   const handleDownload = () => {
     let link = document.createElement("a");
     link.download = "theme.json";
-    let blob = new Blob([JSON.stringify(EditorHelper.toVSCFormat(registry.variables), null, 2)], {
-      type: "application/json",
-    });
+    let blob = new Blob(
+      [JSON.stringify(EditorHelper.toVSCFormat(registry.variables), null, 2)],
+      {
+        type: "application/json",
+      }
+    );
     link.href = URL.createObjectURL(blob);
     link.click();
     URL.revokeObjectURL(link.href);
@@ -87,9 +80,11 @@ export default function EditLocal() {
         <div className="w-72 flex flex-col p-2 bg-gray-900">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
+
             <Settings />
           </div>
-          <Spacer />
+          <Divider color="bg-gray-700" />
+
           <Tab.Group>
             <Tab.List className="flex justify-between px-16 py-4">
               <Tab
@@ -98,6 +93,7 @@ export default function EditLocal() {
               >
                 <FaPalette size="20px" color="white" />
               </Tab>
+
               <Tab
                 className="p-2 rounded-lg cursor-pointer bg-gray-800"
                 aria-label="Editor Tab"
@@ -135,24 +131,19 @@ export default function EditLocal() {
             </Tab.Panels>
           </Tab.Group>
 
-          <Spacer />
-          <div className="w-full h-auto flex ">
-            <button
-              className="w-32 mx-auto bg-blue-700 hover:bg-blue-800 text-white font-roboto my-2 py-2 rounded-xl"
-              onClick={handleSave}
-            >
-              <BsStars className="inline-block" /> Save
-            </button>
-            <button
-              className="w-32 mx-auto bg-blue-700 hover:bg-blue-800 text-white font-roboto my-2 py-2 rounded-xl"
-              onClick={handleDownload}
-            >
+          <Divider color="bg-gray-700" />
+          <div className="w-full h-auto flex justify-center">
+            <Button onClick={handleSave} className="w-full">
+              <BsStars className="inline-block" />
+              Save
+            </Button>
+            <Button onClick={handleDownload} className="w-full">
               <BsCloudDownload className="inline-block" /> Export
-            </button>
+            </Button>
           </div>
         </div>
         <div className="flex-1 p-8 bg-gray-700">
-          <VSCode functional={false} />
+          <VSCode />
         </div>
       </div>
     </RegistryContext.Provider>

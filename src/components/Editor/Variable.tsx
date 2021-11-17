@@ -1,4 +1,6 @@
 import EditorHelper from "@helpers/editor";
+import useRegistry from "@hooks/useRegistry";
+import { useEffect } from "react";
 
 type VariableProps = {
   name: string;
@@ -15,12 +17,12 @@ const colors = [
 ];
 
 export default function Variable({ name, value }: VariableProps) {
-  // const { dispatch, editorVariables, variables } = useRegistry();
+  const { dispatch, variables } = useRegistry();
   // const slicedAnimes = useRecoilValue(EditorSelector);
 
-  // useEffect(() => {
-  //   console.log(slicedAnimes);
-  // }, []);
+  useEffect(() => {
+    console.log(variables);
+  }, []);
 
   // const [show, setShow] = useState<boolean>(false);
   const variable = EditorHelper.formatVariable(name);

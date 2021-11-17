@@ -1,4 +1,3 @@
-import useVSC from "@hooks/useVSC";
 import Element from "./Element";
 import {
   VscRemote,
@@ -17,8 +16,6 @@ const stautsBarItems = [
 ];
 
 export default function StatusBar() {
-  const { functional } = useVSC();
-
   return (
     <Element
       className="flex justify-between h-statusbar text-xs"

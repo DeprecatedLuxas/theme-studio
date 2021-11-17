@@ -26,6 +26,7 @@ module.exports = {
         48: "12rem",
       },
       minWidth: {
+        9: "2.25rem",
         10: "2.5rem",
       },
       height: {
@@ -37,6 +38,7 @@ module.exports = {
         content: "calc(100% - 52px)",
       },
       minHeight: {
+        9: "2.25rem",
         56: "17rem",
         96: "24rem",
         24: "24px",
@@ -45,6 +47,9 @@ module.exports = {
         titlebar: "13px",
         variable: "14px",
         badge: "10px",
+      },
+      transitionProperty: {
+        input: "border 0.2s ease 0s, color 0.2s ease 0s",
       },
       boxShadow: {
         variable: "0 4px 4px rgba(0, 0, 0, .25)",
@@ -100,15 +105,6 @@ module.exports = {
   },
   plugins: [
     plugin(function ({ addUtilities, addComponents }) {
-      const sizes = [1, 2, 3, 4, 5, 6];
-
-      sizes.forEach((size) => {
-        spacer[`.spacer-${size}`] = {
-          marginTop: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
-          marginLeft: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
-        };
-      });
-
       const newUtilities = {
         ".border-b-transparent": {
           borderBottomColor: "transparent",
@@ -126,6 +122,15 @@ module.exports = {
           left: "7%",
         },
       };
+
+      const sizes = [1, 2, 3, 4, 5, 6];
+
+      sizes.forEach((size) => {
+        newUtilities[`.spacer-${size}`] = {
+          marginTop: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
+          marginLeft: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
+        };
+      });
 
       addUtilities(newUtilities);
     }),

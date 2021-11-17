@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import windy from "@helpers/windy";
+import { useEffect, useState } from "react";
 import Button from "@components/Button";
 import { setupState } from "src/recoil/atoms/setup";
 import { useRecoilState } from "recoil";
@@ -16,13 +15,6 @@ import { v4 as uuid } from "uuid";
 import FirstTab from "@components/Setup/FirstTab";
 import ThirdTab from "@components/Setup/ThirdTab";
 import Divider from "@components/Divider";
-
-const Spacer = windy.div`
-  h-1
-  my-2
-  border-gray-400
-  border-b-2
-`;
 
 const bottomNav = [1, 2, 3];
 

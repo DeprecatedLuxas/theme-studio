@@ -1,3 +1,5 @@
+import Input from "@components/Input";
+import { ChangeEvent } from "react";
 import { useRecoilState } from "recoil";
 import { setupState } from "src/recoil/atoms/setup";
 
@@ -5,14 +7,13 @@ export default function InputSection() {
   const [config, setConfig] = useRecoilState(setupState);
 
   return (
-    <section className="mb-8">
-      <label className="block font-roboto">Theme Name</label>
-      <input
-        name="Theme Name"
+    <section className="mb-8 h-16">
+      <Input
         placeholder="Theme Name"
-        className="w-full min-w-0 outline-none relative appearance-none px-4 h-10 rounded-md border border-gray-400 font-roboto"
+        w
+        clearable
         defaultValue={config.name}
-        onChange={(e) => {
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
           setConfig({
             ...config,
             name:
@@ -21,7 +22,9 @@ export default function InputSection() {
                 : "Untitled") || "Untitled",
           });
         }}
-      />
+      >
+        Theme Name
+      </Input>
     </section>
   );
 }

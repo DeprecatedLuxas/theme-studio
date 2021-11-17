@@ -32,11 +32,15 @@ export default function Divider({
   return (
     <div
       role="separator"
-      className={`relative w-auto h-0.25 ${color} ${space}`}
+      className={`relative w-auto h-0.5 ${color} ${space}`}
       {...rest}
     >
       {children && (
-        <span className={`absolute left-2/4 top-2/4 inline-flex justify-center items-center z-10 divider-transform px-12 ${color} ${placementClass} ${bg}`}>{children}</span>
+        <span
+          className={`absolute left-2/4 top-2/4 inline-flex justify-center items-center z-10 divider-transform px-12 ${color} ${placementClass} ${bg}`}
+        >
+          {children}
+        </span>
       )}
     </div>
   );

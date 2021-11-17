@@ -2,7 +2,6 @@ import { Palette } from "@lib/types";
 import { useRecoilState } from "recoil";
 import { setupState } from "src/recoil/atoms/setup";
 import { useCallback, useState } from "react";
-import ColorPicker from "@components/ColorPicker";
 import PalettePicker from "./PalettePicker";
 import Button from "@components/Button";
 import tinycolor from "tinycolor2";
