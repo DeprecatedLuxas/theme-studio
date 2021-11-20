@@ -23,10 +23,8 @@ enum Functions {
 interface IRegistry {
   register(key: string, variable: Variable): void;
   registerFile(file: Record<string, Variable>): void;
-  compile<K extends VariableTab>(
-    type: ThemeType,
-    tab: K
-  ): VariableCategories;
+  compile<K extends VariableTab>(type: ThemeType, tab: K): VariableCategories;
+  compileAll(type: ThemeType): CompiledVariables;
   getByTab(tab: VariableTab): Record<string, Variable>;
   parseGroup(group: VariableGroup): VariableGroup;
   clone(storage: ThemeStorage): void;
@@ -118,13 +116,21 @@ class Registry implements IRegistry {
     Object.keys(vars).forEach((varKey: string) => {
       const category = vars[varKey].category!;
       categories[category] = {
-          ...categories[category],
-          [varKey]: vars[varKey].group[type],
-      }
+        ...categories[category],
+        [varKey]: vars[varKey].group[type],
+      };
     });
     return categories;
   }
 
+  compileAll(type: ThemeType): CompiledVariables {
+    const compiled: CompiledVariables & Indexable = {};
+    Object.keys(this.variables).forEach((key: string) => {
+      compiled[key] = this.variables[key].group[type];
+    });
+
+    return compiled;
+  }
 }
 
 const registry = new Registry();

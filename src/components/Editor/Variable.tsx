@@ -20,9 +20,10 @@ export default function Variable({ name, value }: VariableProps) {
   const { dispatch } = useRegistry();
   // const slicedAnimes = useRecoilValue(EditorSelector);
 
-
   // const [show, setShow] = useState<boolean>(false);
   const variable = EditorHelper.formatVariable(name);
+
+  
   return (
     <div
       className="flex w-full justify-start items-center cursor-pointer py-2 px-2 text-gray-400 hover:bg-gray-600 bg-gray-700 mb-2 rounded-lg"

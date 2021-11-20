@@ -39,7 +39,7 @@ export default function EditLocal() {
   const [setupConfig, _] = useRecoilState(setupState);
 
   const [state, dispatch] = useReducer(reducer, {
-    // variables: registry.compile(setupConfig.type),
+    variables: registry.compileAll(setupConfig.type),
     palette: registry.compile(setupConfig.type, "palette"),
     editor: registry.compile(setupConfig.type, "editor"),
     syntax: registry.compile(setupConfig.type, "syntax"),

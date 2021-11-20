@@ -1,3 +1,5 @@
+import EditorHelper from "@helpers/editor";
+import useRegistry from "@hooks/useRegistry";
 import { Arrayable, Variables } from "@lib/types";
 import { HTMLAttributes } from "react";
 
@@ -7,11 +9,9 @@ interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
 }
 
 export default function Element({ as = "div", bind, ...rest }: ElementProps) {
+  const { palette, editor, syntax, variables } = useRegistry();
   const Component = as as keyof JSX.IntrinsicElements;
-  
-  if (bind) console.log(bind);
-
-  return <Component {...rest} />;
+  return (
+    <Component {...rest} {...EditorHelper.handleVariables(bind, variables!)} />
+  );
 }
-
-

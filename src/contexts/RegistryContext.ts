@@ -9,17 +9,7 @@ import {
 import { createContext, Dispatch } from "react";
 
 export type IRegistry = {
-  variables?: {
-    palette: {
-      [key: string]: CompiledVariables;
-    };
-    editor: {
-      [key: string]: CompiledVariables;
-    };
-    syntax: {
-      [key: string]: CompiledVariables;
-    };
-  };
+  variables?: CompiledVariables;
   palette?: VariableCategories & Indexable;
   editor?: VariableCategories & Indexable;
   syntax?: VariableCategories & Indexable;
