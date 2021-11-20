@@ -11,6 +11,7 @@
 - [x] Create a tooltip component
 - [ ] Style tooltip component
 - [ ] Improve performance
+- [ ] Fix the bug when you complete the setup you will see the "You already have a theme in storage" component
 - [x] Display current config on setup component.
 - [ ] Complete the settings on editor local
 - [ ] Complete setup component

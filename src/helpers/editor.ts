@@ -4,6 +4,7 @@ import {
   Variable,
   VSCThemeFormat,
 } from "@lib/types";
+import dayjs from "dayjs";
 import { isEqual } from "lodash";
 
 export default class EditorHelper {
@@ -15,6 +16,7 @@ export default class EditorHelper {
     return {
       ...config,
       variables: {},
+      createdAt: dayjs().unix(),
     };
   }
 
@@ -24,6 +26,7 @@ export default class EditorHelper {
       type: "dark",
       palette: [],
       variables: {},
+      createdAt: -1,
     };
   }
 

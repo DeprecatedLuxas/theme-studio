@@ -2,13 +2,11 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { FaPalette, FaKeyboard, FaCode } from "react-icons/fa";
 import Loading from "@components/Editor/Loading";
 import { useRouter } from "next/router";
-import Settings from "@components/Editor/Settings";
 import { BsStars, BsCloudDownload } from "react-icons/bs";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
 import { v4 as uuid } from "uuid";
-import { useLocalStorage } from "@hooks/useLocalStorage";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import EditorHelper from "@helpers/editor";
 import Accordion from "@components/Accordion";
 import registry from "@lib/registry";
@@ -27,16 +25,27 @@ import {
 } from "@components/Dialog";
 
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
+import { useRecoilState } from "recoil";
+import { setupState } from "@recoil/atoms/setup";
+import useStorage from "@hooks/useStorage";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
   const { isOpen, onClose, onOpen } = useBiscuitBox();
-  const [storage, setStorage] = useLocalStorage("theme", "");
+  const { storage, setStorage, clear } = useStorage(
+    "theme",
+    EditorHelper.getFakeStorage()
+  );
+  const [setupConfig, _] = useRecoilState(setupState);
 
   const [state, dispatch] = useReducer(reducer, {
-    variables: registry.compile("dark"),
+    variables: registry.compile(setupConfig.type),
   });
+
+  useEffect(() => {
+    console.log(storage);
+  }, []);
   // useEffect(() => {
   //   setStorage(
   //     JSON.parse(
@@ -58,7 +67,12 @@ export default function EditLocal() {
     return <EditWarning />;
   }
 
+  // If user is authenticated, redirect to homepage.
   if (user) router.push("/");
+
+  // If the user doesn't have something in the storage, redirect to the setup page
+  if (EditorHelper.compare(storage, EditorHelper.getFakeStorage()))
+    router.push("/edit/setup");
 
   if (EditorHelper.isValidStorage(storage)) {
     console.log(storage);
@@ -66,7 +80,9 @@ export default function EditLocal() {
     // TODO: Set storage to the registry.
   }
 
-  const handleSave = () => {};
+  const handleSave = () => {
+    // Save to storage, only the variables that changed
+  };
 
   const handleDownload = () => {
     let link = document.createElement("a");
@@ -83,14 +99,9 @@ export default function EditLocal() {
   };
 
   const handleTryItOut = () => {
-    // try {
-    //   router.push("vscode:extension/eamodio.gggggggg")
-    //   // router.push(
-    //   //   "vscode://lucasnorgaard.vscode-theme-studio-visualizer?isInstalled%3DWah%26windowId%3D6"
-    //   // );
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    // router.push(
+    //   "vscode://lucasnorgaard.vscode-theme-studio-visualizer?{base64encodedtheme}"
+    // );
   };
 
   return (
@@ -99,8 +110,6 @@ export default function EditLocal() {
         <div className="w-72 flex flex-col p-2 bg-gray-900">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
-
-            <Settings />
           </div>
           <Divider color="bg-gray-700" />
 
@@ -149,7 +158,6 @@ export default function EditLocal() {
               ))}
             </Tab.Panels>
           </Tab.Group>
-
           <Divider color="bg-gray-700" />
           <Button onClick={onOpen} className="mb-4 mx-2">
             Try it out

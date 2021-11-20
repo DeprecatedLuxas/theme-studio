@@ -48,6 +48,8 @@ export interface VSCThemeFormat {
 
 export interface ThemeStorage {
   name: string;
+  createdAt?: number;
+  updatedAt?: number;
   type: "dark" | "light";
   palette: Palette[];
   variables: Record<CompiledVariable, string>;

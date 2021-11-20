@@ -15,6 +15,7 @@ export interface InputProps
   label?: string;
   w?: boolean;
   labelColor?: TTextColor;
+  placeholderColor?: TTextColor;
   clearable?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -22,6 +23,7 @@ export interface InputProps
 export default function Input({
   addon,
   addonPlacement = "left",
+  placeholderColor = "text-black",
   label,
   labelColor,
   clearable,
@@ -57,7 +59,7 @@ export default function Input({
             {...rest}
             onChange={handleChange}
             ref={inputRef}
-            className="p-0 border-none w-full min-w-0 outline-none rounded-none bg-transparent my-1 mx-3"
+            className={`p-0 border-none w-full min-w-0 outline-none rounded-none bg-transparent my-1 mx-3 ${placeholderColor}`}
           />
           {clearable && (
             <InputClear
