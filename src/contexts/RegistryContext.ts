@@ -1,4 +1,11 @@
-import { CompiledVariable, CompiledVariables } from "@lib/types";
+import {
+  CompiledVariable,
+  CompiledVariables,
+  Indexable,
+  PartialRecord,
+  VariableCategories,
+  VariableTab,
+} from "@lib/types";
 import { createContext, Dispatch } from "react";
 
 export type IRegistry = {
@@ -13,6 +20,9 @@ export type IRegistry = {
       [key: string]: CompiledVariables;
     };
   };
+  palette?: VariableCategories & Indexable;
+  editor?: VariableCategories & Indexable;
+  syntax?: VariableCategories & Indexable;
   dispatch?: Dispatch<IRegistry>;
 };
 

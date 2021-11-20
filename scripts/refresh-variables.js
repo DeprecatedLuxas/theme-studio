@@ -8,6 +8,7 @@ const generatedNote = `//
 `;
 
 const keys = [];
+const categories = [];
 
 variableFiles.forEach((file) => {
   console.log("Generated:", file);
@@ -23,6 +24,7 @@ variableFiles.forEach((file) => {
     if (value.hover) {
       newKey = `h:${key}`;
     }
+    if (value.category && !categories.includes(value.category)) categories.push(value.category);
     keys.push(newKey);
   });
 });
@@ -32,5 +34,6 @@ fs.writeFileSync(
   `${generatedNote}
 
 export type Variables = "${keys.join('" | "')}";
+export type VariablePossibleCategories = "${categories.join('" | "')}";
 `
 );

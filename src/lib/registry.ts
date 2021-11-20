@@ -1,7 +1,11 @@
 import {
   CompiledVariables,
+  Indexable,
+  PartialRecord,
+  ThemeStorage,
   ThemeType,
   Variable,
+  VariableCategories,
   VariableGroup,
   VariableTab,
 } from "./types";
@@ -19,19 +23,13 @@ enum Functions {
 interface IRegistry {
   register(key: string, variable: Variable): void;
   registerFile(file: Record<string, Variable>): void;
-  compile(type: ThemeType): {
-    palette: {
-      [key: string]: CompiledVariables;
-    };
-    editor: {
-      [key: string]: CompiledVariables;
-    };
-    syntax: {
-      [key: string]: CompiledVariables;
-    };
-  };
+  compile<K extends VariableTab>(
+    type: ThemeType,
+    tab: K
+  ): VariableCategories;
   getByTab(tab: VariableTab): Record<string, Variable>;
   parseGroup(group: VariableGroup): VariableGroup;
+  clone(storage: ThemeStorage): void;
   getVariable(variable: string): VariableGroup;
 }
 
@@ -102,6 +100,10 @@ class Registry implements IRegistry {
     return newGroup;
   }
 
+  clone(storage: ThemeStorage): void {
+    throw new Error("Method not implemented.");
+  }
+
   getVariable(variable: string): VariableGroup {
     const vari = Object.keys(this.variables).find((key: string) => {
       return this.variables[key].variable === variable;
@@ -109,48 +111,20 @@ class Registry implements IRegistry {
     return this.variables[vari!].group;
   }
 
+  compile(type: ThemeType, tab: VariableTab): VariableCategories {
+    const categories: VariableCategories & Indexable = {};
 
-
-  compile(type: ThemeType): {
-    palette: {
-      [key: string]: CompiledVariables;
-    };
-    editor: {
-      [key: string]: CompiledVariables;
-    };
-    syntax: {
-      [key: string]: CompiledVariables;
-    };
-  } {
-    const compiledObject: {
-      palette: {
-        [key: string]: CompiledVariables;
-      };
-      editor: {
-        [key: string]: CompiledVariables;
-      };
-      syntax: {
-        [key: string]: CompiledVariables;
-      };
-    } = {
-      palette: {},
-      editor: {},
-      syntax: {},
-    };
-
-    Object.keys(compiledObject).forEach((key: string) => {
-      const vars = this.getByTab(key as VariableTab);
-      Object.keys(vars).forEach((varKey: string) => {
-        const category = vars[varKey].category!;
-        compiledObject[key as VariableTab][category] = {
-          ...compiledObject["palette"][category],
+    const vars = this.getByTab(tab);
+    Object.keys(vars).forEach((varKey: string) => {
+      const category = vars[varKey].category!;
+      categories[category] = {
+          ...categories[category],
           [varKey]: vars[varKey].group[type],
-        };
-      });
+      }
     });
-
-    return compiledObject;
+    return categories;
   }
+
 }
 
 const registry = new Registry();

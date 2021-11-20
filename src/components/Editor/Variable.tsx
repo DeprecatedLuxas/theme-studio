@@ -17,12 +17,9 @@ const colors = [
 ];
 
 export default function Variable({ name, value }: VariableProps) {
-  const { dispatch, variables } = useRegistry();
+  const { dispatch } = useRegistry();
   // const slicedAnimes = useRecoilValue(EditorSelector);
 
-  useEffect(() => {
-    console.log(variables);
-  }, []);
 
   // const [show, setShow] = useState<boolean>(false);
   const variable = EditorHelper.formatVariable(name);

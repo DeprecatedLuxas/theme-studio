@@ -4,14 +4,17 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
-import { Variables } from "./generated/variables";
+import { Variables, VariablePossibleCategories } from "./generated/variables";
 
 export * from "./generated/variables";
 
 export type Nullable<T> = T | null;
 export type Arrayable<T> = T | T[];
-
+export type PartialRecord<K extends string | number | symbol, T> = {
+  [P in K]?: T;
+};
 export type VariableTab = "palette" | "editor" | "syntax";
+
 
 export interface Indexable {
   [key: string]: any;
@@ -32,10 +35,14 @@ export interface Variable {
   hover?: boolean;
 }
 
-export type ThemeType = "dark" | "light" | "hoc";
+export type ThemeType = "dark" | "light" | "hc";
 
 export type CompiledVariable = string;
-export type CompiledVariables = Record<CompiledVariable, string>;
+export type CompiledVariables = Record<string, string>;
+export type VariableCategories = PartialRecord<
+  VariablePossibleCategories,
+  CompiledVariables
+>;
 
 export interface VSCThemeFormat {
   name: string;

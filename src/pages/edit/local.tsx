@@ -1,20 +1,16 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import { FaPalette, FaKeyboard, FaCode } from "react-icons/fa";
-import Loading from "@components/Editor/Loading";
+import Loading from "@components/Loading";
 import { useRouter } from "next/router";
 import { BsStars, BsCloudDownload } from "react-icons/bs";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
-import { v4 as uuid } from "uuid";
 import { useEffect, useReducer } from "react";
 import EditorHelper from "@helpers/editor";
-import Accordion from "@components/Accordion";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
-import { VariableTab } from "@lib/types";
-import Variable from "@components/Editor/Variable";
 import { isMobile } from "react-device-detect";
-import EditWarning from "@components/EditWarning";
+import EditWarning from "@components/Editor/EditorWarning";
 import Divider from "@components/Divider";
 import Button from "@components/Button";
 import {
@@ -28,6 +24,9 @@ import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { useRecoilState } from "recoil";
 import { setupState } from "@recoil/atoms/setup";
 import useStorage from "@hooks/useStorage";
+import PaletteTab from "@components/Editor/PaletteTab";
+import SyntaxTab from "@components/Editor/SyntaxTab";
+import EditorTab from "@components/Editor/EditorTab";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();
@@ -40,7 +39,10 @@ export default function EditLocal() {
   const [setupConfig, _] = useRecoilState(setupState);
 
   const [state, dispatch] = useReducer(reducer, {
-    variables: registry.compile(setupConfig.type),
+    // variables: registry.compile(setupConfig.type),
+    palette: registry.compile(setupConfig.type, "palette"),
+    editor: registry.compile(setupConfig.type, "editor"),
+    syntax: registry.compile(setupConfig.type, "syntax"),
   });
 
   useEffect(() => {
@@ -136,7 +138,16 @@ export default function EditLocal() {
               </Tab>
             </Tab.List>
             <Tab.Panels className="flex-1 overflow-y-auto">
-              {/* TODO: Clean up this part, to not re render every time when a variables changes. */}
+              <Tab.Panel>
+                <PaletteTab />
+              </Tab.Panel>
+              <Tab.Panel>
+                <EditorTab />
+              </Tab.Panel>
+              <Tab.Panel>
+                <SyntaxTab />
+              </Tab.Panel>
+              {/* TODO: Clean up this part, to not re render every time when a variables changes.
               {Object.keys(state.variables!).map((key: string) => (
                 <Tab.Panel key={uuid()}>
                   {Object.keys(state.variables![key as VariableTab]).map(
@@ -155,7 +166,7 @@ export default function EditLocal() {
                     )
                   )}
                 </Tab.Panel>
-              ))}
+              ))} */}
             </Tab.Panels>
           </Tab.Group>
           <Divider color="bg-gray-700" />
