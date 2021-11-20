@@ -19,11 +19,19 @@ import { isMobile } from "react-device-detect";
 import EditWarning from "@components/EditWarning";
 import Divider from "@components/Divider";
 import Button from "@components/Button";
+import {
+  Dialog,
+  DialogBody,
+  DialogFooter,
+  DialogHeader,
+} from "@components/Dialog";
+
+import { useBiscuitBox } from "@hooks/use-biscuit-box";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
-
+  const { isOpen, onClose, onOpen } = useBiscuitBox();
   const [storage, setStorage] = useLocalStorage("theme", "");
 
   const [state, dispatch] = useReducer(reducer, {
@@ -72,6 +80,17 @@ export default function EditLocal() {
     link.href = URL.createObjectURL(blob);
     link.click();
     URL.revokeObjectURL(link.href);
+  };
+
+  const handleTryItOut = () => {
+    // try {
+    //   router.push("vscode:extension/eamodio.gggggggg")
+    //   // router.push(
+    //   //   "vscode://lucasnorgaard.vscode-theme-studio-visualizer?isInstalled%3DWah%26windowId%3D6"
+    //   // );
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   return (
@@ -132,12 +151,15 @@ export default function EditLocal() {
           </Tab.Group>
 
           <Divider color="bg-gray-700" />
+          <Button onClick={onOpen} className="mb-4 mx-2">
+            Try it out
+          </Button>
           <div className="w-full h-auto flex justify-center">
-            <Button onClick={handleSave} className="w-full">
+            <Button onClick={handleSave} className="w-full mx-2">
               <BsStars className="inline-block" />
               Save
             </Button>
-            <Button onClick={handleDownload} className="w-full">
+            <Button onClick={handleDownload} className="mx-2 w-full">
               <BsCloudDownload className="inline-block" /> Export
             </Button>
           </div>
@@ -146,6 +168,32 @@ export default function EditLocal() {
           <VSCode />
         </div>
       </div>
+      <Dialog isOpen={isOpen} onClose={onClose}>
+        <DialogHeader>Try It Out - Beta</DialogHeader>
+        <DialogBody>
+          <p className="text-white mb-2">
+            Before you can try it out live, you need the Theme Studio Visualizer
+            Extension
+          </p>
+
+          <p className="text-white mb-2">
+            You can download the extension{" "}
+            <a
+              href="vscode:extension/lucasnorgaard.vscode-theme-studio-visualizer"
+              className="text-blue-400 underline"
+            >
+              here
+            </a>
+          </p>
+        </DialogBody>
+
+        <DialogFooter>
+          <Button onClick={handleTryItOut} className="mr-4">
+            Try it out
+          </Button>
+          <Button onClick={onClose}>Close</Button>
+        </DialogFooter>
+      </Dialog>
     </RegistryContext.Provider>
   );
 }

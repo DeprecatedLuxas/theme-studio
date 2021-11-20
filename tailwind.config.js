@@ -14,6 +14,9 @@ module.exports = {
       textColor: {
         titlebar: "rgb(204, 204, 204)",
       },
+      backgroundColor: {
+        "dialog-overlay": "rgba(0, 0, 0, 0.48)"
+      },
       width: {
         0.25: "0.0625rem",
         4.5: "1.125rem",

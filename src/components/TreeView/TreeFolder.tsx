@@ -1,4 +1,4 @@
-import { useBiscuitBox } from "@hooks/useBiscuitBox";
+import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { Children, cloneElement, PropsWithChildren, ReactNode } from "react";
 import {
   VscChevronDown,

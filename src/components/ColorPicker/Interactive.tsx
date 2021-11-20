@@ -1,4 +1,4 @@
-import useEventCallback from "@hooks/useEventCallback";
+import useEventCallback from "@hooks/use-event-callback";
 import { Interaction } from "@lib/types";
 import {
   forwardRef,

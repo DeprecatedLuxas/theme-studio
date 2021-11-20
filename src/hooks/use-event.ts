@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCallbackRef } from "./useCallbackRef";
+import { useCallbackRef } from "./use-callback-ref";
 
 export function useEvent<K extends keyof DocumentEventMap>(
   event: K | (string & {}),

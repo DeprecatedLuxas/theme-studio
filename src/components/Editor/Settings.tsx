@@ -1,8 +1,5 @@
 import { Dialog } from "@headlessui/react";
-import Modal from "@components/Modal";
-import Portal from "@components/Portal";
-import { useBiscuitBox } from "@hooks/useBiscuitBox";
-import { useEvent } from "@hooks/useEvent";
+import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { VscGear } from "react-icons/vsc";
 
 export default function Settings() {
