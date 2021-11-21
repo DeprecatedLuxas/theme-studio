@@ -1,5 +1,5 @@
 {
-  "text@titleBar.activeForeground": {
+  "c@titleBar.activeForeground": {
     "variable": "titleBar.activeForeground",
     "group": {
       "dark": "#CCCCCC",
@@ -10,7 +10,7 @@
     "category": "Title Bar",
     "description": "Title bar foreground when the window is active."
   },
-  "text@titleBar.inactiveForeground": {
+  "c@titleBar.inactiveForeground": {
     "variable": "titleBar.inactiveForeground",
     "group": {
       "dark": "func@transparent(var@titleBar.activeForeground, 0.6)",
@@ -43,7 +43,7 @@
     "category": "Title Bar",
     "description": "Title bar background when the window is inactive."
   },
-  "border@titleBar.border": {
+  "bc@titleBar.border": {
     "variable": "titleBar.border",
     "group": {
       "dark": null,

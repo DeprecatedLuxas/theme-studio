@@ -12,11 +12,11 @@ const Places: Map<"bg" | "text" | "border", string> = new Map([
 
 export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: keyof JSX.IntrinsicElements;
+  conditionalClassName?: string;
   bind?: Arrayable<Variables>;
 }
 
-export default function Element({ as = "div", bind, ...rest }: ElementProps) {
-  // const { variables } = useRegistry();
+export default function Element({ as = "div", bind, className, conditionalClassName, ...rest }: ElementProps) {
   const Component = as as keyof JSX.IntrinsicElements;
 
   const binding = useBinding({
@@ -24,11 +24,5 @@ export default function Element({ as = "div", bind, ...rest }: ElementProps) {
   });
   
 
-  // {...EditorHelper.handleBinding(variables!, bind)} data-custom={bind}
-
-  // const bindings = EditorHelper.handleBinding(variables!, bind);
-  // console.log(ref);
-  // style={styleObject} {...events} ref={ref}
-
-  return <Component {...rest} {...binding} />;
+  return <Component className={className} {...rest} {...binding} />;
 }

@@ -1,5 +1,5 @@
 {
-  "text@statusBar.foreground": {
+  "c@statusBar.foreground": {
     "variable": "statusBar.foreground",
     "group": {
       "dark": "#ffffff",
@@ -10,7 +10,7 @@
     "category": "Status Bar",
     "description": "Status bar foreground color when a workspace or folder is opened. The status bar is shown in the bottom of the window."
   },
-  "text@statusBar.noFolderForeground": {
+  "c@statusBar.noFolderForeground": {
     "variable": "statusBar.noFolderForeground",
     "group": {
       "dark": "var@statusBar.foreground",
@@ -43,7 +43,7 @@
     "category": "Status Bar",
     "description": "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window."
   },
-  "border@statusBar.border": {
+  "bc@statusBar.border": {
     "variable": "statusBar.border",
     "group": {
       "dark": null,
@@ -54,7 +54,7 @@
     "category": "Status Bar",
     "description": "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window."
   },
-  "border@statusBar.noFolderBorder": {
+  "bc@statusBar.noFolderBorder": {
     "variable": "statusBar.noFolderBorder",
     "group": {
       "dark": "var@statusBar.border",
@@ -88,7 +88,7 @@
     "hover": true,
     "description": "Status bar item background color when hovering. The status bar is shown in the bottom of the window."
   },
-  "text@statusBarItem.prominentForeground": {
+  "c@statusBarItem.prominentForeground": {
     "variable": "statusBarItem.prominentForeground",
     "group": {
       "dark": "var@statusBar.foreground",
@@ -132,7 +132,7 @@
     "category": "Status Bar",
     "description": "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window."
   },
-  "text@statusBarItem.errorForeground": {
+  "c@statusBarItem.errorForeground": {
     "variable": "statusBarItem.errorForeground",
     "group": {
       "dark": "#ffffff",
@@ -154,7 +154,7 @@
     "category": "Status Bar",
     "description": "Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window."
   },
-  "text@statusBarItem.warningForeground": {
+  "c@statusBarItem.warningForeground": {
     "variable": "statusBarItem.warningForeground",
     "group": {
       "dark": "#ffffff",
@@ -164,5 +164,27 @@
     "tab": "palette",
     "category": "Status Bar",
     "description": "Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window."
+  },
+  "bg@statusBarItem.remoteBackground": {
+    "variable": "statusBarItem.remoteBackground",
+    "group": {
+      "dark": "#16825D",
+      "light": "#16825D",
+      "hc": "#00000000"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Background color for the remote indicator on the status bar."
+  },
+  "c@statusBarItem.remoteForeground": {
+    "variable": "statusBarItem.remoteForeground",
+    "group": {
+      "dark": "#FFFFFF",
+      "light": "#FFFFFF",
+      "hc": "#FFFFFF"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Foreground color for the remote indicator on the status bar."
   }
 }

@@ -9,7 +9,7 @@
     }
   },
   "patternProperties": {
-    "^(bg|text|border)@.*$": {
+    "^(bg|c|bc|blc|brc|btc|bbc)@.*$": {
       "type": "object",
       "properties": {
         "variable": {

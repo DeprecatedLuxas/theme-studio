@@ -19,24 +19,26 @@ export default function StatusBar() {
   return (
     <Element
       className="flex justify-between h-statusbar text-xs"
-      bind={["bg@statusBar.background", "border@statusBar.border"]}
+      bind={["bg@statusBar.background", "bc@statusBar.border"]}
     >
       <Element className="flex">
-        <Element
-          className="cursor-pointer h-full w-remote-icon flex items-center justify-center px-1.5"
-          bind={[
-            "h:bg@statusBarItem.hoverBackground",
-            // "bg@statusBarItem.remoteBackground",
-            // "text@statusBarItem.remoteForeground",
-          ]}
-        >
-          <VscRemote fontSize="16px" />
+        <Element bind={["bg@statusBarItem.remoteBackground"]}>
+          <Element
+            className="cursor-pointer h-full w-remote-icon flex items-center justify-center px-1.5"
+            bind={[
+              "h:bg@statusBarItem.hoverBackground",
+              "c@statusBarItem.remoteForeground",
+            ]}
+          >
+            <VscRemote fontSize="16px" />
+          </Element>
         </Element>
+
         <Element
           className="cursor-pointer h-full flex items-center justify-center px-1.5"
           bind={[
             "h:bg@statusBarItem.hoverBackground",
-            "text@statusBar.foreground",
+            "c@statusBar.foreground",
           ]}
         >
           <VscSourceControl fontSize="16px" />
@@ -47,7 +49,7 @@ export default function StatusBar() {
           className="cursor-pointer h-full flex items-center justify-center px-1.5"
           bind={[
             "h:bg@statusBarItem.hoverBackground",
-            "text@statusBar.foreground",
+            "c@statusBar.foreground",
           ]}
         >
           <VscError fontSize="16px" />
@@ -68,7 +70,7 @@ export default function StatusBar() {
               className="cursor-pointer px-1.5 py-0.5 h-full"
               bind={[
                 "h:bg@statusBarItem.hoverBackground",
-                "text@statusBar.foreground",
+                "c@statusBar.foreground",
               ]}
             >
               {item}

@@ -2,11 +2,16 @@ import { Arrayable, Variables } from "@lib/types";
 import { CSSProperties, useRef } from "react";
 import useRegistry from "./use-registry";
 
-const Places: Map<"bg" | "text" | "border", string> = new Map([
-  ["bg", "backgroundColor"],
-  ["text", "color"],
-  ["border", "borderColor"],
-]);
+const Places: Map<"bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc", string> =
+  new Map([
+    ["bg", "backgroundColor"],
+    ["c", "color"],
+    ["bc", "borderColor"],
+    ["blc", "borderLeftColor"],
+    ["brc", "borderRightColor"],
+    ["btc", "borderTopColor"],
+    ["bbc", "borderBottomColor"],
+  ]);
 
 export interface UseBindingOptions {
   bind?: Arrayable<Variables>;
@@ -28,7 +33,9 @@ export default function useBinding({ bind }: UseBindingOptions) {
     const [, hover, location] = binding.match(
       /^(?<hover>h:)?(?<location>.+)@(.+)$/
     )!;
-    const styling = Places.get(location as "bg" | "text" | "border");
+    const styling = Places.get(
+      location as "bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc"
+    );
 
     if (!styling) return {};
 

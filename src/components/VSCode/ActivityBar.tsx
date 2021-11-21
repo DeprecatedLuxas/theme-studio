@@ -13,45 +13,50 @@ export default function ActivityBar() {
   return (
     <Element
       className="flex w-activitybar flex-col justify-between"
-      // v={["bg@activityBar.background", "text@activityBar.foreground"]}
+      conditionalClassName="brc@activityBar.border !== null ? border-r-2"
+      bind={[
+        "bg@activityBar.background",
+        "c@activityBar.foreground",
+        "brc@activityBar.border",
+      ]}
     >
       <Element>
         <Element
           className="flex justify-center items-center border-l-2 text-white w-activityicon h-activityicon cursor-pointer relative"
-          // v={["borderL@activityBar.border"]}
+          bind={["blc@activityBar.activeBorder"]}
         >
           <VscFiles fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          // v="text@activityBar.inactiveForeground"
+          bind="c@statusBarItem.errorForeground"
         >
           <VscSearch fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          // v="text@activityBar.inactiveForeground"
+          bind="c@activityBar.inactiveForeground"
         >
           <VscSourceControl fontSize="24px" />
           <Element
             className="absolute rounded-full w-4 h-4 text-badge text-white text-center right-badge bottom-badge"
-            // v={[
-            //   "bg@activityBarBadge.background",
-            //   "text@activityBarBadge.foreground",
-            // ]}
+            bind={[
+              "bg@activityBarBadge.background",
+              "c@activityBarBadge.foreground",
+            ]}
           >
             6
           </Element>
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          // v="text@activityBar.inactiveForeground"
+          bind="c@activityBar.inactiveForeground"
         >
           <VscDebugAlt fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          // v="text@activityBar.inactiveForeground"
+          bind="c@activityBar.inactiveForeground"
         >
           <VscExtensions fontSize="24px" />
         </Element>
@@ -59,13 +64,13 @@ export default function ActivityBar() {
       <Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          // v="text@activityBar.inactiveForeground"
+          bind="c@activityBar.inactiveForeground"
         >
           <VscAccount fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          // v="text@activityBar.inactiveForeground"
+          bind="c@activityBar.inactiveForeground"
         >
           <VscGear fontSize="24px" />
         </Element>

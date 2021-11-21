@@ -10,6 +10,7 @@ import {
   VariableTab,
 } from "./types";
 import baseVars from "@variables/base.tstudio";
+import activityBarVars from "@variables/activitybar.tstudio";
 import titleBarVars from "@variables/titlebar.tstudio";
 import statusBarVars from "@variables/statusbar.tstudio";
 import tinycolor from "tinycolor2";
@@ -136,7 +137,7 @@ class Registry implements IRegistry {
 const registry = new Registry();
 
 registry.registerFile(baseVars);
+registry.registerFile(activityBarVars);
 registry.registerFile(titleBarVars);
 registry.registerFile(statusBarVars);
-
 export default registry;

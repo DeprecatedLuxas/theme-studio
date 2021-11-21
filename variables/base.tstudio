@@ -1,6 +1,6 @@
 {
   "exclude": true,
-  "text@foreground": {
+  "c@foreground": {
     "variable": "foreground",
     "group": {
       "dark": "#CCCCCC",
@@ -9,7 +9,7 @@
     },
     "description": "Overall foreground color. This color is only used if not overridden by a component."
   },
-  "text@errorForeground": {
+  "c@errorForeground": {
     "variable": "errorForeground",
     "group": {
       "dark": "#F48771",
@@ -18,7 +18,7 @@
     },
     "description": "Overall foreground color for error messages. This color is only used if not overridden by a component."
   },
-  "text@descriptionForeground": {
+  "c@descriptionForeground": {
     "variable": "descriptionForeground",
     "group": {
       "dark": "func@transparent(var@foreground, 0.7)",
@@ -27,7 +27,7 @@
     },
     "description": "Foreground color for description text providing additional information, for example for a label."
   },
-  "text@iconForeground": {
+  "c@iconForeground": {
     "variable": "icon.foreground",
     "group": {
       "dark": "#C5C5C5",
@@ -36,7 +36,7 @@
     },
     "description": "The default color for icons in the workbench."
   },
-  "border@focusBorder": {
+  "bc@focusBorder": {
     "variable": "focusBorder",
     "group": {
       "dark": "#007FD4",
@@ -45,7 +45,7 @@
     },
     "description": "Overall border color for focused elements. This color is only used if not overridden by a component."
   },
-  "border@contrastBorder": {
+  "bc@contrastBorder": {
     "variable": "contrastBorder",
     "group": {
       "dark": null,
@@ -54,7 +54,7 @@
     },
     "description": "An extra border around elements to separate them from others for greater contrast."
   },
-  "border@contrastActiveBorder": {
+  "bc@contrastActiveBorder": {
     "variable": "contrastActiveBorder",
     "group": {
       "dark": null,
