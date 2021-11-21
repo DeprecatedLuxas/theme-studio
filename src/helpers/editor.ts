@@ -56,17 +56,17 @@ export default class EditorHelper {
     return variable.split("@")[1];
   }
 
-  static handleVariables(
-    bind: Arrayable<Variables> | undefined,
-    variables: CompiledVariables
+  static handleBinding(
+    variables: CompiledVariables,
+    bind: Arrayable<Variables>
   ) {
-    if (bind) {
-      const events: {
-        onMouseEnter?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
-        onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
-      } = {};
+    if (bind !== "") {
+      // const events: {
+      //   onMouseEnter?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
+      //   onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
+      // } = {};
       let styleObject: CSSProperties = {};
-      let ref: RefObject<HTMLOrSVGElement>;
+      // let ref: RefObject<HTMLOrSVGElement>;
       const bindings = Array.isArray(bind) ? bind : [bind];
       bindings.forEach((binding: Variables) => {
         const [, hover, location] = binding.match(
@@ -74,31 +74,30 @@ export default class EditorHelper {
         )!;
 
         if (hover) {
-          ref = <RefObject<HTMLOrSVGElement>>useRef<HTMLOrSVGElement>();
-          let oldStyle: CSSProperties = {};
-          events.onMouseEnter = () => {
-            oldStyle =
-              // @ts-ignore
-              ref.current!.style[
-                this.Places.get(location as "bg" | "text" | "border")
-              ];
+          // console.log(hover);
 
-            // We need to to @ts-ignore on the style, else it will give an error
-            // @ts-ignore
-            ref.current!.style[
-              this.Places.get(location as "bg" | "text" | "border")
-            ] = variables[binding];
-          };
-          events.onMouseLeave = () => {
-            // @ts-ignore
-            ref.current!.style[
-              this.Places.get(location as "bg" | "text" | "border")
-            ] = oldStyle;
-          };
+          // ref = useRef<HTMLOrSVGElement>(null);
+          // let oldStyle: CSSProperties = {};
+          // events.onMouseEnter = () => {
+          //   oldStyle =
+          //     // @ts-ignore
+          //     ref.current!.style[
+          //       this.Places.get(location as "bg" | "text" | "border")
+          //     ];
+
+          //   // We need to to @ts-ignore on the style, else it will give an error
+          //   // @ts-ignore
+          //   ref.current!.style[
+          //     this.Places.get(location as "bg" | "text" | "border")
+          //   ] = variables[binding];
+          // };
+          // events.onMouseLeave = () => {
+          //   // @ts-ignore
+          //   ref.current!.style[
+          //     this.Places.get(location as "bg" | "text" | "border")
+          //   ] = oldStyle;
+          // };
         } else {
-          console.log(
-            EditorHelper.Places.get(location as "bg" | "text" | "border")
-          );
           const styling = this.Places.get(location as "bg" | "text" | "border");
           if (!styling) return {};
           styleObject = {
@@ -106,22 +105,14 @@ export default class EditorHelper {
             [styling]: variables[binding],
           };
         }
-        // const value = variables[binding];
-        // if (location) {
-        //   styleObject[location] = value;
-        // } else {
-        //   ref = { current: document.querySelector(binding) };
-        //   if (ref.current) {
-        //     ref.current.style.setProperty(binding, value);
-        //   }
-        // }
       });
       return {
         style: styleObject,
-        // ref: ref,
-        ...events,
+        // ref,
+        // ...events,
       };
+    } else {
+      return {};
     }
-    return {};
   }
 }

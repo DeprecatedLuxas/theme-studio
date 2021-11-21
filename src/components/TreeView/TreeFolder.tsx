@@ -34,7 +34,6 @@ export default function TreeFolder({
       <div>
         {Children.map(children, (child: any) => {
           const newP = parentLevel + 1
-          console.log(newP);
           
           return cloneElement(child, {
             level: newP,

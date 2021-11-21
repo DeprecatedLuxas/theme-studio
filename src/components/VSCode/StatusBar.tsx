@@ -24,20 +24,20 @@ export default function StatusBar() {
       <Element className="flex">
         <Element
           className="cursor-pointer h-full w-remote-icon flex items-center justify-center px-1.5"
-          // bind={[
-          //   "h:bg@statusBarItem.hoverBackground",
-          //   "bg@statusBarItem.remoteBackground",
-          //   "text@statusBarItem.remoteForeground",
-          // ]}
+          bind={[
+            "h:bg@statusBarItem.hoverBackground",
+            // "bg@statusBarItem.remoteBackground",
+            // "text@statusBarItem.remoteForeground",
+          ]}
         >
           <VscRemote fontSize="16px" />
         </Element>
         <Element
           className="cursor-pointer h-full flex items-center justify-center px-1.5"
-          // v={[
-          //   "h:bg@statusBarItem.hoverBackground",
-          //   "text@statusBar.foreground",
-          // ]}
+          bind={[
+            "h:bg@statusBarItem.hoverBackground",
+            "text@statusBar.foreground",
+          ]}
         >
           <VscSourceControl fontSize="16px" />
           <Element as="span">master*</Element>
@@ -45,10 +45,10 @@ export default function StatusBar() {
 
         <Element
           className="cursor-pointer h-full flex items-center justify-center px-1.5"
-          // v={[
-          //   "h:bg@statusBarItem.hoverBackground",
-          //   "text@statusBar.foreground",
-          // ]}
+          bind={[
+            "h:bg@statusBarItem.hoverBackground",
+            "text@statusBar.foreground",
+          ]}
         >
           <VscError fontSize="16px" />
           <Element as="span" className="mx-1">

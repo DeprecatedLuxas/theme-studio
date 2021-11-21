@@ -7,7 +7,7 @@ const generatedNote = `//
 //
 `;
 
-const keys = [];
+const keys = [""];
 const categories = [];
 
 variableFiles.forEach((file) => {

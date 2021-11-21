@@ -19,7 +19,7 @@ import {
   DialogFooter,
   DialogHeader,
 } from "@components/Dialog";
-
+import _ from "lodash";
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { useRecoilState } from "recoil";
 import { setupState } from "@recoil/atoms/setup";
@@ -36,30 +36,15 @@ export default function EditLocal() {
     "theme",
     EditorHelper.getFakeStorage()
   );
-  const [setupConfig, _] = useRecoilState(setupState);
+  const [setupConfig, ,] = useRecoilState(setupState);
 
+  // TODO: Make this code clone from local storage
   const [state, dispatch] = useReducer(reducer, {
     variables: registry.compileAll(setupConfig.type),
     palette: registry.compile(setupConfig.type, "palette"),
     editor: registry.compile(setupConfig.type, "editor"),
     syntax: registry.compile(setupConfig.type, "syntax"),
   });
-
-  useEffect(() => {
-    console.log(storage);
-  }, []);
-  // useEffect(() => {
-  //   setStorage(
-  //     JSON.parse(
-  //       JSON.stringify({
-  //         name: "Test",
-  //         type: "dark",
-  //         palette: [],
-  //         variables: {},
-  //       })
-  //     )
-  //   );
-  // }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -76,14 +61,14 @@ export default function EditLocal() {
   if (EditorHelper.compare(storage, EditorHelper.getFakeStorage()))
     router.push("/edit/setup");
 
-  if (EditorHelper.isValidStorage(storage)) {
-    console.log(storage);
-
-    // TODO: Set storage to the registry.
-  }
-
   const handleSave = () => {
     // Save to storage, only the variables that changed
+    // TODO: Add a toast in the right corner.
+    // Combine all variables, check what changed from the either the previous save or the registry defaults
+    //     _.reduce(a, function(result, value, key) {
+    //     return _.isEqual(value, b[key]) ?
+    //         result : result.concat(key);
+    // }, []);
   };
 
   const handleDownload = () => {
@@ -147,26 +132,6 @@ export default function EditLocal() {
               <Tab.Panel>
                 <SyntaxTab />
               </Tab.Panel>
-              {/* TODO: Clean up this part, to not re render every time when a variables changes.
-              {Object.keys(state.variables!).map((key: string) => (
-                <Tab.Panel key={uuid()}>
-                  {Object.keys(state.variables![key as VariableTab]).map(
-                    (k: string) => (
-                      <Accordion text={k} key={uuid()}>
-                        {Object.keys(
-                          state.variables![key as VariableTab][k]
-                        ).map((kk: string) => (
-                          <Variable
-                            key={uuid()}
-                            name={kk}
-                            value={state.variables![key as VariableTab][k][kk]}
-                          />
-                        ))}
-                      </Accordion>
-                    )
-                  )}
-                </Tab.Panel>
-              ))} */}
             </Tab.Panels>
           </Tab.Group>
           <Divider color="bg-gray-700" />

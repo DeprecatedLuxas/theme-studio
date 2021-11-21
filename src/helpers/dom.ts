@@ -6,4 +6,3 @@ export function createDOMElement<K extends keyof HTMLElementTagNameMap>(
   element.setAttribute("id", id);
   return element;
 }
-

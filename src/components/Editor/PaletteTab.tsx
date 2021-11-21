@@ -1,37 +1,33 @@
-import Accordion from "@components/Accordion";
-import useRegistry from "@hooks/useRegistry";
-import { uniqueId } from "lodash";
-import { useEffect } from "react";
+import useRegistry from "@hooks/use-registry";
+import { VariablePossibleCategories } from "@lib/types";
 import { v4 as uuid } from "uuid";
 import Variable from "./Variable";
+import VariableGroup from "./VariableGroup";
 
 export default function PaletteTab() {
   const { palette } = useRegistry();
-  useEffect(() => {
-    console.log(palette);
-  }, []);
+
+  if (!Object.keys(palette!).length) {
+    return (
+      <h4 className="text-white text-lg">
+        There is no variables specified for this tab.
+      </h4>
+    );
+  }
   return (
     <div>
       {Object.keys(palette!)
         .sort((a, b) => a.localeCompare(b))
         .map((key: string) => (
-          <Accordion key={uuid()} text={key}>
+          <VariableGroup
+            key={uuid()}
+            groupName={key as VariablePossibleCategories}
+          >
             {Object.keys(palette![key]).map((k) => (
-              <Variable key={uuid()} name={k} value={palette![key][k]}/>
+              <Variable key={uuid()} name={k} value={palette![key][k]} />
             ))}
-          </Accordion>
+          </VariableGroup>
         ))}
-      {/* <Accordion text={k} key={uuid()}>
-        {Object.keys(state.variables![key as VariableTab][k]).map(
-          (kk: string) => (
-            <Variable
-              key={uuid()}
-              name={kk}
-              value={state.variables![key as VariableTab][k][kk]}
-            />
-          )
-        )}
-      </Accordion> */}
     </div>
   );
 }

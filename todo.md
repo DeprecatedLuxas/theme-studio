@@ -6,14 +6,11 @@
 - [ ] Popover component
 - [ ] Implement last page of setup to show your config. (requires json parsing, to highlight palette array)
 - [x] Create a color picker component
-- [ ] Clean up local page.
+- [x] Clean up local page.
 - [ ] Complete the toVSCFormat function.
-- [x] Create a tooltip component
-- [ ] Style tooltip component
 - [ ] Improve performance
 - [ ] Fix the bug when you complete the setup you will see the "You already have a theme in storage" component
 - [x] Display current config on setup component.
-- [ ] Complete the settings on editor local
 - [ ] Complete setup component
 - [x] Start on registry
 - [x] Start on the foundation of the vscode components
