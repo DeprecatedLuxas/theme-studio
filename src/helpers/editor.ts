@@ -56,63 +56,122 @@ export default class EditorHelper {
     return variable.split("@")[1];
   }
 
-  static handleBinding(
-    variables: CompiledVariables,
-    bind: Arrayable<Variables>
-  ) {
-    if (bind !== "") {
+  // static handleBinding(
+  //   variables: CompiledVariables,
+  //   bind?: Arrayable<Variables>
+  // ) {
+  //   if (bind) {
       // const events: {
       //   onMouseEnter?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
       //   onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
       // } = {};
-      let styleObject: CSSProperties = {};
-      // let ref: RefObject<HTMLOrSVGElement>;
-      const bindings = Array.isArray(bind) ? bind : [bind];
-      bindings.forEach((binding: Variables) => {
-        const [, hover, location] = binding.match(
-          /^(?<hover>h:)?(?<location>.+)@(.+)$/
-        )!;
+  //     let styleObject: CSSProperties = {};
+  //     let ref: RefObject<HTMLOrSVGElement> = useRef<HTMLOrSVGElement>();
 
-        if (hover) {
-          // console.log(hover);
+  //     const bindings = Array.isArray(bind) ? bind : [bind];
+  //     bindings.forEach((binding: Variables) => {
+  //       const [, hover, location] = binding.match(
+  //         /^(?<hover>h:)?(?<location>.+)@(.+)$/
+  //       )!;
+  //       const styling = this.Places.get(location as "bg" | "text" | "border");
+  //       if (!styling) return {};
 
-          // ref = useRef<HTMLOrSVGElement>(null);
-          // let oldStyle: CSSProperties = {};
+  //       if (hover) {
+  //         ref = useRef<HTMLOrSVGElement>();
+  //         let oldStyle: CSSProperties = {};
           // events.onMouseEnter = () => {
+          //   console.log("Hello");
           //   oldStyle =
           //     // @ts-ignore
-          //     ref.current!.style[
-          //       this.Places.get(location as "bg" | "text" | "border")
-          //     ];
+          //     ref.current!.style[styling];
+
+          //   console.log(oldStyle);
 
           //   // We need to to @ts-ignore on the style, else it will give an error
           //   // @ts-ignore
-          //   ref.current!.style[
-          //     this.Places.get(location as "bg" | "text" | "border")
-          //   ] = variables[binding];
+          //   ref.current!.style[styling] = variables[binding];
           // };
           // events.onMouseLeave = () => {
           //   // @ts-ignore
-          //   ref.current!.style[
-          //     this.Places.get(location as "bg" | "text" | "border")
-          //   ] = oldStyle;
+          //   ref.current!.style[styling] = oldStyle;
           // };
-        } else {
-          const styling = this.Places.get(location as "bg" | "text" | "border");
-          if (!styling) return {};
-          styleObject = {
-            ...styleObject,
-            [styling]: variables[binding],
-          };
-        }
-      });
-      return {
-        style: styleObject,
-        // ref,
-        // ...events,
-      };
-    } else {
-      return {};
-    }
-  }
+  //       } else {
+  //         styleObject = {
+  //           ...styleObject,
+  //           [styling]: variables[binding],
+  //         };
+  //       }
+  //     });
+  //     // @ts-ignore
+  //     console.log(ref);
+
+  //     return {
+  //       style: styleObject,
+  //       // @ts-ignore - For some reason this is used before assigned.
+  //       ref,
+  //       ...events,
+  //     };
+  //   }
+  //   return {};
+  // }
+// }
+
+// function handleBinding(
+//   variables: CompiledVariables,
+//   bind?: Arrayable<Variables>
+// ) {
+//   if (bind) {
+//     const events: {
+//       onMouseEnter?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
+//       onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
+//     } = {};
+//     let styleObject: CSSProperties = {};
+//     let ref: RefObject<HTMLOrSVGElement> = useRef<HTMLOrSVGElement>();;
+//     const bindings: Variables[] = Array.isArray(bind) ? bind : [bind];
+//     bindings.forEach((binding: Variables) => {
+//       const [, hover, location] = binding.match(
+//         /^(?<hover>h:)?(?<location>.+)@(.+)$/
+//       )!;
+//       const styling = EditorHelper.Places.get(
+//         location as "bg" | "text" | "border"
+//       );
+
+//       if (!styling) return {};
+//       ref = useRef<HTMLOrSVGElement>();
+//       if (hover) {
+//         let oldStyle: CSSProperties = {};
+//         events.onMouseEnter = () => {
+//           console.log("Hello");
+//           oldStyle =
+//             // @ts-ignore
+//             ref.current!.style[styling];
+
+//           console.log(oldStyle);
+
+//           // We need to to @ts-ignore on the style, else it will give an error
+//           // @ts-ignore
+//           ref.current!.style[styling] = variables[binding];
+//         };
+//         events.onMouseLeave = () => {
+//           // @ts-ignore
+//           ref.current!.style[styling] = oldStyle;
+//         };
+//       } else {
+//         styleObject = {
+//           ...styleObject,
+//           [styling]: variables[binding],
+//         };
+//       }
+//     });
+//     // @ts-ignore
+//     console.log(ref);
+
+//     return {
+//       style: styleObject,
+//       ref,
+//       ...events,
+//     };
+//   }
+//   return {};
+// }
 }

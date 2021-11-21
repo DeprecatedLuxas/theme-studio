@@ -7,7 +7,7 @@ const generatedNote = `//
 //
 `;
 
-const keys = [""];
+const keys = [];
 const categories = [];
 
 variableFiles.forEach((file) => {
@@ -24,7 +24,8 @@ variableFiles.forEach((file) => {
     if (value.hover) {
       newKey = `h:${key}`;
     }
-    if (value.category && !categories.includes(value.category)) categories.push(value.category);
+    if (value.category && !categories.includes(value.category))
+      categories.push(value.category);
     keys.push(newKey);
   });
 });

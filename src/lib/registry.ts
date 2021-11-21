@@ -81,13 +81,13 @@ class Registry implements IRegistry {
 
         switch (func) {
           case Functions.TRANSPARENT:
-            newGroup[key] = tinycolor(color).setAlpha(int).toHexString();
+            newGroup[key] = tinycolor(color).setAlpha(int).toHex8String();
             break;
           case Functions.DARKEN:
-            newGroup[key] = tinycolor(color).darken(int).toHexString();
+            newGroup[key] = tinycolor(color).darken(int).toHex8String();
             break;
           case Functions.LIGHTEN:
-            newGroup[key] = tinycolor(color).lighten(int).toHexString();
+            newGroup[key] = tinycolor(color).lighten(int).toHex8String();
             break;
           default:
             throw new Error("Unknown Function Error");

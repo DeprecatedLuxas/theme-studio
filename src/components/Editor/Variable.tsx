@@ -18,20 +18,25 @@ const colors = [
 export default function Variable({ name, value }: VariableProps) {
   const { dispatch } = useRegistry();
   const variable = EditorHelper.formatVariable(name);
-
+  console.log(name);
+  
   return (
       <div
         className="flex w-full justify-start items-center cursor-pointer py-2 px-2 text-gray-400 hover:bg-gray-600 bg-gray-700 mb-2 rounded"
-        // onMouseEnter={() => {
-        //   console.log("Enter");
-        //   // dispatch({ type: "SET_EDITOR_VARIABLE", payload: { name, value } });
-        //   // console.log(variable.action);
-        //   if (variable.action) console.log(variable.action);
-        // }}
-        // onMouseLeave={() => {
-        //   console.log("Leave");
-        //   // Clear state.
-        // }}
+        onMouseEnter={() => {
+          // Check if action
+          // if (true) {
+
+          // }
+          console.log("Enter");
+          // dispatch({ type: "SET_EDITOR_VARIABLE", payload: { name, value } });
+          // console.log(variable.action);
+          // if (variable.action) console.log(variable.action);
+        }}
+        onMouseLeave={() => {
+          console.log("Leave");
+          // Clear state.
+        }}
       >
         <div className="bg-variable w-8 h-8 rounded-md mr-3">
           <div
