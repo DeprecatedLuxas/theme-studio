@@ -5,6 +5,8 @@ import ActivityBar from "./ActivityBar";
 import SideBar from "./SideBar";
 
 export default function VSCode() {
+
+
   return (
     <Element className="h-full">
       <TitleBar />

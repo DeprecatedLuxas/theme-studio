@@ -9,7 +9,7 @@
 - [x] Clean up local page.
 - [ ] Complete the toVSCFormat function.
 - [ ] Improve performance
-- [ ] Fix the bug when you complete the setup you will see the "You already have a theme in storage" component
+- [x] Fix the bug when you complete the setup you will see the "You already have a theme in storage" component
 - [x] Display current config on setup component.
 - [ ] Complete setup component
 - [x] Start on registry

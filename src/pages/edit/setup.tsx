@@ -20,6 +20,7 @@ const bottomNav = [1, 2, 3];
 
 export default function Setup() {
   const [mounted, setMounted] = useState<boolean>(false);
+  const [completed, setCompleted] = useState<boolean>(false);
   const { user, isLoading, error } = useUser();
   const [config, setConfig] = useRecoilState(setupState);
 
@@ -43,7 +44,7 @@ export default function Setup() {
     return <EditWarning />;
   }
 
-  if (!EditorHelper.compare(storage, EditorHelper.getFakeStorage())) {
+  if (!EditorHelper.compare(storage, EditorHelper.getFakeStorage()) && !completed) {
     return <StorageFound clearStorage={clear} />;
   }
 
@@ -51,6 +52,7 @@ export default function Setup() {
 
   const handleNext = () => {
     if (tab === 3) {
+      setCompleted(true);
       setStorage(EditorHelper.getFromSetupConfig(config));
       router.push(`/edit/${!user ? "local" : `${uuid()}`}`);
     } else {

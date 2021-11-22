@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { isBrowser } from "@lib/utils";
 export type UseSSRResult = { isSSR: boolean };
 
 export default function useSSR(): UseSSRResult {
@@ -7,11 +7,7 @@ export default function useSSR(): UseSSRResult {
 
   useEffect(() => {
     setSSR(
-      Boolean(
-        typeof window !== "undefined" &&
-          window.document &&
-          window.document.createElement
-      )
+      isBrowser()
     );
   }, []);
 

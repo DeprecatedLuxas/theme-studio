@@ -27,11 +27,15 @@ import useStorage from "@hooks/useStorage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
+import useBreakpoint from "@hooks/use-breakpoint";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
   const { isOpen, onClose, onOpen } = useBiscuitBox();
+  //const breakpoint = useBreakpoint(1100);
+
+ 
   const { storage, setStorage, clear } = useStorage(
     "theme",
     EditorHelper.getFakeStorage()
@@ -50,9 +54,14 @@ export default function EditLocal() {
     return <Loading />;
   }
 
+  // Window is not defined, we gonna add a if breakpoint is true
   if (isMobile) {
     return <EditWarning />;
   }
+
+ /*  if (breakpoint) {
+    return <p>hello</p>
+  } */
 
   // If user is authenticated, redirect to homepage.
   if (user) router.push("/");

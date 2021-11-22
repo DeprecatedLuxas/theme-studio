@@ -1,3 +1,4 @@
+import { isBrowser } from "@lib/utils";
 import { useState } from "react";
 
 export default function useStorage<T>(
@@ -9,7 +10,7 @@ export default function useStorage<T>(
   clear: Function;
 } {
   const [storedValue, setStoredValue] = useState(() => {
-    if (typeof window === "undefined") {
+      if (!isBrowser()) {
       return initialValue;
     }
     try {

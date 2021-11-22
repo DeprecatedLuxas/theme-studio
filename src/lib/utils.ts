@@ -17,3 +17,12 @@ export function getPropertyDifferences(obj1: any, obj2: any) {
     return diff;
   }, {});
 }
+
+
+export function isBrowser(): boolean {
+  return Boolean(
+    typeof window !== "undefined" &&
+      window.document &&
+      window.document.createElement
+  );
+}

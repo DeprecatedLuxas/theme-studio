@@ -1,17 +1,7 @@
-import windy from "@helpers/windy";
 import Link from "next/link";
 
-const Button = windy.button`
-  bg-blue-700
-  hover:bg-blue-800
-  text-white
-  font-roboto
-  my-2
-  p-2
-  rounded
-`;
 
-export default function EditWarning() {
+export default function EditWarning(): JSX.Element {
   return (
     <div className="h-screen w-full flex justify-center items-center bg-gray-700">
       <div className="max-w-lg w-full bg-white rounded min-h-56 p-4 flex flex-col">

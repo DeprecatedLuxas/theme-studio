@@ -11,10 +11,11 @@ const keys = [];
 const categories = [];
 
 variableFiles.forEach((file) => {
-  console.log("Generated:", file);
-  const variableFile = JSON.parse(
-    fs.readFileSync(`./variables/${file}`, "utf-8")
-  );
+  const fileContents = fs.readFileSync(`./variables/${file}`, "utf-8");
+
+  if (!fileContents) return;
+
+  const variableFile = JSON.parse(fileContents);
   if (variableFile.exclude) {
     return;
   }
@@ -28,6 +29,7 @@ variableFiles.forEach((file) => {
       categories.push(value.category);
     keys.push(newKey);
   });
+  console.log("Generated:", file);
 });
 
 fs.writeFileSync(
