@@ -1,4 +1,4 @@
-import { Arrayable, Variables } from "@lib/types";
+import { Arrayable, CompiledVariables, Variables } from "@lib/types";
 import { CSSProperties, useRef } from "react";
 import useRegistry from "./use-registry";
 
@@ -15,10 +15,13 @@ const Places: Map<"bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc", string> =
 
 export interface UseBindingOptions {
   bind?: Arrayable<Variables>;
+  variables?: CompiledVariables;
 }
 
-export default function useBinding({ bind }: UseBindingOptions) {
-  const { variables } = useRegistry();
+export default function useBinding({ bind, variables }: UseBindingOptions) {
+  // const { variables } = useRegistry();
+  // console.log(variables);
+  
   let ref = useRef<HTMLOrSVGElement>();
 
   if (!bind) return {};

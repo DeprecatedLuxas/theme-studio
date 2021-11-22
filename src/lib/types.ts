@@ -15,7 +15,6 @@ export type PartialRecord<K extends string | number | symbol, T> = {
 };
 export type VariableTab = "palette" | "editor" | "syntax";
 
-
 export interface Indexable {
   [key: string]: any;
 }
@@ -43,6 +42,15 @@ export type VariableCategories = PartialRecord<
   VariablePossibleCategories,
   CompiledVariables
 >;
+
+export type Rule = string;
+export type ConditionalClassName = PartialRecord<Variables, ConditionalClassNameRule>;
+export type ConditionalClassNameWhen = "NOT_NULL";
+
+export interface ConditionalClassNameRule {
+  when: ConditionalClassNameWhen;
+  then: string;
+}
 
 export interface VSCThemeFormat {
   name: string;

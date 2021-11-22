@@ -13,7 +13,12 @@ export default function ActivityBar() {
   return (
     <Element
       className="flex w-activitybar flex-col justify-between"
-      conditionalClassName="brc@activityBar.border !== null ? border-r-2"
+      conditionalClassName={{
+        "brc@activityBar.border": {
+          when: "NOT_NULL",
+          then: "border-r-2",
+        },
+      }}
       bind={[
         "bg@activityBar.background",
         "c@activityBar.foreground",
