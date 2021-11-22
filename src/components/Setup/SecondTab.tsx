@@ -1,7 +1,7 @@
 import { Palette } from "@lib/types";
 import { useRecoilState } from "recoil";
 import { setupState } from "src/recoil/atoms/setup";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PalettePicker from "./PalettePicker";
 import Button from "@components/Button";
 import tinycolor from "tinycolor2";
@@ -17,11 +17,14 @@ export default function SecondTab() {
       a: 1,
     }
   );
+  // useEffect(() => {
+  //   console.log(currentColor);
+    
+  // }, [currentColor])
   return (
     <div className="flex justify-between">
       <div>
         <PalettePicker
-          color={currentColor}
           onChange={(color) => {
             setCurrentColor(tinycolor(color).toHsv());
           }}

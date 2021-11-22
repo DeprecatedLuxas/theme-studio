@@ -25,7 +25,7 @@ export default function EditableInput({ color }: EditableInputProps) {
   return (
     <input
       ref={inputRef}
-      value={value}
+      defaultValue={value}
       onChange={handleChange}
       type="text"
       placeholder="Hex"
