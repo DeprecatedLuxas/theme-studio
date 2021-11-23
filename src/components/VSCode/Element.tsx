@@ -11,13 +11,7 @@ import {
 } from "@lib/types";
 import { getPropertyDifferences } from "@lib/utils";
 import _ from "lodash";
-import {
-  CSSProperties,
-  HTMLAttributes,
-  RefObject,
-  useEffect,
-  useRef,
-} from "react";
+import { HTMLAttributes, useEffect } from "react";
 
 export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: keyof JSX.IntrinsicElements;
@@ -49,11 +43,11 @@ export default function Element({
     if (!conditionalClassName) return;
     if (!prevVariables) return;
     if (!variables) return;
-    console.log("HELLO="); 
-    
+    // console.log("HELLO=");
+
     const changedVariables = getPropertyDifferences(variables, prevVariables);
-    console.log(changedVariables);
-    
+    // console.log(changedVariables);
+
     const extraClasses = RuleParser.parse(conditionalClassName);
     // console.log(extraClasses);
   }, [variables, conditionalClassName, prevVariables]);

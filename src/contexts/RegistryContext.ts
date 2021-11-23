@@ -16,6 +16,8 @@ export type IRegistry = {
   dispatch?: Dispatch<IRegistry>;
 };
 
+
+
 export function reducer(state: IRegistry, action: IRegistry) {
   return { ...state, ...action };
 }

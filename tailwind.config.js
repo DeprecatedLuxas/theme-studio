@@ -15,7 +15,7 @@ module.exports = {
         titlebar: "rgb(204, 204, 204)",
       },
       backgroundColor: {
-        "dialog-overlay": "rgba(0, 0, 0, 0.48)"
+        "dialog-overlay": "rgba(0, 0, 0, 0.48)",
       },
       width: {
         0.25: "0.0625rem",
@@ -61,6 +61,7 @@ module.exports = {
       },
       inset: {
         badge: "9px",
+        "-4.5": "-1.125",
       },
       transform: {
         saturation: "translate(-3px, -3px)",
@@ -94,7 +95,7 @@ module.exports = {
           300: "#e3e5e8",
           200: "#ebedef",
           100: "#f2f3f5",
-        }
+        },
       },
       cursor: {
         crosshair: "crosshair",
@@ -112,7 +113,7 @@ module.exports = {
         ".border-b-transparent": {
           borderBottomColor: "transparent",
         },
-        ".divider-transform": {
+        ".transform-50": {
           transform: "translate(-50%, -50%)",
         },
         ".divider-end": {

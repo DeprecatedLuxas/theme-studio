@@ -37,7 +37,7 @@ export default function Divider({
     >
       {children && (
         <span
-          className={`absolute left-2/4 top-2/4 inline-flex justify-center items-center z-10 divider-transform px-12 ${color} ${placementClass} ${bg}`}
+          className={`absolute left-2/4 top-2/4 inline-flex justify-center items-center z-10 transform-50 px-12 ${color} ${placementClass} ${bg}`}
         >
           {children}
         </span>

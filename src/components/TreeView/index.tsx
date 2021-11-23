@@ -13,7 +13,7 @@ export interface TreeNodeProps {
 export interface TreeViewProps extends HTMLAttributes<HTMLDivElement> {}
 
 function TreeView({ ...props }: TreeViewProps) {
-  return <div {...props} />;
+  return <div className="pl-3" {...props} />;
 }
 
 TreeView.Folder = TreeFolder;

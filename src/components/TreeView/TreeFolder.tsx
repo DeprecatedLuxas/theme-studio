@@ -22,19 +22,18 @@ export default function TreeFolder({
   const { isOpen, onOpen, onClose } = useBiscuitBox();
   const parentLevel = 0;
   return (
-    <div>
-      <div className="flex">
+    <div className="cursor-pointer select-none leading-none">
+      <div className="flex h-7 items-center relative ml-">
         <TreeIndent level={level} />
-        {isOpen ? <VscChevronDown /> : <VscChevronRight />}
-
-        {isOpen ? <VscFolderOpened /> : <VscFolder />}
+        <span className="absolute -left-4.5 top-1/2 w-3.5 h-3.5 transform-50 z-10 bg-green-700">{isOpen ? <VscChevronDown /> : <VscChevronRight />}</span>
+        <span className="icon">{isOpen ? <VscFolderOpened /> : <VscFolder />}</span>
 
         <span>{name}</span>
       </div>
       <div>
         {Children.map(children, (child: any) => {
-          const newP = parentLevel + 1
-          
+          const newP = parentLevel + 1;
+
           return cloneElement(child, {
             level: newP,
           });
@@ -43,3 +42,7 @@ export default function TreeFolder({
     </div>
   );
 }
+/* height: 1.75rem;
+align-items: center;
+margin-left: calc(1.875rem * ${parentLevel});
+position: relative; */

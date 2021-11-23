@@ -1,12 +1,15 @@
 import useRegistry from "@hooks/use-registry";
 import { VariablePossibleCategories } from "@lib/types";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import Variable from "./Variable";
 import VariableGroup from "./VariableGroup";
 
 export default function PaletteTab() {
   const { palette } = useRegistry();
-
+  useEffect(() => {
+    console.log(palette);
+  }, [palette]);
   if (!Object.keys(palette!).length) {
     return (
       <h4 className="text-white text-lg">
@@ -17,14 +20,19 @@ export default function PaletteTab() {
   return (
     <div>
       {Object.keys(palette!)
-        .sort((a, b) => a.localeCompare(b))
+/*         .sort((a, b) => a.localeCompare(b)) */
         .map((key: string) => (
           <VariableGroup
             key={uuid()}
             groupName={key as VariablePossibleCategories}
           >
             {Object.keys(palette![key]).map((k) => (
-              <Variable key={uuid()} name={k} value={palette![key][k]} />
+              <Variable
+                key={uuid()}
+                name={k}
+                value={palette![key][k]}
+                groupName={key as VariablePossibleCategories}
+              />
             ))}
           </VariableGroup>
         ))}

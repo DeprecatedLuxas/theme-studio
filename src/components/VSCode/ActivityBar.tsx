@@ -34,13 +34,13 @@ export default function ActivityBar() {
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          bind="c@statusBarItem.errorForeground"
+          bind={["c@activityBar.inactiveForeground"]}
         >
           <VscSearch fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          bind="c@activityBar.inactiveForeground"
+          bind={["c@activityBar.inactiveForeground"]}
         >
           <VscSourceControl fontSize="24px" />
           <Element
@@ -55,13 +55,13 @@ export default function ActivityBar() {
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          bind="c@activityBar.inactiveForeground"
+          bind={["c@activityBar.inactiveForeground"]}
         >
           <VscDebugAlt fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          bind="c@activityBar.inactiveForeground"
+          bind={["c@activityBar.inactiveForeground"]}
         >
           <VscExtensions fontSize="24px" />
         </Element>
@@ -69,13 +69,13 @@ export default function ActivityBar() {
       <Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          bind="c@activityBar.inactiveForeground"
+          bind={["c@activityBar.inactiveForeground"]}
         >
           <VscAccount fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
-          bind="c@activityBar.inactiveForeground"
+          bind={["c@activityBar.inactiveForeground"]}
         >
           <VscGear fontSize="24px" />
         </Element>

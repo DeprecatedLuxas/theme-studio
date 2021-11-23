@@ -7,6 +7,7 @@
 - [ ] Implement last page of setup to show your config. (requires json parsing, to highlight palette array)
 - [x] Create a color picker component
 - [x] Clean up local page.
+- [ ] Fix when you change a color, the groups closes.
 - [ ] Complete the toVSCFormat function.
 - [ ] Improve performance
 - [x] Fix the bug when you complete the setup you will see the "You already have a theme in storage" component

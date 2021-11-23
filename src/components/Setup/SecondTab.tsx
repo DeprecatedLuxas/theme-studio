@@ -17,10 +17,7 @@ export default function SecondTab() {
       a: 1,
     }
   );
-  // useEffect(() => {
-  //   console.log(currentColor);
-    
-  // }, [currentColor])
+
   return (
     <div className="flex justify-between">
       <div>
@@ -50,7 +47,7 @@ export default function SecondTab() {
           {config.palette.map((color, index) => (
             <div
               key={`palette-${index}`}
-              className="w-8 h-8 rounded-md"
+              className="w-8 h-8 rounded-md cursor-pointer"
               style={{
                 backgroundColor: color,
               }}
