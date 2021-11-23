@@ -18,31 +18,46 @@ export default function TreeFolder({
   name,
   children,
   level = 0,
+  canOpen = false,
+  defaultOpen = false
 }: PropsWithChildren<TreeFolderProps>) {
-  const { isOpen, onOpen, onClose } = useBiscuitBox();
+  const { isOpen, onOpen, onClose } = useBiscuitBox({
+    isOpen: defaultOpen
+  });
   const parentLevel = 0;
+
+  const handleClick = () => {
+    if (!canOpen) return;
+    return !isOpen ? onOpen() : onClose()
+  };
+  
   return (
-    <div className="cursor-pointer select-none leading-none">
+    <div
+      className="cursor-pointer select-none leading-none"
+      onClick={handleClick}
+    >
       <div className="flex h-7 items-center relative ml-">
-        <TreeIndent level={level} />
-        <span className="absolute -left-4.5 top-1/2 w-3.5 h-3.5 transform-50 z-10 bg-green-700">{isOpen ? <VscChevronDown /> : <VscChevronRight />}</span>
-        <span className="icon">{isOpen ? <VscFolderOpened /> : <VscFolder />}</span>
+        <TreeIndent level={parentLevel} />
+        <span className="absolute -left-4.5 top-1/2 w-3.5 h-3.5 transform-50 z-10">
+          {isOpen ? <VscChevronDown /> : <VscChevronRight />}
+        </span>
+        <span className="w-6 h-full mr-2">
+          {isOpen ? <VscFolderOpened /> : <VscFolder />}
+        </span>
 
-        <span>{name}</span>
+        <span className="text-sm whitespace-nowrap text-green-700">{name}</span>
       </div>
-      <div>
-        {Children.map(children, (child: any) => {
-          const newP = parentLevel + 1;
+      {isOpen && (
+        <div>
+          {Children.map(children, (child: any) => {
+            const newP = parentLevel + 1;
 
-          return cloneElement(child, {
-            level: newP,
-          });
-        })}
-      </div>
+            return cloneElement(child, {
+              level: newP,
+            });
+          })}
+        </div>
+      )}
     </div>
   );
 }
-/* height: 1.75rem;
-align-items: center;
-margin-left: calc(1.875rem * ${parentLevel});
-position: relative; */

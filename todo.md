@@ -14,5 +14,6 @@
 - [x] Display current config on setup component.
 - [ ] Complete setup component
 - [x] Start on registry
+- [ ] Add the rest of variables. (Sidebar is missing some variables)
 - [x] Start on the foundation of the vscode components
 - [ ] VSCode Extension to test the themes 

@@ -7,14 +7,5 @@ module.exports = {
       loader: "json-loader",
     });
     return config;
-  },
-  async redirects() {
-    return [
-      {
-        source: "/preview",
-        destination: "/",
-        permanent: true,
-      },
-    ];
-  },
+  }
 };

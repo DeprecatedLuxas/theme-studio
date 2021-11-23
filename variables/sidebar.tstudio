@@ -1,0 +1,46 @@
+{
+  "bg@sideBar.background": {
+    "variable": "sideBar.background",
+    "group": {
+      "dark": "#252526",
+      "light": "#f3f3f3",
+      "hc": "#000000"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar background color. The side bar is the container for views like explorer and search."
+  },
+  "c@sideBar.foreground": {
+    "variable": "sideBar.foreground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar foreground color. The side bar is the container for views like explorer and search."
+  },
+  "brc@sideBar.border": {
+    "variable": "sideBar.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@constrastBorder"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar border color on the side separating to the editor. The side bar is the container for views like explorer and search."
+  },
+  "c@sideBarTitle.foreground": {
+    "variable": "sideBarTitle.foreground",
+    "group": {
+      "dark": "var@sideBar.foreground",
+      "light": "var@sideBar.foreground",
+      "hc": "var@sideBar.foreground"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar title foreground color. The side bar is the container for views like explorer and search."
+  }
+}
