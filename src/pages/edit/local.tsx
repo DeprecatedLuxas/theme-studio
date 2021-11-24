@@ -58,6 +58,7 @@ export default function EditLocal() {
     syntax: registry.compile(setupConfig.type, "syntax"),
   });
 
+
   if (isLoading) {
     return <Loading />;
   }

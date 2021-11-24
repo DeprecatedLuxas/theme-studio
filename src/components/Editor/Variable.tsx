@@ -1,11 +1,11 @@
+import { IRegistry } from "@contexts/RegistryContext";
 import EditorHelper from "@helpers/editor";
 import useRegistry from "@hooks/use-registry";
-import { useEffect, useState } from "react";
+import { Dispatch, useEffect, useState } from "react";
 
 export interface VariableProps {
   name: string;
   value: string;
-  groupName: string;
 }
 
 const colors = [
@@ -17,12 +17,8 @@ const colors = [
   "#E6B333",
 ];
 
-export default function Variable({
-  name,
-  value,
-  groupName,
-}: VariableProps): JSX.Element {
-  const { dispatch, palette, variables, syntax, editor } = useRegistry();
+export default function Variable({ name, value }: VariableProps): JSX.Element {
+  const { dispatch, variables, palette } = useRegistry();
   const variable = EditorHelper.formatVariable(name);
 
   const [show, setShow] = useState<boolean>(false);
@@ -85,6 +81,7 @@ export default function Variable({
                     [name]: color,
                   },
                 });
+     
 
                 /*       dispatch &&
                   dispatch({

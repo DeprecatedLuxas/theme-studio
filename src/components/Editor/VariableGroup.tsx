@@ -1,5 +1,5 @@
 import { VariablePossibleCategories } from "@lib/types";
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useRef, useState } from "react";
 import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
 
 export interface VariableGroupProps {
@@ -12,10 +12,11 @@ export default function VariableGroup({
 }: PropsWithChildren<VariableGroupProps>): JSX.Element {
   const [isOpen, setOpen] = useState<boolean>(false);
 
+
   const handleClick = () => {
     setOpen(!isOpen);
   };
-  
+
   return (
     <section>
       <button

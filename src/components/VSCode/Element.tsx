@@ -45,8 +45,8 @@ export default function Element({
     if (!variables) return;
     // console.log("HELLO=");
 
-    const changedVariables = getPropertyDifferences(variables, prevVariables);
-    // console.log(changedVariables);
+    const changedVariables = getPropertyDifferences(prevVariables, variables);
+    console.log(changedVariables);
 
     const extraClasses = RuleParser.parse(conditionalClassName);
     // console.log(extraClasses);

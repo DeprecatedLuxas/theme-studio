@@ -20,3 +20,4 @@ export function reducer(state: IRegistry, action: IRegistry) {
 }
 
 export const RegistryContext = createContext<IRegistry>({});
+RegistryContext.displayName = "RegistryContext";
