@@ -20,6 +20,7 @@ export default function StatusBar() {
     <Element
       className="flex justify-between h-statusbar text-xs"
       bind={["bg@statusBar.background", "bc@statusBar.border"]}
+
     >
       <Element className="flex">
         <Element bind={["bg@statusBarItem.remoteBackground"]}>

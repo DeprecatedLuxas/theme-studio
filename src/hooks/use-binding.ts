@@ -1,6 +1,5 @@
 import { Arrayable, CompiledVariables, Variables } from "@lib/types";
-import { CSSProperties, useRef } from "react";
-import useRegistry from "./use-registry";
+import { CSSProperties, MutableRefObject, useRef } from "react";
 
 const Places: Map<"bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc", string> =
   new Map([
@@ -14,15 +13,17 @@ const Places: Map<"bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc", string> =
   ]);
 
 export interface UseBindingOptions {
+  ref?: MutableRefObject<HTMLOrSVGElement | undefined>;
   bind?: Arrayable<Variables>;
   variables?: CompiledVariables;
 }
 
-export default function useBinding({ bind, variables }: UseBindingOptions) {
-  // const { variables } = useRegistry();
-  // console.log(variables);
-  
-  let ref = useRef<HTMLOrSVGElement>();
+export default function useBinding({
+  ref,
+  bind,
+  variables,
+}: UseBindingOptions) {
+  // let ref = useRef<HTMLOrSVGElement>();
 
   if (!bind) return {};
 

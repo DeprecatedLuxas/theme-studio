@@ -1,6 +1,7 @@
 import useBinding from "@hooks/use-binding";
 import { usePrevious } from "@hooks/use-previous";
 import useRegistry from "@hooks/use-registry";
+import useVSCEvent from "@hooks/use-vsc-event";
 import {
   Arrayable,
   ChangedVariables,
@@ -16,6 +17,8 @@ export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: keyof JSX.IntrinsicElements;
   conditionalClassName?: ConditionalClassName;
   bind?: Arrayable<Variables>;
+  // TODO: Add types for this.
+  events?: any;
 }
 
 export default function Element({
@@ -23,15 +26,21 @@ export default function Element({
   bind,
   className = "",
   conditionalClassName,
+  events,
   ...rest
 }: ElementProps) {
   const Component = as as keyof JSX.IntrinsicElements;
   const { variables } = useRegistry();
   const prevVariables = usePrevious<CompiledVariables | undefined>(variables);
+  const ref = useRef<HTMLOrSVGElement>();
+
   const binding = useBinding({
+    ref,
     bind,
     variables,
   });
+
+  const eventHandlers = useVSCEvent(ref, variables, events);
 
   let classes = useRef<string>(className);
 
@@ -39,7 +48,7 @@ export default function Element({
     if (!conditionalClassName) return;
     if (!prevVariables) return;
     if (!variables) return;
-    
+
     let extraClasses = "";
     const changedVariables: ChangedVariables = getPropertyDifferences(
       prevVariables,
@@ -63,5 +72,12 @@ export default function Element({
     }`;
   }, [variables, conditionalClassName, prevVariables]);
 
-  return <Component className={classes.current} {...rest} {...binding} />;
+  return (
+    <Component
+      className={classes.current}
+      {...rest}
+      {...binding}
+      {...eventHandlers}
+    />
+  );
 }

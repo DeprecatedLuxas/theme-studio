@@ -102,3 +102,4 @@ export interface Interaction {
 }
 
 export type ComponentPropPlacement = "top" | "bottom" | "left" | "right";
+
