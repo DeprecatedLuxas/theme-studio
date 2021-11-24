@@ -26,10 +26,10 @@ export interface AlphaProps
   onChange?: (newAlpha: { a: number }, offset: Interaction) => void;
 }
 
-const Alpha = forwardRef<HTMLDivElement, AlphaProps>(function Alpha(
+const Alpha = forwardRef<HTMLDivElement, AlphaProps>((
   props,
   ref
-) {
+) => {
   const {
     hsva,
     background,
@@ -102,5 +102,7 @@ const Alpha = forwardRef<HTMLDivElement, AlphaProps>(function Alpha(
     </div>
   );
 });
+Alpha.displayName = "TStudioAlpha";
+
 
 export default Alpha;

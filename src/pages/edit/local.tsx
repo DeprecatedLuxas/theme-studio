@@ -27,7 +27,6 @@ import useStorage from "@hooks/useStorage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
-import useBreakpoint from "@hooks/use-breakpoint";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();

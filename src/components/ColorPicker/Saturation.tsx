@@ -14,7 +14,7 @@ export interface SaturationProps
 }
 
 const Saturation = forwardRef<HTMLDivElement, SaturationProps>(
-  function Saturation(props, ref) {
+  (props, ref) => {
     const {
       hsva,
       onChange,
@@ -64,4 +64,7 @@ const Saturation = forwardRef<HTMLDivElement, SaturationProps>(
     );
   }
 );
+
+Saturation.displayName = "TStudioSaturation";
+
 export default Saturation;

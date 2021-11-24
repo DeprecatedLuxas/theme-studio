@@ -6,7 +6,7 @@ interface HueProps extends Omit<AlphaProps, "hsva" | "onChange"> {
   hue: number;
 }
 
-const Hue = forwardRef<HTMLDivElement, HueProps>(function Hue(props, ref) {
+const Hue = forwardRef<HTMLDivElement, HueProps>((props, ref) => {
   const { hue = 0, onChange, ...rest } = props;
   return (
     <Alpha
@@ -20,5 +20,8 @@ const Hue = forwardRef<HTMLDivElement, HueProps>(function Hue(props, ref) {
     />
   );
 });
+
+Hue.displayName = "TStudioHue";
+
 
 export default Hue;
