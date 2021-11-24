@@ -1,22 +1,19 @@
 import {
-  CompiledVariable,
   CompiledVariables,
   Indexable,
-  PartialRecord,
   VariableCategories,
-  VariableTab,
+  VariablePossibleCategories,
 } from "@lib/types";
 import { createContext, Dispatch } from "react";
 
 export type IRegistry = {
   variables?: CompiledVariables;
-  palette?: VariableCategories & Indexable;
-  editor?: VariableCategories & Indexable;
-  syntax?: VariableCategories & Indexable;
+  categories?: VariableCategories;
+  palette?: CompiledVariables & Indexable;
+  editor?: CompiledVariables & Indexable;
+  syntax?: CompiledVariables & Indexable;
   dispatch?: Dispatch<IRegistry>;
 };
-
-
 
 export function reducer(state: IRegistry, action: IRegistry) {
   return { ...state, ...action };

@@ -22,7 +22,7 @@ export default function Variable({
   value,
   groupName,
 }: VariableProps): JSX.Element {
-  const { dispatch, palette, variables } = useRegistry();
+  const { dispatch, palette, variables, syntax, editor } = useRegistry();
   const variable = EditorHelper.formatVariable(name);
 
   const [show, setShow] = useState<boolean>(false);
@@ -82,10 +82,7 @@ export default function Variable({
                   },
                   palette: {
                     ...palette,
-                    [groupName]: {
-                      ...palette![groupName],
-                      [name]: color,
-                    },
+                    [name]: color,
                   },
                 });
 
@@ -103,7 +100,6 @@ export default function Variable({
                       },
                     },
                   }); */
-                console.log(variables);
 
                 /* 
                 // TODO: Clean this up.

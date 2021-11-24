@@ -5,9 +5,11 @@ import {
   ThemeStorage,
   ThemeType,
   Variable,
-  VariableCategories,
   VariableGroup,
+  VariableCategories,
   VariableTab,
+  VariablePossibleCategories,
+  CompiledVariable,
 } from "./types";
 import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
@@ -24,12 +26,14 @@ enum Functions {
 interface IRegistry {
   register(key: string, variable: Variable): void;
   registerFile(file: Record<string, Variable>): void;
-  compile<K extends VariableTab>(type: ThemeType, tab: K): VariableCategories;
+  compile<K extends VariableTab>(type: ThemeType, tab: K): CompiledVariables;
   compileAll(type: ThemeType): CompiledVariables;
   getByTab(tab: VariableTab): Record<string, Variable>;
   parseGroup(group: VariableGroup): VariableGroup;
   clone(storage: ThemeStorage): void;
   getVariable(variable: string): VariableGroup;
+  getCategories(): VariableCategories;
+  getVariableCategory(variable: CompiledVariable): VariablePossibleCategories;
 }
 
 class Registry implements IRegistry {
@@ -110,18 +114,15 @@ class Registry implements IRegistry {
     return this.variables[vari!].group;
   }
 
-  compile(type: ThemeType, tab: VariableTab): VariableCategories {
-    const categories: VariableCategories & Indexable = {};
+  compile(type: ThemeType, tab: VariableTab): CompiledVariables {
+    const variables: CompiledVariables & Indexable = {};
 
     const vars = this.getByTab(tab);
     Object.keys(vars).forEach((varKey: string) => {
-      const category = vars[varKey].category!;
-      categories[category] = {
-        ...categories[category],
-        [varKey]: vars[varKey].group[type],
-      };
+      const variable = vars[varKey];
+      variables[varKey] = variable.group[type];
     });
-    return categories;
+    return variables;
   }
 
   compileAll(type: ThemeType): CompiledVariables {
@@ -132,6 +133,31 @@ class Registry implements IRegistry {
 
     return compiled;
   }
+
+  getCategories(): VariableCategories {
+    const categories: VariableCategories = {
+      palette: [],
+      editor: [],
+      syntax: [],
+    };
+
+    Object.keys(this.variables).forEach((key: string) => {
+      const variable = this.variables[key];
+      const tab = variable.tab;
+      const category = variable.category;
+      if (!tab || !category) return;
+      if (categories[tab].includes(category as VariablePossibleCategories))
+        return;
+      categories[tab].push(category as VariablePossibleCategories);
+    });
+    return categories;
+  }
+
+  getVariableCategory(variable: CompiledVariable): VariablePossibleCategories {    
+    const vari = this.variables[variable];
+    if (!vari) throw new Error("Category not found");
+    return vari.category as VariablePossibleCategories;
+  }
 }
 
 const registry = new Registry();
@@ -140,4 +166,5 @@ registry.registerFile(baseVars);
 registry.registerFile(activityBarVars);
 registry.registerFile(titleBarVars);
 registry.registerFile(statusBarVars);
+
 export default registry;

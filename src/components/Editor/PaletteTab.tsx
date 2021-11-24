@@ -1,4 +1,5 @@
 import useRegistry from "@hooks/use-registry";
+import registry from "@lib/registry";
 import { VariablePossibleCategories } from "@lib/types";
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
@@ -6,10 +7,14 @@ import Variable from "./Variable";
 import VariableGroup from "./VariableGroup";
 
 export default function PaletteTab() {
-  const { palette } = useRegistry();
+  const { palette, categories: registryCategories } = useRegistry();
+  const [categories, ,] = useState<VariablePossibleCategories[]>(
+    registryCategories!.palette
+  );
   useEffect(() => {
     console.log(palette);
   }, [palette]);
+
   if (!Object.keys(palette!).length) {
     return (
       <h4 className="text-white text-lg">
@@ -17,23 +22,31 @@ export default function PaletteTab() {
       </h4>
     );
   }
+
+
+
   return (
     <div>
-      {Object.keys(palette!)
-/*         .sort((a, b) => a.localeCompare(b)) */
-        .map((key: string) => (
+      {categories &&
+        categories.map((category: string) => (
           <VariableGroup
             key={uuid()}
-            groupName={key as VariablePossibleCategories}
+            groupName={category as VariablePossibleCategories}
           >
-            {Object.keys(palette![key]).map((k) => (
-              <Variable
-                key={uuid()}
-                name={k}
-                value={palette![key][k]}
-                groupName={key as VariablePossibleCategories}
-              />
-            ))}
+            {Object.keys(palette!).map((k) => {
+              const varCategory = registry.getVariableCategory(k);
+
+              if (varCategory === category) {
+                return (
+                  <Variable
+                    key={uuid()}
+                    name={k}
+                    value={palette![k]}
+                    groupName={category as VariablePossibleCategories}
+                  />
+                );
+              }
+            })}
           </VariableGroup>
         ))}
     </div>

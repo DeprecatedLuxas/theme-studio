@@ -34,7 +34,6 @@ export default function EditLocal() {
   const { isOpen, onClose, onOpen } = useBiscuitBox();
   //const breakpoint = useBreakpoint(1100);
 
- 
   const { storage, setStorage, clear } = useStorage(
     "theme",
     EditorHelper.getFakeStorage()
@@ -44,6 +43,7 @@ export default function EditLocal() {
   // TODO: Make this code clone from local storage
   const [state, dispatch] = useReducer(reducer, {
     variables: registry.compileAll(setupConfig.type),
+    categories: registry.getCategories(),
     palette: registry.compile(setupConfig.type, "palette"),
     editor: registry.compile(setupConfig.type, "editor"),
     syntax: registry.compile(setupConfig.type, "syntax"),
@@ -58,7 +58,7 @@ export default function EditLocal() {
     return <EditWarning />;
   }
 
- /*  if (breakpoint) {
+  /*  if (breakpoint) {
     return <p>hello</p>
   } */
 

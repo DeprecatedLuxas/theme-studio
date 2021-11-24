@@ -38,10 +38,12 @@ export type ThemeType = "dark" | "light" | "hc";
 
 export type CompiledVariable = string;
 export type CompiledVariables = Record<string, string>;
-export type VariableCategories = PartialRecord<
-  VariablePossibleCategories,
-  CompiledVariables
+export type VariableCategories = Record<
+  VariableTab,
+  VariablePossibleCategories[]
 >;
+
+
 
 export type Rule = string;
 export type ConditionalClassName = PartialRecord<Variables, ConditionalClassNameRule>;

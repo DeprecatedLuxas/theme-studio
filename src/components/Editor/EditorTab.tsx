@@ -1,11 +1,16 @@
 import useRegistry from "@hooks/use-registry";
+import registry from "@lib/registry";
 import { VariablePossibleCategories } from "@lib/types";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import Variable from "./Variable";
 import VariableGroup from "./VariableGroup";
 
 export default function EditorTab() {
-  const { editor } = useRegistry();
+  const { editor, categories: registryCategories } = useRegistry();
+  const [categories,,] = useState<VariablePossibleCategories[]>(
+    registryCategories!.editor
+  );
 
   if (!Object.keys(editor!).length) {
     return (
@@ -16,18 +21,26 @@ export default function EditorTab() {
   }
   return (
     <div>
-      {Object.keys(editor!)
-        .sort((a, b) => a.localeCompare(b))
-        .map((key: string) => (
-          <VariableGroup
-            key={uuid()}
-            groupName={key as VariablePossibleCategories}
-          >
-            {Object.keys(editor![key]).map((k) => (
-              <Variable key={uuid()} name={k} value={editor![key][k]} />
-            ))}
-          </VariableGroup>
-        ))}
+      {categories.map((category: string) => (
+        <VariableGroup
+          key={uuid()}
+          groupName={category as VariablePossibleCategories}
+        >
+          {Object.keys(editor!).map((k) => {
+            const varCategory = registry.getVariableCategory(k);
+
+            if (varCategory !== category) return;
+            return (
+              <Variable
+                key={uuid()}
+                name={k}
+                value={editor![k]}
+                groupName={category as VariablePossibleCategories}
+              />
+            );
+          })}
+        </VariableGroup>
+      ))}
     </div>
   );
 }

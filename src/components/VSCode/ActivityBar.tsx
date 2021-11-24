@@ -27,7 +27,7 @@ export default function ActivityBar() {
     >
       <Element>
         <Element
-          className="flex justify-center items-center border-l-2 text-white w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center border-l-2 w-activityicon h-activityicon cursor-pointer relative"
           bind={["blc@activityBar.activeBorder"]}
         >
           <VscFiles fontSize="24px" />
@@ -44,7 +44,7 @@ export default function ActivityBar() {
         >
           <VscSourceControl fontSize="24px" />
           <Element
-            className="absolute rounded-full w-4 h-4 text-badge text-white text-center right-badge bottom-badge"
+            className="absolute rounded-full w-4 h-4 text-badge text-center right-badge bottom-badge"
             bind={[
               "bg@activityBarBadge.background",
               "c@activityBarBadge.foreground",

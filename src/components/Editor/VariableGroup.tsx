@@ -11,11 +11,11 @@ export default function VariableGroup({
   children,
 }: PropsWithChildren<VariableGroupProps>): JSX.Element {
   const [isOpen, setOpen] = useState<boolean>(false);
-  // const { values, updateValues } = useCollapseContext();
 
   const handleClick = () => {
     setOpen(!isOpen);
   };
+  
   return (
     <section>
       <button
