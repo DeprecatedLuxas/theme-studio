@@ -27,12 +27,21 @@ import useStorage from "@hooks/useStorage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
+import Input from "@components/Input";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
-  const { isOpen, onClose, onOpen } = useBiscuitBox();
-  //const breakpoint = useBreakpoint(1100);
+  const {
+    isOpen: isTryItOutOpen,
+    onClose: onTryItOutClose,
+    onOpen: onTryItOutOpen,
+  } = useBiscuitBox();
+  const {
+    isOpen: isExportOpen,
+    onClose: onExportClose,
+    onOpen: onExportOpen,
+  } = useBiscuitBox();
 
   const { storage, setStorage, clear } = useStorage(
     "theme",
@@ -58,10 +67,6 @@ export default function EditLocal() {
     return <EditWarning />;
   }
 
-  /*  if (breakpoint) {
-    return <p>hello</p>
-  } */
-
   // If user is authenticated, redirect to homepage.
   if (user) router.push("/");
 
@@ -80,6 +85,7 @@ export default function EditLocal() {
   };
 
   const handleDownload = () => {
+    onExportClose();
     let link = document.createElement("a");
     link.download = "theme.json";
     let blob = new Blob(
@@ -94,6 +100,7 @@ export default function EditLocal() {
   };
 
   const handleTryItOut = () => {
+    onTryItOutClose();
     // router.push(
     //   "vscode://lucasnorgaard.vscode-theme-studio-visualizer?{base64encodedtheme}"
     // );
@@ -143,7 +150,7 @@ export default function EditLocal() {
             </Tab.Panels>
           </Tab.Group>
           <Divider color="bg-gray-700" />
-          <Button onClick={onOpen} className="mb-4 mx-2">
+          <Button onClick={onTryItOutOpen} className="mb-4 mx-2">
             Try it out
           </Button>
           <div className="w-full h-auto flex justify-center">
@@ -151,7 +158,7 @@ export default function EditLocal() {
               <BsStars className="inline-block" />
               Save
             </Button>
-            <Button onClick={handleDownload} className="mx-2 w-full">
+            <Button onClick={onExportOpen} className="mx-2 w-full">
               <BsCloudDownload className="inline-block" /> Export
             </Button>
           </div>
@@ -160,7 +167,7 @@ export default function EditLocal() {
           <VSCode />
         </div>
       </div>
-      <Dialog isOpen={isOpen} onClose={onClose}>
+      <Dialog isOpen={isTryItOutOpen} onClose={onTryItOutClose}>
         <DialogHeader>Try It Out - Beta</DialogHeader>
         <DialogBody>
           <p className="text-white mb-2">
@@ -180,10 +187,27 @@ export default function EditLocal() {
         </DialogBody>
 
         <DialogFooter>
-          <Button onClick={handleTryItOut} className="mr-4">
-            Try it out
+          <Button onClick={onTryItOutClose} className="mr-4">
+            Close
           </Button>
-          <Button onClick={onClose}>Close</Button>
+          <Button onClick={handleTryItOut}>Try it out</Button>
+        </DialogFooter>
+      </Dialog>
+
+      <Dialog isOpen={isExportOpen} onClose={onExportClose}>
+        <DialogHeader>Export Theme</DialogHeader>
+        <DialogBody>
+          <p className="text-white mb-2">
+            Before you can export your theme, you need to fill some more
+            options.
+          </p>
+        </DialogBody>
+
+        <DialogFooter>
+          <Button onClick={onExportClose} className="mr-4">
+            Close
+          </Button>
+          <Button onClick={handleDownload}>Export</Button>
         </DialogFooter>
       </Dialog>
     </RegistryContext.Provider>
