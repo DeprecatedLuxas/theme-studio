@@ -11,7 +11,7 @@ import {
 } from "@lib/types";
 import { getPropertyDifferences } from "@lib/utils";
 import _ from "lodash";
-import { HTMLAttributes, useEffect } from "react";
+import { HTMLAttributes, useEffect, useRef } from "react";
 
 export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: keyof JSX.IntrinsicElements;
@@ -22,7 +22,7 @@ export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
 export default function Element({
   as = "div",
   bind,
-  className,
+  className = "",
   conditionalClassName,
   ...rest
 }: ElementProps) {
@@ -34,33 +34,25 @@ export default function Element({
     variables,
   });
 
-  let classes = className;
+  let classes = useRef<string>(className);
 
-  // let parsedRule;
-  // if (conditionalClassName) parsedRule = RuleParser.parse(conditionalClassName);
 
   useEffect(() => {
     if (!conditionalClassName) return;
     if (!prevVariables) return;
     if (!variables) return;
-    // console.log("HELLO=");
 
     const changedVariables = getPropertyDifferences(prevVariables, variables);
     console.log(changedVariables);
 
-    const extraClasses = RuleParser.parse(conditionalClassName);
-    // console.log(extraClasses);
+    const extraClasses = RuleParser.parse(
+      changedVariables,
+      conditionalClassName
+    );
+    console.log(extraClasses);
+    classes.current = `${classes.current} ${extraClasses}`;
+
   }, [variables, conditionalClassName, prevVariables]);
 
-  /**
-   * conditionalClassName={{
-   *  "brc@activityBar.border": {
-   *    "when": "NOT_NULL",
-   *    "then": "border-r-2",
-   *  }
-   * }}
-   *
-   *
-   */
-  return <Component className={classes} {...rest} {...binding} />;
+  return <Component className={classes.current} {...rest} {...binding} />;
 }

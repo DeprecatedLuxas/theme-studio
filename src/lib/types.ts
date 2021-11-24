@@ -14,7 +14,6 @@ export type PartialRecord<K extends string | number | symbol, T> = {
   [P in K]?: T;
 };
 export type VariableTab = "palette" | "editor" | "syntax";
-
 export interface Indexable {
   [key: string]: any;
 }
@@ -35,6 +34,7 @@ export interface Variable {
 }
 
 export type ThemeType = "dark" | "light" | "hc";
+export type ChangedVariables = CompiledVariables;
 
 export type CompiledVariable = string;
 export type CompiledVariables = Record<string, string>;
