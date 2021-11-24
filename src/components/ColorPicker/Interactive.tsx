@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import _ from "lodash";
-interface InteractiveProps extends HTMLAttributes<HTMLDivElement> {
+export interface InteractiveProps extends HTMLAttributes<HTMLDivElement> {
   onMove?: (interaction: Interaction, event: MouseEvent) => void;
   onDown?: (offset: Interaction, event: MouseEvent) => void;
 }
@@ -39,7 +39,7 @@ export const getPosition = (
 };
 
 const Interactive = forwardRef<HTMLDivElement, InteractiveProps>(
-  function Interactive(props, ref) {
+  (props, ref) => {
     const { onMove, onDown, children, ...rest } = props;
     const container = useRef<HTMLDivElement>(null);
 
@@ -100,4 +100,7 @@ const Interactive = forwardRef<HTMLDivElement, InteractiveProps>(
     );
   }
 );
+
+Interactive.displayName = "TStudioInteractive";
+
 export default Interactive;

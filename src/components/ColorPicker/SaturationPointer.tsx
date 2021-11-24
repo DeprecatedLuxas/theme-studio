@@ -21,7 +21,7 @@ export default function SaturationPointer({
         }}
       >
         <div
-          className="w-2 h-2 border border-white rounded-full"
+          className="w-2 h-2 border border-white rounded-full picker-pointer"
           style={{
             backgroundColor: color,
           }}

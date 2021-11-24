@@ -51,8 +51,7 @@ const Alpha = forwardRef<HTMLDivElement, AlphaProps>(function Alpha(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [hsva]
   );
-
-  // const colorTo = hsvaToHslaString(Object.assign({}, hsva, { a: 1 }));
+  
   const innerBackground = `linear-gradient(to right, rgba(244, 67, 54, 0) 0%, ${tinycolor(
     hsva
   ).toHslString()} 100%)`;

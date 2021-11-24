@@ -1,7 +1,8 @@
-import Alpha from "../Alpha";
-import EditableInput from "../EditableInput";
-import Hue from "..//Hue";
-import { useCallback, useEffect, useState } from "react";
+import Alpha from "@components/ColorPicker/Alpha";
+import EditableInput from "@components/ColorPicker/EditableInput";
+import Hue from "@components/ColorPicker/Hue";
+import { Palette } from "@lib/types";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import tinycolor from "tinycolor2";
 import Saturation from "../Saturation";
 
@@ -31,7 +32,7 @@ export default function PalettePicker({ color, onChange }: PalettePickerProps) {
   const handleChange = useCallback(
     (hsv: tinycolor.ColorFormats.HSVA) => {
       setHsva(hsv);
-      onChange && onChange(tinycolor(hsv).toHex8String());
+      onChange && onChange(tinycolor(hsv).toHexString());
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [hsva]
@@ -64,6 +65,7 @@ export default function PalettePicker({ color, onChange }: PalettePickerProps) {
             width="auto"
             height={10}
             hsva={hsva}
+            radius={20}
             style={{ marginTop: 8 }}
             innerProps={{
               style: { marginLeft: 1, marginRight: 5 },

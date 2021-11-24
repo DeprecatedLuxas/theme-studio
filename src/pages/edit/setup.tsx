@@ -24,6 +24,7 @@ export default function Setup() {
   const { user, isLoading, error } = useUser();
   const [config, setConfig] = useRecoilState(setupState);
 
+
   const { storage, setStorage, clear } = useStorage(
     "theme",
     EditorHelper.getFakeStorage()

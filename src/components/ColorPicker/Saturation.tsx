@@ -39,7 +39,6 @@ const Saturation = forwardRef<HTMLDivElement, SaturationProps>(
           s: interaction.left * 100,
           v: (1 - interaction.top) * 100,
           a: hsva.a,
-          // source: 'hsv',
         });
     };
 

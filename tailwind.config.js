@@ -63,9 +63,6 @@ module.exports = {
         badge: "9px",
         "-4.5": "-1.125",
       },
-      transform: {
-        saturation: "translate(-3px, -3px)",
-      },
       fontFamily: {
         roboto: "Roboto, sans-serif",
       },
@@ -125,6 +122,9 @@ module.exports = {
           transform: "translateY(-50%)",
           left: "7%",
         },
+        ".picker-pointer": {
+          transform: "translate(-4px, -4px)"
+        }
       };
 
       const sizes = [1, 2, 3, 4, 5, 6];
