@@ -35,7 +35,6 @@ export default function SyntaxTab() {
                 key={uuid()}
                 name={k}
                 value={syntax![k]}
-                groupName={category as VariablePossibleCategories}
               />
             );
           })}

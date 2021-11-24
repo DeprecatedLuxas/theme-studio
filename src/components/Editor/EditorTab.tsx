@@ -35,7 +35,6 @@ export default function EditorTab() {
                 key={uuid()}
                 name={k}
                 value={editor![k]}
-                groupName={category as VariablePossibleCategories}
               />
             );
           })}
