@@ -3,6 +3,7 @@
 - [ ] Popover component
 - [ ] Implement last page of setup to show your config. (requires json parsing, to highlight palette array)
 - [x] Fix when you change a color, the groups closes.
+- [ ] Fix conditionalclassname, requires two updates before it works.
 - [ ] Complete the toVSCFormat function.
 - [ ] Improve performance
 - [ ] Complete setup component

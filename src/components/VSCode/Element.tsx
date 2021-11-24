@@ -1,10 +1,9 @@
-import EditorHelper from "@helpers/editor";
-import RuleParser from "@helpers/vscode/rule-parser";
 import useBinding from "@hooks/use-binding";
 import { usePrevious } from "@hooks/use-previous";
 import useRegistry from "@hooks/use-registry";
 import {
   Arrayable,
+  ChangedVariables,
   CompiledVariables,
   ConditionalClassName,
   Variables,
@@ -36,22 +35,32 @@ export default function Element({
 
   let classes = useRef<string>(className);
 
-
   useEffect(() => {
     if (!conditionalClassName) return;
     if (!prevVariables) return;
     if (!variables) return;
-
-    const changedVariables = getPropertyDifferences(prevVariables, variables);
-    console.log(changedVariables);
-
-    const extraClasses = RuleParser.parse(
-      changedVariables,
-      conditionalClassName
+    
+    let extraClasses = "";
+    const changedVariables: ChangedVariables = getPropertyDifferences(
+      prevVariables,
+      variables
     );
-    console.log(extraClasses);
-    classes.current = `${classes.current} ${extraClasses}`;
+    const changedVarKeys: string[] = Object.keys(changedVariables);
 
+    Object.keys(conditionalClassName)
+      .filter((key: string) => changedVarKeys.includes(key))
+      .forEach((key: string) => {
+        const ruleObj = conditionalClassName[key as keyof ConditionalClassName];
+        if (!ruleObj) throw new Error("Rule is undefined, please report this.");
+        if (ruleObj!.when === "NOT_NULL") {
+          if (changedVariables[key] === null) return;
+          extraClasses += ruleObj!.then;
+        }
+      });
+
+    classes.current = `${classes.current}${
+      extraClasses !== "" ? ` ${extraClasses}` : ""
+    }`;
   }, [variables, conditionalClassName, prevVariables]);
 
   return <Component className={classes.current} {...rest} {...binding} />;
