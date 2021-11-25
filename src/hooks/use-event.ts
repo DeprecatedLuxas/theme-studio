@@ -1,24 +1,39 @@
-import { useEffect } from "react";
-import { useCallbackRef } from "./use-callback-ref";
+import { useEffect, useRef } from "react";
 
-export function useEvent<K extends keyof DocumentEventMap>(
-  event: K | (string & {}),
-  handler: (event: DocumentEventMap[K]) => void,
-  ele?: Document | HTMLElement | Window
+type EventElement = Document | HTMLElement | Window;
+
+export default function useEvent<E extends keyof DocumentEventMap>(
+  eventName: E | string,
+
+  handler: (event: Event) => void,
+
+  element?: EventElement
 ) {
-  const listener = useCallbackRef(handler) as EventListener;
+  const savedHandler = useRef<(event: Event) => void>();
 
   useEffect(() => {
-    const node = ele ?? document;
+    const targetElement: EventElement = element || window;
 
-    node.addEventListener(event, listener);
-    return () => {
-      node.removeEventListener(event, listener);
+    if (!(targetElement && targetElement.addEventListener)) {
+      return;
+    }
+
+    if (savedHandler.current !== handler) {
+      savedHandler.current = handler;
+    }
+
+    const eventListener = (event: Event) => {
+      // eslint-disable-next-line no-extra-boolean-cast
+
+      if (!!savedHandler?.current) {
+        savedHandler.current(event);
+      }
     };
-  }, [event, ele, listener]);
 
-  return () => {
-    const node = ele ?? document;
-    node.removeEventListener(event, listener);
-  };
+    targetElement.addEventListener(eventName, eventListener);
+
+    return () => {
+      targetElement.removeEventListener(eventName, eventListener);
+    };
+  }, [eventName, element, handler]);
 }

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { BsStars, BsCloudDownload } from "react-icons/bs";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
@@ -27,7 +27,6 @@ import useStorage from "@hooks/useStorage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
-import Input from "@components/Input";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();

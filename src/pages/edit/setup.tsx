@@ -15,14 +15,15 @@ import { v4 as uuid } from "uuid";
 import FirstTab from "@components/Setup/FirstTab";
 import ThirdTab from "@components/Setup/ThirdTab";
 import Divider from "@components/Divider";
+import useIsMounted from "@hooks/use-is-mounted";
 
 const bottomNav = [1, 2, 3];
 
 export default function Setup() {
-  const [mounted, setMounted] = useState<boolean>(false);
+  const isMounted = useIsMounted()
   const [completed, setCompleted] = useState<boolean>(false);
   const { user, isLoading, error } = useUser();
-  const [config, setConfig] = useRecoilState(setupState);
+  const [config,,] = useRecoilState(setupState);
 
 
   const { storage, setStorage, clear } = useStorage(
@@ -33,11 +34,8 @@ export default function Setup() {
   const [tab, setTab] = useState<number>(1);
   const router = useRouter();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
-  if (!mounted && isLoading) {
+  if (!isMounted && isLoading) {
     return <Loading />;
   }
 
