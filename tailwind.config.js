@@ -136,6 +136,13 @@ module.exports = {
         };
         newUtilities[`treeindent-${size}`] = {
           left: `calc(-1.875rem * ${size + 1} + 0.75rem)`,
+          position: "absolute",
+          top: "50%",
+          transform: "translateY(-50%)",
+          width: "1px",
+          height: "100%",
+          backgroundColor: "blue",
+          marginLeft: "-1px"
         };
       });
 

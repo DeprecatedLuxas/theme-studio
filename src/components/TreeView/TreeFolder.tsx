@@ -19,24 +19,29 @@ export default function TreeFolder({
   children,
   level = 0,
   canOpen = false,
-  defaultOpen = false
+  defaultOpen = false,
 }: PropsWithChildren<TreeFolderProps>) {
   const { isOpen, onOpen, onClose } = useBiscuitBox({
-    isOpen: defaultOpen
+    isOpen: defaultOpen,
   });
   const parentLevel = 0;
 
   const handleClick = () => {
     if (!canOpen) return;
-    return !isOpen ? onOpen() : onClose()
+    return !isOpen ? onOpen() : onClose();
   };
-  
+
   return (
     <div
       className="cursor-pointer select-none leading-none"
       onClick={handleClick}
     >
-      <div className="flex h-7 items-center relative ml-">
+      <div
+        className="flex h-7 items-center relative"
+        style={{
+          marginLeft: `calc(1.875rem * ${parentLevel})`,
+        }}
+      >
         <TreeIndent level={parentLevel} />
         <span className="absolute -left-4.5 top-1/2 w-3.5 h-3.5 transform-50 z-10">
           {isOpen ? <VscChevronDown /> : <VscChevronRight />}

@@ -1,15 +1,11 @@
 import {
-  Arrayable,
-  CompiledVariables,
   SetupConfig,
   ThemeStorage,
   Variable,
-  Variables,
   VSCThemeFormat,
 } from "@lib/types";
 import dayjs from "dayjs";
 import { isEqual } from "lodash";
-import { CSSProperties, RefObject, useRef } from "react";
 
 export default class EditorHelper {
   static Places: Map<"bg" | "text" | "border", string> = new Map([
@@ -18,9 +14,6 @@ export default class EditorHelper {
     ["border", "borderColor"],
   ]);
 
-  static isValidStorage(storage: any): boolean {
-    return false;
-  }
 
   static getFromSetupConfig(config: SetupConfig): ThemeStorage {
     return {
@@ -55,5 +48,4 @@ export default class EditorHelper {
   static formatVariable(variable: string): string {
     return variable.split("@")[1];
   }
-
 }

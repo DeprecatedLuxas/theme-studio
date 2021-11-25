@@ -5,12 +5,23 @@ import TreeIndent from "./Indent";
 export interface TreeFileProps extends TreeNodeProps {}
 
 export default function TreeFile({ name, level = 0 }: TreeFileProps) {
+
   return (
-    <div>
-      <div className="flex">
+    <div
+      className="cursor-pointer leading-none select-none"
+      style={{
+        marginLeft: `calc(1.875rem * ${level})`,
+      }}
+    >
+      <div className="flex h-7 items-center relative">
         <TreeIndent level={level} />
-        <VscFile />
-        <span>{name}</span>
+        <span className="w-6 h-full inline-flex items-center">
+          <VscFile />
+        </span>
+
+        <span className="whitespace-nowrap text-sm text-green-700">
+          {name}
+        </span>
       </div>
     </div>
   );
