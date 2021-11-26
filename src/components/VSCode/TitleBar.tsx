@@ -21,9 +21,9 @@ export default function TitleBar() {
           height="16"
         />
       </Element>
-      <Element className="flex items-center justify-start">
+      <Element className="flex items-center justify-start h-full">
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:c@menubar.selectionForeground",
             "h:bg@menubar.selectionBackground",
@@ -32,7 +32,7 @@ export default function TitleBar() {
           File
         </Element>
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:bg@menubar.selectionBackground",
             "h:c@menubar.selectionForeground",
@@ -41,7 +41,7 @@ export default function TitleBar() {
           Edit
         </Element>
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:bg@menubar.selectionBackground",
             "h:c@menubar.selectionForeground",
@@ -50,7 +50,7 @@ export default function TitleBar() {
           Selection
         </Element>
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:bg@menubar.selectionBackground",
             "h:c@menubar.selectionForeground",
@@ -59,7 +59,7 @@ export default function TitleBar() {
           View
         </Element>
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:bg@menubar.selectionBackground",
             "h:c@menubar.selectionForeground",
@@ -68,7 +68,7 @@ export default function TitleBar() {
           Go
         </Element>
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:bg@menubar.selectionBackground",
             "h:c@menubar.selectionForeground",
@@ -77,7 +77,7 @@ export default function TitleBar() {
           Run
         </Element>
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:bg@menubar.selectionBackground",
             "h:c@menubar.selectionForeground",
@@ -86,7 +86,7 @@ export default function TitleBar() {
           Terminal
         </Element>
         <Element
-          className="px-2 select-none"
+          className="px-2 select-none h-full flex items-center"
           bind={[
             "h:bg@menubar.selectionBackground",
             "h:c@menubar.selectionForeground",
