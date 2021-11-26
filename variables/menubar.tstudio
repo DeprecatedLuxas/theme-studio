@@ -1,0 +1,116 @@
+{
+  "c@menubar.selectionForeground": {
+    "variable": "menubar.selectionForeground",
+    "group": {
+      "dark": "var@titleBar.activeForeground",
+      "light": "var@titleBar.activeForeground",
+      "hc": "var@titleBar.activeForeground"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Foreground color of the selected menu item in the menubar.",
+    "hover": true
+
+  },
+  "bg@menubar.selectionBackground": {
+    "variable": "menubar.selectionBackground",
+    "group": {
+      "dark": "func@transparent(#ffffff, 0.1)",
+      "light": "func@transparent(#000000, 0.1)",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Background color of the selected menu item in the menubar.",
+    "hover": true
+  },
+  "bc@menubar.selectionBorder": {
+    "variable": "menubar.selectionBorder",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@contrastActiveBorder"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Border color of the selected menu item in the menubar."
+
+  },
+  "c@menu.foreground": {
+    "variable": "menu.foreground",
+    "group": {
+      "dark": "var@dropdown.foreground",
+      "light": "var@foreground",
+      "hc": "var@dropdown.foreground"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Foreground color of menu items."
+  },
+  "bg@menu.background": {
+    "variable": "menu.background",
+    "group": {
+      "dark": "var@dropdown.background",
+      "light": "var@dropdown.background",
+      "hc": "var@dropdown.background"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Background color of menu items."
+  },
+  "c@menu.selectionForeground": {
+    "variable": "menu.selectionForeground",
+    "group": {
+      "dark": "var@list.activeSelectionForeground",
+      "light": "var@list.activeSelectionForeground",
+      "hc": "var@list.activeSelectionForeground"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Foreground color of the selected menu item in menus."
+  },
+  "bg@menu.selectionBackground": {
+    "variable": "menu.selectionBackground",
+    "group": {
+      "dark": "var@list.activeSelectionBackground",
+      "light": "var@list.activeSelectionBackground",
+      "hc": "var@list.activeSelectionBackground"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Background color of the selected menu item in menus."
+  },
+  "bc@menu.selectionBorder": {
+    "variable": "menu.selectionBorder",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@contrastActiveBorder"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Border color of the selected menu item in menus."
+  },
+  "bg@menu.separatorBackground": {
+    "variable": "menu.separatorBackground",
+    "group": {
+      "dark": "#BBBBBB",
+      "light": "#888888",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Color of a separator menu item in menus."
+  },
+  "bc@menu.border": {
+    "variable": "menu.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Border color of menus."
+  }
+}

@@ -45,19 +45,28 @@ export default function useBinding({
 
     if (hover) {
       let oldStyle: CSSProperties = {};
+      // This is just a fix for now, but probably not the best solution.
+      let oldMouseEnter: any;
+      let oldMouseLeave: any;
 
+      if (events.onMouseEnter) oldMouseEnter = events.onMouseEnter;
+      if (events.onMouseLeave) oldMouseLeave = events.onMouseLeave;
+      
       events.onMouseEnter = () => {
+        oldMouseEnter && oldMouseEnter();
+
         oldStyle =
           // @ts-ignore
-          ref.current!.style[styling];
+          ref!.current!.style[styling];
 
         // We need to to @ts-ignore on the style, else it will give an error
         // @ts-ignore
-        ref.current!.style[styling] = variables![binding.split(":")[1]];
+        ref!.current!.style[styling] = variables![binding.split(":")[1]];
       };
       events.onMouseLeave = () => {
+        oldMouseLeave && oldMouseLeave();
         // @ts-ignore
-        ref.current!.style[styling] = oldStyle;
+        ref!.current!.style[styling] = oldStyle;
       };
     } else {
       styleObj = {

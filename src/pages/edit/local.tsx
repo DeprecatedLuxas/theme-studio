@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { BsStars, BsCloudDownload } from "react-icons/bs";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
@@ -57,6 +57,9 @@ export default function EditLocal() {
     syntax: registry.compile(setupConfig.type, "syntax"),
   });
 
+  useEffect(() => {
+    console.log("changed");
+  }, [state]);
 
   if (isLoading) {
     return <Loading />;

@@ -6,10 +6,10 @@ export default function TitleBar() {
   return (
     <Element
       className="flex items-center justify-center h-titlebar text-titlebar relative"
-      bind={[]}
+      bind={["bg@titleBar.activeBackground"]}
     >
       <Element
-        className="h-full flex justify-center items-center"
+        className="h-full flex justify-center items-center select-none"
         style={{
           width: 35,
         }}
@@ -22,17 +22,81 @@ export default function TitleBar() {
         />
       </Element>
       <Element className="flex items-center justify-start">
-        <Element className="px-2">File</Element>
-        <Element className="px-2">Edit</Element>
-        <Element className="px-2">Selection</Element>
-        <Element className="px-2">View</Element>
-        <Element className="px-2">Go</Element>
-        <Element className="px-2">Run</Element>
-        <Element className="px-2">Terminal</Element>
-        <Element className="px-2">Help</Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:c@menubar.selectionForeground",
+            "h:bg@menubar.selectionBackground",
+          ]}
+        >
+          File
+        </Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:bg@menubar.selectionBackground",
+            "h:c@menubar.selectionForeground",
+          ]}
+        >
+          Edit
+        </Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:bg@menubar.selectionBackground",
+            "h:c@menubar.selectionForeground",
+          ]}
+        >
+          Selection
+        </Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:bg@menubar.selectionBackground",
+            "h:c@menubar.selectionForeground",
+          ]}
+        >
+          View
+        </Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:bg@menubar.selectionBackground",
+            "h:c@menubar.selectionForeground",
+          ]}
+        >
+          Go
+        </Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:bg@menubar.selectionBackground",
+            "h:c@menubar.selectionForeground",
+          ]}
+        >
+          Run
+        </Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:bg@menubar.selectionBackground",
+            "h:c@menubar.selectionForeground",
+          ]}
+        >
+          Terminal
+        </Element>
+        <Element
+          className="px-2 select-none"
+          bind={[
+            "h:bg@menubar.selectionBackground",
+            "h:c@menubar.selectionForeground",
+          ]}
+        >
+          Help
+        </Element>
       </Element>
 
-      <Element className="text-center flex-1">
+      <Element className="text-center flex-1 select-none">
         App.tsx - VSCode Theme - Visual Studio Code
       </Element>
     </Element>

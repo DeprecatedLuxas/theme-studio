@@ -43,17 +43,17 @@ export default function TreeFolder({
         }}
       >
         <TreeIndent level={parentLevel} />
-        <span className="absolute -left-4.5 top-1/2 w-3.5 h-3.5 transform-50 z-10">
+        <span className="inline-flex items-center justify-center absolute -left-4.5 top-1/2 w-3.5 h-3.5 transform-50 z-10">
           {isOpen ? <VscChevronDown /> : <VscChevronRight />}
         </span>
-        <span className="w-6 h-full mr-2">
+        <span className="inline-flex items-center justify-center w-6 h-full mr-2">
           {isOpen ? <VscFolderOpened /> : <VscFolder />}
         </span>
 
         <span className="text-sm whitespace-nowrap text-green-700">{name}</span>
       </div>
       {isOpen && (
-        <div>
+        <div className="flex flex-col h-auto">
           {Children.map(children, (child: any) => {
             const newP = parentLevel + 1;
 

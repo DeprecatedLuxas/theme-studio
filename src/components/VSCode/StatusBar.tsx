@@ -36,29 +36,29 @@ export default function StatusBar() {
         </Element>
 
         <Element
-          className="cursor-pointer h-full flex items-center justify-center px-1.5"
+          className="cursor-pointer h-full flex items-center justify-center px-1.5 select-none"
           bind={[
             "h:bg@statusBarItem.hoverBackground",
             "c@statusBar.foreground",
           ]}
         >
           <VscSourceControl fontSize="16px" />
-          <Element as="span">master*</Element>
+          <Element as="span" className="select-none">master*</Element>
         </Element>
 
         <Element
-          className="cursor-pointer h-full flex items-center justify-center px-1.5"
+          className="cursor-pointer h-full flex items-center justify-center px-1.5 select-none"
           bind={[
             "h:bg@statusBarItem.hoverBackground",
             "c@statusBar.foreground",
           ]}
         >
           <VscError fontSize="16px" />
-          <Element as="span" className="mx-1">
+          <Element as="span" className="mx-1 select-none">
             0
           </Element>
           <VscWarning fontSize="16px" />
-          <Element as="span" className="ml-1">
+          <Element as="span" className="ml-1 select-none">
             0
           </Element>
         </Element>
@@ -68,7 +68,7 @@ export default function StatusBar() {
           stautsBarItems.map((item: string) => (
             <Element
               key={uuid()}
-              className="cursor-pointer px-1.5 py-0.5 h-full"
+              className="cursor-pointer px-1.5 py-0.5 h-full select-none"
               bind={[
                 "h:bg@statusBarItem.hoverBackground",
                 "c@statusBar.foreground",

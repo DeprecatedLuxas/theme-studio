@@ -11,7 +11,6 @@ export default function useVSCEvent(
   const events: any[] = Array.isArray(eventList) ? eventList : [eventList];
   const eventHandlers: any = {};
   events.forEach((event) => {
-    console.log(event);
     // TODO: Rewrite this, it's ugly and a proof of concept.
     if (event.includes("onHover")) {
       let oldStyle: CSSProperties = {};

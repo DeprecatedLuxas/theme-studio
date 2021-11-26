@@ -4,7 +4,7 @@ import TreeIndent from "./Indent";
 
 export interface TreeFileProps extends TreeNodeProps {}
 
-export default function TreeFile({ name, level = 0 }: TreeFileProps) {
+export default function TreeFile({ name, type, level = 0 }: TreeFileProps) {
 
   return (
     <div

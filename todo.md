@@ -1,4 +1,3 @@
-- [ ] Create a context menu component
 - [ ] Clean up color picker and fix it again. (taken from uiwjs/react-color and modified.)
 - [ ] Popover component
 - [ ] Implement last page of setup to show your config. (requires json parsing, to highlight palette array)
@@ -9,3 +8,4 @@
 - [ ] Complete setup component
 - [ ] Add the rest of variables. (Sidebar is missing some variables)
 - [ ] VSCode Extension to test the themes 
+- [x] Fix bug when there is more than 1 hover variable, only the last works (because it overwrites the handler.)

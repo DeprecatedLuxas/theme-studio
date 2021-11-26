@@ -46,7 +46,7 @@ export default function ActivityBar() {
         >
           <VscSourceControl fontSize="24px" />
           <Element
-            className="absolute rounded-full w-4 h-4 text-badge text-center right-badge bottom-badge"
+            className="absolute rounded-full w-4 h-4 text-badge text-center right-badge bottom-badge select-none"
             bind={[
               "bg@activityBarBadge.background",
               "c@activityBarBadge.foreground",

@@ -15,6 +15,8 @@ import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
 import titleBarVars from "@variables/titlebar.tstudio";
 import statusBarVars from "@variables/statusbar.tstudio";
+import menuBarVars from "@variables/menubar.tstudio";
+import gitVars from "@variables/git.tstudio";
 import tinycolor from "tinycolor2";
 
 enum Functions {
@@ -31,7 +33,7 @@ interface IRegistry {
   getByTab(tab: VariableTab): Record<string, Variable>;
   parseGroup(group: VariableGroup): VariableGroup;
   clone(storage: ThemeStorage): void;
-  getVariable(variable: string): VariableGroup;
+  getVariable(variable: string): VariableGroup | undefined;
   getCategories(): VariableCategories;
   getVariableCategory(variable: CompiledVariable): VariablePossibleCategories;
 }
@@ -72,10 +74,17 @@ class Registry implements IRegistry {
     Object.keys(group).forEach((key: string) => {
       if (this.varRegex.test(newGroup[key])) {
         const varMatch = newGroup[key].match(this.varRegex);
+        let replacementVariable = this.getVariable(varMatch!.groups!.varname);
+        if (!replacementVariable)
+          replacementVariable = {
+            dark: "hotpink",
+            light: "hotpink",
+            hc: "hotpink",
+          };
 
         newGroup[key] = newGroup[key].replace(
           this.varRegex,
-          this.getVariable(varMatch!.groups!.varname)[key]
+          replacementVariable[key]
         );
       }
       if (this.funcRegex.test(newGroup[key])) {
@@ -107,10 +116,11 @@ class Registry implements IRegistry {
     throw new Error("Method not implemented.");
   }
 
-  getVariable(variable: string): VariableGroup {
+  getVariable(variable: string): VariableGroup | undefined {
     const vari = Object.keys(this.variables).find((key: string) => {
       return this.variables[key].variable === variable;
     });
+    if (!this.variables[vari!]) return undefined;
     return this.variables[vari!].group;
   }
 
@@ -153,7 +163,7 @@ class Registry implements IRegistry {
     return categories;
   }
 
-  getVariableCategory(variable: CompiledVariable): VariablePossibleCategories {    
+  getVariableCategory(variable: CompiledVariable): VariablePossibleCategories {
     const vari = this.variables[variable];
     if (!vari) throw new Error("Category not found");
     return vari.category as VariablePossibleCategories;
@@ -166,5 +176,7 @@ registry.registerFile(baseVars);
 registry.registerFile(activityBarVars);
 registry.registerFile(titleBarVars);
 registry.registerFile(statusBarVars);
+registry.registerFile(menuBarVars);
+registry.registerFile(gitVars);
 
 export default registry;
