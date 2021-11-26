@@ -5,7 +5,6 @@ import TreeIndent from "./Indent";
 export interface TreeFileProps extends TreeNodeProps {}
 
 export default function TreeFile({ name, type, level = 0 }: TreeFileProps) {
-
   return (
     <div
       className="cursor-pointer leading-none select-none"

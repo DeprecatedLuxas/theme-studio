@@ -5,13 +5,35 @@ import Element from "./Element";
 export default function SideBar() {
   return (
     <Element
-      // v={["bg@sideBar.background", "text@sideBar.foreground"]}
-      className="w-sidebar h-full flex flex-col"
+    className="w-sidebar h-full flex flex-col"
+    conditionalClassName={{
+      "brc@sideBar.border": {
+        when: "NOT_NULL",
+        then: "border-r-2",
+      },
+    }}
+    bind={["bg@sideBar.background", "c@sideBar.foreground", "brc@sideBar.border"]}
     >
-      <Element className="uppercase flex items-center justify-between">
-        EXPLORER <VscEllipsis />
+      <Element className="uppercase flex items-center justify-between px-5 h-sideBarTitle text-sideBarTitle">
+        <Element
+          as="span"
+          className="text-sideBarTitle"
+          bind={["c@sideBarTitle.foreground"]}
+        >
+          EXPLORER
+        </Element>
+        <Element
+          className="flex items-center justify-center cursor-pointer -mr-5 h-full w-sideBarTitleIcon"
+          bind={["c@sideBar.foreground"]}
+        >
+          <VscEllipsis fontSize="16px" />
+        </Element>
       </Element>
-      <Element className="uppercase flex border justify-start items-center">
+      <Element
+        className="uppercase flex border justify-start items-center"
+        bind={["bc@sideBarSectionHeader.border", "bg@sideBarSectionHeader.background", "c@sideBarSectionHeader.foreground"]}
+
+      >
         <VscChevronDown />
         VSCODE-THEME
       </Element>
@@ -37,11 +59,25 @@ export default function SideBar() {
           <TreeView.File name="yarn.lock" type="lock" />
         </TreeView>
       </Element>
-      <Element className="uppercase border flex justify-start items-center">
+      <Element
+        className="uppercase border flex justify-start items-center"
+        bind={[
+          "bc@sideBarSectionHeader.border",
+          "bg@sideBarSectionHeader.background",
+          "c@sideBarSectionHeader.foreground",
+        ]}
+      >
         <VscChevronRight />
         OUTLINE
       </Element>
-      <Element className="uppercase border flex justify-start items-center">
+      <Element
+        className="uppercase border flex justify-start items-center"
+        bind={[
+          "bc@sideBarSectionHeader.border",
+          "bg@sideBarSectionHeader.background",
+          "c@sideBarSectionHeader.foreground",
+        ]}
+      >
         <VscChevronRight />
         OPEN EDITORS
       </Element>

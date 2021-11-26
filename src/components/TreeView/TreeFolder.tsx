@@ -24,7 +24,6 @@ export default function TreeFolder({
   const { isOpen, onOpen, onClose } = useBiscuitBox({
     isOpen: defaultOpen,
   });
-  const parentLevel = 0;
 
   const handleClick = () => {
     if (!canOpen) return;
@@ -39,10 +38,10 @@ export default function TreeFolder({
       <div
         className="flex h-7 items-center relative"
         style={{
-          marginLeft: `calc(1.875rem * ${parentLevel})`,
+          marginLeft: `calc(1.875rem * ${level})`,
         }}
       >
-        <TreeIndent level={parentLevel} />
+        <TreeIndent level={level} />
         <span className="inline-flex items-center justify-center absolute -left-4.5 top-1/2 w-3.5 h-3.5 transform-50 z-10">
           {isOpen ? <VscChevronDown /> : <VscChevronRight />}
         </span>
@@ -55,10 +54,8 @@ export default function TreeFolder({
       {isOpen && (
         <div className="flex flex-col h-auto">
           {Children.map(children, (child: any) => {
-            const newP = parentLevel + 1;
-
             return cloneElement(child, {
-              level: newP,
+              level: level + 1,
             });
           })}
         </div>

@@ -35,7 +35,7 @@ export default function Setup() {
   const router = useRouter();
 
 
-  if (!isMounted && isLoading) {
+  if (!isMounted() && isLoading) {
     return <Loading />;
   }
 

@@ -65,6 +65,39 @@
     "category": "Status Bar",
     "description": "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window."
   },
+  "bg@statusBar.debuggingBackground": {
+    "variable": "statusBar.debuggingBackground",
+    "group": {
+      "dark": "#CC6633",
+      "light": "#CC6633",
+      "hc": "#CC6633"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window"
+  },
+  "c@statusBar.debuggingForeground": {
+    "variable": "statusBar.debuggingForeground",
+    "group": {
+      "dark": "var@statusBar.foreground",
+      "light": "var@statusBar.foreground",
+      "hc": "var@statusBar.foreground"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar foreground color when a program is being debugged. The status bar is shown in the bottom of the window"
+  },
+  "bc@statusBar.debuggingBorder": {
+    "variable": "statusBar.debuggingBorder",
+    "group": {
+      "dark": "var@statusBar.border",
+      "light": "var@statusBar.border",
+      "hc": "var@statusBar.border"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar border color separating to the sidebar and editor when a program is being debugged. The status bar is shown in the bottom of the window"
+  },
   "bg@statusBarItem.activeBackground": {
     "variable": "statusBarItem.activeBackground",
     "group": {
@@ -125,7 +158,7 @@
     "variable": "statusBarItem.errorBackground",
     "group": {
       "dark": "func@darken(var@errorForeground, 0.4)",
-      "light": "func@darken(var@errorForeground, 0.4)",
+      "light": "#c72e0f",
       "hc": null
     },
     "tab": "palette",

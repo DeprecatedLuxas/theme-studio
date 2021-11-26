@@ -17,6 +17,7 @@ import titleBarVars from "@variables/titlebar.tstudio";
 import statusBarVars from "@variables/statusbar.tstudio";
 import menuBarVars from "@variables/menubar.tstudio";
 import gitVars from "@variables/git.tstudio";
+import sideBarVars from "@variables/sidebar.tstudio";
 import tinycolor from "tinycolor2";
 
 enum Functions {
@@ -32,7 +33,7 @@ interface IRegistry {
   compileAll(type: ThemeType): CompiledVariables;
   getByTab(tab: VariableTab): Record<string, Variable>;
   parseGroup(group: VariableGroup): VariableGroup;
-  clone(storage: ThemeStorage): void;
+  clone(storage: ThemeStorage): boolean | undefined;
   getVariable(variable: string): VariableGroup | undefined;
   getCategories(): VariableCategories;
   getVariableCategory(variable: CompiledVariable): VariablePossibleCategories;
@@ -112,7 +113,7 @@ class Registry implements IRegistry {
     return newGroup;
   }
 
-  clone(storage: ThemeStorage): void {
+  clone(storage: ThemeStorage): boolean | undefined {
     throw new Error("Method not implemented.");
   }
 
@@ -178,5 +179,6 @@ registry.registerFile(titleBarVars);
 registry.registerFile(statusBarVars);
 registry.registerFile(menuBarVars);
 registry.registerFile(gitVars);
+registry.registerFile(sideBarVars);
 
 export default registry;

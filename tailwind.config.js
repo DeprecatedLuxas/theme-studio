@@ -24,6 +24,7 @@ module.exports = {
         activitybar: "50px",
         activityicon: "50px",
         sidebar: "250px",
+        sideBarTitleIcon: "50px",
       },
       maxWidth: {
         48: "12rem",
@@ -37,6 +38,7 @@ module.exports = {
         4.5: "1.125rem",
         titlebar: "30px",
         statusbar: "22px",
+        sideBarTitle: "35px",
         activityicon: "50px",
         content: "calc(100% - 52px)",
       },
@@ -49,6 +51,7 @@ module.exports = {
       fontSize: {
         titlebar: "13px",
         variable: "14px",
+        sideBarTitle: "11px",
         badge: "10px",
       },
       transitionProperty: {
@@ -123,26 +126,26 @@ module.exports = {
           left: "7%",
         },
         ".picker-pointer": {
-          transform: "translate(-4px, -4px)"
-        }
+          transform: "translate(-4px, -4px)",
+        },
       };
 
-      const sizes = [1, 2, 3, 4, 5, 6];
+      const sizes = [0, 1, 2, 3, 4, 5, 6];
 
       sizes.forEach((size) => {
         newUtilities[`.spacer-${size}`] = {
           marginTop: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
           marginLeft: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
         };
-        newUtilities[`treeindent-${size}`] = {
+        newUtilities[`.treeindent-${size}`] = {
           left: `calc(-1.875rem * ${size + 1} + 0.75rem)`,
           position: "absolute",
           top: "50%",
           transform: "translateY(-50%)",
           width: "1px",
           height: "100%",
-          backgroundColor: "blue",
-          marginLeft: "-1px"
+          backgroundColor: "red",
+          marginLeft: "-1px",
         };
       });
 

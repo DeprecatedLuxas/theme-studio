@@ -54,6 +54,7 @@ export default function Element({
       prevVariables,
       variables
     );
+
     const changedVarKeys: string[] = Object.keys(changedVariables);
 
     Object.keys(conditionalClassName)
@@ -63,6 +64,7 @@ export default function Element({
         if (!ruleObj) throw new Error("Rule is undefined, please report this.");
         if (ruleObj!.when === "NOT_NULL") {
           if (changedVariables[key] === null) return;
+
           extraClasses += ruleObj!.then;
         }
       });
