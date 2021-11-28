@@ -71,13 +71,21 @@ export interface ThemeStorage {
   updatedAt?: number;
   type: "dark" | "light";
   palette: Palette[];
+  options?: ThemeOptions;
   variables: Record<CompiledVariable, string>;
 }
+
+export interface ThemeOptions {
+  sidebar: "left" | "right";
+}
+
+export interface SetupOptions extends ThemeOptions {}
 
 export interface SetupConfig {
   name: string;
   type: "dark" | "light";
   palette: Palette[];
+  options: SetupOptions;
 }
 
 export type Palette = string;

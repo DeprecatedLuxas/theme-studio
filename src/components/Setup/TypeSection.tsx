@@ -1,63 +1,39 @@
-import { useRef } from "react";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { useRecoilState } from "recoil";
-import { setupState } from "src/recoil/atoms/setup";
+import { setupState } from "@recoil/atoms/setup";
 
 export default function TypeSection() {
   const [config, setConfig] = useRecoilState(setupState);
-  const darkRef = useRef<HTMLInputElement>(null);
-  const lightRef = useRef<HTMLInputElement>(null);
 
   return (
     <section>
-      <label>Theme Type</label>
-      <div className="grid grid-cols-3 gap-2">
-        <section
-          className={`max-w-48 h-36 rounded border-2 flex flex-col ${config.type === "dark" ? "border-blue-400" : ""}`}
-          onClick={() => {
-            setConfig({ ...config, type: "dark" });
-            darkRef.current!.checked = true;
-          }}
-        >
-          <div className="flex-1 flex items-center justify-center">
+      <h4>Theme Type</h4>
+      <div className="flex rounded bg-gray-200 p-2 w-max">
+        <section className="px-2">
+          <div
+            className={`w-32 h-16 rounded border-2 flex flex-col items-center justify-center ${
+              config.type === "dark" ? "border-blue-400" : ""
+            }`}
+            onClick={() => {
+              setConfig({ ...config, type: "dark" });
+            }}
+          >
             <BsMoon fontSize="32" />
           </div>
-          <div className="border-t-2 h-8 px-2 flex items-center">
-            <input
-              type="radio"
-              ref={darkRef}
-              name="type"
-              defaultChecked={config.type === "dark"}
-              onChange={() => {
-                setConfig({ ...config, type: "dark" });
-              }}
-            />
-            <h3 className="ml-2 font-roboto">Dark</h3>
-          </div>
+          <h6 className="text-center font-roboto pt-1">Dark</h6>
         </section>
-
-        <section
-          className={`max-w-48 h-36 rounded border-2 flex flex-col ${config.type === "light" ? "border-blue-400" : ""}`}
-          onClick={() => {
-            setConfig({ ...config, type: "light" });
-            lightRef.current!.checked = true;
-          }}
-        >
-          <div className="flex-1 flex items-center justify-center">
+        <section className="px-2">
+          <div
+            className={`w-32 h-16 rounded border-2 flex flex-col items-center justify-center ${
+              config.type === "light" ? "border-blue-400" : ""
+            }`}
+            onClick={() => {
+              setConfig({ ...config, type: "light" });
+            }}
+          >
             <BsSun fontSize="32" />
           </div>
-          <div className="border-t-2 h-8 px-2 flex items-center">
-            <input
-              type="radio"
-              ref={lightRef}
-              name="type"
-              defaultChecked={config.type === "light"}
-              onChange={() => {
-                setConfig({ ...config, type: "light" });
-              }}
-            />
-            <h3 className="ml-2 font-roboto">Light</h3>
-          </div>
+          <h6 className="text-center font-roboto pt-1">Light</h6>
         </section>
       </div>
     </section>

@@ -9,18 +9,13 @@ import dayjs from "dayjs";
 import { isEqual } from "lodash";
 
 export default class EditorHelper {
-
-    
   static doesActionExist(action: string | undefined): boolean {
     if (action === undefined) return false;
     const act: TStudioActions = action as TStudioActions;
     // Check if action is really valid.
-    
+
     return true;
   }
-
-
-
 
   static getFromSetupConfig(config: SetupConfig): ThemeStorage {
     return {
@@ -36,6 +31,9 @@ export default class EditorHelper {
       type: "dark",
       palette: [],
       variables: {},
+      options: {
+        sidebar: "left",
+      },
       createdAt: -1,
     };
   }

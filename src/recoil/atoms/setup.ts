@@ -9,5 +9,8 @@ export const setupState = atom<ISetup>({
     name: "Untitled",
     type: "dark",
     palette: [],
+    options: {
+      sidebar: "left",
+    },
   },
 });

@@ -1,7 +1,8 @@
 import { VscFeedback, VscOpenPreview } from "react-icons/vsc";
 import Link from "next/link";
 import windy from "@helpers/windy";
-import Divider from "@components/Divider";
+import { SetupConfig } from "@lib/types";
+import { encode } from "@helpers/encoding";
 
 const SetupButton = windy.button`
   text-left
@@ -17,11 +18,13 @@ const SetupButton = windy.button`
 export interface SetupNavigationProps {
   currentTab: number;
   onClick: (newTab: number) => void;
+  config: SetupConfig;
 }
 
 export default function SetupNavigation({
   currentTab,
   onClick,
+  config,
 }: SetupNavigationProps) {
   return (
     <div className="w-48 bg-white rounded h-96 mr-8 p-2 flex flex-col">
@@ -45,8 +48,10 @@ export default function SetupNavigation({
       </SetupButton>
 
       <div className="flex-1 flex justify-end flex-col">
-        <Divider />
-        <Link href="/edit/preview" passHref>
+        <Link
+          href={`/edit/setup/preview?preview=${encode(JSON.stringify(config))}`}
+          passHref
+        >
           <a
             target="_blank"
             className="flex items-center bg-blue-700 rounded w-full px-2 py-1 text-white font-roboto mb-2"
