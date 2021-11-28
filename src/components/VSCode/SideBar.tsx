@@ -1,18 +1,26 @@
 import TreeView from "@components/TreeView";
+import { vscodeState } from "@recoil/atoms/vscode";
 import { VscChevronRight, VscChevronDown, VscEllipsis } from "react-icons/vsc";
+import { useRecoilState } from "recoil";
 import Element from "./Element";
 
 export default function SideBar() {
+  const [options, setOptions] = useRecoilState(vscodeState);
+
   return (
     <Element
-    className="w-sidebar h-full flex flex-col"
-    conditionalClassName={{
-      "brc@sideBar.border": {
-        when: "NOT_NULL",
-        then: "border-r-2",
-      },
-    }}
-    bind={["bg@sideBar.background", "c@sideBar.foreground", "brc@sideBar.border"]}
+      className="w-sidebar h-full flex flex-col"
+      conditionalClassName={{
+        "brc@sideBar.border": {
+          when: "NOT_NULL",
+          then: "border-r-2",
+        },
+      }}
+      bind={[
+        "bg@sideBar.background",
+        "c@sideBar.foreground",
+        "brc@sideBar.border",
+      ]}
     >
       <Element className="uppercase flex items-center justify-between px-5 h-sideBarTitle text-sideBarTitle">
         <Element
@@ -31,8 +39,11 @@ export default function SideBar() {
       </Element>
       <Element
         className="uppercase flex border justify-start items-center"
-        bind={["bc@sideBarSectionHeader.border", "bg@sideBarSectionHeader.background", "c@sideBarSectionHeader.foreground"]}
-
+        bind={[
+          "bc@sideBarSectionHeader.border",
+          "bg@sideBarSectionHeader.background",
+          "c@sideBarSectionHeader.foreground",
+        ]}
       >
         <VscChevronDown />
         VSCODE-THEME

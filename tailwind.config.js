@@ -17,6 +17,9 @@ module.exports = {
       backgroundColor: {
         "dialog-overlay": "rgba(0, 0, 0, 0.48)",
       },
+      padding: {
+        "10px": "10px"
+      },
       width: {
         0.25: "0.0625rem",
         4.5: "1.125rem",
@@ -32,12 +35,14 @@ module.exports = {
       minWidth: {
         9: "2.25rem",
         10: "2.5rem",
+        "120px": "120px"
       },
       height: {
         0.25: "0.0625rem",
         4.5: "1.125rem",
         titlebar: "30px",
         statusbar: "22px",
+        "35px": "35px",
         sideBarTitle: "35px",
         activityicon: "50px",
         content: "calc(100% - 52px)",

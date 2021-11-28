@@ -29,7 +29,7 @@ export default function PersonalizationTab() {
 {
   "sidebar": "left"
 }
-          `}
+`}
         </code>
       </pre>
     </div>

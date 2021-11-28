@@ -6,12 +6,23 @@ import SideBar from "./SideBar";
 import Tabs from "./Tabs";
 import Breadcrumbs from "./Breadcrumbs";
 import Content from "./Content";
+import { useRecoilState } from "recoil";
+import { vscodeState } from "@recoil/atoms/vscode";
+import { useEffect } from "react";
 
 export interface VSCodeProps {
   sidebarPlacement?: "left" | "right";
 }
 
 export default function VSCode({ sidebarPlacement = "left" }: VSCodeProps) {
+  const [options, setOptions] = useRecoilState(vscodeState);
+
+  useEffect(() => {
+    setOptions({
+      sidebarPlacement,
+    });
+  }, []);
+
   return (
     <Element className="h-full">
       <TitleBar />
