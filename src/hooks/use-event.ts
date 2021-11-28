@@ -3,13 +3,11 @@ import { useEffect, useRef } from "react";
 type EventElement = Document | HTMLElement | Window;
 
 export default function useEvent<E extends keyof DocumentEventMap>(
-  eventName: E | string,
-
-  handler: (event: Event) => void,
-
+  eventName: E,
+  handler: (event: DocumentEventMap[E]) => void,
   element?: EventElement
 ) {
-  const savedHandler = useRef<(event: Event) => void>();
+  const savedHandler = useRef<(event: DocumentEventMap[E]) => void>();
 
   useEffect(() => {
     const targetElement: EventElement = element || window;
@@ -22,7 +20,7 @@ export default function useEvent<E extends keyof DocumentEventMap>(
       savedHandler.current = handler;
     }
 
-    const eventListener = (event: Event) => {
+    const eventListener = (event:  DocumentEventMap[E]) => {
       // eslint-disable-next-line no-extra-boolean-cast
 
       if (!!savedHandler?.current) {
@@ -30,10 +28,10 @@ export default function useEvent<E extends keyof DocumentEventMap>(
       }
     };
 
-    targetElement.addEventListener(eventName, eventListener);
+    targetElement.addEventListener(eventName, eventListener as EventListener);
 
     return () => {
-      targetElement.removeEventListener(eventName, eventListener);
+      targetElement.removeEventListener(eventName, eventListener as EventListener);
     };
   }, [eventName, element, handler]);
 }

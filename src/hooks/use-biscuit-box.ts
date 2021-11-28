@@ -35,6 +35,5 @@ export function useBiscuitBox({
     isOpen: !!isOpen,
     onOpen,
     onClose,
-    onToggle,
   };
 }
