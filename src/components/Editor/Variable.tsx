@@ -1,10 +1,14 @@
 import { IRegistry } from "@contexts/RegistryContext";
 import EditorHelper from "@helpers/editor";
 import useRegistry from "@hooks/use-registry";
+import registry from "@lib/registry";
+import { TStudioAction, Variables } from "@lib/types";
+import { actionState } from "@recoil/atoms/action";
 import { Dispatch, useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 
 export interface VariableProps {
-  name: string;
+  name: Variables;
   value: string;
 }
 
@@ -19,6 +23,7 @@ const colors = [
 
 export default function Variable({ name, value }: VariableProps): JSX.Element {
   const { dispatch, variables, palette } = useRegistry();
+  const [action, setAction] = useRecoilState(actionState);
   const variable = EditorHelper.formatVariable(name);
 
   const [show, setShow] = useState<boolean>(false);
@@ -28,6 +33,12 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
       <div
         className="flex w-full justify-start items-center cursor-pointer py-2 px-2 text-gray-400 hover:bg-gray-600 bg-gray-700 mb-2 rounded"
         onMouseEnter={() => {
+          // console.log(name, value);
+          const action: TStudioAction | undefined = registry.getAction(name);
+          if (!action || !EditorHelper.doesActionExist(action)) return;
+          
+          console.log("gdfgdfg", action);
+
           // Check if action
           // if (true) {
           // }
@@ -37,8 +48,8 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
           // if (variable.action) console.log(variable.action);
         }}
         onMouseLeave={() => {
-          // console.log("Leave");
-          // Clear state.
+          if (action === "") return;
+          setAction("");
         }}
       >
         <div
@@ -81,7 +92,6 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
                     [name]: color,
                   },
                 });
-     
 
                 /*       dispatch &&
                   dispatch({

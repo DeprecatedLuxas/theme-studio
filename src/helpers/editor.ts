@@ -1,6 +1,7 @@
 import {
   SetupConfig,
   ThemeStorage,
+  TStudioActions,
   Variable,
   VSCThemeFormat,
 } from "@lib/types";
@@ -8,11 +9,17 @@ import dayjs from "dayjs";
 import { isEqual } from "lodash";
 
 export default class EditorHelper {
-  static Places: Map<"bg" | "text" | "border", string> = new Map([
-    ["bg", "backgroundColor"],
-    ["text", "color"],
-    ["border", "borderColor"],
-  ]);
+
+    
+  static doesActionExist(action: string | undefined): boolean {
+    if (action === undefined) return false;
+    const act: TStudioActions = action as TStudioActions;
+    // Check if action is really valid.
+    
+    return true;
+  }
+
+
 
 
   static getFromSetupConfig(config: SetupConfig): ThemeStorage {

@@ -10,6 +10,8 @@ import {
   VariableTab,
   VariablePossibleCategories,
   CompiledVariable,
+  TStudioAction,
+  Variables,
 } from "./types";
 import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
@@ -27,6 +29,8 @@ enum Functions {
 }
 
 interface IRegistry {
+  validate(): boolean;
+  getAction(key: string): TStudioAction | undefined;
   register(key: string, variable: Variable): void;
   registerFile(file: Record<string, Variable>): void;
   compile<K extends VariableTab>(type: ThemeType, tab: K): CompiledVariables;
@@ -168,6 +172,14 @@ class Registry implements IRegistry {
     const vari = this.variables[variable];
     if (!vari) throw new Error("Category not found");
     return vari.category as VariablePossibleCategories;
+  }
+
+  validate(): boolean {
+    throw new Error("Method not implemented.");
+  }
+
+  getAction(key: Variables): TStudioAction | undefined {
+    return this.variables[key].action;
   }
 }
 

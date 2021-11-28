@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "refresh-variables": "node scripts/refresh-variables"
+    "gen-types": "node scripts/gen-types"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.6.1",

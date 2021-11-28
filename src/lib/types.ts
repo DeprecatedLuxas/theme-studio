@@ -7,6 +7,7 @@ import {
 import { Variables, VariablePossibleCategories } from "./generated/variables";
 
 export * from "./generated/variables";
+export * from "./generated/actions";
 
 export type Nullable<T> = T | null;
 export type Arrayable<T> = T | T[];
@@ -43,10 +44,11 @@ export type VariableCategories = Record<
   VariablePossibleCategories[]
 >;
 
-
-
 export type Rule = string;
-export type ConditionalClassName = PartialRecord<Variables, ConditionalClassNameRule>;
+export type ConditionalClassName = PartialRecord<
+  Variables,
+  ConditionalClassNameRule
+>;
 export type ConditionalClassNameWhen = "NOT_NULL";
 
 export interface ConditionalClassNameRule {
@@ -102,4 +104,4 @@ export interface Interaction {
 }
 
 export type ComponentPropPlacement = "top" | "bottom" | "left" | "right";
-
+export type TStudioAction = string;

@@ -41,7 +41,8 @@
     },
     "tab": "palette",
     "category": "Status Bar",
-    "description": "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window."
+    "description": "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
+    "action": "noFolder"
   },
   "bc@statusBar.border": {
     "variable": "statusBar.border",

@@ -17,8 +17,20 @@ export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: keyof JSX.IntrinsicElements;
   conditionalClassName?: ConditionalClassName;
   bind?: Arrayable<Variables>;
+  /**
+   * onAction:Debugging -> when state is true, trigger this variable
+   * onHover:c@activityBar.foreground -> trigger this variable when hovering over the element
+   * 
+   * 
+   */
   // TODO: Add types for this.
   events?: any;
+  // TODO: Add types for this.
+  /**
+   * onState
+   * 
+   */
+  state?: any;
 }
 
 export default function Element({
@@ -27,6 +39,7 @@ export default function Element({
   className = "",
   conditionalClassName,
   events,
+  state,
   ...rest
 }: ElementProps) {
   const Component = as as keyof JSX.IntrinsicElements;

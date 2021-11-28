@@ -4,8 +4,8 @@
     {
     
       "type": "npm",
-      "label": "Refresh Variables",
-      "script": "refresh-variables"
+      "label": "Generate Types",
+      "script": "gen-types"
     }
   ]
 }
