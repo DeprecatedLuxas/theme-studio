@@ -23,7 +23,6 @@ export default function useBinding({
   bind,
   variables,
 }: UseBindingOptions) {
-  // let ref = useRef<HTMLOrSVGElement>();
 
   if (!bind) return {};
 

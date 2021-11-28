@@ -20,15 +20,15 @@ export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   /**
    * onAction:Debugging -> when state is true, trigger this variable
    * onHover:c@activityBar.foreground -> trigger this variable when hovering over the element
-   * 
-   * 
+   *
+   *
    */
   // TODO: Add types for this.
   events?: any;
   // TODO: Add types for this.
   /**
    * onState
-   * 
+   *
    */
   state?: any;
 }
@@ -52,15 +52,17 @@ export default function Element({
     bind,
     variables,
   });
-
   const eventHandlers = useVSCEvent(ref, variables, events);
 
   let classes = useRef<string>(className);
 
   useEffect(() => {
+    console.log("before returns");
+
     if (!conditionalClassName) return;
     if (!prevVariables) return;
     if (!variables) return;
+    console.log("after returns");
 
     let extraClasses = "";
     const changedVariables: ChangedVariables = getPropertyDifferences(

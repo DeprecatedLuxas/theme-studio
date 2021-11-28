@@ -10,3 +10,4 @@
 - [ ] VSCode Extension to test the themes 
 - [x] Fix bug when there is more than 1 hover variable, only the last works (because it overwrites the handler.)
 - [ ] Add validation of tstudio files.
+- [ ] Add tooltip component.

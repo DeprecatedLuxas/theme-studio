@@ -3,6 +3,7 @@ import Header from "@components/Header";
 import Link from "next/link";
 import Badge from "@components/Badge";
 
+
 export default function Home() {
   return (
     <div className="min-h-screen h-auto bg-gray-700 flex flex-col">

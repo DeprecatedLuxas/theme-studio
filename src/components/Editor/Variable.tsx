@@ -2,7 +2,7 @@ import { IRegistry } from "@contexts/RegistryContext";
 import EditorHelper from "@helpers/editor";
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
-import { TStudioAction, Variables } from "@lib/types";
+import { TStudioAction, TStudioActions, Variables } from "@lib/types";
 import { actionState } from "@recoil/atoms/action";
 import { Dispatch, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
@@ -28,29 +28,25 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
 
   const [show, setShow] = useState<boolean>(false);
 
+  const handleMouseEnter = () => {
+    const action: TStudioAction | undefined = registry.getAction(name);
+    if (!action && !EditorHelper.doesActionExist(action)) return;
+    const act: TStudioActions = action as TStudioActions;
+    setAction(act);
+  };
+
+  const handleMouseLeave = () => {
+    // Dont set action state if action is empty
+    if (action === "") return;
+    setAction("");
+  };
+
   return (
     <>
       <div
         className="flex w-full justify-start items-center cursor-pointer py-2 px-2 text-gray-400 hover:bg-gray-600 bg-gray-700 mb-2 rounded"
-        onMouseEnter={() => {
-          // console.log(name, value);
-          const action: TStudioAction | undefined = registry.getAction(name);
-          if (!action || !EditorHelper.doesActionExist(action)) return;
-          
-          console.log("gdfgdfg", action);
-
-          // Check if action
-          // if (true) {
-          // }
-          // console.log("Enter");
-          // dispatch({ type: "SET_EDITOR_VARIABLE", payload: { name, value } });
-          // console.log(variable.action);
-          // if (variable.action) console.log(variable.action);
-        }}
-        onMouseLeave={() => {
-          if (action === "") return;
-          setAction("");
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div
           className="bg-variable w-8 h-8 rounded-md mr-3"
