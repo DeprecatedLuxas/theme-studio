@@ -1,7 +1,7 @@
 import InputSection from "./InputSection";
 import TypeSection from "./TypeSection";
 
-export default function FirstTab() {
+export default function GeneralTab() {
   return (
     <div>
       <InputSection />

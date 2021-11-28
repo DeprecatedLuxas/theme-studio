@@ -1,7 +1,7 @@
 import Input from "@components/Input";
 import { ChangeEvent } from "react";
 import { useRecoilState } from "recoil";
-import { setupState } from "src/recoil/atoms/setup";
+import { setupState } from "@recoil/atoms/setup";
 
 export default function InputSection() {
   const [config, setConfig] = useRecoilState(setupState);
