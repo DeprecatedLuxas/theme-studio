@@ -1,6 +1,6 @@
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
-import { VariablePossibleCategories } from "@lib/types";
+import { VariablePossibleCategories, Variables } from "@lib/types";
 import { useState } from "react";
 import Variable from "./Variable";
 import VariableGroup from "./VariableGroup";
@@ -31,12 +31,11 @@ export default function PaletteTab() {
             >
               {Object.keys(palette!).map((key: string, idx: number) => {
                 const varCategory = registry.getVariableCategory(key);
-
                 if (varCategory === category) {
                   return (
                     <Variable
                       key={`variable-${key}-${idx}`}
-                      name={key}
+                      name={key as Variables}
                       value={palette![key]}
                     />
                   );

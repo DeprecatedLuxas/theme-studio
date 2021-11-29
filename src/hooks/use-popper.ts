@@ -3,6 +3,7 @@
  */
 
 import mergeRefs from "@helpers/refs";
+import { innerArrow, positionArrow } from "@lib/popper/modifiers/tooltip";
 import {
   createPopper,
   Instance,
@@ -19,8 +20,8 @@ export interface UsePopperProps {
 }
 
 export default function usePopper({
-  strategy,
-  placement,
+  strategy = "absolute",
+  placement = "top",
   modifiers,
 }: UsePopperProps = {}) {
   const reference = useRef<Element | VirtualElement | null>(null);
@@ -37,6 +38,18 @@ export default function usePopper({
     instance.current = createPopper(reference.current, popper.current, {
       placement,
       modifiers: [
+        {
+          name: "topLogger",
+          enabled: true,
+          phase: "main",
+          fn({ state }) {
+            if (state.placement === "top") {
+              console.log("Popper is on the top");
+            }
+          },
+        },
+        innerArrow,
+        positionArrow,
         // customModifiers.innerArrow,
         // customModifiers.positionArrow,
         // customModifiers.transformOrigin,
@@ -45,26 +58,26 @@ export default function usePopper({
         //   name: "eventListeners",
         //   ...getEventListenerOptions(eventListeners),
         // },
-        // {
-        //   name: "arrow",
-        //   options: { padding: arrowPadding },
-        // },
-        // {
-        //   name: "offset",
-        //   options: {
-        //     offset: offset ?? [0, gutter],
-        //   },
-        // },
+        {
+          name: "arrow",
+          options: { padding: 8 },
+        },
+        {
+          name: "offset",
+          options: {
+            offset: [0, 8],
+          },
+        },
         // {
         //   name: "flip",
         //   enabled: !!flip,
         //   options: { padding: 8 },
         // },
-        // {
-        //   name: "preventOverflow",
-        //   enabled: !!preventOverflow,
-        //   options: { boundary },
-        // },
+        {
+          name: "preventOverflow",
+          enabled: true,
+          options: { boundary: "clippingParents" },
+        },
         // allow users override internal modifiers
         ...(modifiers ?? []),
       ],
@@ -128,27 +141,24 @@ export default function usePopper({
     [strategy, popperRef]
   );
 
-  // const getArrowProps = useCallback(
-  //   (props = {}, ref = null) => {
-  //     const { size, shadowColor, bg, style, ...rest } = props;
-  //     return {
-  //       ...rest,
-  //       ref,
-  //       "data-popper-arrow": "",
-  //       style: getArrowStyle(props),
-  //     };
-  //   },
-  //   []
-  // );
+  const getArrowProps = useCallback((props = {}, ref = null) => {
+    const { size, shadowColor, bg, style, ...rest } = props;
+    return {
+      ...rest,
+      ref,
+      "data-popper-arrow": "",
+      style: getArrowStyle(props),
+    };
+  }, []);
 
-  // const getArrowInnerProps = useCallback(
-  //   (props = {}, ref = null) => ({
-  //     ...props,
-  //     ref,
-  //     "data-popper-arrow-inner": "",
-  //   }),
-  //   []
-  // );
+  const getArrowInnerProps = useCallback(
+    (props = {}, ref = null) => ({
+      ...props,
+      ref,
+      "data-popper-arrow-inner": "",
+    }),
+    []
+  );
 
   return {
     update() {
@@ -161,8 +171,23 @@ export default function usePopper({
     referenceRef,
     popperRef,
     getPopperProps,
-    // getArrowProps,
-    // getArrowInnerProps,
+    getArrowProps,
+    getArrowInnerProps,
     getReferenceProps,
   };
+}
+
+function getArrowStyle(props: any) {
+  const { size, shadowColor, bg, style } = props;
+  const computedStyle = { ...style, position: "absolute" };
+  if (size) {
+    computedStyle["--popper-arrow-size"] = size;
+  }
+  if (shadowColor) {
+    computedStyle["--popper-arrow-shadow-color"] = shadowColor;
+  }
+  if (bg) {
+    computedStyle["--popper-arrow-bg"] = bg;
+  }
+  return computedStyle;
 }

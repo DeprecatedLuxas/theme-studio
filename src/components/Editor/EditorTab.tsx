@@ -1,6 +1,6 @@
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
-import { VariablePossibleCategories } from "@lib/types";
+import { VariablePossibleCategories, Variables } from "@lib/types";
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import Variable from "./Variable";
@@ -26,15 +26,15 @@ export default function EditorTab() {
           key={uuid()}
           groupName={category as VariablePossibleCategories}
         >
-          {Object.keys(editor!).map((k) => {
-            const varCategory = registry.getVariableCategory(k);
+          {Object.keys(editor!).map((key: string, idx: number) => {
+            const varCategory = registry.getVariableCategory(key);
 
             if (varCategory !== category) return;
             return (
               <Variable
-                key={uuid()}
-                name={k}
-                value={editor![k]}
+              key={`variable-${key}-${idx}`}
+              name={key as Variables}
+                value={editor![key]}
               />
             );
           })}

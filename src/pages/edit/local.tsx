@@ -27,6 +27,7 @@ import useStorage from "@hooks/useStorage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
+import Tooltip from "@components/Tooltip";
 
 export default function EditLocal() {
   const { user, isLoading, error } = useUser();
@@ -120,25 +121,31 @@ export default function EditLocal() {
 
           <Tab.Group>
             <Tab.List className="flex justify-between px-16 py-4">
-              <Tab
-                className="p-2 rounded-lg cursor-pointer bg-gray-800"
-                aria-label="Palette Tab"
-              >
-                <FaPalette size="20px" color="white" />
-              </Tab>
+              <Tooltip label="Palette">
+                <Tab
+                  className="p-2 rounded-lg cursor-pointer bg-gray-800"
+                  aria-label="Palette Tab"
+                >
+                  <FaPalette size="20px" color="white" />
+                </Tab>
+              </Tooltip>
 
-              <Tab
-                className="p-2 rounded-lg cursor-pointer bg-gray-800"
-                aria-label="Editor Tab"
-              >
-                <FaKeyboard size="20px" color="white" />
-              </Tab>
-              <Tab
-                className="p-2 rounded-lg cursor-pointer bg-gray-800"
-                aria-label="Syntax Tab"
-              >
-                <FaCode size="20px" color="white" />
-              </Tab>
+              <Tooltip label="Editor">
+                <Tab
+                  className="p-2 rounded-lg cursor-pointer bg-gray-800"
+                  aria-label="Editor Tab"
+                >
+                  <FaKeyboard size="20px" color="white" />
+                </Tab>
+              </Tooltip>
+              <Tooltip label="Syntax">
+                <Tab
+                  className="p-2 rounded-lg cursor-pointer bg-gray-800"
+                  aria-label="Syntax Tab"
+                >
+                  <FaCode size="20px" color="white" />
+                </Tab>
+              </Tooltip>
             </Tab.List>
             <Tab.Panels className="flex-1 overflow-y-auto">
               <Tab.Panel>
