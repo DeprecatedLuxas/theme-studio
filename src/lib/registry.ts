@@ -20,6 +20,7 @@ import statusBarVars from "@variables/statusbar.tstudio";
 import menuBarVars from "@variables/menubar.tstudio";
 import gitVars from "@variables/git.tstudio";
 import sideBarVars from "@variables/sidebar.tstudio";
+import tabsVar from "@variables/tabs.tstudio";
 import tinycolor from "tinycolor2";
 
 enum Functions {
@@ -192,5 +193,6 @@ registry.registerFile(statusBarVars);
 registry.registerFile(menuBarVars);
 registry.registerFile(gitVars);
 registry.registerFile(sideBarVars);
+registry.registerFile(tabsVar);
 
 export default registry;
