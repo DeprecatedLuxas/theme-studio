@@ -18,7 +18,7 @@ export default function PaletteTab() {
             config.palette.map((color, index) => (
               <div
                 key={`palette-${index}`}
-                className="w-12 h-12 rounded cursor-pointer bg-gray-400 flex items-center justify-center"
+                className="w-10 h-10 rounded cursor-pointer bg-gray-400 flex items-center justify-center"
                 style={{
                   backgroundColor: color,
                 }}
