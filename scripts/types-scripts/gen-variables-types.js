@@ -11,7 +11,7 @@
   const keys = [];
   const categories = [];
 
-  variableFiles.forEach((file) => {
+  variableFiles.filter((file) => file.includes(".tstudio")).forEach((file) => {
     const fileContents = fs.readFileSync(`./variables/${file}`, "utf-8");
 
     if (!fileContents) return;

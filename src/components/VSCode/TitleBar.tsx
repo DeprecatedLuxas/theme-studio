@@ -97,7 +97,7 @@ export default function TitleBar() {
       </Element>
 
       <Element className="text-center flex-1 select-none">
-        App.tsx - VSCode Theme - Visual Studio Code
+        index.tsx - vscode-theme-studio - Visual Studio Code
       </Element>
     </Element>
   );

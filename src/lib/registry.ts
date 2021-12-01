@@ -20,7 +20,8 @@ import statusBarVars from "@variables/statusbar.tstudio";
 import menuBarVars from "@variables/menubar.tstudio";
 import gitVars from "@variables/git.tstudio";
 import sideBarVars from "@variables/sidebar.tstudio";
-import tabsVar from "@variables/tabs.tstudio";
+import tabsVars from "@variables/tabs.tstudio";
+import toolbarVars from "@variables/toolbar.tstudio";
 import tinycolor from "tinycolor2";
 
 enum Functions {
@@ -55,6 +56,7 @@ class Registry implements IRegistry {
     if (this.variables[key]) {
       throw new Error(`Variable with key ${key} already exists`);
     }
+    
     variable.group = this.parseGroup(variable.group);
     this.variables[key] = variable;
   }
@@ -98,7 +100,10 @@ class Registry implements IRegistry {
         const func = funcMatch!.groups!.func;
         const int = parseFloat(funcMatch!.groups!.int);
         const color = funcMatch!.groups!.color;
-
+        console.log("newGroup[key]", newGroup[key], color);
+     
+        
+        
         switch (func) {
           case Functions.TRANSPARENT:
             newGroup[key] = tinycolor(color).setAlpha(int).toHex8String();
@@ -193,6 +198,7 @@ registry.registerFile(statusBarVars);
 registry.registerFile(menuBarVars);
 registry.registerFile(gitVars);
 registry.registerFile(sideBarVars);
-registry.registerFile(tabsVar);
+registry.registerFile(tabsVars);
+registry.registerFile(toolbarVars);
 
 export default registry;

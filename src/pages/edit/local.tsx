@@ -29,7 +29,7 @@ import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
 import Tooltip from "@components/Tooltip";
 
-export default function EditLocal() {
+export default function Local() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
   const {
@@ -58,15 +58,11 @@ export default function EditLocal() {
     syntax: registry.compile(setupConfig.type, "syntax"),
   });
 
-  useEffect(() => {
-    console.log("changed");
-  }, [state]);
 
   if (isLoading) {
     return <Loading />;
   }
 
-  // Window is not defined, we gonna add a if breakpoint is true
   if (isMobile) {
     return <EditWarning />;
   }

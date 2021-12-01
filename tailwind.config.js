@@ -18,11 +18,12 @@ module.exports = {
         "dialog-overlay": "rgba(0, 0, 0, 0.48)",
       },
       padding: {
-        "10px": "10px"
+        "10px": "10px",
       },
       width: {
         0.25: "0.0625rem",
         4.5: "1.125rem",
+        5.5: "1.375rem",
         "remote-icon": "34px",
         activitybar: "50px",
         activityicon: "50px",
@@ -35,11 +36,12 @@ module.exports = {
       minWidth: {
         9: "2.25rem",
         10: "2.5rem",
-        "120px": "120px"
+        "120px": "120px",
       },
       height: {
         0.25: "0.0625rem",
         4.5: "1.125rem",
+        5.5: "1.375rem",
         titlebar: "30px",
         statusbar: "22px",
         "35px": "35px",
@@ -54,6 +56,8 @@ module.exports = {
         24: "24px",
       },
       fontSize: {
+        "11px": "11px",
+        "13px": "13px",
         titlebar: "13px",
         variable: "14px",
         sideBarTitle: "11px",

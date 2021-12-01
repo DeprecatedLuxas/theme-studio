@@ -13,9 +13,9 @@
   "c@sideBar.foreground": {
     "variable": "sideBar.foreground",
     "group": {
-      "dark": null,
-      "light": null,
-      "hc": null
+      "dark": "var@foreground",
+      "light": "var@foreground",
+      "hc": "var@foreground"
     },
     "category": "Side Bar",
     "tab": "palette",

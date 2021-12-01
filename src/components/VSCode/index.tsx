@@ -21,6 +21,7 @@ export default function VSCode({ sidebarPlacement = "left" }: VSCodeProps) {
     setOptions({
       sidebarPlacement,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -22,7 +22,7 @@ export default function SideBar() {
         "brc@sideBar.border",
       ]}
     >
-      <Element className="uppercase flex items-center justify-between px-5 h-sideBarTitle text-sideBarTitle">
+      <Element className="uppercase flex items-center justify-between px-5 h-sideBarTitle text-sideBarTitle cursor-default select-none">
         <Element
           as="span"
           className="text-sideBarTitle"
@@ -34,22 +34,33 @@ export default function SideBar() {
           className="flex items-center justify-center cursor-pointer -mr-5 h-full w-sideBarTitleIcon"
           bind={["c@sideBar.foreground"]}
         >
-          <VscEllipsis fontSize="16px" />
+          <Element
+            className="h-5.5 w-5.5 flex items-center justify-center rounded-md"
+            bind={["h:bg@toolbar.hoverBackground"]}
+          >
+            <VscEllipsis className="text-base" />
+          </Element>
         </Element>
       </Element>
       <Element
-        className="uppercase flex border justify-start items-center"
+        className="uppercase flex border justify-start items-center h-5.5 cursor-pointer text-11px font-semibold"
         bind={[
           "bc@sideBarSectionHeader.border",
           "bg@sideBarSectionHeader.background",
           "c@sideBarSectionHeader.foreground",
         ]}
       >
-        <VscChevronDown />
-        VSCODE-THEME
+        <VscChevronDown className="mx-0.5 text-base" />
+        <Element as="span">vscode-theme-studio</Element>
       </Element>
       <Element className="flex-1">
-        <TreeView>
+        <Element className="flex justify-start items-center h-5.5 cursor-pointer pl-2 text-13px">
+          <Element className="flex justify-start items-center">
+            <VscChevronRight />
+            <Element as="span">node_modules</Element>
+          </Element>
+        </Element>
+        {/* <TreeView>
           <TreeView.Folder name="node_modules" />
           <TreeView.Folder name="public" />
           <TreeView.Folder name="src" canOpen defaultOpen>
@@ -68,29 +79,29 @@ export default function SideBar() {
           <TreeView.File name="package.json" type="json" />
           <TreeView.File name="tsconfig.json" type="tsconfig" />
           <TreeView.File name="yarn.lock" type="lock" />
-        </TreeView>
+        </TreeView> */}
       </Element>
       <Element
-        className="uppercase border flex justify-start items-center"
+        className="uppercase flex border justify-start items-center h-5.5 cursor-pointer text-11px font-semibold"
         bind={[
           "bc@sideBarSectionHeader.border",
           "bg@sideBarSectionHeader.background",
           "c@sideBarSectionHeader.foreground",
         ]}
       >
-        <VscChevronRight />
-        OUTLINE
+        <VscChevronRight className="mx-0.5 text-base" />
+        <Element as="span">outline</Element>
       </Element>
       <Element
-        className="uppercase border flex justify-start items-center"
+        className="uppercase flex border justify-start items-center h-5.5 cursor-pointer text-11px font-semibold font-roboto"
         bind={[
           "bc@sideBarSectionHeader.border",
           "bg@sideBarSectionHeader.background",
           "c@sideBarSectionHeader.foreground",
         ]}
       >
-        <VscChevronRight />
-        OPEN EDITORS
+        <VscChevronRight className="mx-0.5 text-base" />
+        <Element as="span">open editors</Element>
       </Element>
     </Element>
   );
