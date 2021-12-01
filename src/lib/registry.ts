@@ -12,6 +12,7 @@ import {
   CompiledVariable,
   TStudioAction,
   Variables,
+  ValidationSchema,
 } from "./types";
 import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
@@ -30,8 +31,12 @@ enum Functions {
   LIGHTEN = "lighten",
 }
 
+type ValidateVariable = Variable & {
+  varKey: Variables;
+};
+
 interface IRegistry {
-  validate(): boolean;
+  validate(variable: ValidateVariable, schema: ValidationSchema): boolean;
   getAction(key: string): TStudioAction | undefined;
   register(key: string, variable: Variable): void;
   registerFile(file: Record<string, Variable>): void;
@@ -53,10 +58,16 @@ class Registry implements IRegistry {
     /func@(?<func>transparent|darken|lighten)\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)/;
 
   register(key: string, variable: Variable): void {
+    const isValid = this.validate(
+      { ...variable, varKey: key as Variables },
+      {}
+    );
+    if (!isValid) throw new Error("Invalid Variable");
+
     if (this.variables[key]) {
       throw new Error(`Variable with key ${key} already exists`);
     }
-    
+
     variable.group = this.parseGroup(variable.group);
     this.variables[key] = variable;
   }
@@ -100,10 +111,7 @@ class Registry implements IRegistry {
         const func = funcMatch!.groups!.func;
         const int = parseFloat(funcMatch!.groups!.int);
         const color = funcMatch!.groups!.color;
-        console.log("newGroup[key]", newGroup[key], color);
-     
-        
-        
+
         switch (func) {
           case Functions.TRANSPARENT:
             newGroup[key] = tinycolor(color).setAlpha(int).toHex8String();
@@ -180,7 +188,10 @@ class Registry implements IRegistry {
     return vari.category as VariablePossibleCategories;
   }
 
-  validate(): boolean {
+  validate(variable: ValidateVariable, schema: ValidationSchema): boolean {
+    console.log(variable);
+
+    return true;
     throw new Error("Method not implemented.");
   }
 

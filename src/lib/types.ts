@@ -9,6 +9,7 @@ import { Variables, VariablePossibleCategories } from "./generated/variables";
 export * from "./generated/variables";
 export * from "./generated/actions";
 
+
 export type Nullable<T> = T | null;
 export type Arrayable<T> = T | T[];
 export type PartialRecord<K extends string | number | symbol, T> = {
@@ -113,3 +114,5 @@ export interface Interaction {
 
 export type ComponentPropPlacement = "top" | "bottom" | "left" | "right";
 export type TStudioAction = string;
+
+export interface ValidationSchema {}
