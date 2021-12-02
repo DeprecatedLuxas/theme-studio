@@ -3,4 +3,4 @@
 //
 
 
-export type TStudioActions = "" | "noFolder";
+export type TStudioActions = "" | "statusbar.NoFolder" | "titlebar.InactiveForeground" | "titlebar.InactiveBackground";

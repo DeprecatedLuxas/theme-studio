@@ -4,11 +4,11 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
+import { TStudioActions } from "./generated/actions";
 import { Variables, VariablePossibleCategories } from "./generated/variables";
 
 export * from "./generated/variables";
 export * from "./generated/actions";
-
 
 export type Nullable<T> = T | null;
 export type Arrayable<T> = T | T[];
@@ -44,6 +44,10 @@ export type VariableCategories = Record<
   VariableTab,
   VariablePossibleCategories[]
 >;
+
+export type OnAction = PartialRecord<TStudioActions, Variables>;
+export type OnHover = Arrayable<Variables>;
+
 
 export type Rule = string;
 export type ConditionalClassName = PartialRecord<

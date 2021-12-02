@@ -42,7 +42,7 @@
     "tab": "palette",
     "category": "Status Bar",
     "description": "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
-    "action": "noFolder"
+    "action": "NoFolder"
   },
   "bc@statusBar.border": {
     "variable": "statusBar.border",

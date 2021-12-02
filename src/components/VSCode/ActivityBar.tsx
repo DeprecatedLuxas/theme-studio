@@ -35,14 +35,14 @@ export default function ActivityBar() {
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
-          events={["onHover:c@activityBar.foreground"]}
+          onHover={["c@activityBar.foreground"]}
         >
           <VscSearch fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
-          events={["onHover:c@activityBar.foreground"]}
+          onHover={["c@activityBar.foreground"]}
         >
           <VscSourceControl fontSize="24px" />
           <Element
@@ -51,7 +51,7 @@ export default function ActivityBar() {
               "bg@activityBarBadge.background",
               "c@activityBarBadge.foreground",
             ]}
-            events={["onHover:c@activityBar.foreground"]}
+            onHover={["c@activityBar.foreground"]}
           >
             6
           </Element>
@@ -59,14 +59,14 @@ export default function ActivityBar() {
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
-          events={["onHover:c@activityBar.foreground"]}
+          onHover={["c@activityBar.foreground"]}
         >
           <VscDebugAlt fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
-          events={["onHover:c@activityBar.foreground"]}
+          onHover={["c@activityBar.foreground"]}
         >
           <VscExtensions fontSize="24px" />
         </Element>
@@ -75,14 +75,14 @@ export default function ActivityBar() {
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
-          events={["onHover:c@activityBar.foreground"]}
+          onHover={["c@activityBar.foreground"]}
         >
           <VscAccount fontSize="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
-          events={["onHover:c@activityBar.foreground"]}
+          onHover={["c@activityBar.foreground"]}
         >
           <VscGear fontSize="24px" />
         </Element>

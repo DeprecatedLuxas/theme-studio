@@ -19,7 +19,8 @@
     },
     "tab": "palette",
     "category": "Title Bar",
-    "description": "Title bar foreground when the window is inactive."
+    "description": "Title bar foreground when the window is inactive.",
+    "action": "InactiveForeground"
   },
   "bg@titleBar.activeBackground": {
     "variable": "titleBar.activeBackground",
@@ -41,7 +42,8 @@
     },
     "tab": "palette",
     "category": "Title Bar",
-    "description": "Title bar background when the window is inactive."
+    "description": "Title bar background when the window is inactive.",
+    "action": "InactiveBackground"
   },
   "bc@titleBar.border": {
     "variable": "titleBar.border",

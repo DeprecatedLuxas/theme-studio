@@ -7,6 +7,8 @@ import {
   ChangedVariables,
   CompiledVariables,
   ConditionalClassName,
+  OnAction,
+  OnHover,
   Variables,
 } from "@lib/types";
 import { getPropertyDifferences } from "@lib/utils";
@@ -31,6 +33,9 @@ export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
    *
    */
   state?: any;
+
+  onAction?: OnAction;
+  onHover?: OnHover;
 }
 
 export default function Element({
@@ -39,6 +44,8 @@ export default function Element({
   className = "",
   conditionalClassName,
   events,
+  onAction,
+  onHover,
   state,
   ...rest
 }: ElementProps) {
@@ -46,7 +53,7 @@ export default function Element({
   const { variables } = useRegistry();
   const prevVariables = usePrevious<CompiledVariables | undefined>(variables);
   const ref = useRef<HTMLOrSVGElement>();
-
+  
   const binding = useBinding({
     ref,
     bind,

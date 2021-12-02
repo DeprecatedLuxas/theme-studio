@@ -11,27 +11,29 @@
   const keys = [];
   const categories = [];
 
-  variableFiles.filter((file) => file.includes(".tstudio")).forEach((file) => {
-    const fileContents = fs.readFileSync(`./variables/${file}`, "utf-8");
+  variableFiles
+    .filter((file) => file.includes(".tstudio"))
+    .forEach((file) => {
+      const fileContents = fs.readFileSync(`./variables/${file}`, "utf-8");
 
-    if (!fileContents) return;
+      if (!fileContents) return;
 
-    const variableFile = JSON.parse(fileContents);
-    if (variableFile.exclude) {
-      return;
-    }
-    Object.keys(variableFile).forEach((key) => {
-      const value = variableFile[key];
-      let newKey = key;
-      if (value.hover) {
-        newKey = `h:${key}`;
+      const variableFile = JSON.parse(fileContents);
+      if (variableFile.exclude) {
+        return;
       }
-      if (value.category && !categories.includes(value.category))
-        categories.push(value.category);
-      keys.push(newKey);
+      Object.keys(variableFile).forEach((key) => {
+        const value = variableFile[key];
+        let newKey = key;
+        if (value.hover) {
+          newKey = `h:${key}`;
+        }
+        if (value.category && !categories.includes(value.category))
+          categories.push(value.category);
+        keys.push(newKey);
+      });
+      console.log("Generated variable types for:", file);
     });
-    console.log("Generated variable types for:", file);
-  });
 
   fs.writeFileSync(
     "./src/lib/generated/variables.ts",

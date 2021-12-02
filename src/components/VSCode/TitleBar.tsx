@@ -7,6 +7,9 @@ export default function TitleBar() {
     <Element
       className="flex items-center justify-center h-titlebar text-titlebar relative"
       bind={["bg@titleBar.activeBackground"]}
+      onAction={{
+        "titlebar.InactiveBackground": "bg@titleBar.inactiveBackground"
+      }}
     >
       <Element
         className="h-full flex justify-center items-center select-none"

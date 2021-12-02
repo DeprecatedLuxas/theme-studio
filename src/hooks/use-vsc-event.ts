@@ -8,6 +8,7 @@ export default function useVSCEvent(
   eventList?: any
 ) {
   if (!eventList) return {};
+  if (!Array.isArray(eventList)) return {};
   const events: any[] = Array.isArray(eventList) ? eventList : [eventList];
   const eventHandlers: any = {};
   events.forEach((event) => {

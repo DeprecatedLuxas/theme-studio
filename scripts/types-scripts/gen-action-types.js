@@ -20,9 +20,15 @@
       return;
     }
     Object.keys(variableFile).forEach((key) => {
-      const value = variableFile[key];
-      let newKey = key;
-      if (value.action) actions.push(value.action);
+      const variable = variableFile[key];
+
+      if (variable.category && variable.action) {
+        const actionPrefix = variable.category
+          .split(" ")
+          .join("")
+          .toLowerCase();
+        actions.push(`${actionPrefix}.${variable.action}`);
+      }
     });
     console.log("Generated action types for:", file);
   });

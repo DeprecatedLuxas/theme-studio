@@ -23,6 +23,7 @@ import gitVars from "@variables/git.tstudio";
 import sideBarVars from "@variables/sidebar.tstudio";
 import tabsVars from "@variables/tabs.tstudio";
 import toolbarVars from "@variables/toolbar.tstudio";
+import editorVars from "@variables/editor.tstudio";
 import tinycolor from "tinycolor2";
 
 enum Functions {
@@ -203,6 +204,7 @@ class Registry implements IRegistry {
 const registry = new Registry();
 
 registry.registerFile(baseVars);
+registry.registerFile(editorVars);
 registry.registerFile(activityBarVars);
 registry.registerFile(titleBarVars);
 registry.registerFile(statusBarVars);
