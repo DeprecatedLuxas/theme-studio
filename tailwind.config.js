@@ -18,7 +18,11 @@ module.exports = {
         "dialog-overlay": "rgba(0, 0, 0, 0.48)",
       },
       padding: {
+        1.25: "0.3125rem",
         "10px": "10px",
+      },
+      margin: {
+        0.25: "0.1875rem",
       },
       width: {
         0.25: "0.0625rem",

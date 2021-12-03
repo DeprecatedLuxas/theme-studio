@@ -119,3 +119,8 @@ export type ComponentPropPlacement = "top" | "bottom" | "left" | "right";
 export type TStudioAction = string;
 
 export interface ValidationSchema {}
+
+export type AnchorPoint = {
+  x: number;
+  y: number;
+};

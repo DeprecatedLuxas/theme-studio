@@ -2,9 +2,14 @@ import { IRegistry } from "@contexts/RegistryContext";
 import EditorHelper from "@helpers/editor";
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
-import { TStudioAction, TStudioActions, Variables } from "@lib/types";
+import {
+  AnchorPoint,
+  TStudioAction,
+  TStudioActions,
+  Variables,
+} from "@lib/types";
 import { actionState } from "@recoil/atoms/action";
-import { Dispatch, useEffect, useState } from "react";
+import { Dispatch, useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 
 export interface VariableProps {
@@ -32,16 +37,14 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
     const action: TStudioAction | undefined = registry.getAction(name);
     if (!action && !EditorHelper.doesActionExist(action)) return;
     const act: TStudioActions = action as TStudioActions;
-    console.log(act);
-    
+
     setAction(act);
   };
 
   const handleMouseLeave = () => {
     // Dont set action state if action is empty
     if (action === "") return;
-    console.log(action);
-    
+
     setAction("");
   };
 

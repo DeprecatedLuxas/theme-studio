@@ -21,7 +21,7 @@ export default function VSCode({ sidebarPlacement = "left" }: VSCodeProps) {
     setOptions({
       sidebarPlacement,
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -34,10 +34,12 @@ export default function VSCode({ sidebarPlacement = "left" }: VSCodeProps) {
             <SideBar />
           </>
         )}
-        <Element className="flex-1">
+        <Element className="flex-1 flex flex-col">
           <Tabs />
           <Breadcrumbs />
-          <Content />
+          <Element className="flex-1">
+            <Content />
+          </Element>
         </Element>
         {sidebarPlacement === "right" && (
           <>

@@ -38,7 +38,7 @@ export default function StatusBar() {
         </Element>
 
         <Element
-          className="cursor-pointer h-full flex items-center justify-center px-1.5 select-none"
+          className="cursor-pointer h-full flex items-center justify-center px-1.25 mx-0.25 select-none"
           bind={[
             "h:bg@statusBarItem.hoverBackground",
             "c@statusBar.foreground",
@@ -51,7 +51,7 @@ export default function StatusBar() {
         </Element>
 
         <Element
-          className="cursor-pointer h-full flex items-center justify-center px-1.5 select-none"
+          className="cursor-pointer h-full flex items-center justify-center px-1.25 mx-0.25 select-none"
           bind={[
             "h:bg@statusBarItem.hoverBackground",
             "c@statusBar.foreground",
@@ -72,13 +72,13 @@ export default function StatusBar() {
           stautsBarItems.map((item: string, idx: number) => (
             <Element
               key={`statusbar-${idx}`}
-              className="cursor-pointer px-1.5 py-0.5 h-full select-none"
+              className="cursor-pointer px-1.25 mx-0.25 h-full select-none"
               bind={[
                 "h:bg@statusBarItem.hoverBackground",
                 "c@statusBar.foreground",
               ]}
             >
-              {item}
+              <a className="flex items-center h-full">{item}</a>
             </Element>
           ))}
       </Element>
