@@ -20,10 +20,6 @@ export default function StatusBar() {
     <Element
       className="flex justify-between h-statusbar text-xs"
       bind={["bg@statusBar.background", "bc@statusBar.border"]}
-      state={{
-        
-      }}
-
     >
       <Element className="flex">
         <Element bind={["bg@statusBarItem.remoteBackground"]}>
@@ -46,7 +42,9 @@ export default function StatusBar() {
           ]}
         >
           <VscSourceControl fontSize="16px" />
-          <Element as="span" className="select-none">master*</Element>
+          <Element as="span" className="select-none">
+            master*
+          </Element>
         </Element>
 
         <Element
@@ -68,9 +66,9 @@ export default function StatusBar() {
       </Element>
       <Element className="flex items-center">
         {stautsBarItems &&
-          stautsBarItems.map((item: string) => (
+          stautsBarItems.map((item: string, idx: number) => (
             <Element
-              key={uuid()}
+              key={`statusbar-${idx}`}
               className="cursor-pointer px-1.5 py-0.5 h-full select-none"
               bind={[
                 "h:bg@statusBarItem.hoverBackground",

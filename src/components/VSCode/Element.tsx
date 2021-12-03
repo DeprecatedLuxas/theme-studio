@@ -19,21 +19,6 @@ export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: keyof JSX.IntrinsicElements;
   conditionalClassName?: ConditionalClassName;
   bind?: Arrayable<Variables>;
-  /**
-   * onAction:Debugging -> when state is true, trigger this variable
-   * onHover:c@activityBar.foreground -> trigger this variable when hovering over the element
-   *
-   *
-   */
-  // TODO: Add types for this.
-  events?: any;
-  // TODO: Add types for this.
-  /**
-   * onState
-   *
-   */
-  state?: any;
-
   onAction?: OnAction;
   onHover?: OnHover;
 }
@@ -43,28 +28,25 @@ export default function Element({
   bind,
   className = "",
   conditionalClassName,
-  events,
-  onAction,
-  onHover,
-  state,
+  onAction = {},
+  onHover = [],
   ...rest
 }: ElementProps) {
   const Component = as as keyof JSX.IntrinsicElements;
   const { variables } = useRegistry();
   const prevVariables = usePrevious<CompiledVariables | undefined>(variables);
   const ref = useRef<HTMLOrSVGElement>();
-  
+
   const binding = useBinding({
     ref,
     bind,
     variables,
   });
-  const eventHandlers = useVSCEvent(ref, variables, events);
+  const eventHandlers = useVSCEvent({ ref, onAction, onHover, variables });
 
   let classes = useRef<string>(className);
 
   useEffect(() => {
-
     if (!conditionalClassName) return;
     if (!prevVariables) return;
     if (!variables) return;

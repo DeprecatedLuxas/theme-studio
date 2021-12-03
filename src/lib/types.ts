@@ -46,8 +46,7 @@ export type VariableCategories = Record<
 >;
 
 export type OnAction = PartialRecord<TStudioActions, Variables>;
-export type OnHover = Arrayable<Variables>;
-
+export type OnHover = Array<Variables>;
 
 export type Rule = string;
 export type ConditionalClassName = PartialRecord<
