@@ -1,44 +1,14 @@
-import {
-  CompiledVariables,
-  OnAction,
-  OnHover,
-  TStudioActions,
-} from "@lib/types";
-import { actionState } from "@recoil/atoms/action";
-import {
-  CSSProperties,
-  MutableRefObject,
-  useCallback,
-  useEffect,
-  useRef,
-} from "react";
-import { useRecoilState } from "recoil";
+import { CompiledVariables, OnAction, OnHover } from "@lib/types";
+import { CSSProperties, MutableRefObject } from "react";
 
 export interface UseVSCEvent {
   ref: MutableRefObject<HTMLOrSVGElement | undefined>;
   onHover: OnHover;
-  onAction: OnAction;
   variables?: CompiledVariables;
 }
 
-export default function useVSCEvent({
-  ref,
-  onAction,
-  onHover,
-  variables,
-}: UseVSCEvent) {
-  const [action, setAction] = useRecoilState(actionState);
-/*   const currentAction = useRef<TStudioActions>(action);
-  const handleAction = useCallback(() => {
-
-  }, [action]);
-     const actions: Array<OnAction> = Array.isArray(onAction)
-    ? onAction
-    : [onAction]; 
- */
-
-
-   const eventHandlers: any = {};
+export default function useVSCEvent({ ref, onHover, variables }: UseVSCEvent) {
+  const eventHandlers: any = {};
   onHover.forEach((hover) => {
     let oldStyle: CSSProperties = {};
     eventHandlers["onMouseEnter"] = (e: any) => {

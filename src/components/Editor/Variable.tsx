@@ -32,12 +32,16 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
     const action: TStudioAction | undefined = registry.getAction(name);
     if (!action && !EditorHelper.doesActionExist(action)) return;
     const act: TStudioActions = action as TStudioActions;
+    console.log(act);
+    
     setAction(act);
   };
 
   const handleMouseLeave = () => {
     // Dont set action state if action is empty
     if (action === "") return;
+    console.log(action);
+    
     setAction("");
   };
 

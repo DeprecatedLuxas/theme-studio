@@ -20,6 +20,9 @@ export default function StatusBar() {
     <Element
       className="flex justify-between h-statusbar text-xs"
       bind={["bg@statusBar.background", "bc@statusBar.border"]}
+      onAction={{
+        "statusbar.NoFolder": "bg@statusBar.noFolderBackground",
+      }}
     >
       <Element className="flex">
         <Element bind={["bg@statusBarItem.remoteBackground"]}>

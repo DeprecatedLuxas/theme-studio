@@ -45,7 +45,7 @@ export type VariableCategories = Record<
   VariablePossibleCategories[]
 >;
 
-export type OnAction = PartialRecord<TStudioActions, Variables>;
+export type OnAction = PartialRecord<Exclude<TStudioActions, "">, Variables>;
 export type OnHover = Array<Variables>;
 
 export type Rule = string;

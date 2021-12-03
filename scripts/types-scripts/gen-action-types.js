@@ -22,7 +22,7 @@
     Object.keys(variableFile).forEach((key) => {
       const variable = variableFile[key];
 
-      if (variable.category && variable.action) {
+      if (variable.category || variable.action) {
         const actionPrefix = variable.category
           .split(" ")
           .join("")

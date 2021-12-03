@@ -190,14 +190,20 @@ class Registry implements IRegistry {
   }
 
   validate(variable: ValidateVariable, schema: ValidationSchema): boolean {
-    console.log(variable);
+    // console.log(variable);
 
     return true;
     throw new Error("Method not implemented.");
   }
 
   getAction(key: Variables): TStudioAction | undefined {
-    return this.variables[key].action;
+    const variable = this.variables[key];
+
+    if (!variable.category || !variable.action) return undefined;
+
+    const actionPrefix = variable.category.split(" ").join("").toLowerCase();
+    
+    return `${actionPrefix}.${variable.action}`;
   }
 }
 

@@ -18,14 +18,14 @@ import { HTMLAttributes, useEffect, useRef } from "react";
 export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: keyof JSX.IntrinsicElements;
   conditionalClassName?: ConditionalClassName;
-  bind?: Arrayable<Variables>;
+  bind?: Array<Variables>;
   onAction?: OnAction;
   onHover?: OnHover;
 }
 
 export default function Element({
   as = "div",
-  bind,
+  bind = [],
   className = "",
   conditionalClassName,
   onAction = {},
@@ -40,9 +40,10 @@ export default function Element({
   const binding = useBinding({
     ref,
     bind,
+    onAction,
     variables,
   });
-  const eventHandlers = useVSCEvent({ ref, onAction, onHover, variables });
+  const eventHandlers = useVSCEvent({ ref, onHover, variables });
 
   let classes = useRef<string>(className);
 

@@ -1,5 +1,7 @@
-import { Arrayable, CompiledVariables, Variables } from "@lib/types";
-import { CSSProperties, MutableRefObject, useRef } from "react";
+import { Arrayable, CompiledVariables, OnAction, Variables } from "@lib/types";
+import { actionState } from "@recoil/atoms/action";
+import { CSSProperties, MutableRefObject, useEffect, useRef } from "react";
+import { useRecoilState } from "recoil";
 
 const Places: Map<"bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc", string> =
   new Map([
@@ -13,8 +15,9 @@ const Places: Map<"bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc", string> =
   ]);
 
 export interface UseBindingOptions {
-  ref?: MutableRefObject<HTMLOrSVGElement | undefined>;
-  bind?: Arrayable<Variables>;
+  ref: MutableRefObject<HTMLOrSVGElement | undefined>;
+  bind: Array<Variables>;
+  onAction: OnAction;
   variables?: CompiledVariables;
 }
 
@@ -22,8 +25,22 @@ export default function useBinding({
   ref,
   bind,
   variables,
+  onAction,
 }: UseBindingOptions) {
+  const extraBindingsRef = useRef<Variables[]>([]);
+  const [action, setAction] = useRecoilState(actionState);
 
+  useEffect(() => {
+    if (action === "") extraBindingsRef.current = [];
+    const actions = Object.keys(onAction);
+    if (actions.includes(action)) {
+      if (action === "") {
+        extraBindingsRef.current = [];
+        return;
+      }
+      extraBindingsRef.current.push(onAction[action] as Variables);
+    }
+  }, [action, onAction]);
   if (!bind) return {};
 
   let styleObj: CSSProperties = {};
@@ -31,11 +48,12 @@ export default function useBinding({
     onMouseEnter?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
     onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
   } = {};
-  const bindings: Variables[] = Array.isArray(bind) ? bind : [bind];
+  const bindings = [...bind, ...extraBindingsRef.current];
   bindings.forEach((binding: Variables) => {
     const [, hover, location] = binding.match(
       /^(?<hover>h:)?(?<location>.+)@(.+)$/
     )!;
+
     const styling = Places.get(
       location as "bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc"
     );
@@ -50,7 +68,7 @@ export default function useBinding({
 
       if (events.onMouseEnter) oldMouseEnter = events.onMouseEnter;
       if (events.onMouseLeave) oldMouseLeave = events.onMouseLeave;
-      
+
       events.onMouseEnter = () => {
         oldMouseEnter && oldMouseEnter();
 
