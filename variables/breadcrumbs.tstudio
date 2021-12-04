@@ -1,0 +1,57 @@
+{
+  "c@breadcrumb.foreground": {
+    "variable": "breadcrumb.foreground",
+    "group": {
+      "dark": "func@transparent(var@foreground, 0.8)",
+      "light": "func@transparent(var@foreground, 0.8)",
+      "hc": "func@transparent(var@foreground, 0.8)"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Color of focused breadcrumb items."
+  },
+  "bg@breadcrumb.background": {
+    "variable": "breadcrumb.background",
+    "group": {
+      "dark": "var@editor.background",
+      "light": "var@editor.background",
+      "hc": "var@editor.background"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Background color of breadcrumb items."
+  },
+  "c@breadcrumb.focusForeground": {
+    "variable": "breadcrumb.focusForeground",
+    "group": {
+      "dark": "func@lighten(var@foreground, 0.1)",
+      "light": "func@darken(var@foreground, 0.2)",
+      "hc": "func@lighten(var@foreground, 0.1)"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Color of focused breadcrumb items."
+  },
+  "c@breadcrumb.activeSelectionForeground": {
+    "variable": "breadcrumb.activeSelectionForeground",
+    "group": {
+      "dark": "func@lighten(var@foreground, 0.1)",
+      "light": "func@darken(var@foreground, 0.2)",
+      "hc": "func@lighten(var@foreground, 0.1)"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Color of selected breadcrumb items."
+  },
+  "bg@breadcrumbPicker.background": {
+    "variable": "breadcrumbPicker.background",
+    "group": {
+      "dark": "var@editorWidget.background",
+      "light": "var@editorWidget.background",
+      "hc": "var@editorWidget.background"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Background color of breadcrumb item picker."
+  }
+}

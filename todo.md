@@ -8,3 +8,4 @@
 - [ ] Add validation of tstudio files.
 - [ ] Add tooltip component.
 - [ ] Clean up in tailwind config
+- [ ] Fix icons

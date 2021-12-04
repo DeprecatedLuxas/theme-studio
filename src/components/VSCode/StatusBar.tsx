@@ -7,7 +7,7 @@ import {
 } from "react-icons/vsc";
 import { v4 as uuid } from "uuid";
 
-const stautsBarItems = [
+const statusBarItems = [
   "Ln 3, Col 10",
   "Spaces 4",
   "UTF-8",
@@ -68,11 +68,13 @@ export default function StatusBar() {
         </Element>
       </Element>
       <Element className="flex items-center">
-        {stautsBarItems &&
-          stautsBarItems.map((item: string, idx: number) => (
+        {statusBarItems &&
+          statusBarItems.map((item: string, idx: number) => (
             <Element
               key={`statusbar-${idx}`}
-              className="cursor-pointer px-1.25 mx-0.25 h-full select-none"
+              className={`cursor-pointer px-1.25 ${
+                idx + 1 === statusBarItems.length ? "ml-0.25 mr-7px" : "mx-0.25"
+              } h-full select-none`}
               bind={[
                 "h:bg@statusBarItem.hoverBackground",
                 "c@statusBar.foreground",

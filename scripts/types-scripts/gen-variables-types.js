@@ -19,10 +19,9 @@
       if (!fileContents) return;
 
       const variableFile = JSON.parse(fileContents);
-      if (variableFile.exclude) {
-        return;
-      }
-      Object.keys(variableFile).forEach((key) => {
+      const excluding = variableFile.exclude || [];
+ 
+      Object.keys(variableFile).filter((key) => !excluding.includes(key)).forEach((key) => {
         const value = variableFile[key];
         let newKey = key;
         if (value.hover) {

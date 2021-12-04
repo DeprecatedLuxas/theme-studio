@@ -1,5 +1,5 @@
 {
-  "exclude": true,
+  "exclude": [],
   "c@foreground": {
     "variable": "foreground",
     "group": {

@@ -24,6 +24,7 @@ import sideBarVars from "@variables/sidebar.tstudio";
 import tabsVars from "@variables/tabs.tstudio";
 import toolbarVars from "@variables/toolbar.tstudio";
 import editorVars from "@variables/editor.tstudio";
+import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
 import tinycolor from "tinycolor2";
 
 enum Functions {
@@ -202,7 +203,7 @@ class Registry implements IRegistry {
     if (!variable.category || !variable.action) return undefined;
 
     const actionPrefix = variable.category.split(" ").join("").toLowerCase();
-    
+
     return `${actionPrefix}.${variable.action}`;
   }
 }
@@ -219,5 +220,6 @@ registry.registerFile(gitVars);
 registry.registerFile(sideBarVars);
 registry.registerFile(tabsVars);
 registry.registerFile(toolbarVars);
+registry.registerFile(breadcrumbsVar);
 
 export default registry;

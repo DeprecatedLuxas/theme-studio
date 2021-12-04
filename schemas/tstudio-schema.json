@@ -4,8 +4,8 @@
   "type": "object",
   "properties": {
     "exclude": {
-      "type": "boolean",
-      "description": "Should file be excluded from registry variables."
+      "type": "array",
+      "description": "Should items be excluded from registry variables."
     }
   },
   "patternProperties": {

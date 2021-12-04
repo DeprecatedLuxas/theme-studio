@@ -22,6 +22,7 @@ module.exports = {
         "10px": "10px",
       },
       margin: {
+        "7px": "7px",
         0.25: "0.1875rem",
       },
       width: {
@@ -58,6 +59,9 @@ module.exports = {
         56: "17rem",
         96: "24rem",
         24: "24px",
+      },
+      lineHeight: {
+        5.5: "1.375rem",
       },
       fontSize: {
         "11px": "11px",
