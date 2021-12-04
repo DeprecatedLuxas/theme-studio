@@ -9,7 +9,7 @@ export default function SideBar() {
 
   return (
     <Element
-      className="w-sidebar h-full flex flex-col"
+      className="w-62.5 h-full flex flex-col"
       conditionalClassName={{
         "brc@sideBar.border": {
           when: "NOT_NULL",
@@ -22,7 +22,7 @@ export default function SideBar() {
         "brc@sideBar.border",
       ]}
     >
-      <Element className="uppercase flex items-center justify-between px-5 h-sideBarTitle text-sideBarTitle cursor-default select-none">
+      <Element className="uppercase flex items-center justify-between px-5 h-2.1875 text-sideBarTitle cursor-default select-none">
         <Element
           as="span"
           className="text-sideBarTitle"
@@ -31,7 +31,7 @@ export default function SideBar() {
           EXPLORER
         </Element>
         <Element
-          className="flex items-center justify-center cursor-pointer -mr-5 h-full w-sideBarTitleIcon"
+          className="flex items-center justify-center cursor-pointer -mr-5 h-full w-12.5"
           bind={["c@sideBar.foreground"]}
         >
           <Element

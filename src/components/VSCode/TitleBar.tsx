@@ -5,7 +5,7 @@ import Element from "./Element";
 export default function TitleBar() {
   return (
     <Element
-      className="flex items-center justify-center h-titlebar text-titlebar relative"
+      className="flex items-center justify-center h-1.875 text-titlebar relative"
       bind={["bg@titleBar.activeBackground"]}
       onAction={{
         "titlebar.InactiveBackground": "bg@titleBar.inactiveBackground"

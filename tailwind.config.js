@@ -7,9 +7,47 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
+    backgroundImage: {
+      grid: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVQ4T2N89uzZfwY8QFJSEp80A+OoAcMiDP7//483HTx//hx/Ohg1gIFx6IcBALl+VXknOCvFAAAAAElFTkSuQmCC")',
+    },
+    colors: {
+      white: "#fff",
+      black: "#000",
+      gray: {
+        900: "#202225",
+        800: "#2f3136",
+        700: "#36393f",
+        600: "#4f545c",
+        400: "#d4d7dc",
+        300: "#e3e5e8",
+        200: "#ebedef",
+        100: "#f2f3f5",
+      },
+      blue: {
+        50: "#eff6ff",
+        100: "#dbeafe",
+        200: "#bfdbfe",
+        300: "#93c5fd",
+        400: "#60a5fa",
+        500: "#3b82f6",
+        600: "#2563eb",
+        700: "#1d4ed8",
+        800: "#1e40af",
+        900: "#1e3a8a",
+      },
+    },
+    boxShadow: {
+      variable: "0 4px 4px rgba(0, 0, 0, .25)",
+      saturation:
+        "rgb(255 255 255) 0px 0px 0px 1.5px, rgb(0 0 0 / 30%) 0px 0px 1px 1px inset, rgb(0 0 0 / 40%) 0px 0px 1px 2px",
+    },
     extend: {
-      backgroundImage: {
-        variable: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVQ4T2N89uzZfwY8QFJSEp80A+OoAcMiDP7//483HTx//hx/Ohg1gIFx6IcBALl+VXknOCvFAAAAAElFTkSuQmCC")`,
+      spacing: {
+        1.875: "1.875rem",
+        2.1875: "2.1875rem",
+        5.5: "1.375rem",
+        12.5: "3.125rem",
+        62.5: "15.625rem",
       },
       textColor: {
         titlebar: "rgb(204, 204, 204)",
@@ -28,12 +66,7 @@ module.exports = {
       width: {
         0.25: "0.0625rem",
         4.5: "1.125rem",
-        5.5: "1.375rem",
         "remote-icon": "34px",
-        activitybar: "50px",
-        activityicon: "50px",
-        sidebar: "250px",
-        sideBarTitleIcon: "50px",
       },
       maxWidth: {
         48: "12rem",
@@ -46,12 +79,6 @@ module.exports = {
       height: {
         0.25: "0.0625rem",
         4.5: "1.125rem",
-        5.5: "1.375rem",
-        titlebar: "30px",
-        statusbar: "22px",
-        "35px": "35px",
-        sideBarTitle: "35px",
-        activityicon: "50px",
         content: "calc(100% - 52px)",
       },
       minHeight: {
@@ -73,11 +100,6 @@ module.exports = {
       },
       transitionProperty: {
         input: "border 0.2s ease 0s, color 0.2s ease 0s",
-      },
-      boxShadow: {
-        variable: "0 4px 4px rgba(0, 0, 0, .25)",
-        saturation:
-          "rgb(255 255 255) 0px 0px 0px 1.5px, rgb(0 0 0 / 30%) 0px 0px 1px 1px inset, rgb(0 0 0 / 40%) 0px 0px 1px 2px",
       },
       inset: {
         badge: "9px",
@@ -101,21 +123,6 @@ module.exports = {
             transform: "rotate(360deg) scale(1)",
           },
         },
-      },
-      colors: {
-        gray: {
-          900: "#202225",
-          800: "#2f3136",
-          700: "#36393f",
-          600: "#4f545c",
-          400: "#d4d7dc",
-          300: "#e3e5e8",
-          200: "#ebedef",
-          100: "#f2f3f5",
-        },
-      },
-      cursor: {
-        crosshair: "crosshair",
       },
     },
   },

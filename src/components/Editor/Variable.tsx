@@ -56,7 +56,7 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="bg-variable w-8 h-8 rounded-md mr-3"
+          className="bg-grid w-8 h-8 rounded-md mr-3"
           onClick={() => setShow(!show)}
         >
           <div

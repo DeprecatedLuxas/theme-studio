@@ -10,16 +10,16 @@ import { TypeScriptReactIcon } from "./icons";
 export default function Tabs() {
   return (
     <Element
-      className="w-full h-35px flex justify-between"
+      className="w-full h-2.1875 flex justify-between"
       // bind={["bg@tab.inactiveBackground"]}
     >
       <Element className="flex justify-start">
         <Element
-          className="flex justify-start items-center h-35px min-w-120px px-10px text-13px cursor-pointer relative"
+          className="flex justify-start items-center h-2.1875 min-w-120px px-10px text-13px cursor-pointer relative"
           bind={["bg@tab.activeBackground"]}
         >
           <span
-            className="h-35px"
+            className="h-2.1875"
             style={{
               width: "16px",
               display: "flex",
@@ -31,13 +31,13 @@ export default function Tabs() {
           <span>index.tsx</span>
         </Element>
         <Element
-          className="flex justify-start items-center h-35px min-w-120px px-10px text-13px cursor-pointer relative"
+          className="flex justify-start items-center h-2.1875 min-w-120px px-10px text-13px cursor-pointer relative"
           bind={["bg@tab.inactiveBackground"]}
         >
           <span>App.tsx</span>
         </Element>
         <Element
-          className="flex justify-start items-center h-35px min-w-120px px-10px text-13px cursor-pointer relative"
+          className="flex justify-start items-center h-2.1875 min-w-120px px-10px text-13px cursor-pointer relative"
           bind={["bg@tab.inactiveBackground"]}
         >
           <span>App.tsx</span>

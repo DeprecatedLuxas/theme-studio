@@ -18,7 +18,7 @@ const statusBarItems = [
 export default function StatusBar() {
   return (
     <Element
-      className="flex justify-between h-statusbar text-xs"
+      className="flex justify-between h-5.5 text-xs"
       bind={["bg@statusBar.background", "bc@statusBar.border"]}
       onAction={{
         "statusbar.NoFolder": "bg@statusBar.noFolderBackground",

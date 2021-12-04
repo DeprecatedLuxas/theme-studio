@@ -12,7 +12,7 @@ import Element from "./Element";
 export default function ActivityBar() {
   return (
     <Element
-      className="flex w-activitybar flex-col justify-between"
+      className="flex w-12.5 flex-col justify-between"
       conditionalClassName={{
         "brc@activityBar.border": {
           when: "NOT_NULL",
@@ -27,20 +27,20 @@ export default function ActivityBar() {
     >
       <Element>
         <Element
-          className="flex justify-center items-center border-l-2 w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center border-l-2 w-12.5 h-12.5 cursor-pointer relative"
           bind={["blc@activityBar.activeBorder"]}
         >
           <VscFiles fontSize="24px" />
         </Element>
         <Element
-          className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
           <VscSearch fontSize="24px" />
         </Element>
         <Element
-          className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
@@ -57,14 +57,14 @@ export default function ActivityBar() {
           </Element>
         </Element>
         <Element
-          className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
           <VscDebugAlt fontSize="24px" />
         </Element>
         <Element
-          className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
@@ -73,14 +73,14 @@ export default function ActivityBar() {
       </Element>
       <Element>
         <Element
-          className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
           <VscAccount fontSize="24px" />
         </Element>
         <Element
-          className="flex justify-center items-center w-activityicon h-activityicon cursor-pointer relative"
+          className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
