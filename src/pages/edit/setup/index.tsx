@@ -13,7 +13,7 @@ import EditorHelper from "@helpers/editor";
 import useStorage from "@hooks/useStorage";
 import StorageFound from "@components/Editor/StorageFound";
 import Loading from "@components/Loading";
-import EditWarning from "@components/Editor/EditorWarning";
+import EditorWarning from "@components/Editor/EditorWarning";
 import {
   Dialog,
   DialogBody,
@@ -53,7 +53,7 @@ export default function Setup() {
   }
 
   if (isMobile) {
-    return <EditWarning />;
+    return <EditorWarning />;
   }
 
   if (
@@ -76,8 +76,11 @@ export default function Setup() {
 
   const handleComplete = () => {
     setCompleted(true);
-    // TODO: Only set storage if its local.
-    setStorage(EditorHelper.getFromSetupConfig(config));
+    if (!user) {
+      setStorage(EditorHelper.getFromSetupConfig(config));
+    } else {
+      console.log("Save to db plz");
+    }
     router.push(`/edit/${!user ? "local" : `${uuid()}`}`);
   };
 

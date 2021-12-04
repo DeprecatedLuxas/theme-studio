@@ -2,7 +2,7 @@ import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Link from "next/link";
 import Badge from "@components/Badge";
-
+import { isMobile } from "react-device-detect";
 
 export default function Home() {
   return (
@@ -15,11 +15,17 @@ export default function Home() {
           <br />
           Theme editor
         </h1>
-        <Link href="/edit/setup">
-          <a className="py-2 px-2 bg-blue-700 text-white font-bold rounded-md">
-            Get Started
-          </a>
-        </Link>
+        {!isMobile ? (
+          <Link href="/edit/setup">
+            <a className="py-2 px-2 bg-blue-700 text-white font-bold rounded">
+              Get Started
+            </a>
+          </Link>
+        ) : (
+          <p className="py-2 px-2 bg-red-700 text-white font-bold rounded w-max cursor-not-allowed select-none">
+            Your device is not supported.
+          </p>
+        )}
       </div>
       <Footer />
     </div>

@@ -14,6 +14,7 @@ import {
   Variables,
   ValidationSchema,
 } from "./types";
+import _ from "lodash";
 import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
 import titleBarVars from "@variables/titlebar.tstudio";
@@ -46,7 +47,8 @@ interface IRegistry {
   compileAll(type: ThemeType): CompiledVariables;
   getByTab(tab: VariableTab): Record<string, Variable>;
   parseGroup(group: VariableGroup): VariableGroup;
-  clone(storage: ThemeStorage): boolean | undefined;
+  clone(storage: ThemeStorage, tab: VariableTab): CompiledVariables | undefined;
+  cloneAll(storage: ThemeStorage): CompiledVariables | undefined;
   getVariable(variable: string): VariableGroup | undefined;
   getCategories(): VariableCategories;
   getVariableCategory(variable: CompiledVariable): VariablePossibleCategories;
@@ -133,8 +135,25 @@ class Registry implements IRegistry {
     return newGroup;
   }
 
-  clone(storage: ThemeStorage): boolean | undefined {
-    throw new Error("Method not implemented.");
+  cloneAll(storage: ThemeStorage): CompiledVariables | undefined {
+    const { variables, type } = storage;
+    const compiled: CompiledVariables & Indexable = this.compileAll(type);
+    if (!Object.keys(variables).length) return undefined;
+
+    Object.keys(variables).forEach((key: string) => {
+      compiled[key] = variables[key];
+    });
+
+    return compiled;
+  }
+  clone(
+    storage: ThemeStorage,
+    tab: VariableTab
+  ): CompiledVariables | undefined {
+    const { variables, type } = storage;
+    const compiled: CompiledVariables & Indexable = this.compile(type, tab);
+
+    return undefined;
   }
 
   getVariable(variable: string): VariableGroup | undefined {

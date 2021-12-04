@@ -2,7 +2,6 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { FaPalette, FaKeyboard, FaCode } from "react-icons/fa";
 import Loading from "@components/Loading";
 import { useRouter } from "next/router";
-import { BsStars, BsCloudDownload } from "react-icons/bs";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
 import { useEffect, useReducer } from "react";
@@ -10,7 +9,7 @@ import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
 import { isMobile } from "react-device-detect";
-import EditWarning from "@components/Editor/EditorWarning";
+import EditorWarning from "@components/Editor/EditorWarning";
 import Divider from "@components/Divider";
 import Button from "@components/Button";
 import {
@@ -27,6 +26,9 @@ import useStorage from "@hooks/useStorage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
+import { VscGear } from "react-icons/vsc";
+import Link from "next/link";
+import { encode } from "@helpers/encoding";
 
 export default function Local() {
   const { user, isLoading, error } = useUser();
@@ -50,11 +52,12 @@ export default function Local() {
 
   // TODO: Make this code clone from local storage
   const [state, dispatch] = useReducer(reducer, {
-    variables: registry.compileAll(setupConfig.type),
+    variables:
+      registry.cloneAll(storage) || registry.compileAll(setupConfig.type),
     categories: registry.getCategories(),
-    palette: registry.compile(setupConfig.type, "palette"),
-    editor: registry.compile(setupConfig.type, "editor"),
-    syntax: registry.compile(setupConfig.type, "syntax"),
+    palette: registry.clone(storage, "palette") || registry.compile(setupConfig.type, "palette"),
+    editor: registry.clone(storage, "editor") || registry.compile(setupConfig.type, "editor"),
+    syntax: registry.clone(storage, "syntax") || registry.compile(setupConfig.type, "syntax"),
   });
 
   if (isLoading) {
@@ -62,7 +65,7 @@ export default function Local() {
   }
 
   if (isMobile) {
-    return <EditWarning />;
+    return <EditorWarning />;
   }
 
   // If user is authenticated, redirect to homepage.
@@ -99,9 +102,11 @@ export default function Local() {
 
   const handleTryItOut = () => {
     onTryItOutClose();
-    // router.push(
-    //   "vscode://lucasnorgaard.vscode-theme-studio-visualizer?{base64encodedtheme}"
-    // );
+    const { name, variables, type } = storage;
+    const encoded = encode(JSON.stringify({ name, variables, type }));
+    router.push(
+      `vscode://lucasnorgaard.vscode-theme-studio-visualizer?theme=${encoded}`
+    );
   };
 
   return (
@@ -110,6 +115,11 @@ export default function Local() {
         <div className="w-72 flex flex-col p-2 bg-gray-900">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
+            <Link href="/edit/local/settings" passHref>
+              <a className="p-1 rounded hover:bg-gray-600 text-gray-600 hover:text-gray-400">
+                <VscGear className="text-2xl" />
+              </a>
+            </Link>
           </div>
           <Divider color="bg-gray-700" />
 
@@ -153,11 +163,10 @@ export default function Local() {
           </Button>
           <div className="w-full h-auto flex justify-center">
             <Button onClick={handleSave} className="w-full mx-2">
-              <BsStars className="inline-block" />
               Save
             </Button>
             <Button onClick={onExportOpen} className="mx-2 w-full">
-              <BsCloudDownload className="inline-block" /> Export
+              Export
             </Button>
           </div>
         </div>
