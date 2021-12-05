@@ -43,9 +43,8 @@ export default function SideBar() {
         </Element>
       </Element>
       <Element
-        className="uppercase flex border justify-start items-center h-5.5 cursor-pointer text-11px font-semibold"
+        className="uppercase flex justify-start items-center h-5.5 cursor-pointer text-11px font-semibold"
         bind={[
-          "bc@sideBarSectionHeader.border",
           "bg@sideBarSectionHeader.background",
           "c@sideBarSectionHeader.foreground",
         ]}
@@ -82,9 +81,9 @@ export default function SideBar() {
         </TreeView> */}
       </Element>
       <Element
-        className="uppercase flex border justify-start items-center h-5.5 cursor-pointer text-11px font-semibold"
+      className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"
         bind={[
-          "bc@sideBarSectionHeader.border",
+          "btc@sideBarSectionHeader.border",
           "bg@sideBarSectionHeader.background",
           "c@sideBarSectionHeader.foreground",
         ]}
@@ -93,9 +92,9 @@ export default function SideBar() {
         <Element as="span">outline</Element>
       </Element>
       <Element
-        className="uppercase flex border justify-start items-center h-5.5 cursor-pointer text-11px font-semibold font-roboto"
+        className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"
         bind={[
-          "bc@sideBarSectionHeader.border",
+          "btc@sideBarSectionHeader.border",
           "bg@sideBarSectionHeader.background",
           "c@sideBarSectionHeader.foreground",
         ]}

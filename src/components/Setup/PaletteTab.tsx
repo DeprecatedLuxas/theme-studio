@@ -1,9 +1,11 @@
 import Button from "@components/Button";
+import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { setupState } from "@recoil/atoms/setup";
 import { BsPlus } from "react-icons/bs";
 import { useRecoilState } from "recoil";
 
 export default function PaletteTab() {
+  const { isOpen, onOpen, onClose } = useBiscuitBox();
   const [config, setConfig] = useRecoilState(setupState);
   const maxColors = 12;
 

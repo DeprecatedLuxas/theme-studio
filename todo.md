@@ -9,3 +9,4 @@
 - [ ] Add tooltip component.
 - [ ] Clean up in tailwind config
 - [ ] Fix icons
+- [ ] Viewport small, make a overlay to tell users to use a bigger screen.

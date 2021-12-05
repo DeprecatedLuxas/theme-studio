@@ -76,7 +76,7 @@
     "tab": "palette",
     "description": "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar."
   },
-  "bc@sideBarSectionHeader.border": {
+  "btc@sideBarSectionHeader.border": {
     "variable": "sideBarSectionHeader.border",
     "group": {
       "dark": "#cccccc33",
