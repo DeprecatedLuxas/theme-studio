@@ -43,7 +43,7 @@ export default class EditorHelper {
   }
 
   static toVSCFormat(variables: Record<string, Variable>): VSCThemeFormat {
-    console.log(variables);
+    // console.log(variables);
 
     return {
       name: "",

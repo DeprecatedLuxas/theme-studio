@@ -13,7 +13,7 @@ import EditorHelper from "@helpers/editor";
 import useStorage from "@hooks/useStorage";
 import StorageFound from "@components/Editor/StorageFound";
 import Loading from "@components/Loading";
-import EditorWarning from "@components/Editor/EditorWarning";
+import MobileWarning from "@components/Editor/MobileWarning";
 import {
   Dialog,
   DialogBody,
@@ -53,7 +53,7 @@ export default function Setup() {
   }
 
   if (isMobile) {
-    return <EditorWarning />;
+    return <MobileWarning />;
   }
 
   if (

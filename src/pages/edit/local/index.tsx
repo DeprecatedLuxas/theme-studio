@@ -9,7 +9,7 @@ import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
 import { isMobile } from "react-device-detect";
-import EditorWarning from "@components/Editor/EditorWarning";
+import MobileWarning from "@components/Editor/MobileWarning";
 import Divider from "@components/Divider";
 import Button from "@components/Button";
 import {
@@ -55,9 +55,15 @@ export default function Local() {
     variables:
       registry.cloneAll(storage) || registry.compileAll(setupConfig.type),
     categories: registry.getCategories(),
-    palette: registry.clone(storage, "palette") || registry.compile(setupConfig.type, "palette"),
-    editor: registry.clone(storage, "editor") || registry.compile(setupConfig.type, "editor"),
-    syntax: registry.clone(storage, "syntax") || registry.compile(setupConfig.type, "syntax"),
+    palette:
+      registry.clone(storage, "palette") ||
+      registry.compile(setupConfig.type, "palette"),
+    editor:
+      registry.clone(storage, "editor") ||
+      registry.compile(setupConfig.type, "editor"),
+    syntax:
+      registry.clone(storage, "syntax") ||
+      registry.compile(setupConfig.type, "syntax"),
   });
 
   if (isLoading) {
@@ -65,19 +71,20 @@ export default function Local() {
   }
 
   if (isMobile) {
-    return <EditorWarning />;
+    return <MobileWarning />;
   }
 
   // If user is authenticated, redirect to homepage.
   if (user) router.push("/");
 
+  // TODO: Fix this, it renders the page before this shows.
   // If the user doesn't have something in the storage, redirect to the setup page
   if (EditorHelper.compare(storage, EditorHelper.getFakeStorage()))
     router.push("/edit/setup");
 
   const handleSave = () => {
     // Save to storage, only the variables that changed
-    // TODO: Add a toast in the right corner.
+    // TODO: Add a toast in the right corner to indicate status about the save.
     // Combine all variables, check what changed from the either the previous save or the registry defaults
     //     _.reduce(a, function(result, value, key) {
     //     return _.isEqual(value, b[key]) ?
@@ -109,17 +116,24 @@ export default function Local() {
     );
   };
 
+  const handleSettings = () => {
+    // Save to storage, before changing to the settings page
+    handleSave();
+    router.push("/edit/local/settings");
+  };
+
   return (
     <RegistryContext.Provider value={{ ...state, dispatch }}>
       <div className="flex h-screen">
         <div className="w-72 flex flex-col p-2 bg-gray-900">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
-            <Link href="/edit/local/settings" passHref>
-              <a className="p-1 rounded hover:bg-gray-600 text-gray-600 hover:text-gray-400">
-                <VscGear className="text-2xl" />
-              </a>
-            </Link>
+            <button
+              className="p-1 rounded hover:bg-gray-600 text-gray-600 hover:text-gray-400"
+              onClick={handleSettings}
+            >
+              <VscGear className="text-2xl" />
+            </button>
           </div>
           <Divider color="bg-gray-700" />
 
