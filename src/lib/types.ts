@@ -80,8 +80,12 @@ export interface ThemeStorage {
 }
 
 export interface ThemeOptions {
-  sidebar: "left" | "right";
+  sidebar: SideBarPlacement;
+  iconPack: IconPack;
 }
+
+export type SideBarPlacement = "left" | "right";
+export type IconPack = "material-icons" | "vscode-icons" | "seti-icons";
 
 export interface SetupOptions extends ThemeOptions {}
 

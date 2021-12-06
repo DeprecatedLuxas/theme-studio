@@ -40,7 +40,6 @@ type ValidateVariable = Variable & {
 };
 
 interface IRegistry {
-  validate(variable: ValidateVariable, schema: ValidationSchema): boolean;
   getAction(key: string): TStudioAction | undefined;
   register(key: string, variable: Variable): void;
   registerFile(file: Record<string, Variable>): void;
@@ -63,19 +62,13 @@ class Registry implements IRegistry {
     /func@(?<func>transparent|darken|lighten)\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)/;
 
   register(key: string, variable: Variable): void {
-    /*     const isValid = this.validate(
-      { ...variable, varKey: key as Variables },
-      {}
-    );
-
-    if (!isValid) throw new Error("Invalid Variable");
- */
-
     const isValid = Validation.validate({
       [key]: variable,
     });
 
-    if (!isValid)
+    if (!isValid) {
+      throw new Error("Invalid Variable");
+    }
     if (this.variables[key]) {
       throw new Error(`Variable with key ${key} already exists`);
     }
@@ -216,13 +209,6 @@ class Registry implements IRegistry {
     const vari = this.variables[variable];
     if (!vari) throw new Error("Category not found");
     return vari.category as VariablePossibleCategories;
-  }
-
-  validate(variable: ValidateVariable, schema: ValidationSchema): boolean {
-    // console.log(variable);
-
-    return true;
-    throw new Error("Method not implemented.");
   }
 
   getAction(key: Variables): TStudioAction | undefined {
