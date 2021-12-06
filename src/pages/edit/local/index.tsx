@@ -185,7 +185,7 @@ export default function Local() {
           </div>
         </div>
         <div className="flex-1 p-8 bg-gray-700">
-          <VSCode />
+          <VSCode sidebarPlacement={storage?.options?.sidebar} />
         </div>
       </div>
       <Dialog isOpen={isTryItOutOpen} onClose={onTryItOutClose}>

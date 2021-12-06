@@ -11,7 +11,7 @@ export const setupState = atom<ISetup>({
     palette: ["", "", "", "", "", "", "", "", "", "", "", ""],
     options: {
       sidebar: "left",
-      iconPack: "seti-icons"
+      iconPack: "Seti Icons",
     },
   },
 });

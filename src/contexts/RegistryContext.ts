@@ -2,7 +2,6 @@ import {
   CompiledVariables,
   Indexable,
   VariableCategories,
-  VariablePossibleCategories,
 } from "@lib/types";
 import { createContext, Dispatch } from "react";
 

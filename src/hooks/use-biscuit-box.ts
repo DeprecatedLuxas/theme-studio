@@ -26,11 +26,6 @@ export function useBiscuitBox({
     onOpenPropCallbackRef?.();
   }, [onOpenPropCallbackRef]);
 
-  const onToggle = useCallback(() => {
-    const action = isOpen ? onClose : onOpen;
-    action();
-  }, [isOpen, onOpen, onClose]);
-
   return {
     isOpen: !!isOpen,
     onOpen,

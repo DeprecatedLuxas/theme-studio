@@ -53,23 +53,22 @@ export default function SideBar() {
         <Element as="span">vscode-theme-studio</Element>
       </Element>
       <Element className="flex-1">
-        <Element className="flex justify-start items-center h-5.5 cursor-pointer pl-2 text-13px">
+        {/* <Element className="flex justify-start items-center h-5.5 cursor-pointer pl-2 text-13px">
           <Element className="flex justify-start items-center">
             <VscChevronRight />
             <Element as="span">node_modules</Element>
           </Element>
-        </Element>
-        {/* <TreeView>
-          <TreeView.Folder name="node_modules" />
-          <TreeView.Folder name="public" />
-          <TreeView.Folder name="src" canOpen defaultOpen>
-            <TreeView.Folder name="components" canOpen>
-              <TreeView.File name="Button.tsx" type="tsx" />
+        </Element> */}
+        <TreeView iconPack={options.iconPack}>
+          <TreeView.Folder name="node_modules" type="modules" />
+          <TreeView.Folder name="public" type="public"/>
+          <TreeView.Folder name="src" defaultOpen type="src">
+            <TreeView.Folder name="components" defaultOpen type="components">
               <TreeView.File name="Header.tsx" type="tsx" />
               <TreeView.File name="Footer.tsx" type="tsx" />
             </TreeView.Folder>
 
-            <TreeView.Folder name="pages" canOpen defaultOpen>
+            <TreeView.Folder name="pages" defaultOpen type="pages">
               <TreeView.File name="index.tsx" type="tsx" />
               <TreeView.File name="_app.tsx" type="tsx" />
             </TreeView.Folder>
@@ -78,10 +77,10 @@ export default function SideBar() {
           <TreeView.File name="package.json" type="json" />
           <TreeView.File name="tsconfig.json" type="tsconfig" />
           <TreeView.File name="yarn.lock" type="lock" />
-        </TreeView> */}
+        </TreeView>
       </Element>
       <Element
-      className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"
+        className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"
         bind={[
           "btc@sideBarSectionHeader.border",
           "bg@sideBarSectionHeader.background",

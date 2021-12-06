@@ -10,15 +10,15 @@ const iconPacks: {
 }[] = [
   {
     name: "Seti Icons",
-    value: "seti-icons",
+    value: "Seti Icons",
   },
   {
     name: "Material Icons",
-    value: "material-icons",
+    value: "Material Icons",
   },
   {
     name: "VSCode Icons",
-    value: "vscode-icons",
+    value: "VSCode Icons",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function PersonalizationTab() {
         ...config,
         options: {
           ...config.options,
-          iconPack: option?.value || "seti-icons",
+          iconPack: option?.value || "Seti Icons",
         },
       });
     },
@@ -97,9 +97,9 @@ export default function PersonalizationTab() {
         <section className="w-48">
           <Select
             options={[
-              { value: "seti-icons", label: "Seti Icons" },
-              { value: "vscode-icons", label: "VSCode Icons" },
-              { value: "material-icons", label: "Material Icons" },
+              { value: "Seti Icons", label: "Seti Icons" },
+              { value: "VSCode Icons", label: "VSCode Icons" },
+              { value: "Material Icons", label: "Material Icons" },
             ]}
             defaultValue={{
               value: config.options.iconPack,

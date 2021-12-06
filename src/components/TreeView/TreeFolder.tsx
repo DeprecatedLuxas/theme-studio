@@ -9,32 +9,23 @@ import {
 import { TreeNodeProps } from ".";
 import TreeIndent from "./Indent";
 
-export interface TreeFolderProps extends Omit<TreeNodeProps, "type"> {
+export interface TreeFolderProps extends TreeNodeProps {
   defaultOpen?: boolean;
-  canOpen?: boolean;
 }
 
 export default function TreeFolder({
   name,
   children,
   level = 0,
-  canOpen = false,
+  type,
   defaultOpen = false,
 }: PropsWithChildren<TreeFolderProps>) {
-  const { isOpen, onOpen, onClose } = useBiscuitBox({
+  const { isOpen } = useBiscuitBox({
     isOpen: defaultOpen,
   });
 
-  const handleClick = () => {
-    if (!canOpen) return;
-    return !isOpen ? onOpen() : onClose();
-  };
-
   return (
-    <div
-      className="cursor-pointer select-none leading-none"
-      onClick={handleClick}
-    >
+    <div className="cursor-pointer select-none leading-none">
       <div
         className="flex h-7 items-center relative"
         style={{

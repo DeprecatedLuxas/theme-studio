@@ -5,7 +5,7 @@ export default function useRegistry() {
   const context: IRegistry = useContext<IRegistry>(RegistryContext);
   if (!context)
     throw new Error(
-      "useRegistry must be used within RegistryProvider.Provider"
+      "useRegistry must be used within RegistryContext.Provider"
     );
   return context;
 }
