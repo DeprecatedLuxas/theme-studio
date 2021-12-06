@@ -48,9 +48,7 @@ export default function Element({
   let classes = useRef<string>(className);
 
   useEffect(() => {
-    if (!conditionalClassName) return;
-    if (!prevVariables) return;
-    if (!variables) return;
+    if (!conditionalClassName || !prevVariables || !variables) return;
 
     let extraClasses = "";
     const changedVariables: ChangedVariables = getPropertyDifferences(

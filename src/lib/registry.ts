@@ -1,7 +1,6 @@
 import {
   CompiledVariables,
   Indexable,
-  PartialRecord,
   ThemeStorage,
   ThemeType,
   Variable,
@@ -27,6 +26,8 @@ import toolbarVars from "@variables/toolbar.tstudio";
 import editorVars from "@variables/editor.tstudio";
 import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
 import tinycolor from "tinycolor2";
+import Ajv from "ajv";
+import Validation from "./validation";
 
 enum Functions {
   TRANSPARENT = "transparent",
@@ -62,12 +63,19 @@ class Registry implements IRegistry {
     /func@(?<func>transparent|darken|lighten)\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)/;
 
   register(key: string, variable: Variable): void {
-    const isValid = this.validate(
+    /*     const isValid = this.validate(
       { ...variable, varKey: key as Variables },
       {}
     );
-    if (!isValid) throw new Error("Invalid Variable");
 
+    if (!isValid) throw new Error("Invalid Variable");
+ */
+
+    const isValid = Validation.validate({
+      [key]: variable,
+    });
+
+    if (!isValid)
     if (this.variables[key]) {
       throw new Error(`Variable with key ${key} already exists`);
     }
@@ -146,6 +154,7 @@ class Registry implements IRegistry {
 
     return compiled;
   }
+
   clone(
     storage: ThemeStorage,
     tab: VariableTab
