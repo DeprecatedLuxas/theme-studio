@@ -33,6 +33,7 @@ export default class EditorHelper {
       variables: {},
       options: {
         sidebar: "left",
+        iconPack: "Seti Icons"
       },
       createdAt: -1,
     };

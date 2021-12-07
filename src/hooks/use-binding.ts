@@ -1,18 +1,23 @@
-import { Arrayable, CompiledVariables, OnAction, Variables } from "@lib/types";
+import {
+  Arrayable,
+  CompiledVariables,
+  OnAction,
+  VariableLocations,
+  Variables,
+} from "@lib/types";
 import { actionState } from "@recoil/atoms/action";
 import { CSSProperties, MutableRefObject, useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
 
-const Places: Map<"bg" | "c" | "bc" | "blc" | "brc" | "btc" | "bbc", string> =
-  new Map([
-    ["bg", "backgroundColor"],
-    ["c", "color"],
-    ["bc", "borderColor"],
-    ["blc", "borderLeftColor"],
-    ["brc", "borderRightColor"],
-    ["btc", "borderTopColor"],
-    ["bbc", "borderBottomColor"],
-  ]);
+const Places: Map<VariableLocations, string> = new Map([
+  ["bg", "backgroundColor"],
+  ["c", "color"],
+  ["bc", "borderColor"],
+  ["blc", "borderLeftColor"],
+  ["brc", "borderRightColor"],
+  ["btc", "borderTopColor"],
+  ["bbc", "borderBottomColor"],
+]);
 
 export interface UseBindingOptions {
   ref: MutableRefObject<HTMLOrSVGElement | undefined>;

@@ -11,7 +11,6 @@ import {
   CompiledVariable,
   TStudioAction,
   Variables,
-  ValidationSchema,
 } from "./types";
 import _ from "lodash";
 import baseVars from "@variables/base.tstudio";
@@ -26,7 +25,6 @@ import toolbarVars from "@variables/toolbar.tstudio";
 import editorVars from "@variables/editor.tstudio";
 import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
 import tinycolor from "tinycolor2";
-import Ajv from "ajv";
 import Validation from "./validation";
 
 enum Functions {
@@ -80,7 +78,12 @@ class Registry implements IRegistry {
   registerFile(file: Record<string, Variable>): void {
     Object.keys(file).forEach((key: string) => {
       if (key === "exclude") return;
+
       this.register(key, file[key]);
+      const addi = file[key].additional || [];
+      addi.forEach((additional: string) => {
+        this.register(`${additional}@${key.split("@")[1]}`, file[key]);
+      });
     });
   }
 

@@ -33,8 +33,17 @@ export interface Variable {
   category?: string;
   action?: string;
   hover?: boolean;
+  additional?: VariableLocations[];
 }
 
+export type VariableLocations =
+  | "bg"
+  | "c"
+  | "bc"
+  | "blc"
+  | "brc"
+  | "btc"
+  | "bbc";
 export type ThemeType = "dark" | "light" | "hc";
 export type ChangedVariables = CompiledVariables;
 
@@ -121,9 +130,6 @@ export interface Interaction {
 
 export type ComponentPropPlacement = "top" | "bottom" | "left" | "right";
 export type TStudioAction = string;
-
-export interface ValidationSchema {}
-export type ValidationSchemas = "variable";
 
 export type AnchorPoint = {
   x: number;
