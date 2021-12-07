@@ -18,20 +18,22 @@
       if (!fileContents) return;
 
       const variableFile = JSON.parse(fileContents);
-      if (variableFile.exclude) {
-        return;
-      }
-      Object.keys(variableFile).forEach((key) => {
-        const variable = variableFile[key];
 
-        if (variable.category || variable.action) {
-          const actionPrefix = variable.category
-            .split(" ")
-            .join("")
-            .toLowerCase();
-          actions.push(`${actionPrefix}.${variable.action}`);
-        }
-      });
+      const excluding = variableFile.exclude || [];
+
+      Object.keys(variableFile)
+        .filter((key) => !excluding.includes(key))
+        .forEach((key) => {
+          const variable = variableFile[key];
+
+          if (variable.category && variable.action) {
+            const actionPrefix = variable.category
+              .split(" ")
+              .join("")
+              .toLowerCase();
+            actions.push(`${actionPrefix}.${variable.action}`);
+          }
+        });
       console.log("Generated action types for:", file);
     });
 
