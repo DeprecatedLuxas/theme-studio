@@ -39,6 +39,14 @@
         "action": {
           "description": "A action that should be triggered when hovering or clicking on sidebar",
           "type": "string"
+        },
+        "additional": {
+          "description": "Additional sides the variables also can be rendered as.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["bg", "c", "bc", "blc", "brc", "btc", "bbc"]
+          }
         }
       },
       "required": ["variable", "group", "description"]

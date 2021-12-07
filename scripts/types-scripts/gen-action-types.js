@@ -10,28 +10,30 @@
 
   const actions = [""];
 
-  variableFiles.forEach((file) => {
-    const fileContents = fs.readFileSync(`./variables/${file}`, "utf-8");
+  variableFiles
+    .filter((file) => file.includes(".tstudio"))
+    .forEach((file) => {
+      const fileContents = fs.readFileSync(`./variables/${file}`, "utf-8");
 
-    if (!fileContents) return;
+      if (!fileContents) return;
 
-    const variableFile = JSON.parse(fileContents);
-    if (variableFile.exclude) {
-      return;
-    }
-    Object.keys(variableFile).forEach((key) => {
-      const variable = variableFile[key];
-
-      if (variable.category || variable.action) {
-        const actionPrefix = variable.category
-          .split(" ")
-          .join("")
-          .toLowerCase();
-        actions.push(`${actionPrefix}.${variable.action}`);
+      const variableFile = JSON.parse(fileContents);
+      if (variableFile.exclude) {
+        return;
       }
+      Object.keys(variableFile).forEach((key) => {
+        const variable = variableFile[key];
+
+        if (variable.category || variable.action) {
+          const actionPrefix = variable.category
+            .split(" ")
+            .join("")
+            .toLowerCase();
+          actions.push(`${actionPrefix}.${variable.action}`);
+        }
+      });
+      console.log("Generated action types for:", file);
     });
-    console.log("Generated action types for:", file);
-  });
 
   fs.writeFileSync(
     "./src/lib/generated/actions.ts",
