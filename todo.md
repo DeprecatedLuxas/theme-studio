@@ -3,10 +3,11 @@
 - [ ] Fix conditionalclassname, requires two updates before it works.
 - [ ] Complete the toVSCFormat function.
 - [ ] Improve performance
-- [ ] Add the rest of variables. (Sidebar is missing some variables)
 - [ ] VSCode Extension to test the themes 
-- [ ] Add validation of tstudio files.
 - [ ] Add tooltip component.
 - [ ] Clean up in tailwind config
 - [ ] Fix icons
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
+- [ ] Convert Seti Icons from woff file to svg files
+- [ ] Change input component
+- [ ] Create a form component pack
