@@ -27,7 +27,7 @@ export default function LocalSettings() {
   // If user is authenticated, redirect to homepage.
   if (user) router.push("/");
 
-  // TODO: Fix this, it renders the page before this shows.
+  // TODO: Fix this, it renders the page before this redirects.
   // If the user doesn't have something in the storage, redirect to the setup page
   if (EditorHelper.compare(storage, EditorHelper.getFakeStorage()))
     router.push("/edit/setup");

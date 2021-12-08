@@ -1,11 +1,5 @@
-import {
-  CompiledVariables,
-  IconPack,
-  Indexable,
-  VariableCategories,
-  VariablePossibleCategories,
-} from "@lib/types";
-import { createContext, Dispatch } from "react";
+import { IconPack } from "@lib/types";
+import { createContext } from "react";
 
 export type ITreeView = {
   iconPack?: IconPack;

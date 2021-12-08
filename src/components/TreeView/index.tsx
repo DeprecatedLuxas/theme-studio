@@ -1,25 +1,13 @@
 import { TreeViewContext } from "@contexts/TreeViewContext";
-import { IconPack } from "@lib/types";
+import { IconPack, IconTypes } from "@lib/types";
 import { HTMLAttributes } from "react";
 import TreeFile from "./TreeFile";
 import TreeFolder from "./TreeFolder";
 
-type Icons =
-  | "json"
-  | "ts"
-  | "tsx"
-  | "js"
-  | "tsconfig"
-  | "lock"
-  | "components"
-  | "pages"
-  | "src"
-  | "public"
-  | "modules";
 
 export interface TreeNodeProps {
   name: string;
-  type: Icons;
+  type: IconTypes;
   level?: number;
 }
 

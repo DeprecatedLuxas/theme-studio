@@ -9,17 +9,23 @@ import Content from "./Content";
 import { useRecoilState } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { useEffect } from "react";
+import { IconPack } from "@lib/types";
 
 export interface VSCodeProps {
   sidebarPlacement?: "left" | "right";
+  iconPack?: IconPack;
 }
 
-export default function VSCode({ sidebarPlacement = "left" }: VSCodeProps) {
+export default function VSCode({
+  sidebarPlacement = "left",
+  iconPack = "Seti Icons",
+}: VSCodeProps) {
   const [options, setOptions] = useRecoilState(vscodeState);
 
   useEffect(() => {
     setOptions({
       sidebarPlacement,
+      iconPack,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

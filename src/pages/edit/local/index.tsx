@@ -4,7 +4,7 @@ import Loading from "@components/Loading";
 import { useRouter } from "next/router";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
@@ -27,7 +27,6 @@ import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
 import { VscGear } from "react-icons/vsc";
-import Link from "next/link";
 import { encode } from "@helpers/encoding";
 
 export default function Local() {
@@ -77,10 +76,11 @@ export default function Local() {
   // If user is authenticated, redirect to homepage.
   if (user) router.push("/");
 
-  // TODO: Fix this, it renders the page before this shows.
+  // TODO: Fix this, it renders the page before this pushes.
   // If the user doesn't have something in the storage, redirect to the setup page
-  if (EditorHelper.compare(storage, EditorHelper.getFakeStorage()))
+  if (EditorHelper.compare(storage, EditorHelper.getFakeStorage())) {
     router.push("/edit/setup");
+  }
 
   const handleSave = () => {
     // Save to storage, only the variables that changed
@@ -117,7 +117,7 @@ export default function Local() {
   };
 
   const handleSettings = () => {
-    // Save to storage, before changing to the settings page
+    // Save to storage, before redirecting to the settings page
     handleSave();
     router.push("/edit/local/settings");
   };

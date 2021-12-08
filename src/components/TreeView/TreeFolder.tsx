@@ -1,4 +1,6 @@
+import IconPack from "@components/IconPack";
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
+import useTreeView from "@hooks/use-tree-view";
 import { Children, cloneElement, PropsWithChildren, ReactNode } from "react";
 import {
   VscChevronDown,
@@ -20,6 +22,7 @@ export default function TreeFolder({
   type,
   defaultOpen = false,
 }: PropsWithChildren<TreeFolderProps>) {
+  const { iconPack } = useTreeView();
   const { isOpen } = useBiscuitBox({
     isOpen: defaultOpen,
   });
@@ -37,7 +40,11 @@ export default function TreeFolder({
           {isOpen ? <VscChevronDown /> : <VscChevronRight />}
         </span>
         <span className="inline-flex items-center justify-center w-6 h-full mr-2">
-          {isOpen ? <VscFolderOpened /> : <VscFolder />}
+          {isOpen ? (
+            <IconPack from={iconPack || "Seti Icons"} type={type} open />
+          ) : (
+            <IconPack from={iconPack || "Seti Icons"} type={type} />
+          )}
         </span>
 
         <span className="text-sm whitespace-nowrap text-green-700">{name}</span>

@@ -135,3 +135,16 @@ export type AnchorPoint = {
   x: number;
   y: number;
 };
+
+export type IconTypes =
+  | "json"
+  | "ts"
+  | "tsx"
+  | "js"
+  | "tsconfig"
+  | "lock"
+  | "components"
+  | "pages"
+  | "src"
+  | "public"
+  | "modules";
