@@ -5,8 +5,6 @@ import { Children, cloneElement, PropsWithChildren, ReactNode } from "react";
 import {
   VscChevronDown,
   VscChevronRight,
-  VscFolder,
-  VscFolderOpened,
 } from "react-icons/vsc";
 import { TreeNodeProps } from ".";
 import TreeIndent from "./Indent";

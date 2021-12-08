@@ -6,7 +6,8 @@ import Element from "./Element";
 
 export default function SideBar() {
   const [options, setOptions] = useRecoilState(vscodeState);
-
+  console.log(options);
+  
   return (
     <Element
       className="w-62.5 h-full flex flex-col"

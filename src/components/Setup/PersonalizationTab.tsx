@@ -58,6 +58,8 @@ export default function PersonalizationTab() {
         label: string;
       }>
     ) => {
+      console.log(option);
+      
       setConfig({
         ...config,
         options: {

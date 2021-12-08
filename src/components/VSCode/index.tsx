@@ -9,23 +9,27 @@ import Content from "./Content";
 import { useRecoilState } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { useEffect } from "react";
-import { IconPack } from "@lib/types";
+import { IconPack, ThemeStorage } from "@lib/types";
+import EditorHelper from "@helpers/editor";
 
 export interface VSCodeProps {
+  storage?: ThemeStorage;
   sidebarPlacement?: "left" | "right";
   iconPack?: IconPack;
 }
 
 export default function VSCode({
-  sidebarPlacement = "left",
-  iconPack = "Seti Icons",
+  storage = EditorHelper.getFakeStorage(),
+  sidebarPlacement,
+  iconPack,
 }: VSCodeProps) {
+  const { options: storageOptions } = storage;
   const [options, setOptions] = useRecoilState(vscodeState);
 
   useEffect(() => {
     setOptions({
-      sidebarPlacement,
-      iconPack,
+      sidebarPlacement: sidebarPlacement || storage.options?.sidebar || "left",
+      iconPack: iconPack || storage.options?.iconPack || "Seti Icons",
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,7 +38,8 @@ export default function VSCode({
     <Element className="h-full">
       <TitleBar />
       <Element className="flex h-content">
-        {sidebarPlacement === "left" && (
+        {(sidebarPlacement === "left" ||
+          storageOptions?.sidebar === "left") && (
           <>
             <ActivityBar />
             <SideBar />
@@ -47,7 +52,8 @@ export default function VSCode({
             <Content />
           </Element>
         </Element>
-        {sidebarPlacement === "right" && (
+        {(sidebarPlacement === "right" ||
+          storageOptions?.sidebar === "right") && (
           <>
             <SideBar />
             <ActivityBar />
