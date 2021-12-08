@@ -1,4 +1,4 @@
-import Input from "@components/Input";
+import { Input } from "@components/Forms";
 import { ChangeEvent, useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { setupState } from "@recoil/atoms/setup";
@@ -22,15 +22,13 @@ export default function GeneralTab() {
     <div>
       <h1 className="font-roboto mb-4 text-3xl font-semibold">General</h1>
       <section className="mb-8 h-16">
+        <label>Theme Name</label>
         <Input
           placeholder="Theme Name"
-          w
-          clearable
+          border="border-gray-400"
           defaultValue={config.name}
           onChange={handleChange}
-        >
-          Theme Name
-        </Input>
+        />
       </section>
       <section>
         <h4>Theme Type</h4>

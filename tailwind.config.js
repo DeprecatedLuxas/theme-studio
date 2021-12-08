@@ -148,10 +148,6 @@ module.exports = {
       const sizes = [0, 1, 2, 3, 4, 5, 6];
 
       sizes.forEach((size) => {
-        newUtilities[`.spacer-${size}`] = {
-          marginTop: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
-          marginLeft: `calc(${size * 15.25}pt + 1px * ${size - 1})`,
-        };
         newUtilities[`.treeindent-${size}`] = {
           left: `calc(-1.875rem * ${size + 1} + 0.75rem)`,
           position: "absolute",

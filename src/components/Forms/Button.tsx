@@ -4,7 +4,6 @@ import { TBackgroundColor, TTextColor } from "tailwindcss-classnames";
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
-  loading?: boolean;
   type?: "submit" | "reset" | "button";
   bg?: TBackgroundColor;
   color?: TTextColor;
@@ -12,7 +11,6 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
 export default function Button({
   disabled = false,
-  loading,
   type,
   className,
   bg = "bg-blue-700",
