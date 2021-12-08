@@ -2,7 +2,8 @@ import { useRecoilState } from "recoil";
 import { setupState } from "src/recoil/atoms/setup";
 import { useState } from "react";
 import PalettePicker from "../ColorPicker/impl/PalettePicker";
-import Button from "@components/Button";
+import { Button } from "@components/Forms";
+
 import tinycolor from "tinycolor2";
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import {
@@ -88,7 +89,7 @@ export default function SecondTab() {
             Cancel
           </Button>
           <Button
-            type="warning"
+            // type="warning"
             onClick={() => {
               onClose();
               setConfig({

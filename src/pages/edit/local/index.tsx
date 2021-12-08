@@ -11,7 +11,7 @@ import { reducer, RegistryContext } from "@contexts/RegistryContext";
 import { isMobile } from "react-device-detect";
 import MobileWarning from "@components/Editor/MobileWarning";
 import Divider from "@components/Divider";
-import Button from "@components/Button";
+import { Button } from "@components/Forms";
 import {
   Dialog,
   DialogBody,

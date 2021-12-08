@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
-import Button from "@components/Button";
+import { Button } from "@components/Forms";
 
 export interface StorageFoundProps {
   clearStorage: Function;
 }
 
-export default function StorageFound({ clearStorage }: StorageFoundProps): JSX.Element {
+export default function StorageFound({
+  clearStorage,
+}: StorageFoundProps): JSX.Element {
   const router = useRouter();
 
   const handleFresh = () => {

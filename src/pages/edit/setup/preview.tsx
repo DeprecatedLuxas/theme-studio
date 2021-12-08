@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { decode } from "@helpers/encoding";
 import Divider from "@components/Divider";
-import Button from "@components/Button";
+import { Button } from "@components/Forms";
 import { VscGear } from "react-icons/vsc";
 import VSCode from "@components/VSCode";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
@@ -36,14 +36,14 @@ export default function Preview({
           </div>
 
           <Divider color="bg-gray-700" />
-          <Button className="mb-4 mx-2 bg-red-700" disabled>
+          <Button className="mb-4 mx-2" disabled>
             Try it out
           </Button>
           <div className="w-full h-auto flex justify-center">
-            <Button className="w-full mx-2 bg-red-700" disabled>
+            <Button className="w-full mx-2" disabled>
               Save
             </Button>
-            <Button className="mx-2 w-full bg-red-700" disabled>
+            <Button className="mx-2 w-full" disabled>
               Export
             </Button>
           </div>

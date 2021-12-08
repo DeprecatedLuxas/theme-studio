@@ -118,7 +118,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      cursor: ["disabled"]
+      cursor: ["disabled"],
+      opacity: ["disabled"]
     },
   },
   plugins: [

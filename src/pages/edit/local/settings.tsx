@@ -9,7 +9,6 @@ import EditorHelper from "@helpers/editor";
 import Navigation from "@components/Editor/Settings/Navigation";
 import { useCallback, useState } from "react";
 import useIsMounted from "@hooks/use-is-mounted";
-import Button from "@components/Button";
 export default function LocalSettings() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();

@@ -1,24 +1,27 @@
-import { PropsWithChildren } from "react";
+import cx from "clsx";
+import { HTMLAttributes, PropsWithChildren } from "react";
 import { TBackgroundColor, TTextColor } from "tailwindcss-classnames";
 
-export interface BadgeProps {
-  textColor?: TTextColor;
-  bgColor?: TBackgroundColor;
-  className?: string
+export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
+  color?: TTextColor;
+  bg?: TBackgroundColor;
 }
 
 export default function Badge({
-  bgColor = "bg-blue-700",
-  textColor = "text-gray-200",
-  className = "",
+  bg = "bg-blue-700",
+  color = "text-gray-200",
+  className,
   ...props
 }: PropsWithChildren<BadgeProps>) {
   return (
     <span
       {...props}
-      className={`inline-block rounded align-middle border-0 ${bgColor} ${textColor} leading-none py-1 px-2 font-roboto ${className}`}
+      className={cx(
+        "inline-block text-center leading-4 rounded py-1 px-2 font-roboto",
+        className,
+        bg,
+        color
+      )}
     />
   );
 }
-
-

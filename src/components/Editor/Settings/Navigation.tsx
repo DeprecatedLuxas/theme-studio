@@ -1,7 +1,6 @@
-import { VscFeedback } from "react-icons/vsc";
-import Link from "next/link";
+
 import windy from "@helpers/windy";
-import Button from "@components/Button";
+
 
 const SetupButton = windy.button`
   text-left

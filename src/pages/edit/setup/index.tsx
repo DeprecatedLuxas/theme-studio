@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import Button from "@components/Button";
+import { Button } from "@components/Forms";
 import { setupState } from "@recoil/atoms/setup";
 import { useRecoilState } from "recoil";
 import {
