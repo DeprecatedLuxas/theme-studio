@@ -4,7 +4,6 @@ import { HTMLAttributes } from "react";
 import TreeFile from "./TreeFile";
 import TreeFolder from "./TreeFolder";
 
-
 export interface TreeNodeProps {
   name: string;
   type: IconTypes;
@@ -18,7 +17,7 @@ export interface TreeViewProps extends HTMLAttributes<HTMLDivElement> {
 function TreeView({ iconPack, ...props }: TreeViewProps) {
   return (
     <TreeViewContext.Provider value={{ iconPack }}>
-      <div className="pl-3" {...props} />
+      <div {...props} />
     </TreeViewContext.Provider>
   );
 }

@@ -1,0 +1,235 @@
+{
+  "bg@list.focusBackground": {
+    "variable": "list.focusBackground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree background color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.focusForeground": {
+    "variable": "list.focusForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "bc@list.focusOutline": {
+    "variable": "list.focusOutline",
+    "group": {
+      "dark": "var@focusBorder",
+      "light": "var@focusBorder",
+      "hc": "var@contrastActiveBorder"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "bg@list.activeSelectionBackground": {
+    "variable": "list.activeSelectionBackground",
+    "group": {
+      "dark": "#094771",
+      "light": "#0060C0",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree background color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.activeSelectionForeground": {
+    "variable": "list.activeSelectionForeground",
+    "group": {
+      "dark": "#ffffff",
+      "light": "#ffffff",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.activeSelectionIconForeground": {
+    "variable": "list.activeSelectionIconForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "bg@list.inactiveSelectionBackground": {
+    "variable": "list.inactiveSelectionBackground",
+    "group": {
+      "dark": "#37373D",
+      "light": "#E4E6F1",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree background color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.inactiveSelectionForeground": {
+    "variable": "list.inactiveSelectionForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.inactiveSelectionIconForeground": {
+    "variable": "list.inactiveSelectionIconForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree icon foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "bg@list.inactiveFocusBackground": {
+    "variable": "list.inactiveFocusBackground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree background color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "bc@list.inactiveFocusOutline": {
+    "variable": "list.inactiveFocusOutline",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree outline color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "bg@list.hoverBackground": {
+    "variable": "list.hoverBackground",
+    "group": {
+      "dark": "#2A2D2E",
+      "light": "#F0F0F0",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree background when hovering over items using the mouse.",
+    "hover": true
+  },
+  "c@list.hoverForeground": {
+    "variable": "list.hoverForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree foreground when hovering over items using the mouse.",
+    "hover": true
+  },
+  "bg@list.dropBackground": {
+    "variable": "list.dropBackground",
+    "group": {
+      "dark": "#062F4A",
+      "light": "#D6EBFF",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree drag and drop background when moving items around using the mouse."
+  },
+  "c@list.highlightForeground": {
+    "variable": "list.highlightForeground",
+    "group": {
+      "dark": "#18A3FF",
+      "light": "#0066BF",
+      "hc": "var@focusBorder"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree foreground color of the match highlights when searching inside the list/tree."
+  },
+  "c@list.focusHighlightForeground": {
+    "variable": "list.focusHighlightForeground",
+    "group": {
+      "dark": "var@list.highlightForeground",
+      "light": null,
+      "hc": "var@list.highlightForeground"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree."
+  },
+  "c@list.activeSelectionIconForeground": {
+    "variable": "list.activeSelectionIconForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.activeSelectionIconForeground": {
+    "variable": "list.activeSelectionIconForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.activeSelectionIconForeground": {
+    "variable": "list.activeSelectionIconForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.activeSelectionIconForeground": {
+    "variable": "list.activeSelectionIconForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  },
+  "c@list.activeSelectionIconForeground": {
+    "variable": "list.activeSelectionIconForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+  }
+}

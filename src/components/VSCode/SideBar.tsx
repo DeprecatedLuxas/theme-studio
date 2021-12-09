@@ -1,4 +1,4 @@
-import TreeView from "@components/TreeView";
+import TreeView from "./TreeView";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { VscChevronRight, VscChevronDown, VscEllipsis } from "react-icons/vsc";
 import { useRecoilState } from "recoil";
@@ -6,8 +6,7 @@ import Element from "./Element";
 
 export default function SideBar() {
   const [options, setOptions] = useRecoilState(vscodeState);
-  console.log(options);
-  
+
   return (
     <Element
       className="w-62.5 h-full flex flex-col"
@@ -23,7 +22,7 @@ export default function SideBar() {
         "brc@sideBar.border",
       ]}
     >
-      <Element className="uppercase flex items-center justify-between px-5 h-2.1875 text-sideBarTitle cursor-default select-none">
+      <div className="uppercase flex items-center justify-between px-5 h-8.75 text-sideBarTitle cursor-default select-none">
         <Element
           as="span"
           className="text-sideBarTitle"
@@ -42,7 +41,7 @@ export default function SideBar() {
             <VscEllipsis className="text-base" />
           </Element>
         </Element>
-      </Element>
+      </div>
       <Element
         className="uppercase flex justify-start items-center h-5.5 cursor-pointer text-11px font-semibold"
         bind={[
@@ -53,7 +52,7 @@ export default function SideBar() {
         <VscChevronDown className="mx-0.5 text-base" />
         <Element as="span">vscode-theme-studio</Element>
       </Element>
-      <Element className="flex-1">
+      <div className="flex-1">
         {/* <Element className="flex justify-start items-center h-5.5 cursor-pointer pl-2 text-13px">
           <Element className="flex justify-start items-center">
             <VscChevronRight />
@@ -62,7 +61,7 @@ export default function SideBar() {
         </Element> */}
         <TreeView iconPack={options.iconPack}>
           <TreeView.Folder name="node_modules" type="modules" />
-          <TreeView.Folder name="public" type="public"/>
+          <TreeView.Folder name="public" type="public" />
           <TreeView.Folder name="src" defaultOpen type="src">
             <TreeView.Folder name="components" defaultOpen type="components">
               <TreeView.File name="Header.tsx" type="tsx" />
@@ -79,7 +78,7 @@ export default function SideBar() {
           <TreeView.File name="tsconfig.json" type="tsconfig" />
           <TreeView.File name="yarn.lock" type="lock" />
         </TreeView>
-      </Element>
+      </div>
       <Element
         className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"
         bind={[
