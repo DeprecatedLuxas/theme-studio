@@ -159,7 +159,7 @@ export default function Local() {
                 <FaCode size="20px" color="white" />
               </Tab>
             </Tab.List>
-            <Tab.Panels className="flex-1 overflow-y-auto">
+            <Tab.Panels className="flex-1 overflow-y-scroll scrollbar-hide">
               <Tab.Panel>
                 <PaletteTab />
               </Tab.Panel>

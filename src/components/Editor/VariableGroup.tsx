@@ -12,7 +12,6 @@ export default function VariableGroup({
 }: PropsWithChildren<VariableGroupProps>): JSX.Element {
   const [isOpen, setOpen] = useState<boolean>(false);
 
-
   const handleClick = () => {
     setOpen(!isOpen);
   };
@@ -21,7 +20,7 @@ export default function VariableGroup({
     <section>
       <button
         onClick={handleClick}
-        className="font-roboto flex justify-between w-full px-4 py-3 text-md font-semibold text-left text-gray-400 bg-gray-700 rounded hover:bg-gray-600 mb-4"
+        className="font-semibold flex justify-between w-full px-4 py-3 text-md text-left text-gray-400 bg-gray-700 rounded hover:bg-gray-600 mb-4"
       >
         {groupName.trim().length > 0 ? groupName : "Not defined"}
         {isOpen ? (

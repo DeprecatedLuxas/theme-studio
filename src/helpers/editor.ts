@@ -1,5 +1,6 @@
 import {
   SetupConfig,
+  SetupOptions,
   ThemeStorage,
   TStudioActions,
   Variable,
@@ -22,6 +23,14 @@ export default class EditorHelper {
       ...config,
       variables: {},
       createdAt: dayjs().unix(),
+    };
+  }
+
+  static getFromStorage(storage: ThemeStorage): SetupConfig {
+    return {
+      name: storage.name,
+      type: storage.type,
+      options: storage.options as SetupOptions,
     };
   }
 

@@ -10,3 +10,6 @@
 - [ ] Convert Seti Icons from woff file to svg files
 - [ ] Only allow one variable group to be opened at a time.
 - [ ] Information Icon on variable component
+
+NOTES:
+> Create a better way to handle setup and settings. Be more dynamic.

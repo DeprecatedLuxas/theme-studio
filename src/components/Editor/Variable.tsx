@@ -1,9 +1,7 @@
-import { IRegistry } from "@contexts/RegistryContext";
 import EditorHelper from "@helpers/editor";
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
 import {
-  AnchorPoint,
   TStudioAction,
   TStudioActions,
   Variables,
@@ -12,7 +10,6 @@ import { actionState } from "@recoil/atoms/action";
 
 import { Dispatch, useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-
 export interface VariableProps {
   name: Variables;
   value: string;

@@ -1,6 +1,4 @@
-
 import windy from "@helpers/windy";
-
 
 const SetupButton = windy.button`
   text-left
@@ -32,19 +30,10 @@ export default function Navigation({ currentTab, onClick }: NavigationProps) {
         onClick={() => onClick(2)}
         className={`${currentTab === 2 && "bg-blue-700 text-white"}`}
       >
-        Palette
-      </SetupButton>
-      <SetupButton
-        onClick={() => onClick(3)}
-        className={`${currentTab === 3 && "bg-blue-700 text-white"}`}
-      >
         Personalization
       </SetupButton>
 
-      <div className="flex-1 flex justify-end flex-col">
-   
-
-      </div>
+      <div className="flex-1 flex justify-end flex-col"></div>
     </div>
   );
 }
