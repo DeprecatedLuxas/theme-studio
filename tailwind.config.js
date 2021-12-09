@@ -11,6 +11,7 @@ module.exports = {
       grid: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVQ4T2N89uzZfwY8QFJSEp80A+OoAcMiDP7//483HTx//hx/Ohg1gIFx6IcBALl+VXknOCvFAAAAAElFTkSuQmCC")',
     },
     colors: {
+      transparent: "transparent",
       white: "#fff",
       black: "#000",
       gray: {
@@ -25,11 +26,6 @@ module.exports = {
       },
       blue: colors.blue,
       red: colors.red,
-    },
-    boxShadow: {
-      variable: "0 4px 4px rgba(0, 0, 0, .25)",
-      saturation:
-        "rgb(255 255 255) 0px 0px 0px 1.5px, rgb(0 0 0 / 30%) 0px 0px 1px 1px inset, rgb(0 0 0 / 40%) 0px 0px 1px 2px",
     },
     extend: {
       spacing: {
@@ -91,6 +87,11 @@ module.exports = {
       transitionProperty: {
         input: "border 0.2s ease 0s, color 0.2s ease 0s",
       },
+      boxShadow: {
+        variable: "0 4px 4px rgba(0, 0, 0, .25)",
+        saturation:
+          "rgb(255 255 255) 0px 0px 0px 1.5px, rgb(0 0 0 / 30%) 0px 0px 1px 1px inset, rgb(0 0 0 / 40%) 0px 0px 1px 2px",
+      },
       inset: {
         badge: "9px",
         "-4.5": "-1.125",
@@ -119,7 +120,7 @@ module.exports = {
   variants: {
     extend: {
       cursor: ["disabled"],
-      opacity: ["disabled"]
+      opacity: ["disabled"],
     },
   },
   plugins: [

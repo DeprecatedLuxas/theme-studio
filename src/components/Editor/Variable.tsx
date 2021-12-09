@@ -9,6 +9,7 @@ import {
   Variables,
 } from "@lib/types";
 import { actionState } from "@recoil/atoms/action";
+
 import { Dispatch, useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 
@@ -51,12 +52,12 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
   return (
     <>
       <div
-        className="flex w-full justify-start items-center cursor-pointer py-2 px-2 text-gray-400 hover:bg-gray-600 bg-gray-700 mb-2 rounded"
+        className="flex items-center justify-start w-full px-2 py-2 mb-2 text-gray-400 bg-gray-700 rounded cursor-pointer hover:bg-gray-600"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="bg-grid w-8 h-8 rounded-md mr-3"
+          className="w-8 h-8 mr-3 rounded-md bg-grid"
           onClick={() => setShow(!show)}
         >
           <div

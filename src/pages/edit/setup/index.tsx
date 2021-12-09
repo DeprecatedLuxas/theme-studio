@@ -5,7 +5,6 @@ import { useRecoilState } from "recoil";
 import {
   SetupNavigation,
   GeneralTab,
-  PaletteTab,
   PersonalizationTab,
 } from "@components/Setup";
 import { isMobile } from "react-device-detect";
@@ -66,10 +65,10 @@ export default function Setup() {
   const handleBack = () => setTab(tab - 1);
 
   const handleNext = () => {
-    if (tab === 3) {
+    if (tab === 2) {
       onOpen();
     } else {
-      const newTab = tab === 3 ? 1 : tab + 1;
+      const newTab = tab ===2 ? 1 : tab + 1;
       setTab(newTab);
     }
   };
@@ -96,8 +95,7 @@ export default function Setup() {
           <div className="flex-1 bg-white rounded flex flex-col p-2">
             <div className="flex-1">
               {tab === 1 && <GeneralTab />}
-              {tab === 2 && <PaletteTab />}
-              {tab === 3 && <PersonalizationTab />}
+              {tab === 2 && <PersonalizationTab />}
             </div>
             <Divider />
             <div className="flex justify-end items-end">
@@ -107,7 +105,7 @@ export default function Setup() {
                 </Button>
               )}
               <Button onClick={handleNext}>
-                {tab !== 3 ? "Next" : "Done"}
+                {tab !== 2 ? "Next" : "Done"}
               </Button>
             </div>
           </div>

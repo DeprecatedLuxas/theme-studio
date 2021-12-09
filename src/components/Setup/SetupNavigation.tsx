@@ -38,12 +38,6 @@ export default function SetupNavigation({
         onClick={() => onClick(2)}
         className={`${currentTab === 2 && "bg-blue-700 text-white"}`}
       >
-        Palette
-      </SetupButton>
-      <SetupButton
-        onClick={() => onClick(3)}
-        className={`${currentTab === 3 && "bg-blue-700 text-white"}`}
-      >
         Personalization
       </SetupButton>
 

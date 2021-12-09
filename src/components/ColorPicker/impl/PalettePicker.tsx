@@ -1,7 +1,6 @@
 import Alpha from "@components/ColorPicker/Alpha";
 import EditableInput from "@components/ColorPicker/EditableInput";
 import Hue from "@components/ColorPicker/Hue";
-import { Palette } from "@lib/types";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import tinycolor from "tinycolor2";
 import Saturation from "../Saturation";
@@ -38,8 +37,8 @@ export default function PalettePicker({ color, onChange }: PalettePickerProps) {
     [hsva]
   );
   return (
-    <div className="w-80">
-      <div className="p-2.5">
+    <div className="w-60">
+      <div>
         <Saturation
           width={"auto"}
           height={150}

@@ -83,7 +83,6 @@ export interface ThemeStorage {
   createdAt?: number;
   updatedAt?: number;
   type: "dark" | "light";
-  palette: Palette[];
   options?: ThemeOptions;
   variables: Record<CompiledVariable, string>;
 }
@@ -101,11 +100,8 @@ export interface SetupOptions extends ThemeOptions {}
 export interface SetupConfig {
   name: string;
   type: "dark" | "light";
-  palette: Palette[];
   options: SetupOptions;
 }
-
-export type Palette = string;
 
 export type WindyElement<P, E> = <K extends Record<`$${string}`, any> = {}>(
   element: TemplateStringsArray,

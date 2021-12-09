@@ -29,11 +29,10 @@ export default class EditorHelper {
     return {
       name: "Untitled",
       type: "dark",
-      palette: [],
       variables: {},
       options: {
         sidebar: "left",
-        iconPack: "Seti Icons"
+        iconPack: "Seti Icons",
       },
       createdAt: -1,
     };

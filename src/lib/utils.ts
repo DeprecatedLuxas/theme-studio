@@ -1,3 +1,5 @@
+import React from "react";
+
 export const __DEV__ = process.env.NODE_ENV !== "production";
 
 // TODO: Rewrite this.
@@ -17,7 +19,6 @@ export function getPropertyDifferences(obj1: any, obj2: any) {
     return diff;
   }, {});
 }
-
 
 export function isBrowser(): boolean {
   return Boolean(

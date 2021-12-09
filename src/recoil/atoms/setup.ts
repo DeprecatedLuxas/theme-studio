@@ -8,7 +8,6 @@ export const setupState = atom<ISetup>({
   default: {
     name: "Untitled",
     type: "dark",
-    palette: ["", "", "", "", "", "", "", "", "", "", "", ""],
     options: {
       sidebar: "left",
       iconPack: "Seti Icons",
