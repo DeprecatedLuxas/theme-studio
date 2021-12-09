@@ -1,11 +1,10 @@
-import { Palette } from "@lib/types";
 import { useCallback, useEffect, useState } from "react";
 import tinycolor from "tinycolor2";
 import Saturation from "./Saturation";
 
 interface ColorPickerProps {
   color?: string;
-  presetColors?: false | Palette[];
+  presetColors?: false | string[];
   onChange?: (color: string) => void;
 }
 
