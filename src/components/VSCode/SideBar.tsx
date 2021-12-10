@@ -53,12 +53,7 @@ export default function SideBar() {
         <Element as="span">vscode-theme-studio</Element>
       </Element>
       <div className="flex-1">
-        {/* <Element className="flex justify-start items-center h-5.5 cursor-pointer pl-2 text-13px">
-          <Element className="flex justify-start items-center">
-            <VscChevronRight />
-            <Element as="span">node_modules</Element>
-          </Element>
-        </Element> */}
+
         <TreeView iconPack={options.iconPack}>
           <TreeView.Folder name="node_modules" type="modules" />
           <TreeView.Folder name="public" type="public" />

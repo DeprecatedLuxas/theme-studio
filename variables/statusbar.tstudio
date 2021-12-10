@@ -19,7 +19,8 @@
     },
     "tab": "palette",
     "category": "Status Bar",
-    "description": "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window."
+    "description": "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
+    "action": "NoFolder"
   },
   "bg@statusBar.background": {
     "variable": "statusBar.background",
@@ -64,7 +65,8 @@
     },
     "tab": "palette",
     "category": "Status Bar",
-    "description": "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window."
+    "description": "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window.",
+    "action": "NoFolder"
   },
   "bg@statusBar.debuggingBackground": {
     "variable": "statusBar.debuggingBackground",
@@ -75,7 +77,8 @@
     },
     "tab": "palette",
     "category": "Status Bar",
-    "description": "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window"
+    "description": "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window",
+    "action": "Debugging"
   },
   "c@statusBar.debuggingForeground": {
     "variable": "statusBar.debuggingForeground",
@@ -86,7 +89,8 @@
     },
     "tab": "palette",
     "category": "Status Bar",
-    "description": "Status bar foreground color when a program is being debugged. The status bar is shown in the bottom of the window"
+    "description": "Status bar foreground color when a program is being debugged. The status bar is shown in the bottom of the window",
+    "action": "Debugging"
   },
   "bc@statusBar.debuggingBorder": {
     "variable": "statusBar.debuggingBorder",
@@ -97,7 +101,8 @@
     },
     "tab": "palette",
     "category": "Status Bar",
-    "description": "Status bar border color separating to the sidebar and editor when a program is being debugged. The status bar is shown in the bottom of the window"
+    "description": "Status bar border color separating to the sidebar and editor when a program is being debugged. The status bar is shown in the bottom of the window",
+    "action": "Debugging"
   },
   "bg@statusBarItem.activeBackground": {
     "variable": "statusBarItem.activeBackground",

@@ -31,6 +31,7 @@
               .split(" ")
               .join("")
               .toLowerCase();
+            if (actions.includes(`${actionPrefix}.${variable.action}`)) return;
             actions.push(`${actionPrefix}.${variable.action}`);
           }
         });

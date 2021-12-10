@@ -4,7 +4,7 @@ import Loading from "@components/Loading";
 import { useRouter } from "next/router";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
@@ -42,7 +42,6 @@ export default function Local() {
     onClose: onExportClose,
     onOpen: onExportOpen,
   } = useBiscuitBox();
-
   const { storage, setStorage, clear } = useStorage(
     "theme",
     EditorHelper.getFakeStorage()
@@ -125,11 +124,11 @@ export default function Local() {
   return (
     <RegistryContext.Provider value={{ ...state, dispatch }}>
       <div className="flex h-screen">
-        <div className="w-72 flex flex-col p-2 bg-gray-900">
-          <div className="flex justify-between items-center">
+        <div className="flex flex-col p-2 bg-gray-900 w-72">
+          <div className="flex items-center justify-between">
             <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
             <button
-              className="p-1 rounded hover:bg-gray-600 text-gray-600 hover:text-gray-400"
+              className="p-1 text-gray-600 rounded hover:bg-gray-600 hover:text-gray-400"
               onClick={handleSettings}
             >
               <VscGear className="text-2xl" />
@@ -140,20 +139,20 @@ export default function Local() {
           <Tab.Group>
             <Tab.List className="flex justify-between px-16 py-4">
               <Tab
-                className="p-2 rounded-lg cursor-pointer bg-gray-800"
+                className="p-2 bg-gray-800 rounded-lg cursor-pointer"
                 aria-label="Palette Tab"
               >
                 <FaPalette size="20px" color="white" />
               </Tab>
 
               <Tab
-                className="p-2 rounded-lg cursor-pointer bg-gray-800"
+                className="p-2 bg-gray-800 rounded-lg cursor-pointer"
                 aria-label="Editor Tab"
               >
                 <FaKeyboard size="20px" color="white" />
               </Tab>
               <Tab
-                className="p-2 rounded-lg cursor-pointer bg-gray-800"
+                className="p-2 bg-gray-800 rounded-lg cursor-pointer"
                 aria-label="Syntax Tab"
               >
                 <FaCode size="20px" color="white" />
@@ -172,14 +171,14 @@ export default function Local() {
             </Tab.Panels>
           </Tab.Group>
           <Divider color="bg-gray-700" />
-          <Button onClick={onTryItOutOpen} className="mb-4 mx-2">
+          <Button onClick={onTryItOutOpen} className="mx-2 mb-4">
             Try it out
           </Button>
-          <div className="w-full h-auto flex justify-center">
+          <div className="flex justify-center w-full h-auto">
             <Button onClick={handleSave} className="w-full mx-2">
               Save
             </Button>
-            <Button onClick={onExportOpen} className="mx-2 w-full">
+            <Button onClick={onExportOpen} className="w-full mx-2">
               Export
             </Button>
           </div>
@@ -191,12 +190,12 @@ export default function Local() {
       <Dialog isOpen={isTryItOutOpen} onClose={onTryItOutClose}>
         <DialogHeader>Try It Out - Beta</DialogHeader>
         <DialogBody>
-          <p className="text-white mb-2">
+          <p className="mb-2 text-white">
             Before you can try it out live, you need the Theme Studio Visualizer
             Extension
           </p>
 
-          <p className="text-white mb-2">
+          <p className="mb-2 text-white">
             You can download the extension{" "}
             <a
               href="vscode:extension/lucasnorgaard.vscode-theme-studio-visualizer"
@@ -218,7 +217,7 @@ export default function Local() {
       <Dialog isOpen={isExportOpen} onClose={onExportClose}>
         <DialogHeader>Export Theme</DialogHeader>
         <DialogBody>
-          <p className="text-white mb-2">
+          <p className="mb-2 text-white">
             Before you can export your theme, you need to fill some more
             options.
           </p>

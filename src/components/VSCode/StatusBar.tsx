@@ -22,6 +22,7 @@ export default function StatusBar() {
       bind={["bg@statusBar.background", "bc@statusBar.border"]}
       onAction={{
         "statusbar.NoFolder": "bg@statusBar.noFolderBackground",
+        "statusbar.Debugging": "bg@statusBar.debuggingBackground",
       }}
     >
       <Element className="flex">

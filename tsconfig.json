@@ -22,7 +22,8 @@
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
       "@helpers/*": ["src/helpers/*"],
-      "@recoil/*": ["src/recoil/*"]
+      "@recoil/*": ["src/recoil/*"],
+      "@schemas/*": ["schemas/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

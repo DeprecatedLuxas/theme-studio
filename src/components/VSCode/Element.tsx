@@ -12,6 +12,7 @@ import {
   Variables,
 } from "@lib/types";
 import { getPropertyDifferences } from "@lib/utils";
+import clsx from "clsx";
 import _ from "lodash";
 import { HTMLAttributes, useEffect, useRef } from "react";
 
@@ -45,7 +46,7 @@ export default function Element({
   });
   const eventHandlers = useVSCEvent({ ref, onHover, variables });
 
-  let classes = useRef<string>(className);
+  let classes = useRef<string>("");
 
   useEffect(() => {
     if (!conditionalClassName || !prevVariables || !variables) return;
@@ -56,6 +57,7 @@ export default function Element({
       variables
     );
 
+    console.log("Changed ", changedVariables);
     const changedVarKeys: string[] = Object.keys(changedVariables);
 
     Object.keys(conditionalClassName)
@@ -65,7 +67,7 @@ export default function Element({
         if (!ruleObj) throw new Error("Rule is undefined, please report this.");
         if (ruleObj!.when === "NOT_NULL") {
           if (changedVariables[key] === null) return;
-
+          if (classes.current.includes(ruleObj!.then)) return;
           extraClasses += ruleObj!.then;
         }
       });
@@ -73,11 +75,12 @@ export default function Element({
     classes.current = `${classes.current}${
       extraClasses !== "" ? ` ${extraClasses}` : ""
     }`;
+    console.log(classes.current);
   }, [variables, conditionalClassName, prevVariables]);
 
   return (
     <Component
-      className={classes.current}
+      className={clsx(classes.current, className)}
       {...rest}
       {...binding}
       {...eventHandlers}

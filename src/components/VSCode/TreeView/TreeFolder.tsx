@@ -24,11 +24,12 @@ export default function TreeFolder({
 
   return (
     <>
-      <Element className="flex justify-start items-center h-5.5 cursor-pointer pl-3 text-13px" bind={[
-        
-      ]}>
+      <Element
+        className="flex justify-start items-center h-5.5 cursor-pointer pl-3 text-13px"
+        bind={[]}
+      >
         <div
-          className="flex justify-start items-center"
+          className="flex items-center justify-start"
           style={{
             marginLeft: `${level * 10}px`,
           }}
@@ -39,13 +40,16 @@ export default function TreeFolder({
             <VscChevronRight size="16" className="mx-1" />
           )}
           <span className="inline-flex items-center justify-start">
-            <span className="w-4 h-4 mr-1.5">
-              {isOpen ? (
-                <IconPack from={iconPack || "Seti Icons"} type={type} open />
-              ) : (
-                <IconPack from={iconPack || "Seti Icons"} type={type} />
-              )}
-            </span>
+            {iconPack !== "Seti Icons" && (
+              <span className="w-4 h-4 mr-1.5">
+                {isOpen ? (
+                  <IconPack from={iconPack || "Material Icons"} type={type} open />
+                ) : (
+                  <IconPack from={iconPack || "Material Icons"} type={type} />
+                )}
+              </span>
+            )}
+
             {name}
           </span>
         </div>
@@ -60,9 +64,9 @@ export default function TreeFolder({
         </div>
       )}
     </>
-    // <div className="cursor-pointer select-none leading-none">
+    // <div className="leading-none cursor-pointer select-none">
     //   <div
-    //     className="flex h-7 items-center relative"
+    //     className="relative flex items-center h-7"
     //     style={{
     //       marginLeft: `calc(1.875rem * ${level})`,
     //     }}
@@ -79,7 +83,7 @@ export default function TreeFolder({
     // )}
     //     </span>
 
-    //     <span className="text-sm whitespace-nowrap text-green-700">{name}</span>
+    //     <span className="text-sm text-green-700 whitespace-nowrap">{name}</span>
     //   </div>
     // {isOpen && (
     //   <div className="flex flex-col h-auto">

@@ -26,16 +26,13 @@ import editorVars from "@variables/editor.tstudio";
 import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
 import tinycolor from "tinycolor2";
 import Validation from "./validation";
+import VariableSchema from "@schemas/tstudio-schema.json";
 
 enum Functions {
   TRANSPARENT = "transparent",
   DARKEN = "darken",
   LIGHTEN = "lighten",
 }
-
-type ValidateVariable = Variable & {
-  varKey: Variables;
-};
 
 interface IRegistry {
   getAction(key: string): TStudioAction | undefined;
@@ -60,9 +57,12 @@ class Registry implements IRegistry {
     /func@(?<func>transparent|darken|lighten)\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)/;
 
   register(key: string, variable: Variable): void {
-    const isValid = Validation.validate({
-      [key]: variable,
-    });
+    const isValid = Validation.validate(
+      {
+        [key]: variable,
+      },
+      VariableSchema
+    );
 
     if (!isValid) {
       throw new Error("Invalid Variable");
@@ -81,6 +81,7 @@ class Registry implements IRegistry {
 
       this.register(key, file[key]);
       const addi = file[key].additional || [];
+      // TODO: This creates a duplicate of the variable.
       addi.forEach((additional: string) => {
         this.register(`${additional}@${key.split("@")[1]}`, file[key]);
       });
@@ -99,21 +100,27 @@ class Registry implements IRegistry {
   parseGroup(group: VariableGroup): VariableGroup {
     const newGroup: VariableGroup = group;
     Object.keys(group).forEach((key: string) => {
+      if (group[key] === null) {
+        newGroup[key] = "hotpink";
+      }
       if (this.varRegex.test(newGroup[key])) {
         const varMatch = newGroup[key].match(this.varRegex);
         let replacementVariable = this.getVariable(varMatch!.groups!.varname);
-        if (!replacementVariable)
+
+        if (!replacementVariable) {
           replacementVariable = {
             dark: "hotpink",
             light: "hotpink",
             hc: "hotpink",
           };
+        }
 
         newGroup[key] = newGroup[key].replace(
           this.varRegex,
           replacementVariable[key]
         );
       }
+
       if (this.funcRegex.test(newGroup[key])) {
         const funcMatch = newGroup[key].match(this.funcRegex);
         const func = funcMatch!.groups!.func;
@@ -134,6 +141,10 @@ class Registry implements IRegistry {
             throw new Error("Unknown Function Error");
         }
       }
+
+      /*      if (newGroup[key] === null) {
+        newGroup[key] = "hotpink";
+      } */
     });
 
     return newGroup;

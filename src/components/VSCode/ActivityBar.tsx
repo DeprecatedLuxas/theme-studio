@@ -25,7 +25,7 @@ export default function ActivityBar() {
         "brc@activityBar.border",
       ]}
     >
-      <Element>
+      <div>
         <Element
           className="flex justify-center items-center border-l-2 w-12.5 h-12.5 cursor-pointer relative"
           bind={["blc@activityBar.activeBorder"]}
@@ -70,8 +70,8 @@ export default function ActivityBar() {
         >
           <VscExtensions fontSize="24px" />
         </Element>
-      </Element>
-      <Element>
+      </div>
+      <div>
         <Element
           className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
@@ -86,7 +86,7 @@ export default function ActivityBar() {
         >
           <VscGear fontSize="24px" />
         </Element>
-      </Element>
+      </div>
     </Element>
   );
 }

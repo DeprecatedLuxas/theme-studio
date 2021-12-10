@@ -37,6 +37,7 @@ export default function useBinding({
 
   useEffect(() => {
     if (action === "") extraBindingsRef.current = [];
+
     const actions = Object.keys(onAction);
     if (actions.includes(action)) {
       if (action === "") {
@@ -97,6 +98,8 @@ export default function useBinding({
       };
     }
   });
+  console.log(bindings);
+  
   return {
     style: styleObj,
     ref,
