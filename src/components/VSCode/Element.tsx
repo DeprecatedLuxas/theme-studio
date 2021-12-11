@@ -57,7 +57,7 @@ export default function Element({
       variables
     );
 
-    console.log("Changed ", changedVariables);
+    // console.log("Changed ", changedVariables);
     const changedVarKeys: string[] = Object.keys(changedVariables);
 
     Object.keys(conditionalClassName)
@@ -75,7 +75,7 @@ export default function Element({
     classes.current = `${classes.current}${
       extraClasses !== "" ? ` ${extraClasses}` : ""
     }`;
-    console.log(classes.current);
+    // console.log(classes.current);
   }, [variables, conditionalClassName, prevVariables]);
 
   return (

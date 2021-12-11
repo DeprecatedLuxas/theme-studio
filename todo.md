@@ -7,7 +7,6 @@
 - [ ] Clean up in tailwind config
 - [ ] Fix icons
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
-- [ ] Convert Seti Icons from woff file to svg files
 - [ ] Only allow one variable group to be opened at a time.
 - [ ] Information Icon on variable component
 

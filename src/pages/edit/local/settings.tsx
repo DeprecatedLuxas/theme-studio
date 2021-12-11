@@ -34,7 +34,7 @@ export default function LocalSettings() {
   const isMounted = useIsMounted();
 
   const { storage, setStorage, clear } = useStorage(
-    "theme",
+    "tstudio-theme",
     EditorHelper.getFakeStorage()
   );
 

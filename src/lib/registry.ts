@@ -141,10 +141,6 @@ class Registry implements IRegistry {
             throw new Error("Unknown Function Error");
         }
       }
-
-      /*      if (newGroup[key] === null) {
-        newGroup[key] = "hotpink";
-      } */
     });
 
     return newGroup;
@@ -168,8 +164,19 @@ class Registry implements IRegistry {
   ): CompiledVariables | undefined {
     const { variables, type } = storage;
     const compiled: CompiledVariables & Indexable = this.compile(type, tab);
+    if (!Object.keys(compiled).length) return undefined;
 
-    return undefined;
+    const tabVarKeys = Object.keys(this.getByTab(tab));
+    const varKeys = Object.keys(variables);
+
+    varKeys.forEach((key: string) => {
+      console.log(tab, key);
+      if (tabVarKeys.includes(key)) {
+        compiled[key] = variables[key];
+      }
+    });
+
+    return compiled;
   }
 
   getVariable(variable: string): VariableGroup | undefined {
@@ -188,6 +195,7 @@ class Registry implements IRegistry {
       const variable = vars[varKey];
       variables[varKey] = variable.group[type];
     });
+
     return variables;
   }
 

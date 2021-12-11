@@ -23,7 +23,9 @@ export default function PaletteTab() {
     <div>
       {categories &&
         categories
-          .sort((a, b) => a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase()))
+          .sort((a, b) =>
+            a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase())
+          )
           .map((category: string, catId: number) => (
             <VariableGroup
               key={`category-${category}-${catId}`}
@@ -31,15 +33,16 @@ export default function PaletteTab() {
             >
               {Object.keys(palette!).map((key: string, idx: number) => {
                 const varCategory = registry.getVariableCategory(key);
-                if (varCategory === category) {
-                  return (
-                    <Variable
-                      key={`variable-${key}-${idx}`}
-                      name={key as Variables}
-                      value={palette![key]}
-                    />
-                  );
-                }
+
+                if (varCategory !== category) return;
+
+                return (
+                  <Variable
+                    key={`variable-${key}-${idx}`}
+                    name={key as Variables}
+                    value={palette![key]}
+                  />
+                );
               })}
             </VariableGroup>
           ))}

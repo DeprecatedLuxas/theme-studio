@@ -98,7 +98,7 @@ export default function useBinding({
       };
     }
   });
-  console.log(bindings);
+  // console.log(bindings);
   
   return {
     style: styleObj,

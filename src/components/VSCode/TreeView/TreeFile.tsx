@@ -4,6 +4,8 @@ import { TreeNodeProps } from ".";
 
 export interface TreeFileProps extends TreeNodeProps {}
 
+// TODO: Fix icons margin is too much when icon pack is seti
+
 export default function TreeFile({ name, type, level = 0 }: TreeFileProps) {
   const { iconPack } = useTreeView();
 

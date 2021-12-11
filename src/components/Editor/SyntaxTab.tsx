@@ -8,7 +8,7 @@ import VariableGroup from "./VariableGroup";
 
 export default function SyntaxTab() {
   const { syntax, categories: registryCategories } = useRegistry();
-  const [categories,,] = useState<VariablePossibleCategories[]>(
+  const [categories, ,] = useState<VariablePossibleCategories[]>(
     registryCategories!.syntax
   );
 
@@ -21,9 +21,9 @@ export default function SyntaxTab() {
   }
   return (
     <div>
-      {categories.map((category: string) => (
+      {categories.map((category: string, catId: number) => (
         <VariableGroup
-          key={uuid()}
+          key={`category-${category}-${catId}`}
           groupName={category as VariablePossibleCategories}
         >
           {Object.keys(syntax!).map((key: string, idx: number) => {
@@ -31,8 +31,8 @@ export default function SyntaxTab() {
             if (varCategory !== category) return;
             return (
               <Variable
-              key={`variable-${key}-${idx}`}
-              name={key as Variables}
+                key={`variable-${key}-${idx}`}
+                name={key as Variables}
                 value={syntax![key]}
               />
             );

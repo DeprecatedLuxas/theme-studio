@@ -28,6 +28,7 @@ import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
 import { VscGear } from "react-icons/vsc";
 import { encode } from "@helpers/encoding";
+import { getPropertyDifferences } from "@lib/utils";
 
 export default function Local() {
   const { user, isLoading, error } = useUser();
@@ -37,13 +38,15 @@ export default function Local() {
     onClose: onTryItOutClose,
     onOpen: onTryItOutOpen,
   } = useBiscuitBox();
+
   const {
     isOpen: isExportOpen,
     onClose: onExportClose,
     onOpen: onExportOpen,
   } = useBiscuitBox();
+
   const { storage, setStorage, clear } = useStorage(
-    "theme",
+    "tstudio-theme",
     EditorHelper.getFakeStorage()
   );
   const [setupConfig, ,] = useRecoilState(setupState);
@@ -82,13 +85,25 @@ export default function Local() {
   }
 
   const handleSave = () => {
-    // Save to storage, only the variables that changed
+
+    // TODO: Also make this check difference from local storage, else you will always save even though nothing has changed.
     // TODO: Add a toast in the right corner to indicate status about the save.
-    // Combine all variables, check what changed from the either the previous save or the registry defaults
-    //     _.reduce(a, function(result, value, key) {
-    //     return _.isEqual(value, b[key]) ?
-    //         result : result.concat(key);
-    // }, []);
+    const diff = getPropertyDifferences(registry.compileAll(setupConfig.type), {
+      ...state.variables,
+      ...storage.variables,
+    });
+
+    console.log(Object.keys(diff).length);
+    
+    if (!Object.keys(diff).length) return;
+    setStorage({
+      ...storage,
+      variables: {
+        ...diff,
+      },
+    });
+    console.log("saving");
+    
   };
 
   const handleDownload = () => {
