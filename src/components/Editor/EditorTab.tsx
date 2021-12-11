@@ -20,25 +20,25 @@ export default function EditorTab() {
   }
   return (
     <div>
-      {categories.map((category: string, catId: number) => (
-        <VariableGroup
-          key={`category-${category}-${catId}`}
-          groupName={category as VariablePossibleCategories}
-        >
-          {Object.keys(editor!).map((key: string, idx: number) => {
-            const varCategory = registry.getVariableCategory(key);
-
-            if (varCategory !== category) return;
-            return (
-              <Variable
-                key={`variable-${key}-${idx}`}
-                name={key as Variables}
-                value={editor![key]}
-              />
-            );
-          })}
-        </VariableGroup>
-      ))}
+      {categories &&
+        categories.map((category: string, catId: number) => (
+          <VariableGroup
+            key={`category-${category}-${catId}`}
+            groupName={category as VariablePossibleCategories}
+          >
+            {Object.keys(editor!).map((key: string, idx: number) => {
+              const varCategory = registry.getVariableCategory(key);
+              if (varCategory !== category) return;
+              return (
+                <Variable
+                  key={`variable-${key}-${idx}`}
+                  name={key as Variables}
+                  value={editor![key]}
+                />
+              );
+            })}
+          </VariableGroup>
+        ))}
     </div>
   );
 }

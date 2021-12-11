@@ -257,15 +257,15 @@
   "bc@list.filterMatchBorder": {
     "variable": "list.filterMatchBorder",
     "group": {
-      "dark": "var@editor.findMatchBorder",
-      "light": "var@editor.findMatchBorder",
+      "dark": "var@editor.findMatchHighlightBorder",
+      "light": "var@editor.findMatchHighlightBorder",
       "hc": "var@contrastBorder"
     },
     "tab": "palette",
     "category": "Side Bar",
     "description": "Border color of the filtered match."
   },
-  "c@list.filtedeemphasizedForegroundrMatchBorder": {
+  "c@list.deemphasizedForeground": {
     "variable": "list.deemphasizedForeground",
     "group": {
       "dark": "#8C8C8C",

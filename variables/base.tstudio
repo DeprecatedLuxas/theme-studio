@@ -1,5 +1,4 @@
 {
-  "exclude": [],
   "c@foreground": {
     "variable": "foreground",
     "group": {
@@ -7,7 +6,9 @@
       "light": "#616161",
       "hc": "#FFFFFF"
     },
-    "description": "Overall foreground color. This color is only used if not overridden by a component."
+    "description": "Overall foreground color. This color is only used if not overridden by a component.",
+    "tab": "palette",
+    "category": "General"
   },
   "c@errorForeground": {
     "variable": "errorForeground",
@@ -16,7 +17,9 @@
       "light": "#A1260D",
       "hc": "#F48771"
     },
-    "description": "Overall foreground color for error messages. This color is only used if not overridden by a component."
+    "description": "Overall foreground color for error messages. This color is only used if not overridden by a component.",
+    "tab": "palette",
+    "category": "General"
   },
   "c@descriptionForeground": {
     "variable": "descriptionForeground",
@@ -25,7 +28,9 @@
       "light": "#717171",
       "hc": "func@transparent(var@foreground, 0.7)"
     },
-    "description": "Foreground color for description text providing additional information, for example for a label."
+    "description": "Foreground color for description text providing additional information, for example for a label.",
+    "tab": "palette",
+    "category": "General"
   },
   "c@iconForeground": {
     "variable": "icon.foreground",
@@ -34,7 +39,9 @@
       "light": "#424242",
       "hc": "#FFFFFF"
     },
-    "description": "The default color for icons in the workbench."
+    "description": "The default color for icons in the workbench.",
+    "tab": "palette",
+    "category": "General"
   },
   "bc@focusBorder": {
     "variable": "focusBorder",
@@ -43,7 +50,9 @@
       "light": "#0090F1",
       "hc": "#F38518"
     },
-    "description": "Overall border color for focused elements. This color is only used if not overridden by a component."
+    "description": "Overall border color for focused elements. This color is only used if not overridden by a component.",
+    "tab": "palette",
+    "category": "General"
   },
   "bc@contrastBorder": {
     "variable": "contrastBorder",
@@ -52,7 +61,9 @@
       "light": null,
       "hc": "#6FC3DF"
     },
-    "description": "An extra border around elements to separate them from others for greater contrast."
+    "description": "An extra border around elements to separate them from others for greater contrast.",
+    "tab": "palette",
+    "category": "General"
   },
   "bc@contrastActiveBorder": {
     "variable": "contrastActiveBorder",
@@ -61,7 +72,9 @@
       "light": null,
       "hc": "var@focusBorder"
     },
-    "description": "An extra border around active elements to separate them from others for greater contrast."
+    "description": "An extra border around active elements to separate them from others for greater contrast.",
+    "tab": "palette",
+    "category": "General"
   },
   "bg@selectionBackground": {
     "variable": "selection.background",
@@ -70,6 +83,8 @@
       "light": null,
       "hc": null
     },
-    "description": "The background color of text selections in the workbench (e.g. for input fields or text areas). Note that this does not apply to selections within the editor."
+    "description": "The background color of text selections in the workbench (e.g. for input fields or text areas). Note that this does not apply to selections within the editor.",
+    "tab": "palette",
+    "category": "General"
   }
 }
