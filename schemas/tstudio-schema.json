@@ -60,17 +60,17 @@
         "light": {
           "type": ["string", "null"],
           "description": "The light color for the group.",
-          "examples": ["#ffffff", "#00ffffff"]
+          "examples": ["#ffffff", "#00ffffff", "green", "blue"]
         },
         "dark": {
           "type": ["string", "null"],
           "description": "The dark color for the group.",
-          "examples": ["#ffffff", "#00ffffff"]
+          "examples": ["#ffffff", "#00ffffff", "green", "blue"]
         },
         "hc": {
           "type": ["string", "null"],
           "description": "The high contrast color for the group.",
-          "examples": ["#ffffff", "#00ffffff"]
+          "examples": ["#ffffff", "#00ffffff", "green", "blue"]
         }
       },
       "required": ["light", "dark", "hc"]

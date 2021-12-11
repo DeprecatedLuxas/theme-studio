@@ -47,6 +47,15 @@ export default class EditorHelper {
     };
   }
 
+  static cleanVariables(variables: Record<string, string>) {
+    const newVariables: Record<string, string> = {};
+    Object.keys(variables).forEach((key) => {
+      newVariables[this.formatVariable(key)] = variables[key];
+    });
+
+    return newVariables;
+  }
+
   static compare(storage: ThemeStorage, storage2: ThemeStorage): boolean {
     return isEqual(storage, storage2);
   }

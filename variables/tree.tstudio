@@ -1,0 +1,35 @@
+{
+  "bg@tree.indentGuidesStroke": {
+    "variable": "tree.indentGuidesStroke",
+    "group": {
+      "dark": "#585858",
+      "light": "#a9a9a9",
+      "hc": "#a9a9a9"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "Tree stroke color for the indentation guides."
+  },
+  "bc@tree.tableColumnsBorder": {
+    "variable": "tree.tableColumnsBorder",
+    "group": {
+      "dark": "#CCCCCC20",
+      "light": "#61616120",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "Table border color between columns."
+  },
+  "bg@tree.indentGuidetableOddRowsBackgroundsStroke": {
+    "variable": "tree.tableOddRowsBackground",
+    "group": {
+      "dark": "func@transparent(var@foreground, 0.04)",
+      "light": "func@transparent(var@foreground, 0.04)",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "Background color for odd table rows."
+  }
+}

@@ -13,6 +13,10 @@ import {
   Variables,
 } from "./types";
 import _ from "lodash";
+import tinycolor from "tinycolor2";
+import Validation from "./validation";
+import VariableSchema from "@schemas/tstudio-schema.json";
+
 import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
 import titleBarVars from "@variables/titlebar.tstudio";
@@ -24,14 +28,16 @@ import tabsVars from "@variables/tabs.tstudio";
 import toolbarVars from "@variables/toolbar.tstudio";
 import editorVars from "@variables/editor.tstudio";
 import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
-import tinycolor from "tinycolor2";
-import Validation from "./validation";
-import VariableSchema from "@schemas/tstudio-schema.json";
+import treeVars from "@variables/tree.tstudio";
+import listVars from "@variables/list.tstudio";
+import { colorNames } from "./color-names";
 
 enum Functions {
   TRANSPARENT = "transparent",
   DARKEN = "darken",
   LIGHTEN = "lighten",
+  IFTHENELSE = "ifThenElse",
+  // func@ifThenElse(condition, var@test, var@foreground)
 }
 
 interface IRegistry {
@@ -52,6 +58,9 @@ interface IRegistry {
 class Registry implements IRegistry {
   readonly variables: Record<string, Variable> = {};
 
+  readonly colorNameRegex: RegExp = new RegExp(
+    `(?<colorname>${colorNames.join("|")})`
+  );
   readonly varRegex: RegExp = /var@(?<varname>[a-zA-Z.]+)/;
   readonly funcRegex: RegExp =
     /func@(?<func>transparent|darken|lighten)\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)/;
@@ -100,9 +109,15 @@ class Registry implements IRegistry {
   parseGroup(group: VariableGroup): VariableGroup {
     const newGroup: VariableGroup = group;
     Object.keys(group).forEach((key: string) => {
-      if (group[key] === null) {
+      if (newGroup[key] === null) {
         newGroup[key] = "hotpink";
       }
+
+      if (colorNames.includes(newGroup[key])) {
+        newGroup[key] = tinycolor(newGroup[key]).toHex8String();
+
+      }
+
       if (this.varRegex.test(newGroup[key])) {
         const varMatch = newGroup[key].match(this.varRegex);
         let replacementVariable = this.getVariable(varMatch!.groups!.varname);
@@ -170,7 +185,6 @@ class Registry implements IRegistry {
     const varKeys = Object.keys(variables);
 
     varKeys.forEach((key: string) => {
-      console.log(tab, key);
       if (tabVarKeys.includes(key)) {
         compiled[key] = variables[key];
       }
@@ -257,5 +271,7 @@ registry.registerFile(sideBarVars);
 registry.registerFile(tabsVars);
 registry.registerFile(toolbarVars);
 registry.registerFile(breadcrumbsVar);
+registry.registerFile(treeVars);
+registry.registerFile(listVars);
 
 export default registry;

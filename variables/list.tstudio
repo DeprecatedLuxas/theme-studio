@@ -170,66 +170,110 @@
     "variable": "list.focusHighlightForeground",
     "group": {
       "dark": "var@list.highlightForeground",
-      "light": null,
+      "light": "func@ifThenElse(var@list.activeSelectionBackground, var@list.highlightForeground, #9DDDFF)",
       "hc": "var@list.highlightForeground"
     },
     "tab": "palette",
     "category": "Side Bar",
     "description": "List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree."
   },
-  "c@list.activeSelectionIconForeground": {
-    "variable": "list.activeSelectionIconForeground",
+  "c@list.invalidItemForeground": {
+    "variable": "list.invalidItemForeground",
     "group": {
-      "dark": null,
-      "light": null,
-      "hc": null
+      "dark": "#B89500",
+      "light": "#B89500",
+      "hc": "#B89500"
     },
     "tab": "palette",
     "category": "Side Bar",
-    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+    "description": "List/Tree foreground color for invalid items, for example an unresolved root in explorer."
   },
-  "c@list.activeSelectionIconForeground": {
-    "variable": "list.activeSelectionIconForeground",
+  "c@list.errorForeground": {
+    "variable": "list.errorForeground",
     "group": {
-      "dark": null,
-      "light": null,
+      "dark": "#F88070",
+      "light": "#B01011",
       "hc": null
     },
     "tab": "palette",
     "category": "Side Bar",
-    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+    "description": "Foreground color of list items containing errors."
   },
-  "c@list.activeSelectionIconForeground": {
-    "variable": "list.activeSelectionIconForeground",
+  "c@list.warningForeground": {
+    "variable": "list.warningForeground",
     "group": {
-      "dark": null,
-      "light": null,
+      "dark": "#CCA700",
+      "light": "#855F00",
       "hc": null
     },
     "tab": "palette",
     "category": "Side Bar",
-    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+    "description": "Foreground color of list items containing warnings."
   },
-  "c@list.activeSelectionIconForeground": {
-    "variable": "list.activeSelectionIconForeground",
+  "bg@listFilterWidget.background": {
+    "variable": "listFilterWidget.background",
     "group": {
-      "dark": null,
-      "light": null,
-      "hc": null
+      "dark": "#653723",
+      "light": "#efc1ad",
+      "hc": "#000000"
     },
     "tab": "palette",
     "category": "Side Bar",
-    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+    "description": "Background color of the type filter widget in lists and trees."
   },
-  "c@list.activeSelectionIconForeground": {
-    "variable": "list.activeSelectionIconForeground",
+  "bc@listFilterWidget.outline": {
+    "variable": "listFilterWidget.outline",
     "group": {
-      "dark": null,
-      "light": null,
+      "dark": "rgba(0, 0, 0, 0)",
+      "light": "rgba(0, 0, 0, 0)",
+      "hc": "#f38518"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "Outline color of the type filter widget in lists and trees."
+  },
+  "bc@listFilterWidget.noMatchesOutline": {
+    "variable": "listFilterWidget.noMatchesOutline",
+    "group": {
+      "dark": "#BE1100",
+      "light": "#BE1100",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "Outline color of the type filter widget in lists and trees, when there are no matches."
+  },
+  "bg@list.filterMatchBackground": {
+    "variable": "list.filterMatchBackground",
+    "group": {
+      "dark": "var@editor.findMatchHighlightBackground",
+      "light": "var@editor.findMatchHighlightBackground",
       "hc": null
     },
     "tab": "palette",
     "category": "Side Bar",
-    "description": "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not."
+    "description": "Background color of the filtered match."
+  },
+  "bc@list.filterMatchBorder": {
+    "variable": "list.filterMatchBorder",
+    "group": {
+      "dark": "var@editor.findMatchBorder",
+      "light": "var@editor.findMatchBorder",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "Border color of the filtered match."
+  },
+  "c@list.filtedeemphasizedForegroundrMatchBorder": {
+    "variable": "list.deemphasizedForeground",
+    "group": {
+      "dark": "#8C8C8C",
+      "light": "#8E8E90",
+      "hc": "#A7A8A9"
+    },
+    "tab": "palette",
+    "category": "Side Bar",
+    "description": "List/Tree foreground color for items that are deemphasized."
   }
 }

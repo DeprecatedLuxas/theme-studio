@@ -51,7 +51,6 @@ export default function Local() {
   );
   const [setupConfig, ,] = useRecoilState(setupState);
 
-  // TODO: Make this code clone from local storage
   const [state, dispatch] = useReducer(reducer, {
     variables:
       registry.cloneAll(storage) || registry.compileAll(setupConfig.type),
@@ -85,7 +84,6 @@ export default function Local() {
   }
 
   const handleSave = () => {
-
     // TODO: Also make this check difference from local storage, else you will always save even though nothing has changed.
     // TODO: Add a toast in the right corner to indicate status about the save.
     const diff = getPropertyDifferences(registry.compileAll(setupConfig.type), {
@@ -94,7 +92,7 @@ export default function Local() {
     });
 
     console.log(Object.keys(diff).length);
-    
+
     if (!Object.keys(diff).length) return;
     setStorage({
       ...storage,
@@ -103,7 +101,6 @@ export default function Local() {
       },
     });
     console.log("saving");
-    
   };
 
   const handleDownload = () => {
@@ -124,7 +121,14 @@ export default function Local() {
   const handleTryItOut = () => {
     onTryItOutClose();
     const { name, variables, type } = storage;
-    const encoded = encode(JSON.stringify({ name, variables, type }));
+
+    const encoded = encode(
+      JSON.stringify({
+        name,
+        variables: EditorHelper.cleanVariables(variables),
+        type,
+      })
+    );
     router.push(
       `vscode://lucasnorgaard.vscode-theme-studio-visualizer?theme=${encoded}`
     );
