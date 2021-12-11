@@ -37,7 +37,6 @@ enum Functions {
   DARKEN = "darken",
   LIGHTEN = "lighten",
   IFTHENELSE = "ifThenElse",
-  // func@ifThenElse(condition, var@test, var@foreground)
 }
 
 interface IRegistry {
@@ -59,9 +58,16 @@ class Registry implements IRegistry {
   readonly variables: Record<string, Variable> = {};
   readonly rgbRegex: RegExp =
     /rgba?\(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,?\s*([01\.]\.?\d?)?\s*\)/;
-  readonly varRegex: RegExp = /var@(?<varname>[a-zA-Z.]+)/;
+  readonly varRegex: RegExp = /var@[a-zA-Z.]+/g;
+
+  readonly funcTypeRegex: RegExp =
+    /func@(?<func>transparent|darken|lighten|ifThenElse)/;
   readonly funcRegex: RegExp =
-    /func@(?<func>transparent|darken|lighten)\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)/;
+    /\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)\)/;
+  readonly funcRegex2: RegExp =
+    /\((?<if>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<then>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<else>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2}))\)/;
+
+  readonly placeholderColor = tinycolor("hotpink").toHex8String();
 
   register(key: string, variable: Variable): void {
     const isValid = Validation.validate(
@@ -79,6 +85,7 @@ class Registry implements IRegistry {
     }
 
     variable.group = this.parseGroup(variable.group);
+
     this.variables[key] = variable;
   }
 
@@ -88,7 +95,7 @@ class Registry implements IRegistry {
 
       this.register(key, file[key]);
       const addi = file[key].additional || [];
-      // TODO: This creates a duplicate of the variable.
+      // TODO: Fix this. This creates a duplicate of the variable.
       addi.forEach((additional: string) => {
         this.register(`${additional}@${key.split("@")[1]}`, file[key]);
       });
@@ -108,7 +115,7 @@ class Registry implements IRegistry {
     const newGroup: VariableGroup = group;
     Object.keys(group).forEach((key: string) => {
       if (newGroup[key] === null) {
-        newGroup[key] = "hotpink";
+        newGroup[key] = this.placeholderColor;
       }
 
       if (colorNames.includes(newGroup[key])) {
@@ -121,40 +128,57 @@ class Registry implements IRegistry {
 
       if (this.varRegex.test(newGroup[key])) {
         const varMatch = newGroup[key].match(this.varRegex);
-        let replacementVariable = this.getVariable(varMatch!.groups!.varname);
+        varMatch!.forEach((match: string) => {
+          let replacementVariable = this.getVariable(match.split("@")[1]);
 
-        if (!replacementVariable) {
-          replacementVariable = {
-            dark: "hotpink",
-            light: "hotpink",
-            hc: "hotpink",
-          };
-        }
+          if (!replacementVariable) {
+            replacementVariable = {
+              dark: this.placeholderColor,
+              light: this.placeholderColor,
+              hc: this.placeholderColor,
+            };
+          }
 
-        newGroup[key] = newGroup[key].replace(
-          this.varRegex,
-          replacementVariable[key]
-        );
+          newGroup[key] = newGroup[key].replace(
+            match,
+            replacementVariable[key]
+          );
+        });
       }
 
-      if (this.funcRegex.test(newGroup[key])) {
-        const funcMatch = newGroup[key].match(this.funcRegex);
-        const func = funcMatch!.groups!.func;
-        const int = parseFloat(funcMatch!.groups!.int);
-        const color = funcMatch!.groups!.color;
+      if (this.funcTypeRegex.test(newGroup[key])) {
+        const funcTypeMatch = newGroup[key].match(this.funcTypeRegex);
+        const funcType = funcTypeMatch!.groups!.func;
+        if (funcType === Functions.IFTHENELSE) {
+          const funcMatch = newGroup[key].match(this.funcRegex2);
+          const ifMatch = funcMatch!.groups!.if;
+          const thenMatch = funcMatch!.groups!.then;
+          const elseMatch = funcMatch!.groups!.else;
 
-        switch (func) {
-          case Functions.TRANSPARENT:
-            newGroup[key] = tinycolor(color).setAlpha(int).toHex8String();
-            break;
-          case Functions.DARKEN:
-            newGroup[key] = tinycolor(color).darken(int).toHex8String();
-            break;
-          case Functions.LIGHTEN:
-            newGroup[key] = tinycolor(color).lighten(int).toHex8String();
-            break;
-          default:
-            throw new Error("Unknown Function Error");
+          // If if hex color matches placeholder color, it is not defined.
+          if (ifMatch !== this.placeholderColor) {
+            newGroup[key] = thenMatch;
+          } else {
+            newGroup[key] = elseMatch;
+          }
+        } else {
+          const funcMatch = newGroup[key].match(this.funcRegex);
+
+          const int = parseFloat(funcMatch!.groups!.int);
+          const color = funcMatch!.groups!.color;
+          switch (funcType) {
+            case Functions.TRANSPARENT:
+              newGroup[key] = tinycolor(color).setAlpha(int).toHex8String();
+              break;
+            case Functions.DARKEN:
+              newGroup[key] = tinycolor(color).darken(int).toHex8String();
+              break;
+            case Functions.LIGHTEN:
+              newGroup[key] = tinycolor(color).lighten(int).toHex8String();
+              break;
+            default:
+              throw new Error("Unknown Function Error");
+          }
         }
       }
     });
@@ -198,6 +222,7 @@ class Registry implements IRegistry {
     const vari = Object.keys(this.variables).find((key: string) => {
       return this.variables[key].variable === variable;
     });
+
     if (!this.variables[vari!]) return undefined;
     return this.variables[vari!].group;
   }
