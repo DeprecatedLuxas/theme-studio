@@ -57,10 +57,8 @@ interface IRegistry {
 
 class Registry implements IRegistry {
   readonly variables: Record<string, Variable> = {};
-
-  readonly colorNameRegex: RegExp = new RegExp(
-    `(?<colorname>${colorNames.join("|")})`
-  );
+  readonly rgbRegex: RegExp =
+    /rgba?\(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,?\s*([01\.]\.?\d?)?\s*\)/;
   readonly varRegex: RegExp = /var@(?<varname>[a-zA-Z.]+)/;
   readonly funcRegex: RegExp =
     /func@(?<func>transparent|darken|lighten)\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)/;
@@ -115,7 +113,10 @@ class Registry implements IRegistry {
 
       if (colorNames.includes(newGroup[key])) {
         newGroup[key] = tinycolor(newGroup[key]).toHex8String();
+      }
 
+      if (this.rgbRegex.test(newGroup[key])) {
+        newGroup[key] = tinycolor(newGroup[key]).toHex8String();
       }
 
       if (this.varRegex.test(newGroup[key])) {

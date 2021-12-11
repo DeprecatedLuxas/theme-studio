@@ -60,17 +60,38 @@
         "light": {
           "type": ["string", "null"],
           "description": "The light color for the group.",
-          "examples": ["#ffffff", "#00ffffff", "green", "blue"]
+          "examples": [
+            "#ffffff",
+            "#00ffffff",
+            "green",
+            "blue",
+            "rgb(255, 0, 0)",
+            "rgba(0, 255, 0, 0.5)"
+          ]
         },
         "dark": {
           "type": ["string", "null"],
           "description": "The dark color for the group.",
-          "examples": ["#ffffff", "#00ffffff", "green", "blue"]
+          "examples": [
+            "#ffffff",
+            "#00ffffff",
+            "green",
+            "blue",
+            "rgb(255, 0, 0)",
+            "rgba(0, 255, 0, 0.5)"
+          ]
         },
         "hc": {
           "type": ["string", "null"],
           "description": "The high contrast color for the group.",
-          "examples": ["#ffffff", "#00ffffff", "green", "blue"]
+          "examples": [
+            "#ffffff",
+            "#00ffffff",
+            "green",
+            "blue",
+            "rgb(255, 0, 0)",
+            "rgba(0, 255, 0, 0.5)"
+          ]
         }
       },
       "required": ["light", "dark", "hc"]
