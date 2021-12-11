@@ -33,6 +33,8 @@ export default function PaletteTab() {
               return (
                 <Variable
                   key={`variable-${key}-${idx}`}
+                  tab={palette!}
+                  tabName={"palette"}
                   name={key as Variables}
                   value={palette![key]}
                 />

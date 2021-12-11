@@ -4,7 +4,7 @@ import Loading from "@components/Loading";
 import { useRouter } from "next/router";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
-import { useReducer, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
@@ -18,17 +18,14 @@ import {
   DialogFooter,
   DialogHeader,
 } from "@components/Dialog";
-import _ from "lodash";
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
-import { useRecoilState } from "recoil";
-import { setupState } from "@recoil/atoms/setup";
 import useStorage from "@hooks/useStorage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
 import { VscGear } from "react-icons/vsc";
 import { encode } from "@helpers/encoding";
-import { getPropertyDifferences } from "@lib/utils";
+import { getPropertyDifferences, __DEV__ } from "@lib/utils";
 
 export default function Local() {
   const { user, isLoading, error } = useUser();
@@ -49,22 +46,45 @@ export default function Local() {
     "tstudio-theme",
     EditorHelper.getFakeStorage()
   );
-  const [setupConfig, ,] = useRecoilState(setupState);
 
   const [state, dispatch] = useReducer(reducer, {
-    variables:
-      registry.cloneAll(storage) || registry.compileAll(setupConfig.type),
+    variables: registry.cloneAll(storage) || registry.compileAll(storage.type),
     categories: registry.getCategories(),
     palette:
       registry.clone(storage, "palette") ||
-      registry.compile(setupConfig.type, "palette"),
+      registry.compile(storage.type, "palette"),
     editor:
       registry.clone(storage, "editor") ||
-      registry.compile(setupConfig.type, "editor"),
+      registry.compile(storage.type, "editor"),
     syntax:
       registry.clone(storage, "syntax") ||
-      registry.compile(setupConfig.type, "syntax"),
+      registry.compile(storage.type, "syntax"),
   });
+
+  const handleSave = useCallback(() => {
+    // TODO: Also make this check difference from local storage, else you will always save even though nothing has changed.
+    // TODO: Add a toast in the right corner to indicate status about the save.
+    const diff = getPropertyDifferences(registry.compileAll(storage.type), {
+      ...state.variables,
+      ...storage.variables,
+    });
+
+
+    if (!Object.keys(diff).length) return;
+    setStorage({
+      ...storage,
+      variables: {
+        ...diff,
+      },
+    });
+  }, []);
+
+  useEffect(() => {
+    if (__DEV__) {
+      console.log("A variable changed. Saving...");
+    }
+    handleSave();
+  }, [state.variables, handleSave]);
 
   if (isLoading) {
     return <Loading />;
@@ -82,26 +102,6 @@ export default function Local() {
   if (EditorHelper.compare(storage, EditorHelper.getFakeStorage())) {
     router.push("/edit/setup");
   }
-
-  const handleSave = () => {
-    // TODO: Also make this check difference from local storage, else you will always save even though nothing has changed.
-    // TODO: Add a toast in the right corner to indicate status about the save.
-    const diff = getPropertyDifferences(registry.compileAll(setupConfig.type), {
-      ...state.variables,
-      ...storage.variables,
-    });
-
-    console.log(Object.keys(diff).length);
-
-    if (!Object.keys(diff).length) return;
-    setStorage({
-      ...storage,
-      variables: {
-        ...diff,
-      },
-    });
-    console.log("saving");
-  };
 
   const handleDownload = () => {
     onExportClose();

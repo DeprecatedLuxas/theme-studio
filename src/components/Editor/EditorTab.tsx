@@ -32,6 +32,8 @@ export default function EditorTab() {
               return (
                 <Variable
                   key={`variable-${key}-${idx}`}
+                  tab={editor!}
+                  tabName={"editor"}
                   name={key as Variables}
                   value={editor![key]}
                 />

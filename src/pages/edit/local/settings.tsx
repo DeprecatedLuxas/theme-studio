@@ -1,7 +1,6 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import Loading from "@components/Loading";
 import { useRouter } from "next/router";
-import Divider from "@components/Divider";
 import { isMobile } from "react-device-detect";
 import MobileWarning from "@components/Editor/MobileWarning";
 import useStorage from "@hooks/useStorage";

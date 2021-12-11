@@ -204,7 +204,8 @@ class Registry implements IRegistry {
   ): CompiledVariables | undefined {
     const { variables, type } = storage;
     const compiled: CompiledVariables & Indexable = this.compile(type, tab);
-    if (!Object.keys(compiled).length) return undefined;
+    
+    if (Object.keys(compiled).length < 1) return undefined;
 
     const tabVarKeys = Object.keys(this.getByTab(tab));
     const varKeys = Object.keys(variables);

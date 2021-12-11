@@ -2,9 +2,12 @@ import EditorHelper from "@helpers/editor";
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
 import {
+  CompiledVariables,
+  Indexable,
   TStudioAction,
   TStudioActions,
   Variables,
+  VariableTab,
 } from "@lib/types";
 import { actionState } from "@recoil/atoms/action";
 
@@ -13,6 +16,8 @@ import { useRecoilState } from "recoil";
 export interface VariableProps {
   name: Variables;
   value: string;
+  tabName: VariableTab;
+  tab: CompiledVariables & Indexable;
 }
 
 const colors = [
@@ -24,8 +29,13 @@ const colors = [
   "#E6B333",
 ];
 
-export default function Variable({ name, value }: VariableProps): JSX.Element {
-  const { dispatch, variables, palette } = useRegistry();
+export default function Variable({
+  name,
+  value,
+  tabName,
+  tab,
+}: VariableProps): JSX.Element {
+  const { dispatch, variables } = useRegistry();
   const [action, setAction] = useRecoilState(actionState);
   const variable = EditorHelper.formatVariable(name);
 
@@ -82,46 +92,19 @@ export default function Variable({ name, value }: VariableProps): JSX.Element {
               className="w-8 h-8"
               style={{ backgroundColor: color }}
               onClick={() => {
-                if (!dispatch) throw new Error("Dispatch is undefined?");
-                dispatch({
-                  variables: {
-                    ...variables,
-                    [name]: color,
-                  },
-                  palette: {
-                    ...palette,
-                    [name]: color,
-                  },
-                });
+                if (!dispatch) console.warn("Dispatch is undefined");
 
-                /*       dispatch &&
+                dispatch &&
                   dispatch({
                     variables: {
-                      ...variables!,
+                      ...variables,
                       [name]: color,
                     },
-                    palette: {
-                      ...palette!,
-                      [groupName]: {
-                        ...palette![groupName],
-                        [name]: color,
-                      },
+                    [tabName as string]: {
+                      ...tab,
+                      [name]: color,
                     },
-                  }); */
-
-                /* 
-                // TODO: Clean this up.
-                const variable = getEditorVariable(variables, name);
-                const co = getVariable(variables, name);
-
-                const type = co.group.dark ? "dark" : "light";
-                co.group[type] = color;
-                dispatch({
-                  type: Actions.SET_EDITOR_VARIABLES,
-                  payload: {
-                    editorVariables: { ...editorVariables, [variable]: color },
-                  },
-                }); */
+                  });
               }}
             />
           ))}

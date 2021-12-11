@@ -13,20 +13,11 @@ import useStorage from "@hooks/useStorage";
 import StorageFound from "@components/Editor/StorageFound";
 import Loading from "@components/Loading";
 import MobileWarning from "@components/Editor/MobileWarning";
-import {
-  Dialog,
-  DialogBody,
-  DialogFooter,
-  DialogHeader,
-} from "@components/Dialog";
-import Link from "next/link";
-import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 import { v4 as uuid } from "uuid";
 import Divider from "@components/Divider";
 import useIsMounted from "@hooks/use-is-mounted";
-import { encode } from "@helpers/encoding";
 
 export default function Setup() {
   const isMounted = useIsMounted();

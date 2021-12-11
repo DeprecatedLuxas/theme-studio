@@ -33,6 +33,8 @@ export default function SyntaxTab() {
               return (
                 <Variable
                   key={`variable-${key}-${idx}`}
+                  tab={syntax!}
+                  tabName="syntax"
                   name={key as Variables}
                   value={syntax![key]}
                 />
