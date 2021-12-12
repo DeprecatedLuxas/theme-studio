@@ -24,6 +24,7 @@ export default function Header() {
         <button
           className="inline-flex p-3 rounded md:hidden text-white ml-auto outline-none"
           onClick={handleClick}
+          aria-label="Open Navigation"
         >
           <svg
             className="w-6 h-6"

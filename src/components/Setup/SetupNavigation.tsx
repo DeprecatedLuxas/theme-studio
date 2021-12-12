@@ -60,6 +60,7 @@ export default function SetupNavigation({
         >
           <a
             target="_blank"
+            rel="noopener"
             className="flex items-center bg-blue-700 rounded w-full px-2 py-1 text-white font-roboto"
           >
             <VscFeedback className="mr-3" />

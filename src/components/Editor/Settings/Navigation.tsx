@@ -1,6 +1,6 @@
 import windy from "@helpers/windy";
 
-const SetupButton = windy.button`
+const SettingsButton = windy.button`
   text-left
   font-roboto
   hover:bg-blue-700
@@ -20,18 +20,18 @@ export interface NavigationProps {
 export default function Navigation({ currentTab, onClick }: NavigationProps) {
   return (
     <div className="h-12 bg-white rounded w-full p-1 flex border-blue-700 border mb-2">
-      <SetupButton
+      <SettingsButton
         onClick={() => onClick(1)}
         className={`${currentTab === 1 && "bg-blue-700 text-white"} ml-0`}
       >
         General
-      </SetupButton>
-      <SetupButton
+      </SettingsButton>
+      <SettingsButton
         onClick={() => onClick(2)}
         className={`${currentTab === 2 && "bg-blue-700 text-white"}`}
       >
         Personalization
-      </SetupButton>
+      </SettingsButton>
 
       <div className="flex-1 flex justify-end flex-col"></div>
     </div>
