@@ -24,7 +24,7 @@ export default function GeneralTab() {
   return (
     <div>
       <section className="mb-4 h-16">
-        <h4>Theme Name</h4>
+        <h2>Theme Name</h2>
         <Input
           placeholder="Theme Name"
           border="border-gray-400"
@@ -33,7 +33,7 @@ export default function GeneralTab() {
         />
       </section>
       <section>
-        <h4>Theme Type</h4>
+        <h2>Theme Type</h2>
         <div className="flex rounded bg-gray-200 p-2 w-max">
           <section className="px-2">
             <div
@@ -46,7 +46,7 @@ export default function GeneralTab() {
             >
               <BsMoon fontSize="32" />
             </div>
-            <h6 className="text-center font-roboto pt-1">Dark</h6>
+            <h3 className="text-center font-roboto pt-1">Dark</h3>
           </section>
           <section className="px-2">
             <div
@@ -59,7 +59,7 @@ export default function GeneralTab() {
             >
               <BsSun fontSize="32" />
             </div>
-            <h6 className="text-center font-roboto pt-1">Light</h6>
+            <h3 className="text-center font-roboto pt-1">Light</h3>
           </section>
         </div>
       </section>

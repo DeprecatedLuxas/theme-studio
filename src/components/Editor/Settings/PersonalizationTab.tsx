@@ -53,7 +53,7 @@ export default function PersonalizationTab() {
   return (
     <div className="flex flex-col">
       <section>
-        <h4>Sidebar Placement</h4>
+        <h2>Sidebar Placement</h2>
         <section className="w-48">
           <Select
             options={[
@@ -71,7 +71,7 @@ export default function PersonalizationTab() {
         </section>
       </section>
       <section className="mt-4">
-        <h4>Icon Pack</h4>
+        <h2>Icon Pack</h2>
         <section className="w-48">
           <Select
             options={[
