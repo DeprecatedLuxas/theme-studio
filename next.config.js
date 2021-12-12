@@ -7,5 +7,5 @@ module.exports = {
       loader: "json-loader",
     });
     return config;
-  }
+  },
 };

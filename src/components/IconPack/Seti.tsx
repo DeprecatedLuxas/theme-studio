@@ -101,6 +101,7 @@ export default function SetiIconPack({
       return <JSON />;
     case "tsconfig":
       return <TSConfig />;
+    case "api":
     case "pages":
     case "components":
     case "src":

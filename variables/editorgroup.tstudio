@@ -1,0 +1,123 @@
+{
+  "bg@editorGroup.dropBackground": {
+    "variable": "editorGroup.dropBackground",
+    "group": {
+      "dark": "func@transparent(#53595D, 0.5)",
+      "light": "func@transparent(#2677CB, 0.18)",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Background color when dragging editors around. The color should have transparency so that the editor contents can still shine through."
+  },
+  "bc@editorGroup.border": {
+    "variable": "editorGroup.border",
+    "group": {
+      "dark": "#444444",
+      "light": "#E7E7E7",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Color to separate multiple editor groups from each other. Editor groups are the containers of editors."
+  },
+  "bg@editorGroup.emptyBackground": {
+    "variable": "editorGroup.emptyBackground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Background color of an empty editor group. Editor groups are the containers of editors."
+  },
+  "bc@editorGroup.focusedEmptyBorder": {
+    "variable": "editorGroup.focusedEmptyBorder",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@focusBorder"
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Border color of an empty editor group that is focused. Editor groups are the containers of editors."
+  },
+  "bg@editorGroupHeader.tabsBackground": {
+    "variable": "editorGroupHeader.tabsBackground",
+    "group": {
+      "dark": "#252526",
+      "light": "#F3F3F3",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Tabs",
+    "description": "Background color of the editor group title header when tabs are enabled. Editor groups are the containers of editors."
+  },
+  "bc@editorGroupHeader.tabsBorder": {
+    "variable": "editorGroupHeader.tabsBorder",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Tabs",
+    "description": "Border color of the editor group title header when tabs are enabled. Editor groups are the containers of editors."
+  },
+  "bg@editorGroupHeader.noTabsBackground": {
+    "variable": "editorGroupHeader.noTabsBackground",
+    "group": {
+      "dark": "var@editor.background",
+      "light": "var@editor.background",
+      "hc": "var@editor.background"
+    },
+    "tab": "palette",
+    "category": "Tabs",
+    "description": "Background color of the editor group title header when tabs are disabled (`\"workbench.editor.showTabs\": false`). Editor groups are the containers of editors."
+  },
+  "bc@editorGroupHeader.border": {
+    "variable": "editorGroupHeader.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@focusBorder"
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Border color of the editor group title header. Editor groups are the containers of editors."
+  },
+  "bg@editorPane.background": {
+    "variable": "editorPane.background",
+    "group": {
+      "dark": "var@editor.background",
+      "light": "var@editor.background",
+      "hc": "var@editor.background"
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Background color of the editor pane visible on the left and right side of the centered editor layout."
+  },
+  "bc@sideBySideEditor.horizontalBorder": {
+    "variable": "sideBySideEditor.horizontalBorder",
+    "group": {
+      "dark": "var@editorGroup.border",
+      "light": "var@editorGroup.border",
+      "hc": "var@editorGroup.border"
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Color to separate two editors from each other when shown side by side in an editor group from top to bottom."
+  },
+  "bc@sideBySideEditor.verticalBorder": {
+    "variable": "sideBySideEditor.verticalBorder",
+    "group": {
+      "dark": "var@editorGroup.border",
+      "light": "var@editorGroup.border",
+      "hc": "var@editorGroup.border"
+    },
+    "tab": "palette",
+    "category": "Uncategorised",
+    "description": "Color to separate two editors from each other when shown side by side in an editor group from left to right."
+  }
+}

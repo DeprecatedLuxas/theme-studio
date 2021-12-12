@@ -31,6 +31,7 @@ import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
 import treeVars from "@variables/tree.tstudio";
 import listVars from "@variables/list.tstudio";
 import inputVars from "@variables/input.tstudio";
+import editorGroupVars from "@variables/editorgroup.tstudio";
 
 enum Functions {
   TRANSPARENT = "transparent",
@@ -304,5 +305,6 @@ registry.registerFile(breadcrumbsVar);
 registry.registerFile(treeVars);
 registry.registerFile(listVars);
 registry.registerFile(inputVars);
+registry.registerFile(editorGroupVars);
 
 export default registry;

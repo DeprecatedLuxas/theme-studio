@@ -144,7 +144,8 @@ export type IconTypes =
   | "pages"
   | "src"
   | "public"
-  | "modules";
+  | "modules"
+  | "api";
 
 export type MessageStatus =
   | MessageStatusEnum

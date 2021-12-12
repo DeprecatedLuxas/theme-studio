@@ -53,7 +53,6 @@ export default function SideBar() {
         <Element as="span">vscode-theme-studio</Element>
       </Element>
       <div className="flex-1">
-
         <TreeView iconPack={options.iconPack}>
           <TreeView.Folder name="node_modules" type="modules" />
           <TreeView.Folder name="public" type="public" />
@@ -63,8 +62,22 @@ export default function SideBar() {
               <TreeView.File name="Footer.tsx" type="tsx" />
             </TreeView.Folder>
 
-            <TreeView.Folder name="pages" defaultOpen type="pages">
-              <TreeView.File name="index.tsx" type="tsx" />
+            <TreeView.Folder
+              name="pages"
+              defaultOpen
+              type="pages"
+              status="untracked"
+            >
+              <TreeView.Folder
+                name="api"
+                defaultOpen
+                type="api"
+                status="modified"
+              >
+                <TreeView.File name="[id].ts" type="ts" status="modified" />
+              </TreeView.Folder>
+              <TreeView.File name="index.tsx" type="tsx" status="modified" />
+              <TreeView.File name="browse.tsx" type="tsx" status="untracked" />
               <TreeView.File name="_app.tsx" type="tsx" />
             </TreeView.Folder>
           </TreeView.Folder>
@@ -73,6 +86,20 @@ export default function SideBar() {
           <TreeView.File name="tsconfig.json" type="tsconfig" />
           <TreeView.File name="yarn.lock" type="lock" />
         </TreeView>
+
+
+        {/* 
+        <ActionRender>
+          <Action action="">
+            <p>Hello this render on every single action except git</p>
+          </Action>
+
+          <Action action="git">
+            <p>This only renders on git action</p>
+          </Action>
+          
+        </ActionRender/>
+        */}
       </div>
       <Element
         className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"
