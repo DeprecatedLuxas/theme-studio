@@ -4,8 +4,11 @@ import { useRecoilState } from "recoil";
 import { setupState } from "@recoil/atoms/setup";
 import { BsSun, BsMoon } from "react-icons/bs";
 
+
 export default function GeneralTab() {
   const [config, setConfig] = useRecoilState(setupState);
+
+
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setConfig({
@@ -20,7 +23,7 @@ export default function GeneralTab() {
   );
   return (
     <div>
-      <section className="mb-8 h-16">
+      <section className="mb-4 h-16">
         <label>Theme Name</label>
         <Input
           placeholder="Theme Name"

@@ -3,25 +3,6 @@ import { setupState } from "@recoil/atoms/setup";
 import Select, { ActionMeta, SingleValue } from "react-select";
 import { useCallback } from "react";
 import { IconPack, SideBarPlacement } from "@lib/types";
-
-const iconPacks: {
-  name: string;
-  value: IconPack;
-}[] = [
-  {
-    name: "Seti Icons",
-    value: "Seti Icons",
-  },
-  {
-    name: "Material Icons",
-    value: "Material Icons",
-  },
-  {
-    name: "VSCode Icons",
-    value: "VSCode Icons",
-  },
-];
-
 export default function PersonalizationTab() {
   const [config, setConfig] = useRecoilState(setupState);
 
@@ -58,8 +39,6 @@ export default function PersonalizationTab() {
         label: string;
       }>
     ) => {
-      console.log(option);
-
       setConfig({
         ...config,
         options: {
@@ -102,9 +81,7 @@ export default function PersonalizationTab() {
             ]}
             defaultValue={{
               value: config.options.iconPack,
-              label:
-                config.options.iconPack.charAt(0).toUpperCase() +
-                config.options.iconPack.slice(1),
+              label: config.options.iconPack,
             }}
             onChange={handleIconPackChange}
           />
