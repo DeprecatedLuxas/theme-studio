@@ -7,7 +7,7 @@ import {
   VSCThemeFormat,
 } from "@lib/types";
 import dayjs from "dayjs";
-import { isEqual } from "lodash";
+import isEqual from "fast-deep-equal";
 
 export default class EditorHelper {
   static doesActionExist(action: string | undefined): boolean {

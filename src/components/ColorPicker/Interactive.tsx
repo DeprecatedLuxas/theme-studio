@@ -1,5 +1,6 @@
 import useEventCallback from "@hooks/use-event-callback";
 import { Interaction } from "@lib/types";
+import { clamp } from "@lib/utils";
 import {
   forwardRef,
   HTMLAttributes,
@@ -9,7 +10,6 @@ import {
   useRef,
   useState,
 } from "react";
-import _ from "lodash";
 export interface InteractiveProps extends HTMLAttributes<HTMLDivElement> {
   onMove?: (interaction: Interaction, event: MouseEvent) => void;
   onDown?: (offset: Interaction, event: MouseEvent) => void;
@@ -21,12 +21,12 @@ export const getPosition = (
 ): Interaction => {
   const rect = node.getBoundingClientRect();
   return {
-    left: _.clamp(
+    left: clamp(
       (event.pageX - (rect.left + window.pageXOffset)) / rect.width,
       0,
       1
     ),
-    top: _.clamp(
+    top: clamp(
       (event.pageY - (rect.top + window.pageYOffset)) / rect.height,
       0,
       1

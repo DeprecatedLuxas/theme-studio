@@ -12,7 +12,6 @@ import {
   TStudioAction,
   Variables,
 } from "./types";
-import _ from "lodash";
 import tinycolor from "tinycolor2";
 import Validation from "./validation";
 import VariableSchema from "@schemas/tstudio-schema.json";

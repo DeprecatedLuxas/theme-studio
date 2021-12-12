@@ -13,7 +13,6 @@ import {
 } from "@lib/types";
 import { getPropertyDifferences } from "@lib/utils";
 import clsx from "clsx";
-import _ from "lodash";
 import { HTMLAttributes, useEffect, useRef } from "react";
 
 export interface ElementProps extends HTMLAttributes<HTMLOrSVGElement> {
