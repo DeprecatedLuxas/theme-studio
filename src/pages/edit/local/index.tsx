@@ -47,6 +47,8 @@ export default function Local() {
     EditorHelper.getFakeStorage()
   );
 
+  // const message = useMessage();
+
   const [state, dispatch] = useReducer(reducer, {
     variables: registry.cloneAll(storage) || registry.compileAll(storage.type),
     categories: registry.getCategories(),
@@ -62,22 +64,35 @@ export default function Local() {
   });
 
   const handleSave = useCallback(() => {
-    // TODO: Also make this check difference from local storage, else you will always save even though nothing has changed.
-    // TODO: Add a toast in the right corner to indicate status about the save.
-    const diff = getPropertyDifferences(registry.compileAll(storage.type), {
-      ...state.variables,
-      ...storage.variables,
-    });
+    // message({
+    //   message: "Saving...",
+    //   status: "info",
+    //   position: "bottom-right"
+    // })
 
+    // message({
+    //   message: "Saving...",
+    //   status: MessageStatus.Info,
+    //   position: Position.BOTTOM_RIGHT,
+    // });
+
+    // TODO: Add a toast in the right corner to indicate status about the save.
+    let newCompiled =
+      registry.cloneAll(storage) || registry.compileAll(storage.type);
+
+    const diff = getPropertyDifferences(newCompiled, state.variables);
 
     if (!Object.keys(diff).length) return;
+
     setStorage({
       ...storage,
       variables: {
+        ...storage.variables,
         ...diff,
       },
     });
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.variables]);
 
   useEffect(() => {
     if (__DEV__) {

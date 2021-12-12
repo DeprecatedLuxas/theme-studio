@@ -4,6 +4,7 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
+import { MessageStatusEnum, MessagePositionEnum } from "./enums";
 import { TStudioActions } from "./generated/actions";
 import { Variables, VariablePossibleCategories } from "./generated/variables";
 
@@ -144,3 +145,26 @@ export type IconTypes =
   | "src"
   | "public"
   | "modules";
+
+export type MessageStatus =
+  | MessageStatusEnum
+  | ""
+  | "error"
+  | "warning"
+  | "info"
+  | "success";
+
+export type MessagePosition =
+  | MessagePositionEnum
+  | "top"
+  | "top-right"
+  | "top-left"
+  | "bottom"
+  | "bottom-right"
+  | "bottom-left";
+
+export interface Message {
+  message: string;
+  status?: MessageStatus;
+  position?: MessagePosition;
+}
