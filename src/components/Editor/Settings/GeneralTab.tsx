@@ -24,7 +24,7 @@ export default function GeneralTab() {
   return (
     <div>
       <section className="mb-4 h-16">
-        <label>Theme Name</label>
+        <h4>Theme Name</h4>
         <Input
           placeholder="Theme Name"
           border="border-gray-400"
