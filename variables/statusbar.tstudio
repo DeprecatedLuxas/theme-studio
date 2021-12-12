@@ -1,4 +1,15 @@
 {
+  "bg@statusBar.background": {
+    "variable": "statusBar.background",
+    "group": {
+      "dark": "#007ACC",
+      "light": "#007ACC",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window."
+  },
   "c@statusBar.foreground": {
     "variable": "statusBar.foreground",
     "group": {
@@ -9,6 +20,17 @@
     "tab": "palette",
     "category": "Status Bar",
     "description": "Status bar foreground color when a workspace or folder is opened. The status bar is shown in the bottom of the window."
+  },
+  "bc@statusBar.border": {
+    "variable": "statusBar.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window."
   },
   "c@statusBar.noFolderForeground": {
     "variable": "statusBar.noFolderForeground",
@@ -22,17 +44,6 @@
     "description": "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
     "action": "NoFolder"
   },
-  "bg@statusBar.background": {
-    "variable": "statusBar.background",
-    "group": {
-      "dark": "#007ACC",
-      "light": "#007ACC",
-      "hc": null
-    },
-    "tab": "palette",
-    "category": "Status Bar",
-    "description": "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window."
-  },
   "bg@statusBar.noFolderBackground": {
     "variable": "statusBar.noFolderBackground",
     "group": {
@@ -44,17 +55,6 @@
     "category": "Status Bar",
     "description": "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
     "action": "NoFolder"
-  },
-  "bc@statusBar.border": {
-    "variable": "statusBar.border",
-    "group": {
-      "dark": null,
-      "light": null,
-      "hc": "var@contrastBorder"
-    },
-    "tab": "palette",
-    "category": "Status Bar",
-    "description": "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window."
   },
   "bc@statusBar.noFolderBorder": {
     "variable": "statusBar.noFolderBorder",
@@ -185,8 +185,8 @@
   "bg@statusBarItem.warningBackground": {
     "variable": "statusBarItem.warningBackground",
     "group": {
-      "dark": "func@darken(#CCA700, 0.4)",
-      "light": "func@darken(#BF8803, 0.4)",
+      "dark": "func@darken(var@editorWarning.foreground, 0.4)",
+      "light": "func@darken(var@editorWarning.foreground, 0.4)",
       "hc": null
     },
     "tab": "palette",

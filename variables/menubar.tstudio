@@ -10,7 +10,6 @@
     "category": "Title Bar",
     "description": "Foreground color of the selected menu item in the menubar.",
     "hover": true
-
   },
   "bg@menubar.selectionBackground": {
     "variable": "menubar.selectionBackground",
@@ -34,7 +33,6 @@
     "tab": "palette",
     "category": "Title Bar",
     "description": "Border color of the selected menu item in the menubar."
-
   },
   "c@menu.foreground": {
     "variable": "menu.foreground",
@@ -57,6 +55,17 @@
     "tab": "palette",
     "category": "Title Bar",
     "description": "Background color of menu items."
+  },
+  "bc@menu.border": {
+    "variable": "menu.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Title Bar",
+    "description": "Border color of menus."
   },
   "c@menu.selectionForeground": {
     "variable": "menu.selectionForeground",
@@ -101,16 +110,5 @@
     "tab": "palette",
     "category": "Title Bar",
     "description": "Color of a separator menu item in menus."
-  },
-  "bc@menu.border": {
-    "variable": "menu.border",
-    "group": {
-      "dark": null,
-      "light": null,
-      "hc": "var@contrastBorder"
-    },
-    "tab": "palette",
-    "category": "Title Bar",
-    "description": "Border color of menus."
   }
 }

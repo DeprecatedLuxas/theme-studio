@@ -13,7 +13,7 @@ export default function TitleBar() {
       }}
     >
       <Element
-        className="h-full flex justify-center items-center select-none w-2.1875"
+        className="h-full flex justify-center items-center select-none w-8.75"
   
       >
         <Image

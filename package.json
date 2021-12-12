@@ -14,7 +14,6 @@
     "@auth0/nextjs-auth0": "^1.6.1",
     "@headlessui/react": "^1.4.2",
     "@popperjs/core": "^2.11.0",
-    "@radix-ui/react-context-menu": "^0.1.1",
     "@radix-ui/react-popover": "^0.1.1",
     "@radix-ui/react-tooltip": "^0.1.1",
     "ajv": "^8.8.2",

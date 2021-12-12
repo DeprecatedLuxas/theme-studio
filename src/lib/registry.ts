@@ -16,6 +16,7 @@ import _ from "lodash";
 import tinycolor from "tinycolor2";
 import Validation from "./validation";
 import VariableSchema from "@schemas/tstudio-schema.json";
+import { colorNames } from "./color-names";
 
 import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
@@ -30,7 +31,7 @@ import editorVars from "@variables/editor.tstudio";
 import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
 import treeVars from "@variables/tree.tstudio";
 import listVars from "@variables/list.tstudio";
-import { colorNames } from "./color-names";
+import inputVars from "@variables/input.tstudio";
 
 enum Functions {
   TRANSPARENT = "transparent",
@@ -78,10 +79,13 @@ class Registry implements IRegistry {
     );
 
     if (!isValid) {
-      throw new Error("Invalid Variable");
+      console.error("Invalid variable:", key);
+      return;
     }
+
     if (this.variables[key]) {
-      throw new Error(`Variable with key ${key} already exists`);
+      console.warn(`Variable with key ${key} already exists`);
+      return;
     }
 
     variable.group = this.parseGroup(variable.group);
@@ -204,7 +208,7 @@ class Registry implements IRegistry {
   ): CompiledVariables | undefined {
     const { variables, type } = storage;
     const compiled: CompiledVariables & Indexable = this.compile(type, tab);
-    
+
     if (Object.keys(compiled).length < 1) return undefined;
 
     const tabVarKeys = Object.keys(this.getByTab(tab));
@@ -300,5 +304,6 @@ registry.registerFile(toolbarVars);
 registry.registerFile(breadcrumbsVar);
 registry.registerFile(treeVars);
 registry.registerFile(listVars);
+registry.registerFile(inputVars);
 
 export default registry;

@@ -1,0 +1,190 @@
+{
+  "bg@input.background": {
+    "variable": "input.background",
+    "group": {
+      "dark": "#3C3C3C",
+      "light": "#ffffff",
+      "hc": "#000000"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input box background."
+  },
+  "c@input.foreground": {
+    "variable": "input.foreground",
+    "group": {
+      "dark": "var@foreground",
+      "light": "var@foreground",
+      "hc": "var@foreground"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input box foreground."
+  },
+  "bc@input.border": {
+    "variable": "input.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input box border."
+  },
+  "bc@inputOption.activeBorder": {
+    "variable": "inputOption.activeBorder",
+    "group": {
+      "dark": "#007ACC00",
+      "light": "#007ACC00",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Border color of activated options in input fields."
+  },
+  "bg@inputOption.hoverBackground": {
+    "variable": "inputOption.hoverBackground",
+    "group": {
+      "dark": "#5a5d5e80",
+      "light": "#b8b8b850",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Background color of activated options in input fields.",
+    "hover": true
+  },
+  "bg@input.activeBackground": {
+    "variable": "input.activeBackground",
+    "group": {
+      "dark": "func@transparent(var@focusBorder, 0.4)",
+      "light": "func@transparent(var@focusBorder, 0.2)",
+      "hc": "rgba(0, 0, 0, 0)"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Background color of activated options in input fields."
+  },
+  "c@inputOption.activeForeground": {
+    "variable": "inputOption.activeForeground",
+    "group": {
+      "dark": "#ffffff",
+      "light": "#000000",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Foreground color of activated options in input fields."
+  },
+  "c@input.placeholderForeground": {
+    "variable": "input.placeholderForeground",
+    "group": {
+      "dark": "func@transparent(var@foreground, 0.5)",
+      "light": "func@transparent(var@foreground, 0.5)",
+      "hc": "func@transparent(var@foreground, 0.7)"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input box foreground color for placeholder text."
+  },
+  "bg@inputValidation.infoBackground": {
+    "variable": "inputValidation.infoBackground",
+    "group": {
+      "dark": "#063B49",
+      "light": "#D6ECF2",
+      "hc": "#000000"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation background color for information severity."
+  },
+  "c@inputValidation.infoForeground": {
+    "variable": "inputValidation.infoForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation foreground color for information severity."
+  },
+  "bc@inputValidation.infoBorder": {
+    "variable": "inputValidation.infoBorder",
+    "group": {
+      "dark": "#007acc",
+      "light": "#007acc",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation foreground color for information severity."
+  },
+  "bg@inputValidation.warningBackground": {
+    "variable": "inputValidation.warningBackground",
+    "group": {
+      "dark": "#352A05",
+      "light": "#F6F5D2",
+      "hc": "#000000"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation background color for warning severity."
+  },
+  "c@inputValidation.warningForeground": {
+    "variable": "inputValidation.warningForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation foreground color for warning severity."
+  },
+  "bc@inputValidation.warningBorder": {
+    "variable": "inputValidation.warningBorder",
+    "group": {
+      "dark": "#B89500",
+      "light": "#B89500",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation border color for warning severity."
+  },
+  "bg@inputValidation.errorBackground": {
+    "variable": "inputValidation.errorBackground",
+    "group": {
+      "dark": "#5A1D1D",
+      "light": "#F2DEDE",
+      "hc": "#000000"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation background color for error severity."
+  },
+  "c@inputValidation.errorForeground": {
+    "variable": "inputValidation.errorForeground",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation foreground color for error severity."
+  },
+  "bc@inputValidation.errorBorder": {
+    "variable": "inputValidation.errorBorder",
+    "group": {
+      "dark": "#BE1100",
+      "light": "#BE1100",
+      "hc": "var@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Input",
+    "description": "Input validation border color for error severity."
+  }
+}
