@@ -1,5 +1,5 @@
 - [ ] Clean up color picker and fix it again. (taken from uiwjs/react-color and modified.)
-- [ ] Fix conditionalclassname, requires two updates before it works.
+- [ ] Fix conditionalclassname, requires two updates before it works. (kinda fixed somehow?)
 - [ ] Complete the toVSCFormat function.
 - [ ] Improve performance
 - [ ] VSCode Extension to test the themes 
@@ -8,7 +8,3 @@
 - [ ] Fix icons
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
 - [ ] Only allow one variable group to be opened at a time.
-- [ ] Information Icon on variable component
-
-NOTES:
-> Create a better way to handle setup and settings. Be more dynamic.

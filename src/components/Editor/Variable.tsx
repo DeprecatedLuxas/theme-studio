@@ -64,7 +64,7 @@ export default function Variable({
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="w-8 h-8 mr-3 rounded-md bg-grid"
+          className="w-8 h-8 mr-3 rounded bg-grid"
           onClick={() => setShow(!show)}
         >
           <div
