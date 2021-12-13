@@ -3,4 +3,4 @@
 //
 
 
-export type TStudioActions = "" | "statusbar.NoFolder" | "statusbar.Debugging" | "titlebar.InactiveForeground" | "titlebar.InactiveBackground";
+export type TStudioActions = "" | "git.Git" | "statusbar.NoFolder" | "statusbar.Debugging" | "titlebar.InactiveForeground" | "titlebar.InactiveBackground";

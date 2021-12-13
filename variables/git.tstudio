@@ -8,7 +8,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for added Git resources. Used for file labels and the SCM viewlet."
+    "description": "Color for added Git resources. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.modifiedResourceForeground": {
     "variable": "gitDecoration.modifiedResourceForeground",
@@ -19,7 +20,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for modified Git resources. Used for file labels and the SCM viewlet."
+    "description": "Color for modified Git resources. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.deletedResourceForeground": {
     "variable": "gitDecoration.deletedResourceForeground",
@@ -30,7 +32,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for deleted Git resources. Used for file labels and the SCM viewlet."
+    "description": "Color for deleted Git resources. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.renamedResourceForeground": {
     "variable": "gitDecoration.renamedResourceForeground",
@@ -41,7 +44,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for renamed or copied Git resources. Used for file labels and the SCM viewlet."
+    "description": "Color for renamed or copied Git resources. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.stageModifiedResourceForeground": {
     "variable": "gitDecoration.stageModifiedResourceForeground",
@@ -52,7 +56,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for staged modifications git decorations. Used for file labels and the SCM viewlet."
+    "description": "Color for staged modifications git decorations. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.stageDeletedResourceForeground": {
     "variable": "gitDecoration.stageDeletedResourceForeground",
@@ -63,7 +68,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for staged deletions git decorations. Used for file labels and the SCM viewlet."
+    "description": "Color for staged deletions git decorations. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.untrackedResourceForeground": {
     "variable": "gitDecoration.untrackedResourceForeground",
@@ -74,7 +80,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for untracked Git resources. Used for file labels and the SCM viewlet."
+    "description": "Color for untracked Git resources. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.ignoredResourceForeground": {
     "variable": "gitDecoration.ignoredResourceForeground",
@@ -85,7 +92,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for ignored Git resources. Used for file labels and the SCM viewlet."
+    "description": "Color for ignored Git resources. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.conflictingResourceForeground": {
     "variable": "gitDecoration.conflictingResourceForeground",
@@ -96,7 +104,8 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for conflicting Git resources. Used for file labels and the SCM viewlet."
+    "description": "Color for conflicting Git resources. Used for file labels and the SCM viewlet.",
+    "action": "Git"
   },
   "c@gitDecoration.submoduleResourceForeground": {
     "variable": "gitDecoration.submoduleResourceForeground",
@@ -107,6 +116,7 @@
     },
     "tab": "palette",
     "category": "Git",
-    "description": "Color for submodule resources."
+    "description": "Color for submodule resources.",
+    "action": "Git"
   }
 }

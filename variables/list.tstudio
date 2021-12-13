@@ -135,9 +135,9 @@
   "c@list.hoverForeground": {
     "variable": "list.hoverForeground",
     "group": {
-      "dark": null,
-      "light": null,
-      "hc": null
+      "dark": "var@foreground",
+      "light": "var@foreground",
+      "hc": "var@foreground"
     },
     "tab": "palette",
     "category": "Side Bar",

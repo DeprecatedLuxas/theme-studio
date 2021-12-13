@@ -35,9 +35,9 @@ export default function VSCode({
   }, []);
 
   return (
-    <Element className="h-full">
+    <div className="h-full">
       <TitleBar />
-      <Element className="flex h-content">
+      <div className="flex h-content">
         {(sidebarPlacement === "left" ||
           storageOptions?.sidebar === "left") && (
           <>
@@ -48,9 +48,9 @@ export default function VSCode({
         <Element className="flex-1 flex flex-col">
           <Tabs />
           <Breadcrumbs />
-          <Element className="flex-1">
+          <div className="flex-1">
             <Content />
-          </Element>
+          </div>
         </Element>
         {(sidebarPlacement === "right" ||
           storageOptions?.sidebar === "right") && (
@@ -59,8 +59,8 @@ export default function VSCode({
             <ActivityBar />
           </>
         )}
-      </Element>
+      </div>
       <StatusBar />
-    </Element>
+    </div>
   );
 }

@@ -56,7 +56,7 @@ export default function SideBar() {
         <TreeView iconPack={options.iconPack}>
           <TreeView.Folder name="node_modules" type="modules" />
           <TreeView.Folder name="public" type="public" />
-          <TreeView.Folder name="src" defaultOpen type="src">
+          <TreeView.Folder name="src" defaultOpen type="src" status="untracked">
             <TreeView.Folder name="components" defaultOpen type="components">
               <TreeView.File name="Header.tsx" type="tsx" />
               <TreeView.File name="Footer.tsx" type="tsx" />
@@ -76,7 +76,12 @@ export default function SideBar() {
               >
                 <TreeView.File name="[id].ts" type="ts" status="modified" />
               </TreeView.Folder>
-              <TreeView.File name="index.tsx" type="tsx" status="modified" />
+              <TreeView.File
+                name="index.tsx"
+                type="tsx"
+                status="modified"
+                active
+              />
               <TreeView.File name="browse.tsx" type="tsx" status="untracked" />
               <TreeView.File name="_app.tsx" type="tsx" />
             </TreeView.Folder>
@@ -86,7 +91,6 @@ export default function SideBar() {
           <TreeView.File name="tsconfig.json" type="tsconfig" />
           <TreeView.File name="yarn.lock" type="lock" />
         </TreeView>
-
 
         {/* 
         <ActionRender>

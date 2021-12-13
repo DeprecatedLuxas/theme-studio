@@ -8,7 +8,8 @@ export interface TreeNodeProps {
   name: string;
   type: IconTypes;
   level?: number;
-  status?: "" | "modified" | "untracked"
+  status?: "" | "modified" | "untracked";
+  active?: boolean;
 }
 
 export interface TreeViewProps extends HTMLAttributes<HTMLDivElement> {
