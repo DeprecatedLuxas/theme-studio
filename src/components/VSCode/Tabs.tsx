@@ -1,13 +1,21 @@
+import IconPack from "@components/IconPack";
+import { Nullable } from "@lib/types";
+import { vscodeState } from "@recoil/atoms/vscode";
+import { useState } from "react";
 import {
   VscEllipsis,
   VscGitCompare,
   VscSplitHorizontal,
+  VscClose,
 } from "react-icons/vsc";
-
+import { useRecoilState } from "recoil";
 import Element from "./Element";
-import { TypeScriptIcon, TypeScriptReactIcon } from "./icons";
 
 export default function Tabs() {
+  const [options, setOptions] = useRecoilState(vscodeState);
+
+  const [hover, setHover] = useState<Nullable<"id" | "header">>(null);
+
   return (
     <Element
       className="w-full h-8.75 flex justify-between"
@@ -15,52 +23,116 @@ export default function Tabs() {
     >
       <Element className="flex justify-start">
         <Element
-          className="flex justify-start items-center h-8.75 min-w-120px px-10px text-13px cursor-pointer relative"
-          bind={["bg@tab.activeBackground"]}
+          className="w-30 min-w-fit flex cursor-pointer h-8.75 pl-2.5 text-13px select-none relative border-r-[1px]"
+          bind={[
+            "bg@tab.activeBackground",
+            "h:bg@tab.hoverBackground",
+            "c@tab.activeForeground",
+            "h:c@tab.hoverForeground",
+            "c@gitDecoration.modifiedResourceForeground",
+            "brc@tab.border",
+          ]}
         >
-          <span
-            className="h-8.75"
-            style={{
-              width: "16px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <TypeScriptReactIcon />
-          </span>
-          <span>index.tsx</span>
+          <Element
+            bind={["btc@tab.activeBorderTop"]}
+            className="absolute h-0.25 top-0 left-0 w-full border-t-[1px]"
+          />
+          <div className="flex-1 flex items-center justify-start leading-[35px]">
+            <IconPack from={options.iconPack} type="tsx" />
+            <div className="min-w-0 flex-1 pl-1.5">
+              <span className="text-13px">index.tsx</span>
+              <span className="ml-[5px]">M</span>
+            </div>
+          </div>
+          <div className="w-7 my-auto">
+            <div className="flex h-full w-full my-0 mx-auto items-center justify-center text-13px">
+              <Element
+                className="rounded p-0.5"
+                bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
+              >
+                <VscClose fontSize={"16"} />
+              </Element>
+            </div>
+          </div>
+          <Element
+            bind={["bbc@tab.activeBorder", "h:bbc@tab.hoverBorder"]}
+            className="absolute h-0.25 bottom-0 left-0 w-full border-b-[1px]"
+          />
+        </Element>
+
+        <Element
+          className="w-30 min-w-fit flex cursor-pointer h-8.75 pl-2.5 text-13px select-none relative border-r-[1px]"
+          bind={[
+            "bg@tab.inactiveBackground",
+            "brc@tab.border",
+            "c@tab.inactiveForeground",
+          ]}
+          onMouseEnter={() => {
+            setHover("header");
+          }}
+          onMouseLeave={() => {
+            setHover(null);
+          }}
+        >
+          <div className="flex-1 flex items-center justify-start leading-[35px]">
+            <IconPack from={options.iconPack} type="tsx" />
+            <div className="min-w-0 flex-1 pl-1.5">
+              <span className="text-13px">Header.tsx</span>
+            </div>
+          </div>
+          <div className="w-7 my-auto">
+            <div className="flex h-full w-full my-0 mx-auto items-center justify-center text-13px">
+              {hover === "header" && (
+                <Element
+                  className="rounded p-0.5"
+                  bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
+                >
+                  <VscClose fontSize={"16"} />
+                </Element>
+              )}
+            </div>
+          </div>
+          <Element
+            bind={["h:bbc@tab.hoverBorder"]}
+            className="absolute h-0.25 bottom-0 left-0 w-full border-b-[1px]"
+          />
         </Element>
         <Element
-          className="flex justify-start items-center h-8.75 min-w-120px px-10px text-13px cursor-pointer relative"
-          bind={["bg@tab.inactiveBackground"]}
+          className="w-30 min-w-fit flex cursor-pointer h-8.75 pl-2.5 text-13px select-none relative border-r-[1px]"
+          bind={[
+            "bg@tab.inactiveBackground",
+            "brc@tab.border",
+            "c@tab.inactiveForeground",
+          ]}
+          onMouseEnter={() => {
+            setHover("id");
+          }}
+          onMouseLeave={() => {
+            setHover(null);
+          }}
         >
-          <span
-            className="h-8.75"
-            style={{
-              width: "16px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <TypeScriptReactIcon />
-          </span>
-          <span>Header.tsx</span>
-        </Element>
-        <Element
-          className="flex justify-start items-center h-8.75 min-w-120px px-10px text-13px cursor-pointer relative"
-          bind={["bg@tab.inactiveBackground"]}
-        >
-          <span
-            className="h-8.75"
-            style={{
-              width: "16px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <TypeScriptIcon />
-          </span>
-          <span>[id].ts</span>
+          <div className="flex-1 flex items-center justify-start leading-[35px]">
+            <IconPack from={options.iconPack} type="ts" />
+            <div className="min-w-0 flex-1 pl-1.5">
+              <span className="text-13px">[id].ts</span>
+            </div>
+          </div>
+          <div className="w-7 my-auto">
+            <div className="flex h-full w-full my-0 mx-auto items-center justify-center text-13px">
+              {hover === "id" && (
+                <Element
+                  className="rounded p-0.5"
+                  bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
+                >
+                  <VscClose fontSize={"16"} />
+                </Element>
+              )}
+            </div>
+          </div>
+          <Element
+            bind={["h:bbc@tab.hoverBorder"]}
+            className="absolute h-0.25 bottom-0 left-0 w-full border-b-[1px]"
+          />
         </Element>
       </Element>
       <Element className="flex justify-end items-center px-2 text-base">

@@ -32,6 +32,7 @@ module.exports = {
         5.5: "1.375rem",
         8.75: "2.1875rem",
         12.5: "3.125rem",
+        30: "7.5rem",
         62.5: "15.625rem",
       },
       textColor: {
@@ -59,7 +60,6 @@ module.exports = {
       minWidth: {
         9: "2.25rem",
         10: "2.5rem",
-        "120px": "120px",
       },
       height: {
         0.25: "0.0625rem",

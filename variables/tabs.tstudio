@@ -19,7 +19,8 @@
     },
     "tab": "palette",
     "category": "Tabs",
-    "description": "Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."
+    "description": "Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+    "action": "unfocusedActiveBackground"
   },
   "bg@tab.inactiveBackground": {
     "variable": "tab.inactiveBackground",
@@ -41,7 +42,8 @@
     },
     "tab": "palette",
     "category": "Tabs",
-    "description": "Inactive tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."
+    "description": "Inactive tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+    "action": "unfocusedInactiveBackground"
   },
   "c@tab.activeForeground": {
     "variable": "tab.activeForeground",
@@ -74,7 +76,8 @@
     },
     "tab": "palette",
     "category": "Tabs",
-    "description": "Active tab foreground color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."
+    "description": "Active tab foreground color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+    "action": "unfocusedActiveForeground"
   },
   "c@tab.unfocusedInactiveForeground": {
     "variable": "tab.unfocusedInactiveForeground",
@@ -85,7 +88,8 @@
     },
     "tab": "palette",
     "category": "Tabs",
-    "description": "Inactive tab foreground color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."
+    "description": "Inactive tab foreground color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+    "action": "unfocusedInactiveForeground"
   },
   "bg@tab.hoverBackground": {
     "variable": "tab.hoverBackground",
@@ -109,7 +113,8 @@
     "tab": "palette",
     "category": "Tabs",
     "description": "Tab background color in an unfocused group when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
-    "hover": true
+    "hover": true,
+    "action": "unfocusedHoverBackground"
   },
   "c@tab.hoverForeground": {
     "variable": "tab.hoverForeground",
@@ -133,9 +138,10 @@
     "tab": "palette",
     "category": "Tabs",
     "description": "Tab foreground color in an unfocused group when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
-    "hover": true
+    "hover": true,
+    "action": "unfocusedHoverForeground"
   },
-  "bc@tab.border": {
+  "brc@tab.border": {
     "variable": "tab.border",
     "group": {
       "dark": "#252526",
@@ -177,7 +183,8 @@
     },
     "tab": "palette",
     "category": "Tabs",
-    "description": "Border on the bottom of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."
+    "description": "Border on the bottom of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+    "action": "unfocusedActiveBorder"
   },
   "btc@tab.activeBorderTop": {
     "variable": "tab.activeBorderTop",
@@ -199,9 +206,10 @@
     },
     "tab": "palette",
     "category": "Tabs",
-    "description": "Border to the top of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."
+    "description": "Border to the top of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+    "action": "unfocusedActiveBorderTop"
   },
-  "bc@tab.hoverBorder": {
+  "bbc@tab.hoverBorder": {
     "variable": "tab.hoverBorder",
     "group": {
       "dark": null,
@@ -213,7 +221,7 @@
     "description": "Border to highlight tabs when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
     "hover": true
   },
-  "bc@tab.unfocusedHoverBorder": {
+  "bbc@tab.unfocusedHoverBorder": {
     "variable": "tab.unfocusedHoverBorder",
     "group": {
       "dark": "func@transparent(var@tab.hoverBorder, 0.5)",
@@ -223,7 +231,8 @@
     "tab": "palette",
     "category": "Tabs",
     "description": "Border to highlight tabs in an unfocused group when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
-    "hover": true
+    "hover": true,
+    "action": "unfocusedHoverBorder"
   },
   "btc@tab.activeModifiedBorder": {
     "variable": "tab.activeModifiedBorder",

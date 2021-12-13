@@ -47,7 +47,7 @@ export default function StatusBar() {
         >
           <VscSourceControl fontSize="16px" />
           <Element as="span" className="select-none">
-            master*
+            main*
           </Element>
         </Element>
 
