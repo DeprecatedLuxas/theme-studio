@@ -42,17 +42,15 @@ export default function Variable({
   const [show, setShow] = useState<boolean>(false);
 
   const handleMouseEnter = () => {
-    const action: TStudioAction | undefined = registry.getAction(name);
-    if (!action && !EditorHelper.doesActionExist(action)) return;
-    const act: TStudioActions = action as TStudioActions;
-
-    setAction(act);
+    const act: TStudioAction | undefined = registry.getAction(name);
+    if (!act) {
+      console.log("no action found");
+      return;
+    }
+    setAction((act as TStudioActions) || "");
   };
 
   const handleMouseLeave = () => {
-    // Dont set action state if action is empty
-    if (action === "") return;
-
     setAction("");
   };
 

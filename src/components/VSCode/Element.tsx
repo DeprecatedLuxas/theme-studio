@@ -83,6 +83,8 @@ export default function Element({
       {...rest}
       {...binding}
       {...eventHandlers}
+      action={JSON.stringify(onAction)}
+
     />
   );
 }

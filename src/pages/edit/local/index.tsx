@@ -164,6 +164,7 @@ export default function Local() {
             <button
               className="p-1 text-gray-600 rounded hover:bg-gray-600 hover:text-gray-400"
               onClick={handleSettings}
+              aria-label="Settings"
             >
               <VscGear className="text-2xl" />
             </button>

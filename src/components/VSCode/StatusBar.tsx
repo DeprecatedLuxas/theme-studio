@@ -21,8 +21,12 @@ export default function StatusBar() {
       className="flex justify-between h-5.5 text-xs"
       bind={["bg@statusBar.background", "bc@statusBar.border"]}
       onAction={{
-        "statusbar.NoFolder": "bg@statusBar.noFolderBackground",
-        "statusbar.Debugging": "bg@statusBar.debuggingBackground",
+        "statusbar.NoFolder": [
+          "bg@statusBar.noFolderBackground",
+          "c@statusBar.noFolderForeground",
+          "bc@statusBar.noFolderBorder",
+        ],
+        "statusbar.Debugging": ["bg@statusBar.debuggingBackground"],
       }}
     >
       <Element className="flex">

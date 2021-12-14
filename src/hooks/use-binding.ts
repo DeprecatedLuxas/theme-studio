@@ -30,23 +30,36 @@ export default function useBinding({
   ref,
   bind,
   variables,
-  onAction,
+  onAction = {},
 }: UseBindingOptions) {
   const extraBindingsRef = useRef<Variables[]>([]);
   const [action, setAction] = useRecoilState(actionState);
 
-  useEffect(() => {
-    if (action === "") extraBindingsRef.current = [];
+  const binds = useRef<Array<Variables>>(bind);
 
-    const actions = Object.keys(onAction);
-    if (actions.includes(action)) {
-      if (action === "") {
-        extraBindingsRef.current = [];
-        return;
-      }
-      extraBindingsRef.current.push(onAction[action] as Variables);
+  useEffect(() => {
+    // Wont run if onAction is empty.
+    if (!Object.keys(onAction).length) return;
+
+    if (action === "") {
+      console.log("gg", bind);
+      
+      binds.current = bind;
+  
     }
-  }, [action, onAction]);
+
+    const actionKeys = Object.keys(onAction);
+    if (action && actionKeys.includes(action)) {
+      console.log("gggggg", action, onAction[action]);
+
+
+      /*       console.log(...onAction[action] as Variables[]); */
+
+      //binds.current.push(...(onAction[action] as Variables[]));
+      binds.current = onAction[action] as Variables[];
+    }
+  }, [action, bind, onAction]);
+
   if (!bind) return {};
 
   let styleObj: CSSProperties = {};
@@ -54,7 +67,10 @@ export default function useBinding({
     onMouseEnter?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
     onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
   } = {};
-  const bindings = [...bind, ...extraBindingsRef.current];
+
+  const bindings = binds.current;
+  //console.log(bindings);
+
   bindings.forEach((binding: Variables) => {
     const [, hover, location] = binding.match(
       /^(?<hover>h:)?(?<location>.+)@(.+)$/
@@ -98,11 +114,12 @@ export default function useBinding({
       };
     }
   });
-  // console.log(bindings);
-  
+
   return {
     style: styleObj,
     ref,
     ...events,
+    actionc: JSON.stringify(action),
+    bindings: JSON.stringify(bindings, null, 2),
   };
 }
