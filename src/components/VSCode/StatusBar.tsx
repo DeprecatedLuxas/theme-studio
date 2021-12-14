@@ -29,7 +29,7 @@ export default function StatusBar() {
         "statusbar.Debugging": ["bg@statusBar.debuggingBackground"],
       }}
     >
-      <Element className="flex">
+      <div className="flex">
         <Element bind={["bg@statusBarItem.remoteBackground"]}>
           <Element
             className="cursor-pointer h-full w-remote-icon flex items-center justify-center px-1.5"
@@ -50,9 +50,9 @@ export default function StatusBar() {
           ]}
         >
           <VscSourceControl fontSize="16px" />
-          <Element as="span" className="select-none">
+          <span className="select-none">
             main*
-          </Element>
+          </span>
         </Element>
 
         <Element
@@ -63,15 +63,15 @@ export default function StatusBar() {
           ]}
         >
           <VscError fontSize="16px" />
-          <Element as="span" className="mx-1 select-none">
+          <span className="mx-1 select-none">
             0
-          </Element>
+          </span>
           <VscWarning fontSize="16px" />
-          <Element as="span" className="ml-1 select-none">
+          <span className="ml-1 select-none">
             0
-          </Element>
+          </span>
         </Element>
-      </Element>
+      </div>
       <Element className="flex items-center">
         {statusBarItems &&
           statusBarItems.map((item: string, idx: number) => (
@@ -85,7 +85,7 @@ export default function StatusBar() {
                 "c@statusBar.foreground",
               ]}
             >
-              <a className="flex items-center h-full">{item}</a>
+              <p className="flex items-center h-full">{item}</p>
             </Element>
           ))}
       </Element>
