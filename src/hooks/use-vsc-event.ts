@@ -7,11 +7,18 @@ export interface UseVSCEvent {
   variables?: CompiledVariables;
 }
 
-export default function useVSCEvent({ ref, onHover, variables }: UseVSCEvent) {
+
+export default function useVSCEvent({
+  ref,
+  onHover,
+  variables,
+}: UseVSCEvent) {
   const eventHandlers: any = {};
+
   onHover.forEach((hover) => {
     let oldStyle: CSSProperties = {};
     eventHandlers["onMouseEnter"] = (e: any) => {
+
       oldStyle =
         // @ts-ignore
         ref.current!.style["color"];
@@ -19,6 +26,7 @@ export default function useVSCEvent({ ref, onHover, variables }: UseVSCEvent) {
       ref.current.style["color"] = variables![hover];
     };
     eventHandlers["onMouseLeave"] = (e: any) => {
+
       // @ts-ignore
       ref.current!.style["color"] = oldStyle;
     };

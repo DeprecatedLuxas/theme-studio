@@ -26,8 +26,8 @@ export default function Tabs() {
           className="w-30 min-w-fit flex cursor-pointer h-8.75 pl-2.5 text-13px select-none relative border-r-[1px]"
           bind={[
             "bg@tab.activeBackground",
-            "h:bg@tab.hoverBackground",
             "c@tab.activeForeground",
+            "h:bg@tab.hoverBackground",
             "h:c@tab.hoverForeground",
             "c@gitDecoration.modifiedResourceForeground",
             "brc@tab.border",
@@ -64,8 +64,10 @@ export default function Tabs() {
           className="w-30 min-w-fit flex cursor-pointer h-8.75 pl-2.5 text-13px select-none relative border-r-[1px]"
           bind={[
             "bg@tab.inactiveBackground",
-            "brc@tab.border",
             "c@tab.inactiveForeground",
+            "brc@tab.border",
+            "h:bg@tab.hoverBackground",
+            "h:c@tab.hoverForeground",
           ]}
           onMouseEnter={() => {
             setHover("header");
@@ -101,10 +103,14 @@ export default function Tabs() {
           className="w-30 min-w-fit flex cursor-pointer h-8.75 pl-2.5 text-13px select-none relative border-r-[1px]"
           bind={[
             "bg@tab.inactiveBackground",
-            "brc@tab.border",
             "c@tab.inactiveForeground",
+            "brc@tab.border",
+            "h:bg@tab.hoverBackground",
+            "h:c@tab.hoverForeground",
           ]}
           onMouseEnter={() => {
+            console.log("heyeye");
+            
             setHover("id");
           }}
           onMouseLeave={() => {

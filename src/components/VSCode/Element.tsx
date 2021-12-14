@@ -43,7 +43,11 @@ export default function Element({
     onAction,
     variables,
   });
-  const eventHandlers = useVSCEvent({ ref, onHover, variables });
+  const eventHandlers = useVSCEvent({
+    ref,
+    onHover,
+    variables,
+  });
 
   let classes = useRef<string>("");
 
@@ -81,10 +85,8 @@ export default function Element({
     <Component
       className={clsx(classes.current, className)}
       {...rest}
-      {...binding}
       {...eventHandlers}
-      action={JSON.stringify(onAction)}
-
+      {...binding}
     />
   );
 }
