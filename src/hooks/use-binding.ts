@@ -42,7 +42,7 @@ export default function useBinding({
     if (!Object.keys(onAction).length) return;
 
     if (action === "") {
-      console.log("gg", bind);
+      console.log("bind", bind);
       
       binds.current = bind;
   
@@ -50,7 +50,7 @@ export default function useBinding({
 
     const actionKeys = Object.keys(onAction);
     if (action && actionKeys.includes(action)) {
-      console.log("gggggg", action, onAction[action]);
+      console.log("action, onAction",action, onAction[action]);
 
 
       /*       console.log(...onAction[action] as Variables[]); */
@@ -119,7 +119,5 @@ export default function useBinding({
     style: styleObj,
     ref,
     ...events,
-    actionc: JSON.stringify(action),
-    bindings: JSON.stringify(bindings, null, 2),
   };
 }
