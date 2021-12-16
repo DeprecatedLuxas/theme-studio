@@ -37,6 +37,10 @@ export default function Element({
   const prevVariables = usePrevious<CompiledVariables | undefined>(variables);
   const ref = useRef<HTMLOrSVGElement>();
 
+  const { onClick, onMouseEnter, onMouseLeave } = rest;
+  // console.log(onMouseEnter, onMouseLeave);
+  
+
   const binding = useBinding({
     ref,
     bind,
@@ -48,6 +52,9 @@ export default function Element({
     onHover,
     variables,
   });
+
+
+  // combineEventHandlers();
 
   let classes = useRef<string>("");
 

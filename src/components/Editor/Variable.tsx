@@ -47,10 +47,11 @@ export default function Variable({
       console.log("no action found");
       return;
     }
-    setAction((act as TStudioActions) || "");
+    setAction(act as TStudioActions);
   };
 
   const handleMouseLeave = () => {
+    if (action === "") return;
     setAction("");
   };
 

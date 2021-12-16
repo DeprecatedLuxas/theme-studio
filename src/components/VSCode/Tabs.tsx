@@ -8,11 +8,11 @@ import {
   VscSplitHorizontal,
   VscClose,
 } from "react-icons/vsc";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import Element from "./Element";
 
 export default function Tabs() {
-  const [options, setOptions] = useRecoilState(vscodeState);
+  const options = useRecoilValue(vscodeState);
 
   const [hover, setHover] = useState<Nullable<"id" | "header">>(null);
 
@@ -110,7 +110,7 @@ export default function Tabs() {
           ]}
           onMouseEnter={() => {
             console.log("heyeye");
-            
+
             setHover("id");
           }}
           onMouseLeave={() => {

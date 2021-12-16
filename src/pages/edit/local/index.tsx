@@ -26,6 +26,8 @@ import EditorTab from "@components/Editor/EditorTab";
 import { VscGear } from "react-icons/vsc";
 import { encode } from "@helpers/encoding";
 import { getPropertyDifferences, __DEV__ } from "@lib/utils";
+import { useRecoilValue } from "recoil";
+import { actionState } from "@recoil/atoms/action";
 
 export default function Local() {
   const { user, isLoading, error } = useUser();
@@ -46,6 +48,8 @@ export default function Local() {
     "tstudio-theme",
     EditorHelper.getFakeStorage()
   );
+
+  const action = useRecoilValue(actionState);
 
   // const message = useMessage();
 
@@ -169,6 +173,8 @@ export default function Local() {
               <VscGear className="text-2xl" />
             </button>
           </div>
+          <Divider color="bg-gray-700" />
+          <p className="h-12">{action}</p>
           <Divider color="bg-gray-700" />
 
           <Tab.Group>

@@ -1,13 +1,18 @@
 import {
-  Arrayable,
   CompiledVariables,
   OnAction,
   VariableLocations,
   Variables,
 } from "@lib/types";
 import { actionState } from "@recoil/atoms/action";
-import { CSSProperties, MutableRefObject, useEffect, useRef } from "react";
-import { useRecoilState } from "recoil";
+import {
+  CSSProperties,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { useRecoilValue } from "recoil";
 
 const Places: Map<VariableLocations, string> = new Map([
   ["bg", "backgroundColor"],
@@ -32,35 +37,26 @@ export default function useBinding({
   variables,
   onAction = {},
 }: UseBindingOptions) {
-  const extraBindingsRef = useRef<Variables[]>([]);
-  const [action, setAction] = useRecoilState(actionState);
+  const action = useRecoilValue(actionState);
 
-  const binds = useRef<Array<Variables>>(bind);
+  const [binds, setBinds] = useState<Array<Variables>>(bind);
 
   useEffect(() => {
+    const actionKeys = Object.keys(onAction);
     // Wont run if onAction is empty.
-    if (!Object.keys(onAction).length) return;
+    if (!actionKeys.length) return;
 
     if (action === "") {
-      console.log("bind", bind);
-      
-      binds.current = bind;
-  
+      setBinds(bind);
+      return;
     }
 
-    const actionKeys = Object.keys(onAction);
-    if (action && actionKeys.includes(action)) {
-      console.log("action, onAction",action, onAction[action]);
-
-
-      /*       console.log(...onAction[action] as Variables[]); */
-
-      //binds.current.push(...(onAction[action] as Variables[]));
-      binds.current = onAction[action] as Variables[];
+    if (actionKeys.includes(action)) {
+      setBinds(onAction[action] as Variables[]);
     }
   }, [action, bind, onAction]);
 
-  if (!bind) return {};
+  if (!binds) return {};
 
   let styleObj: CSSProperties = {};
   const events: {
@@ -68,10 +64,10 @@ export default function useBinding({
     onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
   } = {};
 
-  const bindings = binds.current;
-  //console.log(bindings);
 
-  bindings.forEach((binding: Variables) => {
+  binds.forEach((binding: Variables) => {
+    console.log("binding", binding);
+
     const [, hover, location] = binding.match(
       /^(?<hover>h:)?(?<location>.+)@(.+)$/
     )!;

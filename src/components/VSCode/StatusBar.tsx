@@ -26,7 +26,11 @@ export default function StatusBar() {
           "c@statusBar.noFolderForeground",
           "bc@statusBar.noFolderBorder",
         ],
-        "statusbar.Debugging": ["bg@statusBar.debuggingBackground"],
+        "statusbar.Debugging": [
+          "bg@statusBar.debuggingBackground",
+          "c@statusBar.debuggingForeground",
+          "bc@statusBar.debuggingBorder",
+        ],
       }}
     >
       <div className="flex">
@@ -50,9 +54,7 @@ export default function StatusBar() {
           ]}
         >
           <VscSourceControl fontSize="16px" />
-          <span className="select-none">
-            main*
-          </span>
+          <span className="select-none">main*</span>
         </Element>
 
         <Element
@@ -63,13 +65,9 @@ export default function StatusBar() {
           ]}
         >
           <VscError fontSize="16px" />
-          <span className="mx-1 select-none">
-            0
-          </span>
+          <span className="mx-1 select-none">0</span>
           <VscWarning fontSize="16px" />
-          <span className="ml-1 select-none">
-            0
-          </span>
+          <span className="ml-1 select-none">0</span>
         </Element>
       </div>
       <Element className="flex items-center">
