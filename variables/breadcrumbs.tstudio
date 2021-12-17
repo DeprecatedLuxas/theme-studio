@@ -2,9 +2,9 @@
   "c@breadcrumb.foreground": {
     "variable": "breadcrumb.foreground",
     "group": {
-      "dark": "func@transparent(var@foreground, 0.8)",
-      "light": "func@transparent(var@foreground, 0.8)",
-      "hc": "func@transparent(var@foreground, 0.8)"
+      "dark": "@transparent(@foreground, 0.8)",
+      "light": "@transparent(@foreground, 0.8)",
+      "hc": "@transparent(@foreground, 0.8)"
     },
     "tab": "palette",
     "category": "Breadcrumbs",
@@ -13,9 +13,9 @@
   "bg@breadcrumb.background": {
     "variable": "breadcrumb.background",
     "group": {
-      "dark": "var@editor.background",
-      "light": "var@editor.background",
-      "hc": "var@editor.background"
+      "dark": "@editor.background",
+      "light": "@editor.background",
+      "hc": "@editor.background"
     },
     "tab": "palette",
     "category": "Breadcrumbs",
@@ -24,9 +24,9 @@
   "c@breadcrumb.focusForeground": {
     "variable": "breadcrumb.focusForeground",
     "group": {
-      "dark": "func@lighten(var@foreground, 0.1)",
-      "light": "func@darken(var@foreground, 0.2)",
-      "hc": "func@lighten(var@foreground, 0.1)"
+      "dark": "@lighten(@foreground, 0.1)",
+      "light": "@darken(@foreground, 0.2)",
+      "hc": "@lighten(@foreground, 0.1)"
     },
     "tab": "palette",
     "category": "Breadcrumbs",
@@ -35,9 +35,9 @@
   "c@breadcrumb.activeSelectionForeground": {
     "variable": "breadcrumb.activeSelectionForeground",
     "group": {
-      "dark": "func@lighten(var@foreground, 0.1)",
-      "light": "func@darken(var@foreground, 0.2)",
-      "hc": "func@lighten(var@foreground, 0.1)"
+      "dark": "@lighten(@foreground, 0.1)",
+      "light": "@darken(@foreground, 0.2)",
+      "hc": "@lighten(@foreground, 0.1)"
     },
     "tab": "palette",
     "category": "Breadcrumbs",
@@ -46,9 +46,9 @@
   "bg@breadcrumbPicker.background": {
     "variable": "breadcrumbPicker.background",
     "group": {
-      "dark": "var@editorWidget.background",
-      "light": "var@editorWidget.background",
-      "hc": "var@editorWidget.background"
+      "dark": "@editorWidget.background",
+      "light": "@editorWidget.background",
+      "hc": "@editorWidget.background"
     },
     "tab": "palette",
     "category": "Breadcrumbs",

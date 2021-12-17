@@ -26,7 +26,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -35,9 +35,9 @@
   "c@statusBar.noFolderForeground": {
     "variable": "statusBar.noFolderForeground",
     "group": {
-      "dark": "var@statusBar.foreground",
-      "light": "var@statusBar.foreground",
-      "hc": "var@statusBar.foreground"
+      "dark": "@statusBar.foreground",
+      "light": "@statusBar.foreground",
+      "hc": "@statusBar.foreground"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -59,9 +59,9 @@
   "bc@statusBar.noFolderBorder": {
     "variable": "statusBar.noFolderBorder",
     "group": {
-      "dark": "var@statusBar.border",
-      "light": "var@statusBar.border",
-      "hc": "var@statusBar.border"
+      "dark": "@statusBar.border",
+      "light": "@statusBar.border",
+      "hc": "@statusBar.border"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -83,9 +83,9 @@
   "c@statusBar.debuggingForeground": {
     "variable": "statusBar.debuggingForeground",
     "group": {
-      "dark": "var@statusBar.foreground",
-      "light": "var@statusBar.foreground",
-      "hc": "var@statusBar.foreground"
+      "dark": "@statusBar.foreground",
+      "light": "@statusBar.foreground",
+      "hc": "@statusBar.foreground"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -95,9 +95,9 @@
   "bc@statusBar.debuggingBorder": {
     "variable": "statusBar.debuggingBorder",
     "group": {
-      "dark": "var@statusBar.border",
-      "light": "var@statusBar.border",
-      "hc": "var@statusBar.border"
+      "dark": "@statusBar.border",
+      "light": "@statusBar.border",
+      "hc": "@statusBar.border"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -107,9 +107,9 @@
   "bg@statusBarItem.activeBackground": {
     "variable": "statusBarItem.activeBackground",
     "group": {
-      "dark": "func@transparent(#ffffff, 0.18)",
-      "light": "func@transparent(#ffffff, 0.18)",
-      "hc": "func@transparent(#ffffff, 0.18)"
+      "dark": "@transparent(#ffffff, 0.18)",
+      "light": "@transparent(#ffffff, 0.18)",
+      "hc": "@transparent(#ffffff, 0.18)"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -118,9 +118,9 @@
   "bg@statusBarItem.hoverBackground": {
     "variable": "statusBarItem.hoverBackground",
     "group": {
-      "dark": "func@transparent(#ffffff, 0.12)",
-      "light": "func@transparent(#ffffff, 0.12)",
-      "hc": "func@transparent(#ffffff, 0.12)"
+      "dark": "@transparent(#ffffff, 0.12)",
+      "light": "@transparent(#ffffff, 0.12)",
+      "hc": "@transparent(#ffffff, 0.12)"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -130,9 +130,9 @@
   "c@statusBarItem.prominentForeground": {
     "variable": "statusBarItem.prominentForeground",
     "group": {
-      "dark": "var@statusBar.foreground",
-      "light": "var@statusBar.foreground",
-      "hc": "var@statusBar.foreground"
+      "dark": "@statusBar.foreground",
+      "light": "@statusBar.foreground",
+      "hc": "@statusBar.foreground"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -141,9 +141,9 @@
   "bg@statusBarItem.prominentBackground": {
     "variable": "statusBarItem.prominentBackground",
     "group": {
-      "dark": "func@transparent(#000000, 0.5)",
-      "light": "func@transparent(#000000, 0.5)",
-      "hc": "func@transparent(#000000, 0.5)"
+      "dark": "@transparent(#000000, 0.5)",
+      "light": "@transparent(#000000, 0.5)",
+      "hc": "@transparent(#000000, 0.5)"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -152,9 +152,9 @@
   "bg@statusBarItem.prominentHoverBackground": {
     "variable": "statusBarItem.prominentHoverBackground",
     "group": {
-      "dark": "func@transparent(#000000, 0.3)",
-      "light": "func@transparent(#000000, 0.3)",
-      "hc": "func@transparent(#000000, 0.3)"
+      "dark": "@transparent(#000000, 0.3)",
+      "light": "@transparent(#000000, 0.3)",
+      "hc": "@transparent(#000000, 0.3)"
     },
     "tab": "palette",
     "category": "Status Bar",
@@ -163,7 +163,7 @@
   "bg@statusBarItem.errorBackground": {
     "variable": "statusBarItem.errorBackground",
     "group": {
-      "dark": "func@darken(var@errorForeground, 0.4)",
+      "dark": "@darken(@errorForeground, 0.4)",
       "light": "#c72e0f",
       "hc": null
     },
@@ -185,8 +185,8 @@
   "bg@statusBarItem.warningBackground": {
     "variable": "statusBarItem.warningBackground",
     "group": {
-      "dark": "func@darken(var@editorWarning.foreground, 0.4)",
-      "light": "func@darken(var@editorWarning.foreground, 0.4)",
+      "dark": "@darken(@editorWarning.foreground, 0.4)",
+      "light": "@darken(@editorWarning.foreground, 0.4)",
       "hc": null
     },
     "tab": "palette",

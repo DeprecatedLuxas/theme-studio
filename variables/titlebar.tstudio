@@ -13,8 +13,8 @@
   "c@titleBar.inactiveForeground": {
     "variable": "titleBar.inactiveForeground",
     "group": {
-      "dark": "func@transparent(var@titleBar.activeForeground, 0.6)",
-      "light": "func@transparent(var@titleBar.activeForeground, 0.6)",
+      "dark": "@transparent(@titleBar.activeForeground, 0.6)",
+      "light": "@transparent(@titleBar.activeForeground, 0.6)",
       "hc": null
     },
     "tab": "palette",
@@ -36,8 +36,8 @@
   "bg@titleBar.inactiveBackground": {
     "variable": "titleBar.inactiveBackground",
     "group": {
-      "dark": "func@transparent(var@titleBar.activeBackground, 0.6)",
-      "light": "func@transparent(var@titleBar.activeBackground, 0.6)",
+      "dark": "@transparent(@titleBar.activeBackground, 0.6)",
+      "light": "@transparent(@titleBar.activeBackground, 0.6)",
       "hc": null
     },
     "tab": "palette",
@@ -50,7 +50,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Title Bar",

@@ -24,8 +24,8 @@
   "bg@button.hoverBackground": {
     "variable": "button.hoverBackground",
     "group": {
-      "dark": "func@lighten(var@button.background, 0.2)",
-      "light": "func@lighten(var@button.background, 0.2)",
+      "dark": "@lighten(@button.background, 0.2)",
+      "light": "@lighten(@button.background, 0.2)",
       "hc": null
     },
     "tab": "palette",
@@ -36,9 +36,9 @@
   "bc@button.border": {
     "variable": "button.border",
     "group": {
-      "dark": "var@contrastBorder",
-      "light": "var@contrastBorder",
-      "hc": "var@contrastBorder"
+      "dark": "@contrastBorder",
+      "light": "@contrastBorder",
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Buttons",
@@ -69,8 +69,8 @@
   "bg@button.secondaryHoverBackground": {
     "variable": "button.secondaryHoverBackground",
     "group": {
-      "dark": "func@lighten(var@button.secondaryBackground, 0.2)",
-      "light": "func@darken(var@button.secondaryBackground, 0.2)",
+      "dark": "@lighten(@button.secondaryBackground, 0.2)",
+      "light": "@darken(@button.secondaryBackground, 0.2)",
       "hc": null
     },
     "tab": "palette",

@@ -24,9 +24,9 @@
   "bc@list.focusOutline": {
     "variable": "list.focusOutline",
     "group": {
-      "dark": "var@focusBorder",
-      "light": "var@focusBorder",
-      "hc": "var@contrastActiveBorder"
+      "dark": "@focusBorder",
+      "light": "@focusBorder",
+      "hc": "@contrastActiveBorder"
     },
     "tab": "palette",
     "category": "Side Bar",
@@ -135,9 +135,9 @@
   "c@list.hoverForeground": {
     "variable": "list.hoverForeground",
     "group": {
-      "dark": "var@foreground",
-      "light": "var@foreground",
-      "hc": "var@foreground"
+      "dark": "@foreground",
+      "light": "@foreground",
+      "hc": "@foreground"
     },
     "tab": "palette",
     "category": "Side Bar",
@@ -160,7 +160,7 @@
     "group": {
       "dark": "#18A3FF",
       "light": "#0066BF",
-      "hc": "var@focusBorder"
+      "hc": "@focusBorder"
     },
     "tab": "palette",
     "category": "Side Bar",
@@ -169,9 +169,9 @@
   "c@list.focusHighlightForeground": {
     "variable": "list.focusHighlightForeground",
     "group": {
-      "dark": "var@list.highlightForeground",
-      "light": "func@ifThenElse(var@list.activeSelectionBackground, var@list.highlightForeground, #9DDDFF)",
-      "hc": "var@list.highlightForeground"
+      "dark": "@list.highlightForeground",
+      "light": "@ifThenElse(@list.activeSelectionBackground, @list.highlightForeground, #9DDDFF)",
+      "hc": "@list.highlightForeground"
     },
     "tab": "palette",
     "category": "Side Bar",
@@ -237,7 +237,7 @@
     "group": {
       "dark": "#BE1100",
       "light": "#BE1100",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Side Bar",
@@ -246,8 +246,8 @@
   "bg@list.filterMatchBackground": {
     "variable": "list.filterMatchBackground",
     "group": {
-      "dark": "var@editor.findMatchHighlightBackground",
-      "light": "var@editor.findMatchHighlightBackground",
+      "dark": "@editor.findMatchHighlightBackground",
+      "light": "@editor.findMatchHighlightBackground",
       "hc": null
     },
     "tab": "palette",
@@ -257,9 +257,9 @@
   "bc@list.filterMatchBorder": {
     "variable": "list.filterMatchBorder",
     "group": {
-      "dark": "var@editor.findMatchHighlightBorder",
-      "light": "var@editor.findMatchHighlightBorder",
-      "hc": "var@contrastBorder"
+      "dark": "@editor.findMatchHighlightBorder",
+      "light": "@editor.findMatchHighlightBorder",
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Side Bar",

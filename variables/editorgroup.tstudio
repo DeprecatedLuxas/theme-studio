@@ -2,8 +2,8 @@
   "bg@editorGroup.dropBackground": {
     "variable": "editorGroup.dropBackground",
     "group": {
-      "dark": "func@transparent(#53595D, 0.5)",
-      "light": "func@transparent(#2677CB, 0.18)",
+      "dark": "@transparent(#53595D, 0.5)",
+      "light": "@transparent(#2677CB, 0.18)",
       "hc": null
     },
     "tab": "palette",
@@ -15,7 +15,7 @@
     "group": {
       "dark": "#444444",
       "light": "#E7E7E7",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Uncategorised",
@@ -37,7 +37,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@focusBorder"
+      "hc": "@focusBorder"
     },
     "tab": "palette",
     "category": "Uncategorised",
@@ -68,9 +68,9 @@
   "bg@editorGroupHeader.noTabsBackground": {
     "variable": "editorGroupHeader.noTabsBackground",
     "group": {
-      "dark": "var@editor.background",
-      "light": "var@editor.background",
-      "hc": "var@editor.background"
+      "dark": "@editor.background",
+      "light": "@editor.background",
+      "hc": "@editor.background"
     },
     "tab": "palette",
     "category": "Tabs",
@@ -81,7 +81,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@focusBorder"
+      "hc": "@focusBorder"
     },
     "tab": "palette",
     "category": "Uncategorised",
@@ -90,9 +90,9 @@
   "bg@editorPane.background": {
     "variable": "editorPane.background",
     "group": {
-      "dark": "var@editor.background",
-      "light": "var@editor.background",
-      "hc": "var@editor.background"
+      "dark": "@editor.background",
+      "light": "@editor.background",
+      "hc": "@editor.background"
     },
     "tab": "palette",
     "category": "Uncategorised",
@@ -101,9 +101,9 @@
   "bc@sideBySideEditor.horizontalBorder": {
     "variable": "sideBySideEditor.horizontalBorder",
     "group": {
-      "dark": "var@editorGroup.border",
-      "light": "var@editorGroup.border",
-      "hc": "var@editorGroup.border"
+      "dark": "@editorGroup.border",
+      "light": "@editorGroup.border",
+      "hc": "@editorGroup.border"
     },
     "tab": "palette",
     "category": "Uncategorised",
@@ -112,9 +112,9 @@
   "bc@sideBySideEditor.verticalBorder": {
     "variable": "sideBySideEditor.verticalBorder",
     "group": {
-      "dark": "var@editorGroup.border",
-      "light": "var@editorGroup.border",
-      "hc": "var@editorGroup.border"
+      "dark": "@editorGroup.border",
+      "light": "@editorGroup.border",
+      "hc": "@editorGroup.border"
     },
     "tab": "palette",
     "category": "Uncategorised",

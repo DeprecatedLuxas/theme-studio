@@ -13,9 +13,9 @@
   "c@sideBar.foreground": {
     "variable": "sideBar.foreground",
     "group": {
-      "dark": "var@foreground",
-      "light": "var@foreground",
-      "hc": "var@foreground"
+      "dark": "@foreground",
+      "light": "@foreground",
+      "hc": "@foreground"
     },
     "category": "Side Bar",
     "tab": "palette",
@@ -26,7 +26,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@constrastBorder"
+      "hc": "@constrastBorder"
     },
     "category": "Side Bar",
     "tab": "palette",
@@ -37,7 +37,7 @@
     "group": {
       "dark": "#bbbbbb",
       "light": "#6f6f6f",
-      "hc": "var@sideBar.foreground"
+      "hc": "@sideBar.foreground"
     },
     "category": "Side Bar",
     "tab": "palette",
@@ -46,9 +46,9 @@
   "bg@sideBar.dropBackground": {
     "variable": "sideBar.dropBackground",
     "group": {
-      "dark": "var@editorGroup.dropBackground",
-      "light": "var@editorGroup.dropBackground",
-      "hc": "var@editorGroup.dropBackground"
+      "dark": "@editorGroup.dropBackground",
+      "light": "@editorGroup.dropBackground",
+      "hc": "@editorGroup.dropBackground"
     },
     "category": "Side Bar",
     "tab": "palette",
@@ -68,9 +68,9 @@
   "c@sideBarSectionHeader.foreground": {
     "variable": "sideBarSectionHeader.foreground",
     "group": {
-      "dark": "var@sideBar.foreground",
-      "light": "var@sideBar.foreground",
-      "hc": "var@sideBar.foreground"
+      "dark": "@sideBar.foreground",
+      "light": "@sideBar.foreground",
+      "hc": "@sideBar.foreground"
     },
     "category": "Side Bar",
     "tab": "palette",
@@ -81,7 +81,7 @@
     "group": {
       "dark": "#cccccc33",
       "light": "#61616130",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "category": "Side Bar",
     "tab": "palette",

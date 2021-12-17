@@ -59,10 +59,11 @@ class Registry implements IRegistry {
   readonly variables: Record<string, Variable> = {};
   readonly rgbRegex: RegExp =
     /rgba?\(\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,?\s*([01\.]\.?\d?)?\s*\)/;
-  readonly varRegex: RegExp = /var@[a-zA-Z.]+/g;
+  readonly varRegex: RegExp =
+    /@(?!transparent|darken|lighten|ifThenElse)([a-zA-Z.]+)/g;
 
   readonly funcTypeRegex: RegExp =
-    /func@(?<func>transparent|darken|lighten|ifThenElse)/;
+    /@(?<func>transparent|darken|lighten|ifThenElse)/;
   readonly funcRegex: RegExp =
     /\((?<color>#(([\da-fA-F]{3}){1,2}|([\da-fA-F]{4}){1,2})), (?<int>[\d.]+)\)/;
   readonly funcRegex2: RegExp =
@@ -134,7 +135,6 @@ class Registry implements IRegistry {
         const varMatch = newGroup[key].match(this.varRegex);
         varMatch!.forEach((match: string) => {
           let replacementVariable = this.getVariable(match.split("@")[1]);
-
           if (!replacementVariable) {
             replacementVariable = {
               dark: this.placeholderColor,

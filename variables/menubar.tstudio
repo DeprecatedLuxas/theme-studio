@@ -2,9 +2,9 @@
   "c@menubar.selectionForeground": {
     "variable": "menubar.selectionForeground",
     "group": {
-      "dark": "var@titleBar.activeForeground",
-      "light": "var@titleBar.activeForeground",
-      "hc": "var@titleBar.activeForeground"
+      "dark": "@titleBar.activeForeground",
+      "light": "@titleBar.activeForeground",
+      "hc": "@titleBar.activeForeground"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -14,8 +14,8 @@
   "bg@menubar.selectionBackground": {
     "variable": "menubar.selectionBackground",
     "group": {
-      "dark": "func@transparent(#ffffff, 0.1)",
-      "light": "func@transparent(#000000, 0.1)",
+      "dark": "@transparent(#ffffff, 0.1)",
+      "light": "@transparent(#000000, 0.1)",
       "hc": null
     },
     "tab": "palette",
@@ -28,7 +28,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@contrastActiveBorder"
+      "hc": "@contrastActiveBorder"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -37,9 +37,9 @@
   "c@menu.foreground": {
     "variable": "menu.foreground",
     "group": {
-      "dark": "var@dropdown.foreground",
-      "light": "var@foreground",
-      "hc": "var@dropdown.foreground"
+      "dark": "@dropdown.foreground",
+      "light": "@foreground",
+      "hc": "@dropdown.foreground"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -48,9 +48,9 @@
   "bg@menu.background": {
     "variable": "menu.background",
     "group": {
-      "dark": "var@dropdown.background",
-      "light": "var@dropdown.background",
-      "hc": "var@dropdown.background"
+      "dark": "@dropdown.background",
+      "light": "@dropdown.background",
+      "hc": "@dropdown.background"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -61,7 +61,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -70,9 +70,9 @@
   "c@menu.selectionForeground": {
     "variable": "menu.selectionForeground",
     "group": {
-      "dark": "var@list.activeSelectionForeground",
-      "light": "var@list.activeSelectionForeground",
-      "hc": "var@list.activeSelectionForeground"
+      "dark": "@list.activeSelectionForeground",
+      "light": "@list.activeSelectionForeground",
+      "hc": "@list.activeSelectionForeground"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -81,9 +81,9 @@
   "bg@menu.selectionBackground": {
     "variable": "menu.selectionBackground",
     "group": {
-      "dark": "var@list.activeSelectionBackground",
-      "light": "var@list.activeSelectionBackground",
-      "hc": "var@list.activeSelectionBackground"
+      "dark": "@list.activeSelectionBackground",
+      "light": "@list.activeSelectionBackground",
+      "hc": "@list.activeSelectionBackground"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -94,7 +94,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@contrastActiveBorder"
+      "hc": "@contrastActiveBorder"
     },
     "tab": "palette",
     "category": "Title Bar",
@@ -105,7 +105,7 @@
     "group": {
       "dark": "#BBBBBB",
       "light": "#888888",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Title Bar",

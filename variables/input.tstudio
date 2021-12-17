@@ -13,9 +13,9 @@
   "c@input.foreground": {
     "variable": "input.foreground",
     "group": {
-      "dark": "var@foreground",
-      "light": "var@foreground",
-      "hc": "var@foreground"
+      "dark": "@foreground",
+      "light": "@foreground",
+      "hc": "@foreground"
     },
     "tab": "palette",
     "category": "Input",
@@ -26,7 +26,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Input",
@@ -37,7 +37,7 @@
     "group": {
       "dark": "#007ACC00",
       "light": "#007ACC00",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Input",
@@ -58,8 +58,8 @@
   "bg@input.activeBackground": {
     "variable": "input.activeBackground",
     "group": {
-      "dark": "func@transparent(var@focusBorder, 0.4)",
-      "light": "func@transparent(var@focusBorder, 0.2)",
+      "dark": "@transparent(@focusBorder, 0.4)",
+      "light": "@transparent(@focusBorder, 0.2)",
       "hc": "rgba(0, 0, 0, 0)"
     },
     "tab": "palette",
@@ -80,9 +80,9 @@
   "c@input.placeholderForeground": {
     "variable": "input.placeholderForeground",
     "group": {
-      "dark": "func@transparent(var@foreground, 0.5)",
-      "light": "func@transparent(var@foreground, 0.5)",
-      "hc": "func@transparent(var@foreground, 0.7)"
+      "dark": "@transparent(@foreground, 0.5)",
+      "light": "@transparent(@foreground, 0.5)",
+      "hc": "@transparent(@foreground, 0.7)"
     },
     "tab": "palette",
     "category": "Input",
@@ -115,7 +115,7 @@
     "group": {
       "dark": "#007acc",
       "light": "#007acc",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Input",
@@ -148,7 +148,7 @@
     "group": {
       "dark": "#B89500",
       "light": "#B89500",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Input",
@@ -181,7 +181,7 @@
     "group": {
       "dark": "#BE1100",
       "light": "#BE1100",
-      "hc": "var@contrastBorder"
+      "hc": "@contrastBorder"
     },
     "tab": "palette",
     "category": "Input",

@@ -24,8 +24,8 @@
   "bg@tree.indentGuidetableOddRowsBackgroundsStroke": {
     "variable": "tree.tableOddRowsBackground",
     "group": {
-      "dark": "func@transparent(var@foreground, 0.04)",
-      "light": "func@transparent(var@foreground, 0.04)",
+      "dark": "@transparent(@foreground, 0.04)",
+      "light": "@transparent(@foreground, 0.04)",
       "hc": null
     },
     "tab": "palette",

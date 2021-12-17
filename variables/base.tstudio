@@ -24,9 +24,9 @@
   "c@descriptionForeground": {
     "variable": "descriptionForeground",
     "group": {
-      "dark": "func@transparent(var@foreground, 0.7)",
+      "dark": "@transparent(@foreground, 0.7)",
       "light": "#717171",
-      "hc": "func@transparent(var@foreground, 0.7)"
+      "hc": "@transparent(@foreground, 0.7)"
     },
     "description": "Foreground color for description text providing additional information, for example for a label.",
     "tab": "palette",
@@ -70,7 +70,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@focusBorder"
+      "hc": "@focusBorder"
     },
     "description": "An extra border around active elements to separate them from others for greater contrast.",
     "tab": "palette",

@@ -64,10 +64,7 @@ export default function useBinding({
     onMouseLeave?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
   } = {};
 
-
   binds.forEach((binding: Variables) => {
-    console.log("binding", binding);
-
     const [, hover, location] = binding.match(
       /^(?<hover>h:)?(?<location>.+)@(.+)$/
     )!;

@@ -16,7 +16,7 @@
     "group": {
       "dark": null,
       "light": null,
-      "hc": "var@contrastActiveBorder"
+      "hc": "@contrastActiveBorder"
     },
     "category": "Uncategorised",
     "tab": "palette",
@@ -25,8 +25,8 @@
   "bg@toolbar.activeBackground": {
     "variable": "toolbar.hoverBackground",
     "group": {
-      "dark": "func@lighten(var@toolbar.hoverBackground, 0.1)",
-      "light": "func@darken(var@toolbar.hoverBackground, 0.1)",
+      "dark": "@lighten(@toolbar.hoverBackground, 0.1)",
+      "light": "@darken(@toolbar.hoverBackground, 0.1)",
       "hc": null
     },
     "category": "Uncategorised",
