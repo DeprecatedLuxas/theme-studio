@@ -32,6 +32,7 @@ import treeVars from "@variables/tree.tstudio";
 import listVars from "@variables/list.tstudio";
 import inputVars from "@variables/input.tstudio";
 import editorGroupVars from "@variables/editorgroup.tstudio";
+import buttonVars from "@variables/button.tstudio";
 
 enum Functions {
   TRANSPARENT = "transparent",
@@ -306,5 +307,6 @@ registry.registerFile(treeVars);
 registry.registerFile(listVars);
 registry.registerFile(inputVars);
 registry.registerFile(editorGroupVars);
+registry.registerFile(buttonVars);
 
 export default registry;

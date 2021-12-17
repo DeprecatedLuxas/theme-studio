@@ -2,6 +2,7 @@ import useBinding from "@hooks/use-binding";
 import { usePrevious } from "@hooks/use-previous";
 import useRegistry from "@hooks/use-registry";
 import useVSCEvent from "@hooks/use-vsc-event";
+import registry from "@lib/registry";
 import {
   Arrayable,
   ChangedVariables,
