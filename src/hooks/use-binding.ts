@@ -1,3 +1,4 @@
+import registry from "@lib/registry";
 import {
   CompiledVariables,
   OnAction,
@@ -75,6 +76,12 @@ export default function useBinding({
 
     if (!styling) return {};
 
+    const style = Boolean(hover)
+      ? variables![binding.split(":")[1]]
+      : variables![binding];
+
+    if (style === registry.placeholderColor) return;
+
     if (hover) {
       let oldStyle: CSSProperties = {};
       // This is just a fix for now, but probably not the best solution.
@@ -93,7 +100,7 @@ export default function useBinding({
 
         // We need to to @ts-ignore on the style, else it will give an error
         // @ts-ignore
-        ref!.current!.style[styling] = variables![binding.split(":")[1]];
+        ref!.current!.style[styling] = style;
       };
       events.onMouseLeave = () => {
         oldMouseLeave && oldMouseLeave();
@@ -103,7 +110,7 @@ export default function useBinding({
     } else {
       styleObj = {
         ...styleObj,
-        [styling]: variables![binding],
+        [styling]: style,
       };
     }
   });
