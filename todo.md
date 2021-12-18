@@ -7,4 +7,5 @@
 - [ ] Fix icons
 - [ ] Add browser to themes
 - [ ] Add api to themes
+  - [ ] Get every theme 
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
