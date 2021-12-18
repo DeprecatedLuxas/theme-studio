@@ -8,4 +8,6 @@
 - [ ] Add browser to themes
 - [ ] Add api to themes
   - [ ] Get every theme 
+  - [ ] Get specific theme with id
+
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
