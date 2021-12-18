@@ -5,4 +5,5 @@
 - [ ] VSCode Extension to test the themes 
 - [ ] Clean up in tailwind config
 - [ ] Fix icons
+- [ ] Add browser to themes
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
