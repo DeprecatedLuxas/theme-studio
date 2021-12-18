@@ -3,7 +3,7 @@
 - [ ] Complete the toVSCFormat function.
 - [ ] Improve performance
 - [ ] VSCode Extension to test the themes 
-- [ ] Clean up in tailwind config
+- [ ] Clean up in tailwind config.
 - [ ] Fix icons.
 - [ ] Add browsing page, to browse themes.
 - [ ] Add api to themes
