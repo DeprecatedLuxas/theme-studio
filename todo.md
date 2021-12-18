@@ -5,7 +5,7 @@
 - [ ] VSCode Extension to test the themes 
 - [ ] Clean up in tailwind config
 - [ ] Fix icons
-- [ ] Add browser to themes
+- [ ] Add browsing page, to browse themes.
 - [ ] Add api to themes
   - [ ] Get every theme 
   - [ ] Get specific theme with id
