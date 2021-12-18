@@ -6,4 +6,5 @@
 - [ ] Clean up in tailwind config
 - [ ] Fix icons
 - [ ] Add browser to themes
+- [ ] Add api to themes
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
