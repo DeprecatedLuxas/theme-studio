@@ -93,6 +93,9 @@ export interface ThemeStorage {
 
 export interface ThemeOptions {
   sidebar: SideBarPlacement;
+  repo?: string;
+  repoType?: "github" | "gitlab";
+  language?: string;
   iconPack: IconPack;
 }
 
