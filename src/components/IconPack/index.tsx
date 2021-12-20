@@ -1,6 +1,5 @@
 import VSCodeIconPack from "./VSCode";
 import MaterialIconPack from "./Material";
-import SetiIconPack from "./Seti";
 
 import { IconPack as IconPackType, IconTypes } from "@lib/types";
 
@@ -15,9 +14,7 @@ export default function IconPack({ from, type, open = false }: IconPackProps) {
     case "VSCode Icons":
       return <VSCodeIconPack type={type} open={open} />;
     case "Material Icons":
-      return <MaterialIconPack type={type} open={open} />;
-    case "Seti Icons":
     default:
-      return <SetiIconPack type={type} open={open} />;
+      return <MaterialIconPack type={type} open={open} />;
   }
 }

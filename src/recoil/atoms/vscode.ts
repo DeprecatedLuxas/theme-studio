@@ -10,6 +10,6 @@ export const vscodeState = atom<IVSCode>({
   key: "vscodeState",
   default: {
     sidebarPlacement: "left",
-    iconPack: "Seti Icons",
+    iconPack: "Material Icons",
   },
 });

@@ -100,7 +100,7 @@ export interface ThemeOptions {
 }
 
 export type SideBarPlacement = "left" | "right";
-export type IconPack = "Material Icons" | "VSCode Icons" | "Seti Icons";
+export type IconPack = "Material Icons" | "VSCode Icons";
 
 export interface SetupOptions extends ThemeOptions {}
 

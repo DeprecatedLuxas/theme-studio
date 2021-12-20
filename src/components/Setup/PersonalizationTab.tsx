@@ -47,7 +47,7 @@ export default function PersonalizationTab() {
         ...config,
         options: {
           ...config.options,
-          iconPack: option?.value || "Seti Icons",
+          iconPack: option?.value || "Material Icons",
         },
       });
     },
@@ -82,7 +82,6 @@ export default function PersonalizationTab() {
         <section className="w-48">
           <Select
             options={[
-              { value: "Seti Icons", label: "Seti Icons" },
               { value: "VSCode Icons", label: "VSCode Icons" },
               { value: "Material Icons", label: "Material Icons" },
             ]}

@@ -57,7 +57,7 @@ export default function TreeFolder({
               bind={bindings}
               className="inline-flex items-center justify-start"
             >
-              {iconPack !== "Seti Icons" && (
+       
                 <span className="w-4 h-4 mr-1.5">
                   {isOpen ? (
                     <IconPack
@@ -69,7 +69,7 @@ export default function TreeFolder({
                     <IconPack from={iconPack || "Material Icons"} type={type} />
                   )}
                 </span>
-              )}
+       
 
               {name}
             </Element>

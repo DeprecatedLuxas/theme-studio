@@ -29,7 +29,7 @@ export default function VSCode({
   useEffect(() => {
     setOptions({
       sidebarPlacement: sidebarPlacement || storage.options?.sidebar || "left",
-      iconPack: iconPack || storage.options?.iconPack || "Seti Icons",
+      iconPack: iconPack || storage.options?.iconPack || "Material Icons",
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

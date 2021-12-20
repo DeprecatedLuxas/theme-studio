@@ -6,7 +6,6 @@ import Element from "../Element";
 
 export interface TreeFileProps extends TreeNodeProps {}
 
-// TODO: Fix icons margin is too much when icon pack is seti
 
 export default function TreeFile({
   name,
@@ -46,7 +45,7 @@ export default function TreeFile({
       >
         <span className="inline-flex items-center justify-start">
           <span className="w-4 h-4 mr-1.5">
-            <IconPack from={iconPack || "Seti Icons"} type={type} />
+            <IconPack from={iconPack || "Material Icons"} type={type} />
           </span>
           {name}
         </span>
