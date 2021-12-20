@@ -1,9 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
+import { vscodeState } from "@recoil/atoms/vscode";
 import Image from "next/image";
+import { useRecoilValue } from "recoil";
 
 import Element from "./Element";
 
 export default function TitleBar() {
+  const options = useRecoilValue(vscodeState);
+
   return (
     <Element
       className="flex items-center justify-center h-1.875 text-titlebar relative"

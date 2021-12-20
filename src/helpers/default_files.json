@@ -1,0 +1,106 @@
+[
+  {
+    "type": "directory",
+    "name": "node_modules",
+    "iconPath": "",
+    "openIconPath": ""
+  },
+  {
+    "type": "directory",
+    "name": "public",
+    "iconPath": "",
+    "openIconPath": ""
+  },
+  {
+    "type": "directory",
+    "name": "src",
+    "children": [
+      {
+        "type": "directory",
+        "name": "components",
+        "children": [
+          {
+            "type": "file",
+            "name": "Header.tsx",
+            "ext": "tsx",
+            "iconPath": ""
+          },
+          {
+            "type": "file",
+            "name": "Footer.tsx",
+            "ext": "tsx",
+            "iconPath": ""
+          }
+        ],
+        "iconPath": "",
+        "openIconPath": ""
+      },
+      {
+        "type": "directory",
+        "name": "pages",
+        "children": [
+          {
+            "type": "directory",
+            "name": "api",
+            "children": [
+              {
+                "type": "file",
+                "name": "[id].ts",
+                "ext": "ts",
+                "iconPath": ""
+              }
+            ],
+            "iconPath": "",
+            "openIconPath": ""
+          },
+          {
+            "type": "file",
+            "name": "index.tsx",
+            "ext": "tsx",
+            "iconPath": ""
+          },
+          {
+            "type": "file",
+            "name": "browse.tsx",
+            "ext": "tsx",
+            "iconPath": ""
+          },
+          {
+            "type": "file",
+            "name": "_app.tsx",
+            "ext": "tsx",
+            "iconPath": ""
+          }
+        ],
+        "iconPath": "",
+        "openIconPath": ""
+      }
+    ],
+    "iconPath": "",
+    "openIconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "next.config.js",
+    "ext": "js",
+    "iconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "package.json",
+    "ext": "json",
+    "iconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "tsconfig.json",
+    "ext": "json",
+    "iconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "yarn.lock",
+    "ext": "lock",
+    "iconPath": ""
+  }
+]

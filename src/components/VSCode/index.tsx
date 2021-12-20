@@ -9,19 +9,34 @@ import Content from "./Content";
 import { useRecoilState } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { useEffect } from "react";
-import { IconPack, ThemeStorage } from "@lib/types";
+import {
+  IconPack,
+  ThemeStorage,
+  TreeViewActiveItem,
+  TreeViewItem,
+} from "@lib/types";
 import EditorHelper from "@helpers/editor";
 
 export interface VSCodeProps {
   storage?: ThemeStorage;
   sidebarPlacement?: "left" | "right";
   iconPack?: IconPack;
+  branch?: string;
+  files?: TreeViewItem[];
+  activeFile?: TreeViewActiveItem;
+  language?: string;
+  name?: string;
 }
 
 export default function VSCode({
   storage = EditorHelper.getFakeStorage(),
   sidebarPlacement,
   iconPack,
+  branch,
+  files,
+  activeFile,
+  language,
+  name
 }: VSCodeProps) {
   const { options: storageOptions } = storage;
   const [options, setOptions] = useRecoilState(vscodeState);
@@ -29,7 +44,17 @@ export default function VSCode({
   useEffect(() => {
     setOptions({
       sidebarPlacement: sidebarPlacement || storage.options?.sidebar || "left",
+      name: name || storage.options?.repo || "vscode-theme-studio",
       iconPack: iconPack || storage.options?.iconPack || "Material Icons",
+      branch: branch || storageOptions?.branch || "main",
+      files: files || storageOptions?.files || EditorHelper.getDefaultFiles(),
+      language: language || storageOptions?.language || "TypeScript React",
+      activeFile: activeFile ||
+        storageOptions?.activeFile || {
+          name: "index.tsx",
+          path: "src/pages/index.tsx",
+          iconPath: "",
+        },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

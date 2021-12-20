@@ -1,11 +1,11 @@
 import TreeView from "./TreeView";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { VscChevronRight, VscChevronDown, VscEllipsis } from "react-icons/vsc";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import Element from "./Element";
 
 export default function SideBar() {
-  const [options, setOptions] = useRecoilState(vscodeState);
+  const options = useRecoilValue(vscodeState);
 
   return (
     <Element
@@ -50,7 +50,7 @@ export default function SideBar() {
         ]}
       >
         <VscChevronDown className="mx-0.5 text-base" />
-        <Element as="span">vscode-theme-studio</Element>
+        <Element as="span">{options.name}</Element>
       </Element>
       <div className="flex-1">
         <TreeView iconPack={options.iconPack}>

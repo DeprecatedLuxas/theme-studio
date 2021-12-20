@@ -5,17 +5,14 @@ import {
   VscWarning,
   VscError,
 } from "react-icons/vsc";
-import { v4 as uuid } from "uuid";
+import { useRecoilValue } from "recoil";
+import { vscodeState } from "@recoil/atoms/vscode";
 
-const statusBarItems = [
-  "Ln 3, Col 10",
-  "Spaces 4",
-  "UTF-8",
-  "LF",
-  "TypeScript React",
-];
+const statusBarItems = ["Ln 3, Col 10", "Spaces 4", "UTF-8", "LF"];
 
 export default function StatusBar() {
+  const options = useRecoilValue(vscodeState);
+
   return (
     <Element
       className="flex justify-between h-5.5 text-xs"
@@ -54,7 +51,7 @@ export default function StatusBar() {
           ]}
         >
           <VscSourceControl fontSize="16px" />
-          <span className="select-none">main*</span>
+          <span className="select-none">{options.branch}</span>
         </Element>
 
         <Element
@@ -75,9 +72,7 @@ export default function StatusBar() {
           statusBarItems.map((item: string, idx: number) => (
             <Element
               key={`statusbar-${idx}`}
-              className={`cursor-pointer px-1.25 ${
-                idx + 1 === statusBarItems.length ? "ml-0.25 mr-7px" : "mx-0.25"
-              } h-full select-none`}
+              className="cursor-pointer px-1.25 mx-0.25 h-full select-none"
               bind={[
                 "h:bg@statusBarItem.hoverBackground",
                 "c@statusBar.foreground",
@@ -86,6 +81,15 @@ export default function StatusBar() {
               <p className="flex items-center h-full">{item}</p>
             </Element>
           ))}
+        <Element
+          className="cursor-pointer px-1.25 ml-0.25 mr-7px h-full select-none"
+          bind={[
+            "h:bg@statusBarItem.hoverBackground",
+            "c@statusBar.foreground",
+          ]}
+        >
+          <p className="flex items-center h-full">{options.language}</p>
+        </Element>
       </Element>
     </Element>
   );

@@ -96,6 +96,9 @@ export interface ThemeOptions {
   repo?: string;
   repoType?: "github" | "gitlab";
   language?: string;
+  files?: TreeViewItem[];
+  activeFile?: TreeViewActiveItem;
+  branch?: string;
   iconPack: IconPack;
 }
 
@@ -174,4 +177,19 @@ export interface Message {
   message: string;
   status?: MessageStatus;
   position?: MessagePosition;
+}
+
+export interface TreeViewItem {
+  type: "directory" | "file";
+  name: string;
+  ext?: string;
+  children?: TreeViewItem[];
+  iconPath?: string;
+  iconOpenPath?: string;
+}
+
+export interface TreeViewActiveItem {
+  name: string;
+  path: string;
+  iconPath: string;
 }

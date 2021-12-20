@@ -2,10 +2,11 @@ import {
   SetupConfig,
   SetupOptions,
   ThemeStorage,
-  TStudioActions,
+  TreeViewItem,
   Variable,
   VSCThemeFormat,
 } from "@lib/types";
+import defaultFiles from "./default_files.json";
 import dayjs from "dayjs";
 import isEqual from "fast-deep-equal";
 
@@ -40,6 +41,8 @@ export default class EditorHelper {
     };
   }
 
+
+
   static cleanVariables(variables: Record<string, string>) {
     const newVariables: Record<string, string> = {};
     Object.keys(variables).forEach((key) => {
@@ -63,5 +66,9 @@ export default class EditorHelper {
 
   static formatVariable(variable: string): string {
     return variable.split("@")[1];
+  }
+
+  static getDefaultFiles(): TreeViewItem[] {
+    return defaultFiles as TreeViewItem[];
   }
 }
