@@ -99,11 +99,9 @@ export interface ThemeOptions {
   files?: TreeViewItem[];
   activeFile?: TreeViewActiveItem;
   branch?: string;
-  iconPack: IconPack;
 }
 
 export type SideBarPlacement = "left" | "right";
-export type IconPack = "Material Icons" | "VSCode Icons";
 
 export interface SetupOptions extends ThemeOptions {}
 

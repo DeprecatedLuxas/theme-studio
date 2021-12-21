@@ -1,5 +1,5 @@
 import { TreeViewContext } from "@contexts/TreeViewContext";
-import { IconPack, IconTypes } from "@lib/types";
+import { IconTypes } from "@lib/types";
 import { HTMLAttributes } from "react";
 import TreeFile from "./TreeFile";
 import TreeFolder from "./TreeFolder";
@@ -13,12 +13,11 @@ export interface TreeNodeProps {
 }
 
 export interface TreeViewProps extends HTMLAttributes<HTMLDivElement> {
-  iconPack: IconPack;
 }
 
-function TreeView({ iconPack, ...props }: TreeViewProps) {
+function TreeView({ ...props }: TreeViewProps) {
   return (
-    <TreeViewContext.Provider value={{ iconPack }}>
+    <TreeViewContext.Provider value={{ }}>
       <div {...props} />
     </TreeViewContext.Provider>
   );

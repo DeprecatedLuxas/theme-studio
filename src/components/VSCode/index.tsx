@@ -10,7 +10,6 @@ import { useRecoilState } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { useEffect } from "react";
 import {
-  IconPack,
   ThemeStorage,
   TreeViewActiveItem,
   TreeViewItem,
@@ -20,7 +19,6 @@ import EditorHelper from "@helpers/editor";
 export interface VSCodeProps {
   storage?: ThemeStorage;
   sidebarPlacement?: "left" | "right";
-  iconPack?: IconPack;
   branch?: string;
   files?: TreeViewItem[];
   activeFile?: TreeViewActiveItem;
@@ -31,7 +29,6 @@ export interface VSCodeProps {
 export default function VSCode({
   storage = EditorHelper.getFakeStorage(),
   sidebarPlacement,
-  iconPack,
   branch,
   files,
   activeFile,
@@ -45,7 +42,6 @@ export default function VSCode({
     setOptions({
       sidebarPlacement: sidebarPlacement || storage.options?.sidebar || "left",
       name: name || storage.options?.repo || "vscode-theme-studio",
-      iconPack: iconPack || storage.options?.iconPack || "Material Icons",
       branch: branch || storageOptions?.branch || "main",
       files: files || storageOptions?.files || EditorHelper.getDefaultFiles(),
       language: language || storageOptions?.language || "TypeScript React",

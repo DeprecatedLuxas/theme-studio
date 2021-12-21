@@ -14,7 +14,6 @@ export default function TreeFile({
   status = "",
   active = false
 }: TreeFileProps) {
-  const { iconPack } = useTreeView();
 
   const indent: string | undefined = level === 0 ? "24" : undefined;
   const bindings: Variables[] = [
@@ -45,7 +44,7 @@ export default function TreeFile({
       >
         <span className="inline-flex items-center justify-start">
           <span className="w-4 h-4 mr-1.5">
-            <IconPack from={iconPack || "Material Icons"} type={type} />
+            <IconPack type={type} />
           </span>
           {name}
         </span>

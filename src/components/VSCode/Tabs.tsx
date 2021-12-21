@@ -38,7 +38,7 @@ export default function Tabs() {
             className="absolute h-0.25 top-0 left-0 w-full border-t-[1px]"
           />
           <div className="flex-1 flex items-center justify-start leading-[35px]">
-            <IconPack from={options.iconPack} type="tsx" />
+            <IconPack type="tsx" />
             <div className="min-w-0 flex-1 pl-1.5">
               <span className="text-13px">index.tsx</span>
               <span className="ml-[5px]">M</span>
@@ -77,7 +77,7 @@ export default function Tabs() {
           }}
         >
           <div className="flex-1 flex items-center justify-start leading-[35px]">
-            <IconPack from={options.iconPack} type="tsx" />
+            <IconPack type="tsx" />
             <div className="min-w-0 flex-1 pl-1.5">
               <span className="text-13px">Header.tsx</span>
             </div>
@@ -118,7 +118,7 @@ export default function Tabs() {
           }}
         >
           <div className="flex-1 flex items-center justify-start leading-[35px]">
-            <IconPack from={options.iconPack} type="ts" />
+            <IconPack type="ts" />
             <div className="min-w-0 flex-1 pl-1.5">
               <span className="text-13px">[id].ts</span>
             </div>

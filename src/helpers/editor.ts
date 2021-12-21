@@ -35,7 +35,6 @@ export default class EditorHelper {
       variables: {},
       options: {
         sidebar: "left",
-        iconPack: "Material Icons",
       },
       createdAt: -1,
     };

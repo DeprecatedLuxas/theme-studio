@@ -20,7 +20,6 @@ export default function TreeFolder({
   status = "",
   active = false,
 }: PropsWithChildren<TreeFolderProps>) {
-  const { iconPack } = useTreeView();
   const { isOpen } = useBiscuitBox({
     isOpen: defaultOpen,
   });
@@ -61,12 +60,11 @@ export default function TreeFolder({
                 <span className="w-4 h-4 mr-1.5">
                   {isOpen ? (
                     <IconPack
-                      from={iconPack || "Material Icons"}
                       type={type}
                       open
                     />
                   ) : (
-                    <IconPack from={iconPack || "Material Icons"} type={type} />
+                    <IconPack type={type} />
                   )}
                 </span>
        

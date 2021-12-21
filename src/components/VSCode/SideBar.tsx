@@ -53,7 +53,7 @@ export default function SideBar() {
         <Element as="span">{options.name}</Element>
       </Element>
       <div className="flex-1">
-        <TreeView iconPack={options.iconPack}>
+        <TreeView>
           <TreeView.Folder name="node_modules" type="modules" />
           <TreeView.Folder name="public" type="public" />
           <TreeView.Folder name="src" defaultOpen type="src" status="untracked">

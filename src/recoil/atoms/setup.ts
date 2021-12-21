@@ -10,7 +10,6 @@ export const setupState = atom<ISetup>({
     type: "dark",
     options: {
       sidebar: "left",
-      iconPack: "Material Icons",
     },
   },
 });
