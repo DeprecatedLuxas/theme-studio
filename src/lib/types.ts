@@ -180,9 +180,9 @@ export interface Message {
 }
 
 export interface TreeViewItem {
-  type: "directory" | "file";
+  type: "dir" | "file";
   name: string;
-  ext?: string;
+  extensions?: string;
   children?: TreeViewItem[];
   iconPath?: string;
   iconOpenPath?: string;
