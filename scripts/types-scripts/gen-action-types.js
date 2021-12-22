@@ -37,12 +37,11 @@
         });
       console.log("Generated action types for:", file);
     });
-
-  fs.writeFileSync(
-    "./src/lib/generated/actions.ts",
-    `${generatedNote}
-
-export type TStudioActions = "${actions.join('" | "')}";
-`
-  );
+    fs.writeFileSync(
+      "./generated/actions.ts",
+      `${generatedNote}
+  
+  export type TStudioActions = "${actions.join('" | "')}";
+  `
+    );
 })();

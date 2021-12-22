@@ -1,6 +1,6 @@
 import cx from "clsx";
 import { HTMLAttributes, PropsWithChildren } from "react";
-import { TBackgroundColor, TTextColor } from "tailwindcss-classnames";
+import { TBackgroundColor, TTextColor } from "@lib/types";
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
@@ -17,7 +17,7 @@ export default function Button({
   color = "text-white",
   children,
   ...rest
-}: PropsWithChildren<ButtonProps>) {
+}: PropsWithChildren<ButtonProps>): JSX.Element {
   return (
     <button
       disabled={disabled}

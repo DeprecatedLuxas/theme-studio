@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "gen-types": "node scripts/gen-types",
-    "gen-tailwind": "tailwindcss-classnames -i tailwind.config.js -o src/lib/generated/tailwind.ts"
+    "gen-tailwind": "tailwindcss-classnames -i tailwind.config.js -o generated/tailwind.ts"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.6.1",

@@ -43,7 +43,7 @@
     });
 
   fs.writeFileSync(
-    "./src/lib/generated/variables.ts",
+    "./generated/variables.ts",
     `${generatedNote}
 
 export type Variables = "${keys.join('" | "')}";

@@ -16,7 +16,7 @@
 
 
   fs.writeFileSync(
-    "./src/lib/generated/languages.ts",
+    "./generated/languages.ts",
     `${generatedNote}
 
 export type Languages = "${languages.join('" | "')}";

@@ -1,15 +1,19 @@
 import {
-  ElementType,
   ForwardRefExoticComponent,
   PropsWithoutRef,
   RefAttributes,
 } from "react";
 import { MessageStatusEnum, MessagePositionEnum } from "./enums";
-import { TStudioActions } from "./generated/actions";
-import { Variables, VariablePossibleCategories } from "./generated/variables";
-
-export * from "./generated/variables";
-export * from "./generated/actions";
+import { TStudioActions } from "@generated/actions";
+import { Variables, VariablePossibleCategories } from "@generated/variables";
+import { Languages } from "@generated/languages";
+export * from "@generated/tailwind";
+export type {
+  Variables,
+  VariablePossibleCategories,
+  TStudioActions,
+  Languages,
+};
 
 export type Nullable<T> = T | null;
 export type Arrayable<T> = T | T[];
@@ -75,7 +79,7 @@ export interface ConditionalClassNameRule {
 
 export interface VSCThemeFormat {
   name: string;
-  type?: "dark" | "light";
+  type?: ThemeType;
   colors?: {};
   tokenColors?: {};
   semanticHighlighting?: boolean;
@@ -86,7 +90,7 @@ export interface ThemeStorage {
   name: string;
   createdAt?: number;
   updatedAt?: number;
-  type: "dark" | "light";
+  type: ThemeType;
   options?: ThemeOptions;
   variables: Record<CompiledVariable, string>;
 }
@@ -107,7 +111,7 @@ export interface SetupOptions extends ThemeOptions {}
 
 export interface SetupConfig {
   name: string;
-  type: "dark" | "light";
+  type: ThemeType;
   options: SetupOptions;
 }
 
