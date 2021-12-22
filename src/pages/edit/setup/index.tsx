@@ -11,7 +11,7 @@ import { isMobile } from "react-device-detect";
 import EditorHelper from "@helpers/editor";
 import useStorage from "@hooks/useStorage";
 import StorageFound from "@components/Editor/StorageFound";
-import Loading from "@components/Loading";
+import Spinner from "@components/Spinner";
 import MobileWarning from "@components/Editor/MobileWarning";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -24,6 +24,7 @@ export default function Setup() {
   const [completed, setCompleted] = useState<boolean>(false);
   const { user, isLoading, error } = useUser();
   const [config, ,] = useRecoilState(setupState);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const { storage, setStorage, clear } = useStorage(
     "tstudio-theme",
@@ -38,7 +39,11 @@ export default function Setup() {
   }, []);
 
   if (!isMounted() && isLoading) {
-    return <Loading />;
+    return (
+      <div className="flex items-center justify-center w-full h-screen bg-gray-700">
+        <Spinner />
+      </div>
+    );
   }
 
   if (isMobile) {
@@ -57,6 +62,8 @@ export default function Setup() {
   const handleNext = () => {
     if (tab === 2) {
       setCompleted(true);
+      setLoading(true);
+
       if (!user) {
         setStorage(EditorHelper.getFromSetupConfig(config));
       } else {
@@ -89,7 +96,9 @@ export default function Setup() {
                 Back
               </Button>
             )}
-            <Button onClick={handleNext}>{tab !== 2 ? "Next" : "Done"}</Button>
+            <Button onClick={handleNext} loading={loading}>
+              {tab !== 2 ? "Next" : "Done"}
+            </Button>
           </div>
         </div>
       </div>

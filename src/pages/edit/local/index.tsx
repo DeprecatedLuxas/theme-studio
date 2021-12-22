@@ -1,6 +1,6 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import { FaPalette, FaKeyboard, FaCode } from "react-icons/fa";
-import Loading from "@components/Loading";
+import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
@@ -102,7 +102,11 @@ export default function Local() {
   }, [state.variables, handleSave]);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <div className="flex items-center justify-center w-full h-screen bg-gray-700">
+        <Spinner />
+      </div>
+    );
   }
 
   if (isMobile) {

@@ -125,9 +125,6 @@ module.exports = {
   plugins: [
     plugin(function ({ addUtilities, addComponents }) {
       const newUtilities = {
-        ".border-b-transparent": {
-          borderBottomColor: "transparent",
-        },
         ".transform-50": {
           transform: "translate(-50%, -50%)",
         },

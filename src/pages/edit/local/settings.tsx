@@ -1,5 +1,5 @@
 import { useUser } from "@auth0/nextjs-auth0";
-import Loading from "@components/Loading";
+import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import MobileWarning from "@components/Editor/MobileWarning";
@@ -42,7 +42,11 @@ export default function LocalSettings() {
   }, [setConfig, storage]);
 
   if (!isMounted() && isLoading) {
-    return <Loading />;
+    return (
+      <div className="flex items-center justify-center w-full h-screen bg-gray-700">
+        <Spinner />
+      </div>
+    );
   }
 
   if (isMobile) {
