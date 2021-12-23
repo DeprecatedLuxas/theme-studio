@@ -1,4 +1,3 @@
-import useTreeView from "@hooks/use-tree-view";
 import IconPack from "@components/IconPack";
 import { TreeNodeProps } from ".";
 import { Variables } from "@lib/types";

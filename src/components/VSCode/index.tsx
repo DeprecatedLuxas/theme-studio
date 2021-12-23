@@ -9,11 +9,7 @@ import Content from "./Content";
 import { useRecoilState } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { useEffect } from "react";
-import {
-  ThemeStorage,
-  TreeViewActiveItem,
-  TreeViewItem,
-} from "@lib/types";
+import { ThemeStorage, TreeViewActiveItem, TreeViewItem } from "@lib/types";
 import EditorHelper from "@helpers/editor";
 
 export interface VSCodeProps {
@@ -33,7 +29,7 @@ export default function VSCode({
   files,
   activeFile,
   language,
-  name
+  name,
 }: VSCodeProps) {
   const { options: storageOptions } = storage;
   const [options, setOptions] = useRecoilState(vscodeState);
@@ -45,12 +41,10 @@ export default function VSCode({
       branch: branch || storageOptions?.branch || "main",
       files: files || storageOptions?.files || EditorHelper.getDefaultFiles(),
       language: language || storageOptions?.language || "TypeScript React",
-      activeFile: activeFile ||
-        storageOptions?.activeFile || {
-          name: "index.tsx",
-          path: "src/pages/index.tsx",
-          iconPath: "",
-        },
+      activeFile:
+        activeFile ||
+        EditorHelper.getActiveFile(storageOptions?.files!) ||
+        EditorHelper.getActiveFile(EditorHelper.getDefaultFiles()),
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

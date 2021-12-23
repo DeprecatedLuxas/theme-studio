@@ -1,5 +1,4 @@
-import { TreeViewContext } from "@contexts/TreeViewContext";
-import { IconTypes } from "@lib/types";
+import { IconTypes, TreeViewActiveItem, TreeViewItem } from "@lib/types";
 import { HTMLAttributes } from "react";
 import TreeFile from "./TreeFile";
 import TreeFolder from "./TreeFolder";
@@ -13,14 +12,11 @@ export interface TreeNodeProps {
 }
 
 export interface TreeViewProps extends HTMLAttributes<HTMLDivElement> {
+  files: Array<TreeViewItem>;
 }
 
-function TreeView({ ...props }: TreeViewProps) {
-  return (
-    <TreeViewContext.Provider value={{ }}>
-      <div {...props} />
-    </TreeViewContext.Provider>
-  );
+function TreeView({ files, ...props }: TreeViewProps) {
+  return <div {...props} />;
 }
 
 TreeView.Folder = TreeFolder;

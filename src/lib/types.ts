@@ -101,7 +101,6 @@ export interface ThemeOptions {
   repoType?: "github" | "gitlab";
   language?: string;
   files?: TreeViewItem[];
-  activeFile?: TreeViewActiveItem;
   branch?: string;
 }
 
@@ -188,6 +187,8 @@ export interface TreeViewItem {
   children?: TreeViewItem[];
   iconPath?: string;
   iconOpenPath?: string;
+  active?: boolean;
+  path?: string;
 }
 
 export interface TreeViewActiveItem {

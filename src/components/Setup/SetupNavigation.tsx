@@ -9,6 +9,8 @@ const SetupButton = windy.button`
   font-roboto
   hover:bg-blue-700
   hover:text-white
+  border-blue-400
+  border
   my-1
   px-2
   py-1

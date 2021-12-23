@@ -1,6 +1,5 @@
 import IconPack from "@components/IconPack";
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
-import useTreeView from "@hooks/use-tree-view";
 import { Variables } from "@lib/types";
 import { Children, cloneElement, PropsWithChildren, ReactNode } from "react";
 import { VscChevronDown, VscChevronRight } from "react-icons/vsc";

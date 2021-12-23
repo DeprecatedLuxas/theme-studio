@@ -1,11 +1,12 @@
-import TreeView from "./TreeView";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { VscChevronRight, VscChevronDown, VscEllipsis } from "react-icons/vsc";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import Element from "./Element";
+import ActionRender from "./ActionRender";
+import TreeView from "./TreeView";
 
 export default function SideBar() {
-  const options = useRecoilValue(vscodeState);
+  const vscode = useRecoilValue(vscodeState);
 
   return (
     <Element
@@ -50,10 +51,11 @@ export default function SideBar() {
         ]}
       >
         <VscChevronDown className="mx-0.5 text-base" />
-        <Element as="span">{options.name}</Element>
+        <Element as="span">{vscode.name}</Element>
       </Element>
       <div className="flex-1">
-        <TreeView>
+        {/*       <FileTree /> */}
+        {/* <TreeView>
           <TreeView.Folder name="node_modules" type="modules" />
           <TreeView.Folder name="public" type="public" />
           <TreeView.Folder name="src" defaultOpen type="src" status="untracked">
@@ -91,19 +93,15 @@ export default function SideBar() {
           <TreeView.File name="tsconfig.json" type="tsconfig" />
           <TreeView.File name="yarn.lock" type="lock" />
         </TreeView>
+ */}
 
-        {/* 
-        <ActionRender>
-          <Action action="">
-            <p>Hello this render on every single action except git</p>
-          </Action>
+        <ActionRender action="">
+          <TreeView files={vscode.files} />
+        </ActionRender>
 
-          <Action action="git">
-            <p>This only renders on git action</p>
-          </Action>
-          
-        </ActionRender/>
-        */}
+        <ActionRender action="git.Git">
+          <p>FILEEEE</p>
+        </ActionRender>
       </div>
       <Element
         className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"

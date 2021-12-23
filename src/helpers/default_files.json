@@ -57,7 +57,9 @@
             "type": "file",
             "name": "index.tsx",
             "extensions": "tsx",
-            "iconPath": ""
+            "iconPath": "",
+            "active": true,
+            "path": "src/pages/index.tsx"
           },
           {
             "type": "file",

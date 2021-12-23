@@ -5,7 +5,7 @@ import { atom } from "recoil";
 type IVSCode = {
   sidebarPlacement: "left" | "right";
   name: string;
-  files: TreeViewItem[];
+  files: Array<TreeViewItem>;
   branch: string;
   language: string;
   activeFile: TreeViewActiveItem;
@@ -19,10 +19,6 @@ export const vscodeState = atom<IVSCode>({
     files: EditorHelper.getDefaultFiles(),
     branch: "main",
     language: "TypeScript React",
-    activeFile: {
-      name: "index.tsx",
-      path: "src/pages/index.tsx",
-      iconPath: "",
-    },
+    activeFile: EditorHelper.getActiveFile(EditorHelper.getDefaultFiles()),
   },
 });
