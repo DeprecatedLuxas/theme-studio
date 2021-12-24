@@ -196,3 +196,15 @@ export interface TreeViewActiveItem {
   path: string;
   iconPath: string;
 }
+
+export type GitDecorations =
+  | "addedResource"
+  | "modifiedResource"
+  | "deletedResource"
+  | "renamedResource"
+  | "stageModifiedResource"
+  | "stageDeletedResource"
+  | "untrackedResource"
+  | "ignoredResource"
+  | "conflictingResource"
+  | "submoduleResource";

@@ -3,15 +3,17 @@ import { TreeNodeProps } from "./Tree";
 import { Variables } from "@lib/types";
 import Element from "../Element";
 
-export interface TreeFileProps extends TreeNodeProps {}
+export interface FileProps extends TreeNodeProps {}
 
-export default function TreeFile({
+export default function File({
   name,
   type,
   level = 0,
   status = "",
   active = false,
-}: TreeFileProps) {
+  decoration,
+  decorationIcon = false
+}: FileProps) {
   const indent: string | undefined = level === 0 ? "24" : undefined;
   const bindings: Variables[] = [
     "h:bg@list.hoverBackground",

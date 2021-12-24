@@ -3,7 +3,8 @@ import { VscChevronRight, VscChevronDown, VscEllipsis } from "react-icons/vsc";
 import { useRecoilValue } from "recoil";
 import Element from "./Element";
 import ActionRender from "./ActionRender";
-import TreeView from "./TreeView";
+
+import { Tree, File } from "./TreeView";
 
 export default function SideBar() {
   const vscode = useRecoilValue(vscodeState);
@@ -96,11 +97,57 @@ export default function SideBar() {
  */}
 
         <ActionRender action="">
-          <TreeView files={vscode.files} />
+          {/* <TreeView files={vscode.files} /> */}
         </ActionRender>
 
         <ActionRender action="git.Git">
-          <p>FILEEEE</p>
+          <Tree>
+            <File
+              decoration="addedResource"
+              name="addedResource"
+              decorationIcon
+            />
+            <File
+              decoration="conflictingResource"
+              name="conflictingResource"
+              decorationIcon
+            />
+            <File
+              decoration="deletedResource"
+              name="deletedResource"
+              decorationIcon
+            />
+            <File
+              decoration="ignoredResource"
+              name="ignoredResource"
+              decorationIcon
+            />
+            <File
+              decoration="modifiedResource"
+              name="modifiedResource"
+              decorationIcon
+            />
+            <File
+              decoration="stageDeletedResource"
+              name="stageDeletedResource"
+              decorationIcon
+            />
+            <File
+              decoration="stageModifiedResource"
+              name="stageModifiedResource"
+              decorationIcon
+            />
+            <File
+              decoration="submoduleResource"
+              name="submoduleResource"
+              decorationIcon
+            />
+            <File
+              decoration="untrackedResource"
+              name="untrackedResource"
+              decorationIcon
+            />
+          </Tree>
         </ActionRender>
       </div>
       <Element
