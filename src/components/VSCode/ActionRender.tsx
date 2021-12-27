@@ -1,3 +1,4 @@
+
 import { TStudioActions } from "@lib/types";
 import { actionState } from "@recoil/atoms/action";
 import { ReactNode } from "react";
@@ -9,9 +10,9 @@ export interface ActionRenderProps {
 }
 
 export default function ActionRender({ action, children }: ActionRenderProps) {
-  const actionvalue = useRecoilValue(actionState);
+  const actionValue = useRecoilValue(actionState);
 
-  if (actionvalue !== action) {
+  if (actionValue !== action) {
     return null;
   }
   return <>{children}</>;

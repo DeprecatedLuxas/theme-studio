@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { Button } from "@components/Forms";
 
-export interface StorageFoundProps {
+export interface StorageWarningProps {
   clearStorage: Function;
 }
 
 export default function StorageWarning({
   clearStorage,
-}: StorageFoundProps): JSX.Element {
+}: StorageWarningProps): JSX.Element {
   const router = useRouter();
 
   const handleFresh = () => {
