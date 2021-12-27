@@ -2,9 +2,13 @@ import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Link from "next/link";
 import Badge from "@components/Badge";
-import { isMobile } from "react-device-detect";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { UserAgentParser, getAgent } from "@lib/detection";
 
-export default function Home() {
+export default function Home({
+  isMobileAgent,
+  isValidAgent,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="min-h-screen h-auto bg-gray-700 flex flex-col">
       <Header />
@@ -15,7 +19,7 @@ export default function Home() {
           <br />
           Theme editor
         </h1>
-        {!isMobile ? (
+        {!isMobileAgent && isValidAgent ? (
           <Link href="/edit/setup">
             <a className="py-2 px-2 bg-blue-700 text-white font-bold rounded">
               Get Started
@@ -23,11 +27,25 @@ export default function Home() {
           </Link>
         ) : (
           <p className="py-2 px-2 bg-red-700 text-white font-bold rounded w-max cursor-not-allowed select-none">
-            Your device is not supported.
+            {isValidAgent ? "Your device is not supported." : "Problem while trying to get your user agent."}
           </p>
         )}
       </div>
       <Footer />
     </div>
   );
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const userAgent = UserAgentParser.parse(getAgent(ctx.req));
+  const isMobileAgent = userAgent.device === "mobile";
+
+
+  return {
+    props: {
+      isMobileAgent,
+      // This is a weird type of request? lmao
+      isValidAgent: userAgent.agent !== "",
+    },
+  };
 }

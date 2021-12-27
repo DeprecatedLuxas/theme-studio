@@ -25,7 +25,7 @@ export default function Setup() {
   const { user, isLoading, error } = useUser();
   const [config, ,] = useRecoilState(setupState);
   const [loading, setLoading] = useState<boolean>(false);
-
+  
   const { storage, setStorage, clear } = useStorage(
     "tstudio-theme",
     EditorHelper.getFakeStorage()
@@ -105,3 +105,4 @@ export default function Setup() {
     </div>
   );
 }
+

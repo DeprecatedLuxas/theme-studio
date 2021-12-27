@@ -208,3 +208,8 @@ export type GitDecorations =
   | "ignoredResource"
   | "conflictingResource"
   | "submoduleResource";
+
+export interface UserAgent {
+  agent: string;
+  device: string;
+}

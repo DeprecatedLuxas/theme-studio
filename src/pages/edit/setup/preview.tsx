@@ -57,6 +57,7 @@ export default function Preview({
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // console.log(context.req);
   if (typeof context.query.preview === "undefined") {
     return {
       redirect: {
