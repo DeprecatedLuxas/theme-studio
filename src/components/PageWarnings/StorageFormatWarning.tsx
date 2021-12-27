@@ -22,7 +22,7 @@ export default function StorageFormatWarning({
   return (
     <div className="h-screen w-full flex justify-center items-center bg-gray-700">
       <div className="max-w-lg w-full bg-white rounded min-h-56 p-4 flex flex-col">
-        <h1 className="mb-4 text-4xl font-roboto font-bold">Oh wait..</h1>
+        <h1 className="mb-4 text-4xl font-roboto">Oh wait..</h1>
         <p className="font-roboto">
           You already have a theme in your storage, do you want to continue
           editing that or do you want to start from a fresh?

@@ -3,10 +3,10 @@ import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { Variables } from "@lib/types";
 import { Children, cloneElement, PropsWithChildren, ReactNode } from "react";
 import { VscChevronDown, VscChevronRight } from "react-icons/vsc";
-import { TreeNodeProps } from ".";
+import { NodeProps } from ".";
 import Element from "../Element";
 
-export interface TreeFolderProps extends TreeNodeProps {
+export interface TreeFolderProps extends NodeProps {
   defaultOpen?: boolean;
 }
 
@@ -14,10 +14,7 @@ export default function TreeFolder({
   name,
   children,
   level = 0,
-  type,
   defaultOpen = false,
-  status = "",
-  active = false,
 }: PropsWithChildren<TreeFolderProps>) {
   const { isOpen } = useBiscuitBox({
     isOpen: defaultOpen,
@@ -57,14 +54,14 @@ export default function TreeFolder({
             >
        
                 <span className="w-4 h-4 mr-1.5">
-                  {isOpen ? (
+                  {/* {isOpen ? (
                     <IconPack
                       type={type}
                       open
                     />
                   ) : (
                     <IconPack type={type} />
-                  )}
+                  )} */}
                 </span>
        
 

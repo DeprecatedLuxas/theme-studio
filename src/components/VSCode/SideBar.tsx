@@ -97,7 +97,7 @@ export default function SideBar() {
  */}
 
         <ActionRender action="">
-          {/* <TreeView files={vscode.files} /> */}
+          <Tree files={vscode.files} />
         </ActionRender>
 
         <ActionRender action="git.Git">

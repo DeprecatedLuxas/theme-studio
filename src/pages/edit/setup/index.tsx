@@ -8,7 +8,7 @@ import {
   PersonalizationTab,
 } from "@components/Setup";
 import EditorHelper from "@helpers/editor";
-import useStorage from "@hooks/useStorage";
+import useStorage from "@hooks/use-storage";
 import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";

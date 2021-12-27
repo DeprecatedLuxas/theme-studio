@@ -12,3 +12,10 @@
 
 - [ ] Change StorageFormatWarning
 - [ ] Viewport small, make a overlay to tell users to use a bigger screen.
+
+
+
+- [ ] Add support for multiple themes in local
+- [ ] Add keybinds to local
+- [ ] Add support for settings in local
+- [ ] Fix tree view

@@ -1,16 +1,13 @@
 import IconPack from "@components/IconPack";
-import { TreeNodeProps } from "./Tree";
+import { NodeProps } from ".";
 import { Variables } from "@lib/types";
 import Element from "../Element";
 
-export interface TreeFileProps extends TreeNodeProps {}
+export interface TreeFileProps extends NodeProps {}
 
 export default function TreeFile({
   name,
-  type,
   level = 0,
-  status = "",
-  active = false,
 }: TreeFileProps) {
   const indent: string | undefined = level === 0 ? "24" : undefined;
   const bindings: Variables[] = [
@@ -41,7 +38,7 @@ export default function TreeFile({
       >
         <span className="inline-flex items-center justify-start">
           <span className="w-4 h-4 mr-1.5">
-            <IconPack type={type || "api"} />
+            {/* <IconPack type={type || "api"} /> */}
           </span>
           {name}
         </span>

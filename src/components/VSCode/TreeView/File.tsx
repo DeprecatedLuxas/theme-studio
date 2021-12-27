@@ -1,16 +1,13 @@
 import IconPack from "@components/IconPack";
-import { TreeNodeProps } from "./Tree";
+import { NodeProps } from ".";
 import { Variables } from "@lib/types";
 import Element from "../Element";
 
-export interface FileProps extends TreeNodeProps {}
+export interface FileProps extends NodeProps {}
 
 export default function File({
   name,
-  type,
   level = 0,
-  status = "",
-  active = false,
   decoration,
   decorationIcon = false
 }: FileProps) {
@@ -43,7 +40,6 @@ export default function File({
       >
         <span className="inline-flex items-center justify-start">
           <span className="w-4 h-4 mr-1.5">
-            <IconPack type={type || "api"} />
           </span>
           {name}
         </span>

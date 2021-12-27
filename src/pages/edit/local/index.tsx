@@ -17,7 +17,7 @@ import {
   DialogHeader,
 } from "@components/Dialog";
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
-import useStorage from "@hooks/useStorage";
+import useStorage from "@hooks/use-storage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";

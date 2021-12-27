@@ -1,20 +1,49 @@
 import { GitDecorations, IconTypes, TreeViewItem } from "@lib/types";
 import { HTMLAttributes } from "react";
+import Folder from "./Folder";
+import File from "./File";
 
-export interface TreeNodeProps {
-  name: string;
-  type?: IconTypes;
-  level?: number;
-  status?: "" | "modified" | "untracked";
-  active?: boolean;
-  decoration?: GitDecorations;
-  decorationIcon?: boolean;
+// type: "dir" | "file";
+// name: string;
+// extension?: string;
+// children?: TreeViewItem[];
+// iconPath?: string;
+// iconOpenPath?: string;
+// active?: boolean;
+// path?: string;
+
+function parseFiles(files: Array<TreeViewItem>) {
+  if (!files.length) return null;
+  return files.map((file, idx) => {
+    const { name, type } = file;
+
+    if (type === "dir")
+      return (
+        <Folder key={`folder-${name}-${idx}`} name={name}>
+          {parseFiles(file.children || [])}
+        </Folder>
+      );
+    return <File key={`file-${name}-${idx}`} name={name} />;
+    // return (
+    //   <File
+    //     key={name}
+    //     name={name}
+    //     type={type}
+    //     level={file.level}
+    //     status={status}
+    //     active={file.active}
+    //     decoration={decoration}
+    //     decorationIcon={decorationIcon}
+    //   />
+    // );
+  });
 }
 
 export interface TreeProps extends HTMLAttributes<HTMLDivElement> {
   files?: Array<TreeViewItem>;
 }
 
-export default function Tree({ files, ...props }: TreeProps) {
-  return <div {...props} />;
+export default function Tree({ files, children, ...props }: TreeProps) {
+  const childs = files && files.length > 0 ? parseFiles(files) : children;
+  return <div {...props}>{childs}</div>;
 }
