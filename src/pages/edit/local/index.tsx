@@ -8,8 +8,6 @@ import { useCallback, useEffect, useReducer } from "react";
 import EditorHelper from "@helpers/editor";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
-import { isMobile } from "react-device-detect";
-import MobileWarning from "@components/Editor/MobileWarning";
 import Divider from "@components/Divider";
 import { Button } from "@components/Forms";
 import {
@@ -26,8 +24,17 @@ import EditorTab from "@components/Editor/EditorTab";
 import { VscGear } from "react-icons/vsc";
 import { encode } from "@helpers/encoding";
 import { getPropertyDifferences, __DEV__ } from "@lib/utils";
+import {
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+} from "next/types";
+import { getAgent, UserAgentParser } from "@lib/detection";
+import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
 
-export default function Local() {
+export default function Local({
+  isMobileAgent,
+  isValidAgent,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
   const {
@@ -109,8 +116,12 @@ export default function Local() {
     );
   }
 
-  if (isMobile) {
+  if (isMobileAgent) {
     return <MobileWarning />;
+  }
+
+  if (!isValidAgent) {
+    return <UserAgentWarning />;
   }
 
   // If user is authenticated, redirect to homepage.
@@ -271,4 +282,17 @@ export default function Local() {
       </Dialog>
     </RegistryContext.Provider>
   );
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const userAgent = UserAgentParser.parse(getAgent(ctx.req));
+  const isMobileAgent = userAgent.device === "mobile";
+
+  return {
+    props: {
+      isMobileAgent,
+      // This is a weird type of request? lmao
+      isValidAgent: userAgent.agent !== "",
+    },
+  };
 }

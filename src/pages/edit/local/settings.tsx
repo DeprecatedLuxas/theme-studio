@@ -1,8 +1,6 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
-import { isMobile } from "react-device-detect";
-import MobileWarning from "@components/Editor/MobileWarning";
 import useStorage from "@hooks/useStorage";
 import EditorHelper from "@helpers/editor";
 import Navigation from "@components/Editor/Settings/Navigation";
@@ -15,8 +13,14 @@ import { usePrevious } from "@hooks/use-previous";
 import { ThemeStorage } from "@lib/types";
 import { useRecoilState } from "recoil";
 import { setupState } from "@recoil/atoms/setup";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { getAgent, UserAgentParser } from "@lib/detection";
+import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
 
-export default function LocalSettings() {
+export default function LocalSettings({
+  isMobileAgent,
+  isValidAgent,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { user, isLoading, error } = useUser();
   const [config, setConfig] = useRecoilState(setupState);
 
@@ -49,8 +53,12 @@ export default function LocalSettings() {
     );
   }
 
-  if (isMobile) {
+  if (isMobileAgent) {
     return <MobileWarning />;
+  }
+
+  if (!isValidAgent) {
+    return <UserAgentWarning />;
   }
 
   // If user is authenticated, redirect to homepage.
@@ -93,4 +101,17 @@ export default function LocalSettings() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const userAgent = UserAgentParser.parse(getAgent(ctx.req));
+  const isMobileAgent = userAgent.device === "mobile";
+
+  return {
+    props: {
+      isMobileAgent,
+      // This is a weird type of request? lmao
+      isValidAgent: userAgent.agent !== "",
+    },
+  };
 }

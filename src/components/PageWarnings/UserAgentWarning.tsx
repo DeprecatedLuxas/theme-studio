@@ -6,8 +6,9 @@ export default function MobileWarning(): JSX.Element {
       <div className="max-w-lg w-full bg-white rounded min-h-56 p-4 flex flex-col">
         <h1 className="mb-4 text-4xl font-roboto font-bold">Oh no...</h1>
         <p className="font-roboto">
-          You tried to create a theme on a mobile browser, which is not
-          supported.
+          An error occurred while trying to parse your user agent.
+
+          Please try again with a user agent.
         </p>
         <div className="flex-1 flex justify-end items-end">
           <Link href="/" passHref>
