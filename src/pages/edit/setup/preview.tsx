@@ -8,6 +8,7 @@ import { reducer, RegistryContext } from "@contexts/RegistryContext";
 import registry from "@lib/registry";
 import { useReducer, useState } from "react";
 import { SetupConfig } from "@lib/types";
+import { getAgent, UserAgentParser } from "@lib/detection";
 
 export default function Preview({
   preview,
@@ -56,9 +57,20 @@ export default function Preview({
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // console.log(context.req);
-  if (typeof context.query.preview === "undefined") {
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const userAgent = UserAgentParser.parse(getAgent(ctx.req));
+  const isMobileAgent = userAgent.device === "mobile";
+
+  if (userAgent.agent === "" || isMobileAgent) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  if (typeof ctx.query.preview === "undefined") {
     return {
       redirect: {
         destination: "/edit/setup",
@@ -68,9 +80,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 
   let previewQuery: string = (
-    Array.isArray(context.query.preview)
-      ? context.query.preview[0]
-      : context.query.preview
+    Array.isArray(ctx.query.preview) ? ctx.query.preview[0] : ctx.query.preview
   )!;
   return {
     props: {

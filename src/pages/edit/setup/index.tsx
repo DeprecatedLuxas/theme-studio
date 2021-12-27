@@ -16,15 +16,10 @@ import { v4 as uuid } from "uuid";
 import Divider from "@components/Divider";
 import useIsMounted from "@hooks/use-is-mounted";
 import { getAgent, UserAgentParser } from "@lib/detection";
-import type {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-} from "next";
-import { MobileWarning, StorageWarning } from "@components/PageWarnings";
+import type { GetServerSidePropsContext } from "next";
+import { StorageWarning } from "@components/PageWarnings";
 
-export default function Setup({
-  isMobileAgent,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Setup() {
   const isMounted = useIsMounted();
   const [completed, setCompleted] = useState<boolean>(false);
   const { user, isLoading, error } = useUser();
@@ -49,10 +44,6 @@ export default function Setup({
         <Spinner />
       </div>
     );
-  }
-
-  if (isMobileAgent) {
-    return <MobileWarning />;
   }
 
   if (
@@ -115,7 +106,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const userAgent = UserAgentParser.parse(getAgent(ctx.req));
   const isMobileAgent = userAgent.device === "mobile";
 
-  if (userAgent.agent === "") {
+  if (userAgent.agent === "" || isMobileAgent) {
     return {
       redirect: {
         destination: "/",
@@ -125,8 +116,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   }
 
   return {
-    props: {
-      isMobileAgent
-    },
+    props: {},
   };
 }
