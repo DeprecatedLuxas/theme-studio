@@ -7,25 +7,30 @@ import {
   GeneralTab,
   PersonalizationTab,
 } from "@components/Setup";
-import { isMobile } from "react-device-detect";
 import EditorHelper from "@helpers/editor";
 import useStorage from "@hooks/useStorage";
-import StorageFound from "@components/Editor/StorageFound";
 import Spinner from "@components/Spinner";
-import MobileWarning from "@components/Editor/MobileWarning";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 import { v4 as uuid } from "uuid";
 import Divider from "@components/Divider";
 import useIsMounted from "@hooks/use-is-mounted";
+import { getAgent, UserAgentParser } from "@lib/detection";
+import type {
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+} from "next";
+import { MobileWarning, StorageWarning } from "@components/PageWarnings";
 
-export default function Setup() {
+export default function Setup({
+  isMobileAgent,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const isMounted = useIsMounted();
   const [completed, setCompleted] = useState<boolean>(false);
   const { user, isLoading, error } = useUser();
   const [config, ,] = useRecoilState(setupState);
   const [loading, setLoading] = useState<boolean>(false);
-  
+
   const { storage, setStorage, clear } = useStorage(
     "tstudio-theme",
     EditorHelper.getFakeStorage()
@@ -46,7 +51,7 @@ export default function Setup() {
     );
   }
 
-  if (isMobile) {
+  if (isMobileAgent) {
     return <MobileWarning />;
   }
 
@@ -54,7 +59,7 @@ export default function Setup() {
     !EditorHelper.compare(storage, EditorHelper.getFakeStorage()) &&
     !completed
   ) {
-    return <StorageFound clearStorage={clear} />;
+    return <StorageWarning clearStorage={clear} />;
   }
 
   const handleBack = () => setTab(tab - 1);
@@ -106,3 +111,22 @@ export default function Setup() {
   );
 }
 
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const userAgent = UserAgentParser.parse(getAgent(ctx.req));
+  const isMobileAgent = userAgent.device === "mobile";
+
+  if (userAgent.agent === "") {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      isMobileAgent
+    },
+  };
+}
