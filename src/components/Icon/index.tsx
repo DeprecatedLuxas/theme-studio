@@ -48,12 +48,12 @@ export default function Icon({
   if (!icon && !from) return null;
   const provider = getIconProvider(icon);
   if (!provider) return null;
-  const iconSize = size || "1em";
   if (!label && __DEV__) {
     console.warn("Icon component: label is not defined.");
   }
 
   const iconObject = getIconsFromProvider(provider, icon!);
+  const iconSize = size || iconObject?.attributes.size || "1em";
 
   return (
     <svg

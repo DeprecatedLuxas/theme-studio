@@ -217,6 +217,7 @@ export interface UserAgent {
 
 export interface IconAttributes {
   viewBox: string;
+  size?: string;
 }
 
 export interface IconObject {
@@ -230,7 +231,22 @@ export type CodiconsIcons =
   | "VscChevronDown"
   | "VscChevronLeft"
   | "VscChevronRight"
-  | "VscEllipsis";
+  | "VscEllipsis"
+  | "VscOpenPreview"
+  | "VscFeedback"
+  | "VscFiles"
+  | "VscSearch"
+  | "VscSourceControl"
+  | "VscClose"
+  | "VscGitCompare"
+  | "VscSplitHorizontal"
+  | "VscWarning"
+  | "VscError"
+  | "VscRemote"
+  | "VscGear"
+  | "VscAccount"
+  | "VscExtensions"
+  | "VscDebugAlt";
 
 export type IconProviders = "FontAwesome" | "Codicons";
 export type Icons = FontAwesomeIcons | CodiconsIcons;
