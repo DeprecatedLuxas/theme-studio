@@ -1,6 +1,7 @@
 import {
   ForwardRefExoticComponent,
   PropsWithoutRef,
+  ReactNode,
   RefAttributes,
 } from "react";
 import { MessageStatusEnum, MessagePositionEnum } from "./enums";
@@ -213,3 +214,21 @@ export interface UserAgent {
   agent: string;
   device: string;
 }
+
+export interface IconAttributes {
+  viewBox: string;
+}
+
+export interface IconObject {
+  attributes: IconAttributes;
+  path: ReactNode;
+}
+
+export type FontAwesomeIcons = "FaPalette" | "FaCode" | "FaKeyboard";
+export type CodiconsIcons =
+  | "VscChevronUp"
+  | "VscChevronDown"
+  | "VscChevronLeft"
+  | "VscChevronRight";
+export type IconProviders = "FontAwesome" | "Codicons";
+export type Icons = FontAwesomeIcons | CodiconsIcons;

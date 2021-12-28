@@ -1,5 +1,4 @@
 import { useUser } from "@auth0/nextjs-auth0";
-import { FaPalette, FaKeyboard, FaCode } from "react-icons/fa";
 import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import VSCode from "@components/VSCode";
@@ -30,6 +29,7 @@ import {
 } from "next/types";
 import { getAgent, UserAgentParser } from "@lib/detection";
 import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
+import Icon from "@components/Icon";
 
 export default function Local({
   isMobileAgent,
@@ -185,27 +185,26 @@ export default function Local({
             </button>
           </div>
           <Divider color="bg-gray-700" />
-
           <Tab.Group>
             <Tab.List className="flex justify-between px-16 py-4">
               <Tab
                 className="p-2 bg-gray-800 rounded-lg cursor-pointer"
                 aria-label="Palette Tab"
               >
-                <FaPalette size="20px" color="white" />
+                <Icon icon="FaPalette" color="white" size="20px" />
               </Tab>
 
               <Tab
                 className="p-2 bg-gray-800 rounded-lg cursor-pointer"
                 aria-label="Editor Tab"
               >
-                <FaKeyboard size="20px" color="white" />
+                <Icon icon="FaKeyboard" color="white" size="20px" />
               </Tab>
               <Tab
                 className="p-2 bg-gray-800 rounded-lg cursor-pointer"
                 aria-label="Syntax Tab"
               >
-                <FaCode size="20px" color="white" />
+                <Icon icon="FaCode" color="white" size="20px" />
               </Tab>
             </Tab.List>
             <Tab.Panels className="flex-1 overflow-y-scroll scrollbar-hide">
