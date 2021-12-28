@@ -1,7 +1,6 @@
 import { VariablePossibleCategories } from "@lib/types";
-import { PropsWithChildren, useRef, useState } from "react";
-import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
-
+import { PropsWithChildren, useState } from "react";
+import Icon from "@components/Icon";
 export interface VariableGroupProps {
   groupName: VariablePossibleCategories;
 }
@@ -24,9 +23,9 @@ export default function VariableGroup({
       >
         {groupName.trim().length > 0 ? groupName : "Not defined"}
         {isOpen ? (
-          <VscChevronUp className="w-5 h-5 text-gray-400" />
+          <Icon icon="VscChevronUp" className="w-5 h-5 text-gray-400" />
         ) : (
-          <VscChevronDown className="w-5 h-5 text-gray-400" />
+          <Icon icon="VscChevronDown" className="w-5 h-5 text-gray-400" />
         )}
       </button>
       <div>{isOpen && children}</div>

@@ -229,6 +229,8 @@ export type CodiconsIcons =
   | "VscChevronUp"
   | "VscChevronDown"
   | "VscChevronLeft"
-  | "VscChevronRight";
+  | "VscChevronRight"
+  | "VscEllipsis";
+
 export type IconProviders = "FontAwesome" | "Codicons";
 export type Icons = FontAwesomeIcons | CodiconsIcons;

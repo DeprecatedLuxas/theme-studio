@@ -1,9 +1,8 @@
 import { vscodeState } from "@recoil/atoms/vscode";
-import { VscChevronRight, VscChevronDown, VscEllipsis } from "react-icons/vsc";
 import { useRecoilValue } from "recoil";
 import Element from "./Element";
 import ActionRender from "./ActionRender";
-
+import Icon from "@components/Icon";
 import { Tree, File } from "./TreeView";
 
 export default function SideBar() {
@@ -40,7 +39,7 @@ export default function SideBar() {
             className="h-5.5 w-5.5 flex items-center justify-center rounded-md"
             bind={["h:bg@toolbar.hoverBackground"]}
           >
-            <VscEllipsis className="text-base" />
+            <Icon icon="VscEllipsis" className="text-base" />
           </Element>
         </Element>
       </div>
@@ -51,7 +50,7 @@ export default function SideBar() {
           "c@sideBarSectionHeader.foreground",
         ]}
       >
-        <VscChevronDown className="mx-0.5 text-base" />
+        <Icon icon="VscChevronDown" className="mx-0.5 text-base" />
         <Element as="span">{vscode.name}</Element>
       </Element>
       <div className="flex-1">
@@ -158,7 +157,7 @@ export default function SideBar() {
           "c@sideBarSectionHeader.foreground",
         ]}
       >
-        <VscChevronRight className="mx-0.5 text-base" />
+        <Icon icon="VscChevronRight" className="mx-0.5 text-base" />
         <Element as="span">outline</Element>
       </Element>
       <Element
@@ -169,7 +168,7 @@ export default function SideBar() {
           "c@sideBarSectionHeader.foreground",
         ]}
       >
-        <VscChevronRight className="mx-0.5 text-base" />
+        <Icon icon="VscChevronRight" className="mx-0.5 text-base" />
         <Element as="span">open editors</Element>
       </Element>
     </Element>
