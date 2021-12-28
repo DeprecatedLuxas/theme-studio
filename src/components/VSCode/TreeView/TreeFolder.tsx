@@ -1,10 +1,9 @@
-import IconPack from "@components/IconPack";
 import { useBiscuitBox } from "@hooks/use-biscuit-box";
 import { Variables } from "@lib/types";
-import { Children, cloneElement, PropsWithChildren, ReactNode } from "react";
-import { VscChevronDown, VscChevronRight } from "react-icons/vsc";
+import { Children, cloneElement, PropsWithChildren } from "react";
 import { NodeProps } from ".";
 import Element from "../Element";
+import Icon from "@components/Icon";
 
 export interface TreeFolderProps extends NodeProps {
   defaultOpen?: boolean;
@@ -43,9 +42,9 @@ export default function TreeFolder({
         >
           <span className="inline-flex items-center justify-start">
             {isOpen ? (
-              <VscChevronDown size="16" className="mx-1" />
+              <Icon icon="VscChevronDown" size="16" className="mx-1" />
             ) : (
-              <VscChevronRight size="16" className="mx-1" />
+              <Icon icon="VscChevronRight" size="16" className="mx-1" />
             )}
             <Element
               as="span"

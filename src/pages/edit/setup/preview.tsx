@@ -2,13 +2,13 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { decode } from "@helpers/encoding";
 import Divider from "@components/Divider";
 import { Button } from "@components/Forms";
-import { VscGear } from "react-icons/vsc";
 import VSCode from "@components/VSCode";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
 import registry from "@lib/registry";
 import { useReducer, useState } from "react";
 import { SetupConfig } from "@lib/types";
 import { getAgent, UserAgentParser } from "@lib/detection";
+import Icon from "@components/Icon";
 
 export default function Preview({
   preview,
@@ -26,7 +26,7 @@ export default function Preview({
           <div className="flex justify-between items-center">
             <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
             <button className="p-1 rounded hover:bg-gray-600 text-gray-600 hover:text-gray-400 cursor-not-allowed">
-              <VscGear className="text-2xl" />
+              <Icon icon="VscGear" className="text-2xl" />
             </button>
           </div>
           <Divider color="bg-gray-700" />

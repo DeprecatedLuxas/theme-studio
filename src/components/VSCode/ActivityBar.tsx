@@ -1,12 +1,4 @@
-import {
-  VscFiles,
-  VscSearch,
-  VscSourceControl,
-  VscDebugAlt,
-  VscExtensions,
-  VscAccount,
-  VscGear,
-} from "react-icons/vsc";
+import Icon from "@components/Icon";
 import Element from "./Element";
 
 export default function ActivityBar() {
@@ -30,21 +22,21 @@ export default function ActivityBar() {
           className="flex justify-center items-center border-l-2 w-12.5 h-12.5 cursor-pointer relative"
           bind={["blc@activityBar.activeBorder"]}
         >
-          <VscFiles fontSize="24px" />
+          <Icon icon="VscFiles" size="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
-          <VscSearch fontSize="24px" />
+          <Icon icon="VscSearch" size="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
-          <VscSourceControl fontSize="24px" />
+          <Icon icon="VscSourceControl" size="24px" />
           <Element
             className="absolute w-4 h-4 text-center rounded-full select-none text-badge right-badge bottom-badge"
             bind={[
@@ -61,14 +53,14 @@ export default function ActivityBar() {
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
-          <VscDebugAlt fontSize="24px" />
+          <Icon icon="VscDebugAlt" size="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
-          <VscExtensions fontSize="24px" />
+          <Icon icon="VscExtensions" size="24px" />
         </Element>
       </div>
       <div>
@@ -77,14 +69,14 @@ export default function ActivityBar() {
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
-          <VscAccount fontSize="24px" />
+          <Icon icon="VscAccount" size="24px" />
         </Element>
         <Element
           className="flex justify-center items-center w-12.5 h-12.5 cursor-pointer relative"
           bind={["c@activityBar.inactiveForeground"]}
           onHover={["c@activityBar.foreground"]}
         >
-          <VscGear fontSize="24px" />
+          <Icon icon="VscGear" size="24px" />
         </Element>
       </div>
     </Element>

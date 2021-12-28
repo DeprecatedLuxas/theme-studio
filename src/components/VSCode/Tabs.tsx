@@ -2,17 +2,12 @@ import IconPack from "@components/IconPack";
 import { Nullable } from "@lib/types";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { useState } from "react";
-import {
-  VscEllipsis,
-  VscGitCompare,
-  VscSplitHorizontal,
-  VscClose,
-} from "react-icons/vsc";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import Element from "./Element";
+import Icon from "@components/Icon";
 
 export default function Tabs() {
-  const options = useRecoilValue(vscodeState);
+  // const options = useRecoilValue(vscodeState);
 
   const [hover, setHover] = useState<Nullable<"id" | "header">>(null);
 
@@ -50,7 +45,7 @@ export default function Tabs() {
                 className="rounded p-0.5"
                 bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
               >
-                <VscClose fontSize={"16"} />
+                <Icon icon="VscClose" fontSize={"16"} />
               </Element>
             </div>
           </div>
@@ -89,7 +84,7 @@ export default function Tabs() {
                   className="rounded p-0.5"
                   bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
                 >
-                  <VscClose fontSize={"16"} />
+                  <Icon icon="VscClose" fontSize={"16"} />
                 </Element>
               )}
             </div>
@@ -130,7 +125,7 @@ export default function Tabs() {
                   className="rounded p-0.5"
                   bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
                 >
-                  <VscClose fontSize={"16"} />
+                  <Icon icon="VscClose" fontSize={"16"} />
                 </Element>
               )}
             </div>
@@ -146,20 +141,20 @@ export default function Tabs() {
           className="h-5.5 w-5.5 flex items-center justify-center rounded-md mr-1"
           bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
         >
-          <VscGitCompare />
+          <Icon icon="VscGitCompare" />
         </Element>
         <Element
           className="h-5.5 w-5.5 flex items-center justify-center rounded-md mr-1"
           bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
         >
-          <VscSplitHorizontal />
+          <Icon icon="VscSplitHorizontal" />
         </Element>
 
         <Element
           className="h-5.5 w-5.5 flex items-center justify-center rounded-md mr-1"
           bind={["h:bg@toolbar.hoverBackground", "c@iconForeground"]}
         >
-          <VscEllipsis />
+          <Icon icon="VscEllipsis" />
         </Element>
       </Element>
     </Element>

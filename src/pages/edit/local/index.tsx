@@ -20,7 +20,6 @@ import useStorage from "@hooks/use-storage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
-import { VscGear } from "react-icons/vsc";
 import { encode } from "@helpers/encoding";
 import { getPropertyDifferences, __DEV__ } from "@lib/utils";
 import {
@@ -181,7 +180,7 @@ export default function Local({
               onClick={handleSettings}
               aria-label="Settings"
             >
-              <VscGear className="text-2xl" />
+              <Icon icon="VscGear" className="text-2xl" />
             </button>
           </div>
           <Divider color="bg-gray-700" />

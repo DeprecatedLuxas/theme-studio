@@ -1,12 +1,7 @@
 import Element from "./Element";
-import {
-  VscRemote,
-  VscSourceControl,
-  VscWarning,
-  VscError,
-} from "react-icons/vsc";
 import { useRecoilValue } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
+import Icon from "@components/Icon";
 
 const statusBarItems = ["Ln 3, Col 10", "Spaces 4", "UTF-8", "LF"];
 
@@ -39,7 +34,7 @@ export default function StatusBar() {
               "c@statusBarItem.remoteForeground",
             ]}
           >
-            <VscRemote fontSize="16px" />
+            <Icon icon="VscRemote" size="16px" />
           </Element>
         </Element>
 
@@ -50,7 +45,7 @@ export default function StatusBar() {
             "c@statusBar.foreground",
           ]}
         >
-          <VscSourceControl fontSize="16px" />
+          <Icon icon="VscSourceControl" size="16px" />
           <span className="select-none">{options.branch}</span>
         </Element>
 
@@ -61,9 +56,9 @@ export default function StatusBar() {
             "c@statusBar.foreground",
           ]}
         >
-          <VscError fontSize="16px" />
+          <Icon icon="VscError" size="16px" />
           <span className="mx-1 select-none">0</span>
-          <VscWarning fontSize="16px" />
+          <Icon icon="VscWarning" size="16px" />
           <span className="ml-1 select-none">0</span>
         </Element>
       </div>

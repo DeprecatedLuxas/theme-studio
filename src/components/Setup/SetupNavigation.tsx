@@ -1,8 +1,8 @@
-import { VscFeedback, VscOpenPreview } from "react-icons/vsc";
 import Link from "next/link";
 import windy from "@helpers/windy";
 import { SetupConfig } from "@lib/types";
 import { encode } from "@helpers/encoding";
+import Icon from "@components/Icon";
 
 const SetupButton = windy.button`
   text-left
@@ -52,7 +52,7 @@ export default function SetupNavigation({
             target="_blank"
             className="flex items-center bg-blue-700 rounded w-full px-2 py-1 text-white font-roboto mb-2"
           >
-            <VscOpenPreview className="mr-3" />
+            <Icon icon="VscOpenPreview" className="mr-3" />
             Preview
           </a>
         </Link>
@@ -65,7 +65,7 @@ export default function SetupNavigation({
             rel="noopener"
             className="flex items-center bg-blue-700 rounded w-full px-2 py-1 text-white font-roboto"
           >
-            <VscFeedback className="mr-3" />
+            <Icon icon="VscFeedback" className="mr-3" />
             Feedback
           </a>
         </Link>
