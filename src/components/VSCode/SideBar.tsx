@@ -51,7 +51,7 @@ export default function SideBar() {
         ]}
       >
         <Icon icon="VscChevronDown" className="mx-0.5 text-base" />
-        <Element as="span">{vscode.name}</Element>
+        <span>{vscode.name}</span>
       </Element>
       <div className="flex-1">
         {/*       <FileTree /> */}
@@ -158,7 +158,7 @@ export default function SideBar() {
         ]}
       >
         <Icon icon="VscChevronRight" className="mx-0.5 text-base" />
-        <Element as="span">outline</Element>
+        <span>outline</span>
       </Element>
       <Element
         className="uppercase flex border-t justify-start items-center h-5.5 cursor-pointer text-11px font-bold select-none"
@@ -169,7 +169,7 @@ export default function SideBar() {
         ]}
       >
         <Icon icon="VscChevronRight" className="mx-0.5 text-base" />
-        <Element as="span">open editors</Element>
+        <span>open editors</span>
       </Element>
     </Element>
   );

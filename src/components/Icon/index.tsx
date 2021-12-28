@@ -9,7 +9,7 @@ import { SVGAttributes } from "react";
 import { AriaRole } from "react";
 import Codicons from "./Codicons";
 import FontAwesome from "./FontAwesome";
-
+import axios from "axios";
 export interface IconProps extends SVGAttributes<SVGElement> {
   icon?: Icons;
   from?: string;
@@ -46,13 +46,15 @@ export default function Icon({
   ...props
 }: IconProps) {
   if (!icon && !from) return null;
+
   const provider = getIconProvider(icon);
   if (!provider) return null;
+
   if (!label && __DEV__) {
     console.warn("Icon component: label is not defined.");
   }
 
-  const iconObject = getIconsFromProvider(provider, icon!);
+  const iconObject =getIconsFromProvider(provider!, icon!);
   const iconSize = size || iconObject?.attributes.size || "1em";
 
   return (

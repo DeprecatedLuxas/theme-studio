@@ -2,6 +2,7 @@ import Element from "./Element";
 import { useRecoilValue } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
 import Icon from "@components/Icon";
+import Image from "next/image";
 
 export default function Breadcrumbs() {
   const vscode = useRecoilValue(vscodeState);
@@ -15,7 +16,11 @@ export default function Breadcrumbs() {
     >
       {path.map((item, idx) => (
         <div key={`breadcrumb-${idx}`} className="inline-block">
-          {idx === path.length - 1 && <Icon icon="FaPalette" />}
+          {/* {idx === path.length - 1 && <Icon from="
+          /api/icon/typescript" />} */}
+          {idx === path.length - 1 && (
+            <Image src="/api/icon/typescript" width="20" height="20" alt="test" />
+          )}
           <span>{item}</span>
           {idx !== path.length - 1 && (
             <Icon icon="VscChevronRight" className="inline-block" />

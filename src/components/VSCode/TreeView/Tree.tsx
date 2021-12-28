@@ -24,18 +24,6 @@ function parseFiles(files: Array<TreeViewItem>) {
         </Folder>
       );
     return <File key={`file-${name}-${idx}`} name={name} />;
-    // return (
-    //   <File
-    //     key={name}
-    //     name={name}
-    //     type={type}
-    //     level={file.level}
-    //     status={status}
-    //     active={file.active}
-    //     decoration={decoration}
-    //     decorationIcon={decorationIcon}
-    //   />
-    // );
   });
 }
 

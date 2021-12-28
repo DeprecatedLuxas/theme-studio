@@ -2,6 +2,7 @@ import IconPack from "@components/IconPack";
 import { NodeProps } from ".";
 import { Variables } from "@lib/types";
 import Element from "../Element";
+import Image from "next/image";
 
 export interface FileProps extends NodeProps {}
 
@@ -9,7 +10,7 @@ export default function File({
   name,
   level = 0,
   decoration,
-  decorationIcon = false
+  decorationIcon = false,
 }: FileProps) {
   const indent: string | undefined = level === 0 ? "24" : undefined;
   const bindings: Variables[] = [
@@ -40,10 +41,16 @@ export default function File({
       >
         <span className="inline-flex items-center justify-start">
           <span className="w-4 h-4 mr-1.5">
+            <Image
+              src="/api/icon/typescript"
+              width="20"
+              height="20"
+              alt="test"
+            />
           </span>
           {name}
         </span>
-        {status === "modified" && (
+        {/* {status === "modified" && (
           <span className="mr-4 h-5.5 flex items-center justify-center w-3">
             M
           </span>
@@ -52,7 +59,7 @@ export default function File({
           <span className="mr-4 h-5.5 flex items-center justify-center w-3">
             U
           </span>
-        )}
+        )} */}
       </div>
     </Element>
   );
