@@ -27,7 +27,7 @@ export default function File({
   // }
 
   /* if (active) bindings.push("bg@list.activeSelectionBackground") */
-  const twistieIndent = level === 0 ? 8 : level * 8;
+  const twistieIndent = level === 0 ? 8 : level * 10;
 
   return (
     <Element
@@ -38,15 +38,14 @@ export default function File({
       <div className="flex h-full items-center">
         <div
           className="h-full pointer-events-none"
-          data-indent={`${level * 8}px`}
-          style={{ width: `${level * 8}px` }}
+          style={{ width: `${level * 10}px` }}
         />
         <div
           className="pr-1.5 w-4 flex items-center justify-center translate-x-[3px] h-full flex-shrink-0"
           style={{
             paddingLeft: `${twistieIndent}px`,
           }}
-        ></div>
+        />
         <div className="flex-1">
           <div className="flex overflow-ellipsis">
             <Image
@@ -55,7 +54,7 @@ export default function File({
               height="22"
               alt={`${name} icon`}
             />
-            <div className="min-w-0 flex-1 pl-1.5">
+            <div className="min-w-0 flex-1 ml-1.5">
               <span>{name}</span>
               {/* <span></span> */}
             </div>

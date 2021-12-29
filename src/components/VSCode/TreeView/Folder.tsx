@@ -42,19 +42,18 @@ export default function Folder({
         <div className="flex h-full items-center">
           <div
             className="h-full pointer-events-none"
-            data-indent={`${level * 8}px`}
             style={{ width: `${level * 8}px` }}
           />
           <div
-            className="pr-1.5 w-4 flex items-center justify-center translate-x-[3px] h-full flex-shrink-0"
+            className="pr-1.5 flex items-center justify-center translate-x-[3px] h-full flex-shrink-0"
             style={{
               paddingLeft: `${twistieIndent}px`,
             }}
           >
             {isOpen ? (
-              <Icon icon="VscChevronDown" />
+              <Icon icon="VscChevronDown" size="16px" />
             ) : (
-              <Icon icon="VscChevronRight" />
+              <Icon icon="VscChevronRight" size="16px" />
             )}
           </div>
           <div className="flex-1">
@@ -65,7 +64,7 @@ export default function Folder({
                 height="22"
                 alt={`${name} icon`}
               />
-              <div className="min-w-0 flex-1 pl-1.5">
+              <div className="min-w-0 flex-1 ml-1.5">
                 <span>{name}</span>
                 {/* <span></span> */}
               </div>
