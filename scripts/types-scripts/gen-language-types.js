@@ -3,7 +3,7 @@
   const axios = require("axios");
 
 
-  const data = await (await axios.get("http://localhost:8080/languages")).data;
+  const data = await (await axios.get("http://104.248.169.204:8080/languages")).data;
 
 
   const languages = Object.keys(data);

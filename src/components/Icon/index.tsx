@@ -9,7 +9,6 @@ import { SVGAttributes } from "react";
 import { AriaRole } from "react";
 import Codicons from "./Codicons";
 import FontAwesome from "./FontAwesome";
-import axios from "axios";
 export interface IconProps extends SVGAttributes<SVGElement> {
   icon?: Icons;
   from?: string;
