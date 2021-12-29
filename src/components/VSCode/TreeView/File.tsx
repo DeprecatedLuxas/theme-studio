@@ -18,48 +18,49 @@ export default function File({
     "h:c@list.hoverForeground",
   ];
 
-  if (status !== "") {
-    if (status === "modified") {
-      bindings.push("c@gitDecoration.modifiedResourceForeground");
-    } else {
-      bindings.push("c@gitDecoration.untrackedResourceForeground");
-    }
-  }
+  // if (status !== "") {
+  //   if (status === "modified") {
+  //     bindings.push("c@gitDecoration.modifiedResourceForeground");
+  //   } else {
+  //     bindings.push("c@gitDecoration.untrackedResourceForeground");
+  //   }
+  // }
 
   /* if (active) bindings.push("bg@list.activeSelectionBackground") */
+  const twistieIndent = level === 0 ? 8 : level * 8;
 
   return (
     <Element
-      className="flex justify-start items-center h-5.5 cursor-pointer pl-3 text-13px"
-      bind={bindings}
+      className="h-5.5 pl-1 leading-5.5 cursor-pointer text-[13px]"
+      role="treeitem"
+      aria-label={name}
     >
-      <div
-        className="flex justify-between items-center w-full"
-        style={{
-          marginLeft: `${indent || (level > 2 ? level * 19 : level * 22)}px`,
-        }}
-      >
-        <span className="inline-flex items-center justify-start">
-          <span className="w-4 h-4 mr-1.5">
+      <div className="flex h-full items-center">
+        <div
+          className="h-full pointer-events-none"
+          data-indent={`${level * 8}px`}
+          style={{ width: `${level * 8}px` }}
+        />
+        <div
+          className="pr-1.5 w-4 flex items-center justify-center translate-x-[3px] h-full flex-shrink-0"
+          style={{
+            paddingLeft: `${twistieIndent}px`,
+          }}
+        ></div>
+        <div className="flex-1">
+          <div className="flex overflow-ellipsis">
             <Image
               src="/api/icon/typescript"
-              width="20"
-              height="20"
-              alt="test"
+              width="16"
+              height="22"
+              alt={`${name} icon`}
             />
-          </span>
-          {name}
-        </span>
-        {/* {status === "modified" && (
-          <span className="mr-4 h-5.5 flex items-center justify-center w-3">
-            M
-          </span>
-        )}
-        {status === "untracked" && (
-          <span className="mr-4 h-5.5 flex items-center justify-center w-3">
-            U
-          </span>
-        )} */}
+            <div className="min-w-0 flex-1 pl-1.5">
+              <span>{name}</span>
+              {/* <span></span> */}
+            </div>
+          </div>
+        </div>
       </div>
     </Element>
   );

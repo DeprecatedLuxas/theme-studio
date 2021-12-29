@@ -33,5 +33,5 @@ export interface TreeProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function Tree({ files, children, ...props }: TreeProps) {
   const childs = files && files.length > 0 ? parseFiles(files) : children;
-  return <div {...props}>{childs}</div>;
+  return <div role="tree" {...props}>{childs}</div>;
 }
