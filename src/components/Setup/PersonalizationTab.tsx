@@ -33,7 +33,7 @@ export default function PersonalizationTab() {
 
   return (
     <div className="flex flex-col">
-      <h1 className="font-roboto mb-4 text-3xl font-semibold">
+      <h1 className="font-roboto mb-4 text-3xl">
         Personalization
       </h1>
       <section>

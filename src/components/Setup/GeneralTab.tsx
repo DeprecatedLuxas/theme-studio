@@ -38,7 +38,7 @@ export default function GeneralTab() {
 
   return (
     <div>
-      <h1 className="font-roboto mb-4 text-3xl font-semibold">General</h1>
+      <h1 className="font-roboto mb-4 text-3xl">General</h1>
       <section className="mb-8 h-16">
         <h2>Theme Name</h2>
         <Input
