@@ -1,4 +1,4 @@
-import EditorHelper from "@helpers/editor";
+import EditorHelper from "@helpers/editor-helper";
 import { SetupConfig } from "@lib/types";
 import { atom } from "recoil";
 

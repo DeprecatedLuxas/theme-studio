@@ -31,3 +31,7 @@ export function isBrowser(): boolean {
 export function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
 }
+
+export function getFileExtension(fileName: string) {
+  return fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2);
+}

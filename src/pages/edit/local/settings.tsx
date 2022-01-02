@@ -2,7 +2,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import useStorage from "@hooks/use-storage";
-import EditorHelper from "@helpers/editor";
+import EditorHelper from "@helpers/editor-helper";
 import Navigation from "@components/Editor/Settings/Navigation";
 import { useCallback, useEffect, useState } from "react";
 import useIsMounted from "@hooks/use-is-mounted";

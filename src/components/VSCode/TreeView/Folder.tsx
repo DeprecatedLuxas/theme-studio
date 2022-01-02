@@ -7,6 +7,7 @@ import { NodeProps } from ".";
 import Element from "../Element";
 import Image from "next/image";
 import windy from "@helpers/windy";
+import IconHelper from "@helpers/icon-helper";
 
 export interface FolderProps extends NodeProps {
   // defaultOpen?: boolean;
@@ -16,6 +17,7 @@ export default function Folder({
   name,
   children,
   level = 0,
+  type,
 }: PropsWithChildren<FolderProps>) {
   const { isOpen } = useBiscuitBox({
     isOpen: (children && Children.count(children) > 0) || false,
@@ -31,7 +33,15 @@ export default function Folder({
   //     bindings.push("c@gitDecoration.untrackedResourceForeground");
   //   }
   // }
-  const iconPath = isOpen ? "/api/icon/folder-open" : "/api/icon/folder";
+
+
+
+  const icon = IconHelper.getIcon(name, "", true);
+  
+  const iconPath = isOpen ? icon + "/true" : icon + "/false";
+  
+  console.log(encodeURIComponent(iconPath));
+  
   return (
     <>
       <Element

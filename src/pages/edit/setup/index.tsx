@@ -7,7 +7,7 @@ import {
   GeneralTab,
   PersonalizationTab,
 } from "@components/Setup";
-import EditorHelper from "@helpers/editor";
+import EditorHelper from "@helpers/editor-helper";
 import useStorage from "@hooks/use-storage";
 import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";

@@ -10,7 +10,7 @@ import { useRecoilState } from "recoil";
 import { vscodeState } from "@recoil/atoms/vscode";
 import { useEffect } from "react";
 import { ThemeStorage, TreeViewActiveItem, TreeViewItem } from "@lib/types";
-import EditorHelper from "@helpers/editor";
+import EditorHelper from "@helpers/editor-helper";
 
 export interface VSCodeProps {
   storage?: ThemeStorage;
@@ -31,11 +31,12 @@ export default function VSCode({
   language,
   name,
 }: VSCodeProps) {
-  const { options: storageOptions } = storage;
+  const { options: storageOptions, type } = storage;
   const [options, setOptions] = useRecoilState(vscodeState);
 
   useEffect(() => {
     setOptions({
+      type: type || "dark",
       sidebarPlacement: sidebarPlacement || storage.options?.sidebar || "left",
       name: name || storage.options?.repo || "vscode-theme-studio",
       branch: branch || storageOptions?.branch || "main",

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
 import { useCallback, useEffect, useReducer } from "react";
-import EditorHelper from "@helpers/editor";
+import EditorHelper from "@helpers/editor-helper";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
 import Divider from "@components/Divider";

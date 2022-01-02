@@ -1,8 +1,9 @@
-import EditorHelper from "@helpers/editor";
-import { TreeViewActiveItem, TreeViewItem } from "@lib/types";
+import EditorHelper from "@helpers/editor-helper";
+import { ThemeType, TreeViewActiveItem, TreeViewItem } from "@lib/types";
 import { atom } from "recoil";
 
 type IVSCode = {
+  type: ThemeType;
   sidebarPlacement: "left" | "right";
   name: string;
   files: Array<TreeViewItem>;
@@ -14,6 +15,7 @@ type IVSCode = {
 export const vscodeState = atom<IVSCode>({
   key: "vscodeState",
   default: {
+    type: "dark",
     sidebarPlacement: "left",
     name: "vscode-theme-studio",
     files: EditorHelper.getDefaultFiles(),

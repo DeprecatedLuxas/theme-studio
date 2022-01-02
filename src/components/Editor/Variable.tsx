@@ -1,4 +1,4 @@
-import EditorHelper from "@helpers/editor";
+import EditorHelper from "@helpers/editor-helper";
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
 import {

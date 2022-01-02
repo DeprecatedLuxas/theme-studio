@@ -1,5 +1,4 @@
-import { GitDecorations } from "@lib/types";
-
+import { GitDecorations, ThemeType } from "@lib/types";
 
 export interface NodeProps {
   name: string;
@@ -9,6 +8,7 @@ export interface NodeProps {
   // active?: boolean;
   decoration?: GitDecorations;
   decorationIcon?: boolean;
+  type?: ThemeType;
 }
 
 export { default as Tree } from "./Tree";

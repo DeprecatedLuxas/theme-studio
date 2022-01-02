@@ -49,9 +49,10 @@ export default function Icon({
   const provider = getIconProvider(icon);
   if (!provider) return null;
 
-  if (!label && __DEV__) {
-    console.warn("Icon component: label is not defined.");
-  }
+  // Very spammy.
+  // if (!label && __DEV__) {
+  //   console.warn("Icon component: label is not defined.");
+  // }
 
   const iconObject =getIconsFromProvider(provider!, icon!);
   const iconSize = size || iconObject?.attributes.size || "1em";

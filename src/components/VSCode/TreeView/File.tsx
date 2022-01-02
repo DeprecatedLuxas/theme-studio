@@ -3,6 +3,8 @@ import { NodeProps } from ".";
 import { Variables } from "@lib/types";
 import Element from "../Element";
 import Image from "next/image";
+import IconHelper from "@helpers/icon-helper";
+import { getFileExtension } from "@lib/utils";
 
 export interface FileProps extends NodeProps {}
 
@@ -12,7 +14,6 @@ export default function File({
   decoration,
   decorationIcon = false,
 }: FileProps) {
-  const indent: string | undefined = level === 0 ? "24" : undefined;
   const bindings: Variables[] = [
     "h:bg@list.hoverBackground",
     "h:c@list.hoverForeground",
@@ -25,13 +26,17 @@ export default function File({
   //     bindings.push("c@gitDecoration.untrackedResourceForeground");
   //   }
   // }
-
   /* if (active) bindings.push("bg@list.activeSelectionBackground") */
   const twistieIndent = level === 0 ? 8 : level * 10;
-
+  const icon = IconHelper.getIcon(name, getFileExtension(name), false);
+  console.log("icon", icon);
+  
+  console.log(encodeURIComponent(icon));
+  
+  // const iconPath = isOpen ? icon + "/true" : icon + "/false";
   return (
     <Element
-      className="h-5.5 pl-1 leading-5.5 cursor-pointer text-[13px]"
+      className="h-5.5 pl-1 leading-5.5 cursor-pointer text-[13px] select-none"
       role="treeitem"
       aria-label={name}
     >
@@ -49,7 +54,7 @@ export default function File({
         <div className="flex-1">
           <div className="flex overflow-ellipsis">
             <Image
-              src="/api/icon/typescript"
+              src={icon}
               width="16"
               height="22"
               alt={`${name} icon`}

@@ -79,6 +79,8 @@ export default class EditorHelper {
       iconPath: file.iconPath,
     };
   }
+
+
 }
 
 // Taken from stackoverflow, not sure if it's the best way to do this
