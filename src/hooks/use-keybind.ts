@@ -1,8 +1,14 @@
 import { Arrayable, Keybind } from "@lib/types";
+import { KeyModifiers } from "@lib/keybinds";
 import useEventListener from "./use-event-listener";
 
 function handle(event: KeyboardEvent, keybind: Keybind) {
   if (event.defaultPrevented) return;
+
+  const hasModifier = keybind.keys.some(key => KeyModifiers.has(key)) || false;
+
+  
+
 
   keybind.exec(event);
 }
