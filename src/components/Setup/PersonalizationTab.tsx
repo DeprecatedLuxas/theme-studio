@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 import { setupState } from "@recoil/atoms/setup";
-import Select, { ActionMeta, SingleValue } from "react-select";
+import Select, { SingleValue } from "react-select";
 import { useCallback } from "react";
 import { SideBarPlacement } from "@lib/types";
 
@@ -11,10 +11,6 @@ export default function PersonalizationTab() {
   const handleSidebarChange = useCallback(
     (
       option: SingleValue<{
-        value: SideBarPlacement;
-        label: string;
-      }>,
-      actionMeta: ActionMeta<{
         value: SideBarPlacement;
         label: string;
       }>
@@ -54,6 +50,7 @@ export default function PersonalizationTab() {
           />
         </section>
       </section>
+      
 
     </div>
   );
