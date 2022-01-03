@@ -27,7 +27,9 @@ export default function Home({
           </Link>
         ) : (
           <p className="py-2 px-2 bg-red-700 text-white font-bold rounded w-max cursor-not-allowed select-none">
-            {isValidAgent ? "Your device is not supported." : "Problem while trying to get your user agent."}
+            {isValidAgent
+              ? "Your device is not supported."
+              : "Problem while trying to get your user agent."}
           </p>
         )}
       </div>
@@ -39,7 +41,6 @@ export default function Home({
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const userAgent = UserAgentParser.parse(getAgent(ctx.req));
   const isMobileAgent = userAgent.device === "mobile";
-
 
   return {
     props: {

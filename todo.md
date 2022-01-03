@@ -6,6 +6,7 @@
     > This way, we can probably make it more easy to use presets?
 - [ ] Add popover component.
 - [ ] Fix VariableGroup, to only allow one group open at a time.
+- [ ] Look into adding a code analysis to the content, so we can tell what is what
 - [ ] Add a better color picker to theme editor (Requires Popover component)
 - [ ] Clean up tailwind config (Look into tailwind-classnames and tailwind jit engine).
 - [ ] VSCode Extension to test themes in a working environment.
