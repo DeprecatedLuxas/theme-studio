@@ -1,4 +1,5 @@
 # Major Changes
+- [ ] Add better config system (Dynamic & kinda the way vscode does it with extensions)
 - [ ] Improve performance
 - [ ] Add a better way to handle theme registry
     > Maybe something like having the default files, and load them on server
