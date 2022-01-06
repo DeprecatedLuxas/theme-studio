@@ -19,6 +19,14 @@
     - [ ] Like the browser (Select and Element in browser to highlight)
     - [ ] Scope Inspector ([VSCode Docs](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#scope-inspector))
 - [ ] Fix Java Api, to handle presets, icons and clone from repository.
+  - [x] Presets
+  - [ ] Icons
+    - [ ] Custom Icons
+    - [ ] Normal Icons
+  - [ ] Clone
+    - [ ] GitHub
+    - [ ] GitLab
+ 
 - [ ] Add browsing page, to browse themes.
 - [ ] Complete the toVSCFormat function.
 - [ ] Add api to themes

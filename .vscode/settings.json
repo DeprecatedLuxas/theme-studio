@@ -1,11 +1,3 @@
 {
-  "files.associations": {
-    "*.tstudio": "json"
-  },
-  "json.schemas": [
-    {
-      "fileMatch": ["/*.tstudio"],
-      "url": "./schemas/tstudio-schema.json"
-    }
-  ]
+  "extensions.ignoreRecommendations": false
 }
