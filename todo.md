@@ -11,8 +11,9 @@
 - [ ] Add a better color picker to theme editor (Requires Popover component)
 - [ ] Clean up tailwind config (Look into tailwind-classnames and tailwind jit engine).
 - [ ] VSCode Extension to test themes in a working environment.
-- [ ] Add LocalStorageFormatWarning when localStorage doesn't have the correct format as the current save format.
-- [ ] Add suppot for multiple themes in local editor.
+- [ ] Add LocalStorageFormatWarning when localStorage doesn't have the correct format as the current save format.  
+~~Add suppot for multiple themes in local editor.~~
+  > Will remove the hole purpose of creating a account.
 - [ ] Add keybinds to local
 - [ ] Add command palette
   - [ ] Commands
