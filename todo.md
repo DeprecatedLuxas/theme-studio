@@ -26,7 +26,7 @@
     - [x] Normal Icons
   - [ ] Clone
     - [ ] GitHub
-    - [ ] GitLab (Scapped for now)
+    - [ ] GitLab (Scrapped for now)
  
 - [ ] Add browsing page, to browse themes.
 - [ ] Complete the toVSCFormat function.
