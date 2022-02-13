@@ -1,0 +1,90 @@
+{
+  "bg@sideBar.background": {
+    "variable": "sideBar.background",
+    "group": {
+      "dark": "#252526",
+      "light": "#f3f3f3",
+      "hc": "#000000"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar background color. The side bar is the container for views like explorer and search."
+  },
+  "c@sideBar.foreground": {
+    "variable": "sideBar.foreground",
+    "group": {
+      "dark": "@foreground",
+      "light": "@foreground",
+      "hc": "@foreground"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar foreground color. The side bar is the container for views like explorer and search."
+  },
+  "brc@sideBar.border": {
+    "variable": "sideBar.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "@constrastBorder"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar border color on the side separating to the editor. The side bar is the container for views like explorer and search."
+  },
+  "c@sideBarTitle.foreground": {
+    "variable": "sideBarTitle.foreground",
+    "group": {
+      "dark": "#bbbbbb",
+      "light": "#6f6f6f",
+      "hc": "@sideBar.foreground"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar title foreground color. The side bar is the container for views like explorer and search."
+  },
+  "bg@sideBar.dropBackground": {
+    "variable": "sideBar.dropBackground",
+    "group": {
+      "dark": "@editorGroup.dropBackground",
+      "light": "@editorGroup.dropBackground",
+      "hc": "@editorGroup.dropBackground"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Drag and drop feedback color for the side bar sections. The color should have transparency so that the side bar sections can still shine through. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar."
+  },
+  "bg@sideBarSectionHeader.background": {
+    "variable": "sideBarSectionHeader.background",
+    "group": {
+      "dark": "#00000000",
+      "light": "#00000000",
+      "hc": null
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar."
+  },
+  "c@sideBarSectionHeader.foreground": {
+    "variable": "sideBarSectionHeader.foreground",
+    "group": {
+      "dark": "@sideBar.foreground",
+      "light": "@sideBar.foreground",
+      "hc": "@sideBar.foreground"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar."
+  },
+  "btc@sideBarSectionHeader.border": {
+    "variable": "sideBarSectionHeader.border",
+    "group": {
+      "dark": "#cccccc33",
+      "light": "#61616130",
+      "hc": "@contrastBorder"
+    },
+    "category": "Side Bar",
+    "tab": "palette",
+    "description": "Side bar section header border color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar."
+  }
+}

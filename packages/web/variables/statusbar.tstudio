@@ -1,0 +1,229 @@
+{
+  "bg@statusBar.background": {
+    "variable": "statusBar.background",
+    "group": {
+      "dark": "#007ACC",
+      "light": "#007ACC",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window."
+  },
+  "c@statusBar.foreground": {
+    "variable": "statusBar.foreground",
+    "group": {
+      "dark": "#ffffff",
+      "light": "#ffffff",
+      "hc": "#ffffff"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar foreground color when a workspace or folder is opened. The status bar is shown in the bottom of the window."
+  },
+  "bc@statusBar.border": {
+    "variable": "statusBar.border",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "@contrastBorder"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window."
+  },
+  "c@statusBar.noFolderForeground": {
+    "variable": "statusBar.noFolderForeground",
+    "group": {
+      "dark": "@statusBar.foreground",
+      "light": "@statusBar.foreground",
+      "hc": "@statusBar.foreground"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
+    "action": "NoFolder"
+  },
+  "bg@statusBar.noFolderBackground": {
+    "variable": "statusBar.noFolderBackground",
+    "group": {
+      "dark": "#68217A",
+      "light": "#68217A",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
+    "action": "NoFolder"
+  },
+  "bc@statusBar.noFolderBorder": {
+    "variable": "statusBar.noFolderBorder",
+    "group": {
+      "dark": "@statusBar.border",
+      "light": "@statusBar.border",
+      "hc": "@statusBar.border"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window.",
+    "action": "NoFolder"
+  },
+  "bg@statusBar.debuggingBackground": {
+    "variable": "statusBar.debuggingBackground",
+    "group": {
+      "dark": "#CC6633",
+      "light": "#CC6633",
+      "hc": "#CC6633"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window",
+    "action": "Debugging"
+  },
+  "c@statusBar.debuggingForeground": {
+    "variable": "statusBar.debuggingForeground",
+    "group": {
+      "dark": "@statusBar.foreground",
+      "light": "@statusBar.foreground",
+      "hc": "@statusBar.foreground"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar foreground color when a program is being debugged. The status bar is shown in the bottom of the window",
+    "action": "Debugging"
+  },
+  "bc@statusBar.debuggingBorder": {
+    "variable": "statusBar.debuggingBorder",
+    "group": {
+      "dark": "@statusBar.border",
+      "light": "@statusBar.border",
+      "hc": "@statusBar.border"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar border color separating to the sidebar and editor when a program is being debugged. The status bar is shown in the bottom of the window",
+    "action": "Debugging"
+  },
+  "bg@statusBarItem.activeBackground": {
+    "variable": "statusBarItem.activeBackground",
+    "group": {
+      "dark": "@transparent(#ffffff, 0.18)",
+      "light": "@transparent(#ffffff, 0.18)",
+      "hc": "@transparent(#ffffff, 0.18)"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar item background color when clicking. The status bar is shown in the bottom of the window."
+  },
+  "bg@statusBarItem.hoverBackground": {
+    "variable": "statusBarItem.hoverBackground",
+    "group": {
+      "dark": "@transparent(#ffffff, 0.12)",
+      "light": "@transparent(#ffffff, 0.12)",
+      "hc": "@transparent(#ffffff, 0.12)"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "hover": true,
+    "description": "Status bar item background color when hovering. The status bar is shown in the bottom of the window."
+  },
+  "c@statusBarItem.prominentForeground": {
+    "variable": "statusBarItem.prominentForeground",
+    "group": {
+      "dark": "@statusBar.foreground",
+      "light": "@statusBar.foreground",
+      "hc": "@statusBar.foreground"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window."
+  },
+  "bg@statusBarItem.prominentBackground": {
+    "variable": "statusBarItem.prominentBackground",
+    "group": {
+      "dark": "@transparent(#000000, 0.5)",
+      "light": "@transparent(#000000, 0.5)",
+      "hc": "@transparent(#000000, 0.5)"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window."
+  },
+  "bg@statusBarItem.prominentHoverBackground": {
+    "variable": "statusBarItem.prominentHoverBackground",
+    "group": {
+      "dark": "@transparent(#000000, 0.3)",
+      "light": "@transparent(#000000, 0.3)",
+      "hc": "@transparent(#000000, 0.3)"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window."
+  },
+  "bg@statusBarItem.errorBackground": {
+    "variable": "statusBarItem.errorBackground",
+    "group": {
+      "dark": "@darken(@errorForeground, 0.4)",
+      "light": "#c72e0f",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window."
+  },
+  "c@statusBarItem.errorForeground": {
+    "variable": "statusBarItem.errorForeground",
+    "group": {
+      "dark": "#ffffff",
+      "light": "#ffffff",
+      "hc": "#ffffff"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window."
+  },
+  "bg@statusBarItem.warningBackground": {
+    "variable": "statusBarItem.warningBackground",
+    "group": {
+      "dark": "@darken(@editorWarning.foreground, 0.4)",
+      "light": "@darken(@editorWarning.foreground, 0.4)",
+      "hc": null
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window."
+  },
+  "c@statusBarItem.warningForeground": {
+    "variable": "statusBarItem.warningForeground",
+    "group": {
+      "dark": "#ffffff",
+      "light": "#ffffff",
+      "hc": "#ffffff"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window."
+  },
+  "bg@statusBarItem.remoteBackground": {
+    "variable": "statusBarItem.remoteBackground",
+    "group": {
+      "dark": "#16825D",
+      "light": "#16825D",
+      "hc": "#00000000"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Background color for the remote indicator on the status bar."
+  },
+  "c@statusBarItem.remoteForeground": {
+    "variable": "statusBarItem.remoteForeground",
+    "group": {
+      "dark": "#FFFFFF",
+      "light": "#FFFFFF",
+      "hc": "#FFFFFF"
+    },
+    "tab": "palette",
+    "category": "Status Bar",
+    "description": "Foreground color for the remote indicator on the status bar."
+  }
+}

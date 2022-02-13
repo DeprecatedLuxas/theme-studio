@@ -1,0 +1,108 @@
+[
+  {
+    "type": "dir",
+    "name": "node_modules",
+    "iconPath": "",
+    "openIconPath": ""
+  },
+  {
+    "type": "dir",
+    "name": "public",
+    "iconPath": "",
+    "openIconPath": ""
+  },
+  {
+    "type": "dir",
+    "name": "src",
+    "children": [
+      {
+        "type": "dir",
+        "name": "components",
+        "children": [
+          {
+            "type": "file",
+            "name": "Header.tsx",
+            "extensions": "tsx",
+            "iconPath": ""
+          },
+          {
+            "type": "file",
+            "name": "Footer.tsx",
+            "extensions": "tsx",
+            "iconPath": ""
+          }
+        ],
+        "iconPath": "",
+        "openIconPath": ""
+      },
+      {
+        "type": "dir",
+        "name": "pages",
+        "children": [
+          {
+            "type": "dir",
+            "name": "api",
+            "children": [
+              {
+                "type": "file",
+                "name": "[id].ts",
+                "extensions": "ts",
+                "iconPath": ""
+              }
+            ],
+            "iconPath": "",
+            "openIconPath": ""
+          },
+          {
+            "type": "file",
+            "name": "index.tsx",
+            "extensions": "tsx",
+            "iconPath": "",
+            "active": true,
+            "path": "src/pages/index.tsx"
+          },
+          {
+            "type": "file",
+            "name": "browse.tsx",
+            "extensions": "tsx",
+            "iconPath": ""
+          },
+          {
+            "type": "file",
+            "name": "_app.tsx",
+            "extensions": "tsx",
+            "iconPath": ""
+          }
+        ],
+        "iconPath": "",
+        "openIconPath": ""
+      }
+    ],
+    "iconPath": "",
+    "openIconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "next.config.js",
+    "extensions": "js",
+    "iconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "package.json",
+    "extensions": "json",
+    "iconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "tsconfig.json",
+    "extensions": "json",
+    "iconPath": ""
+  },
+  {
+    "type": "file",
+    "name": "yarn.lock",
+    "extensions": "lock",
+    "iconPath": ""
+  }
+]
