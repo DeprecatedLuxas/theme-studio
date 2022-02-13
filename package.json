@@ -1,9 +1,17 @@
 {
-  "name": "theme-studio",
   "private": true,
-  "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/DeprecatedLuxas/theme-studio.git",
-  "author": "DeprecatedLuxas <lucasmathias65@icloud.com>",
-  "license": "MIT"
+  "author": "DeprecatedLuxas <lucasnrgaard@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "^1.1.2"
+  }
 }
