@@ -15,7 +15,7 @@ import {
 import tinycolor from "tinycolor2";
 import Validation from "./validation";
 import VariableSchema from "@schemas/tstudio-schema.json";
-import { colorNames } from "./color-names";
+import { colorNames } from "@theme-studio/core";
 
 import baseVars from "@variables/base.tstudio";
 import activityBarVars from "@variables/activitybar.tstudio";
@@ -73,6 +73,8 @@ class Registry implements IRegistry {
   readonly placeholderColor = tinycolor("hotpink").toHex8String();
 
   register(key: string, variable: Variable): void {
+    console.log(colorNames[0]);
+    
     const isValid = Validation.validate(
       {
         [key]: variable,

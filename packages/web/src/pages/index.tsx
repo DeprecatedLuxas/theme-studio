@@ -4,6 +4,7 @@ import Link from "next/link";
 import Badge from "@components/Badge";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { UserAgentParser, getAgent } from "@lib/detection";
+import { Button } from "@theme-studio/ui";
 
 export default function Home({
   isMobileAgent,
@@ -33,6 +34,7 @@ export default function Home({
           </p>
         )}
       </div>
+      <Button />
       <Footer />
     </div>
   );
