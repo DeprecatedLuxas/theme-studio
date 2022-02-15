@@ -1,0 +1,11 @@
+object VARIABLE "activityBarBadge.foreground" {
+  place       @Place       "c"
+  group       @ColorGroup {
+    dark      @Color       "white"
+    light     @Color       "white"
+    hc        @Color       "white"
+  }
+  tab         @Tab         "palette"
+  category    @Category    "Activity Bar"
+  description @Description "Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar."
+}

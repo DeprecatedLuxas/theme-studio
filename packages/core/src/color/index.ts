@@ -1,1 +1,2 @@
-export * from "./color-names";
+export * from "./browser-color-names";
+
