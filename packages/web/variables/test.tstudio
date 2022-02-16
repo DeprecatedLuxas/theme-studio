@@ -9,3 +9,8 @@ object VARIABLE "activityBarBadge.foreground" {
   category    @Category    "Activity Bar"
   description @Description "Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar."
 }
+
+object OVERWRITE "" {
+
+}
+

@@ -159,7 +159,7 @@ export default function Local({
       })
     );
     router.push(
-      `vscode://lucasnorgaard.vscode-theme-studio-visualizer?theme=${encoded}`
+      `vscode://lucasnorgaard.vscode-theme-studio?theme=${encoded}`
     );
   };
 
