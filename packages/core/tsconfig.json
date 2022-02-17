@@ -15,11 +15,7 @@
     "strict": true,
     "target": "ES6",
     "lib": ["ES2015", "DOM"],
-    "module": "ESNext",
-    "baseUrl": ".",
-    "paths": {
-      "@types": ["src/types"]
-    }
+    "module": "ESNext"
   },
   "exclude": ["dist", "build", "node_modules"]
 }

@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 
 const withPlugins = require("next-compose-plugins");
-const withTM = require("next-transpile-modules")(["@theme-studio/ui", "@theme-studio/core"]);
+const withTM = require("next-transpile-modules")([
+  "@theme-studio/ui",
+  "@theme-studio/core",
+]);
 
 module.exports = withPlugins([withTM], {
   reactStrictMode: true,
@@ -11,6 +14,15 @@ module.exports = withPlugins([withTM], {
       loader: "json-loader",
     });
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: "/edit",
+        destination: "/",
+        permanent: true,
+      },
+    ];
   },
   async rewrites() {
     return [

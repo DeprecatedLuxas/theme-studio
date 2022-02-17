@@ -26,13 +26,12 @@ import {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from "next/types";
-import { getAgent, UserAgentParser } from "@lib/detection";
+import { getAgent, UserAgentParser } from "@theme-studio/core";
 import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
 import Icon from "@components/Icon";
 
 export default function Local({
   isMobileAgent,
-  isValidAgent,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
@@ -119,13 +118,15 @@ export default function Local({
     return <MobileWarning />;
   }
 
-  if (!isValidAgent) {
-    return <UserAgentWarning />;
-  }
+  // if (!isValidAgent) {
+  //   return <UserAgentWarning />;
+  // }
 
   // If user is authenticated, redirect to homepage.
   if (user) router.push("/");
 
+
+  
   // TODO: Fix this, it renders the page before this pushes.
   // If the user doesn't have something in the storage, redirect to the setup page
   if (EditorHelper.compare(storage, EditorHelper.getFakeStorage())) {
@@ -158,9 +159,7 @@ export default function Local({
         type,
       })
     );
-    router.push(
-      `vscode://lucasnorgaard.vscode-theme-studio?theme=${encoded}`
-    );
+    router.push(`vscode://lucasnorgaard.vscode-theme-studio?theme=${encoded}`);
   };
 
   const handleSettings = () => {
@@ -289,8 +288,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   return {
     props: {
       isMobileAgent,
-      // This is a weird type of request? lmao
-      isValidAgent: userAgent.agent !== "",
     },
   };
 }

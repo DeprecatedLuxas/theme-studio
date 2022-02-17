@@ -1,4 +1,4 @@
-import type { NodeSize } from "@types";
+import type { NodeSize } from "../types";
 
 /**
  * Returns whether the window object is ready to use

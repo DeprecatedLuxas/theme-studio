@@ -218,7 +218,7 @@ export interface UserAgent {
 export interface IconAttributes {
   viewBox: string;
   size?: string;
-}
+}     
 
 export interface IconObject {
   attributes: IconAttributes;
