@@ -14,8 +14,12 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES6",
-    "lib": ["ES2015"],
-    "module": "ESNext"
+    "lib": ["ES2015", "DOM"],
+    "module": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "@types": ["src/types"]
+    }
   },
   "exclude": ["dist", "build", "node_modules"]
 }
