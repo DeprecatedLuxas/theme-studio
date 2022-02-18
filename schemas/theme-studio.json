@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "Theme Studio Schema",
+  "type": "object",
+  "properties": {
+    "model": {
+      "type": "string",
+      "enum": [
+        "variables",
+        "mappings",
+        "overwriting",
+        "icons",
+        "preset",
+        "extension"
+      ]
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "array",
+      "default": ["Other"],
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+
+  "required": ["model"],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "model": {
+            "const": "variables"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./theme-studio.variables.json"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "model": {
+            "const": "mappings"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./theme-studio.mappings.json"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "model": {
+            "const": "overwriting"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./theme-studio.overwriting.json"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "model": {
+            "const": "icons"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./theme-studio.icons.json"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "model": {
+            "const": "preset"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./theme-studio.preset.json"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "model": {
+            "const": "extension"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./theme-studio.extension.json"
+      }
+    }
+  ]
+}

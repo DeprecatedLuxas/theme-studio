@@ -1,0 +1,23 @@
+{
+  "model": "extension",
+  "description": "",
+  "icon": "",
+  "identifier": "",
+  "keywords": [],
+  "name": "",
+  "version": "",
+  "configuration": {
+    "commands": [
+      {
+        "command": "",
+        "title": ""
+      }
+    ],
+    "keybinds": [
+      {
+        "command": "",
+        "key": ""
+      }
+    ]
+  }
+}

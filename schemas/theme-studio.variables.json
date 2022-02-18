@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "Theme Studio Variables Schema",
+  "type": "object",
+  "properties": {
+    "test": {
+      "type": "string"
+    }
+  },
+  "required": ["test"]
+}
