@@ -8,5 +8,6 @@
       "fileMatch": ["/*.theme-studio"],
       "url": "/schemas/theme-studio.json"
     }
-  ]
+  ],
+  "vscode-theme-studio.update-browser-colors": "packages/core/src/color/browser-color-names.ts"
 }
