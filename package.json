@@ -14,5 +14,8 @@
   "devDependencies": {
     "turbo": "^1.1.2"
   },
-  "name": "theme-studio"
+  "name": "theme-studio",
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
 }
