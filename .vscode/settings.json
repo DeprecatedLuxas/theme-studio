@@ -36,5 +36,6 @@
     "vscode://schemas/workbench-colors",
     "vscode://schemas/workspaceConfig"
   ],
-  "vscode-theme-studio.schema-path": "schemas/vscode-schemas"
+  "vscode-theme-studio.schema-path": "schemas/vscode-schemas",
+  "vscode-theme-studio.development-mode": true
 }
