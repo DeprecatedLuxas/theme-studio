@@ -112,7 +112,7 @@ async function getIconPackReplacements() {
   }
 }
 
-function parse(data) {
+function write(data) {
   Object.keys(data).forEach((key) => {
     writeFile(
       join(mappingsDir, `${key}-mappings.json`),
@@ -129,5 +129,5 @@ function parse(data) {
   const replacements = await getIconPackReplacements();
   await getMappings(replacements);
 
-  parse(data);
+  write(data);
 })();
