@@ -1,5 +1,10 @@
 const axios = require("axios");
-const fs = require("fs");
+const { writeFile } = require("fs");
+const { dirname, join } = require("path");
+
+const rootDirname = dirname(__dirname);
+const mappingsDir = join(rootDirname, "packages/mappings/json");
+
 function indexOfStr(str, strr) {
   return str.indexOf(strr) + strr.length;
 }
@@ -12,20 +17,20 @@ const mappingObjects = [
     type: "FileIcons",
     replace: true,
   },
-  // {
-  //   url: "https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/src/icons/folderIcons.ts",
-  //   raw_name: "folder",
-  //   name: "folderIcons",
-  //   type: "FolderTheme[]",
-  //   replace: true,
-  // },
-  // {
-  //   url: "https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/src/icons/languageIcons.ts",
-  //   raw_name: "language",
-  //   name: "languageIcons",
-  //   type: "LanguageIcon[]",
-  //   replace: false,
-  // },
+  {
+    url: "https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/src/icons/folderIcons.ts",
+    raw_name: "folder",
+    name: "folderIcons",
+    type: "FolderTheme[]",
+    replace: true,
+  },
+  {
+    url: "https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/src/icons/languageIcons.ts",
+    raw_name: "language",
+    name: "languageIcons",
+    type: "LanguageIcon[]",
+    replace: false,
+  },
 ];
 
 const data = {};
@@ -42,13 +47,10 @@ async function getMappings(replacements) {
           replacements
         );
 
-        // fs.writeFileSync(
-        //   "./folderIcons.js",
-        //   "const folderIcons = " + mapping + "\n\nmodule.exports = folderIcons;"
-        // );
+        // not safe at all
+        const evalContent = eval(`const obj = ${mapping}; obj`);
 
-        console.log(typeof mapping);
-        data[raw_name] = mapping;
+        data[raw_name] = evalContent;
       } catch (e) {
         console.log(e);
       }
@@ -65,20 +67,18 @@ async function getMapping(url, name, type, replace, replacements) {
     );
 
     if (replace) {
+      content = content.replace(/\n/g, "");
       Object.keys(replacements).forEach((key) => {
         const regex = new RegExp(`IconPack.${key}`, "g");
         content = content.replace(regex, replacements[key]);
       });
     }
-    
 
     return content;
   } catch (error) {
     console.log(error);
   }
 }
-
-function parse() {}
 
 async function getIconPackReplacements() {
   const url =
@@ -112,11 +112,22 @@ async function getIconPackReplacements() {
   }
 }
 
+function parse(data) {
+  Object.keys(data).forEach((key) => {
+    writeFile(
+      join(mappingsDir, `${key}-mappings.json`),
+      JSON.stringify(data[key], null, 2),
+      (err) => {
+        if (err) throw err;
+        console.log(`${key}-mappings.json saved!`);
+      }
+    );
+  });
+}
+
 (async () => {
   const replacements = await getIconPackReplacements();
-  console.log(replacements);
   await getMappings(replacements);
 
-  // console.log(data);
-  fs.writeFileSync("./mappings.json", JSON.stringify(data));
+  parse(data);
 })();
