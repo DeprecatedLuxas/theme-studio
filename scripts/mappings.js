@@ -47,7 +47,7 @@ async function getMappings(replacements) {
           replacements
         );
 
-        // not safe at all
+        // not safe at all, find at better solution at some point.
         const evalContent = eval(`const obj = ${mapping}; obj`);
 
         data[raw_name] = evalContent;
