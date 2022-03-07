@@ -1,0 +1,57 @@
+{
+  "c@breadcrumb.foreground": {
+    "variable": "breadcrumb.foreground",
+    "group": {
+      "dark": "@transparent(@foreground, 0.8)",
+      "light": "@transparent(@foreground, 0.8)",
+      "hc": "@transparent(@foreground, 0.8)"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Color of focused breadcrumb items."
+  },
+  "bg@breadcrumb.background": {
+    "variable": "breadcrumb.background",
+    "group": {
+      "dark": "@editor.background",
+      "light": "@editor.background",
+      "hc": "@editor.background"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Background color of breadcrumb items."
+  },
+  "c@breadcrumb.focusForeground": {
+    "variable": "breadcrumb.focusForeground",
+    "group": {
+      "dark": "@lighten(@foreground, 0.1)",
+      "light": "@darken(@foreground, 0.2)",
+      "hc": "@lighten(@foreground, 0.1)"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Color of focused breadcrumb items."
+  },
+  "c@breadcrumb.activeSelectionForeground": {
+    "variable": "breadcrumb.activeSelectionForeground",
+    "group": {
+      "dark": "@lighten(@foreground, 0.1)",
+      "light": "@darken(@foreground, 0.2)",
+      "hc": "@lighten(@foreground, 0.1)"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Color of selected breadcrumb items."
+  },
+  "bg@breadcrumbPicker.background": {
+    "variable": "breadcrumbPicker.background",
+    "group": {
+      "dark": "@editorWidget.background",
+      "light": "@editorWidget.background",
+      "hc": "@editorWidget.background"
+    },
+    "tab": "palette",
+    "category": "Breadcrumbs",
+    "description": "Background color of breadcrumb item picker."
+  }
+}

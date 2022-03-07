@@ -4,7 +4,8 @@
   "author": "DeprecatedLuxas <lucasnrgaard@gmail.com>",
   "license": "MIT",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "build": "turbo run build",

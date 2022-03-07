@@ -1,0 +1,36 @@
+{
+  "bg@toolbar.hoverBackground": {
+    "variable": "toolbar.hoverBackground",
+    "group": {
+      "dark": "#5a5d5e50",
+      "light": "#b8b8b850",
+      "hc": null
+    },
+    "category": "Uncategorised",
+    "tab": "palette",
+    "description": "Toolbar background when hovering over actions using the mouse",
+    "hover": true
+  },
+  "bc@toolbar.hoverOutline": {
+    "variable": "toolbar.hoverOutline",
+    "group": {
+      "dark": null,
+      "light": null,
+      "hc": "@contrastActiveBorder"
+    },
+    "category": "Uncategorised",
+    "tab": "palette",
+    "description": "Toolbar outline when hovering over actions using the mouse"
+  },
+  "bg@toolbar.activeBackground": {
+    "variable": "toolbar.hoverBackground",
+    "group": {
+      "dark": "@lighten(@toolbar.hoverBackground, 0.1)",
+      "light": "@darken(@toolbar.hoverBackground, 0.1)",
+      "hc": null
+    },
+    "category": "Uncategorised",
+    "tab": "palette",
+    "description": "Toolbar background when holding the mouse over actions"
+  }
+}
