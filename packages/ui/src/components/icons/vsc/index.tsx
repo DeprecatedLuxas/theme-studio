@@ -1,1 +1,1 @@
-export const lom = "";
+export { WarningIcon } from "./Warning";
