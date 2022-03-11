@@ -1,0 +1,26 @@
+{
+  "model": "extension",
+  "identifier": "lucasnorgaard.ext-1",
+  "name": "EXT-1",
+  "keywords": [
+    "Test"
+  ],
+  "description": "A test extension",
+  "version": "0.0.0",
+  "icon": "",
+  "author": "Lucas Norgaard",
+  "configuration": {
+    "commands": [
+      {
+        "command": "test",
+        "title": "Test Command"
+      }
+    ],
+    "keybinds": [
+      {
+        "command": "test",
+        "key": "F1"
+      }
+    ]
+  }
+}

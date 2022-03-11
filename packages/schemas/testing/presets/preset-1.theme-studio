@@ -1,0 +1,13 @@
+{
+  "model": "preset",
+  "identifier": "lucasnorgaard.preset-1",
+  "name": "Preset 1",
+  "type": "dark",
+  "keywords": [
+    "Other"
+  ],
+  "description": "",
+  "version": "1.0.0",
+  "icon": "",
+  "author": "Lucas Norgaard"
+}

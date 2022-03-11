@@ -6,7 +6,7 @@
   "json.schemas": [
     {
       "fileMatch": ["/*.theme-studio"],
-      "url": "/schemas/theme-studio.json"
+      "url": "/packages/schemas/schemas/theme-studio.json"
     }
   ],
   "vscode-theme-studio.update-browser-colors": "packages/core/src/color/browser-color-names.ts",
@@ -36,6 +36,6 @@
     "vscode://schemas/workbench-colors",
     "vscode://schemas/workspaceConfig"
   ],
-  "vscode-theme-studio.schema-path": "schemas/vscode-schemas",
+  "vscode-theme-studio.schema-path": "packages/schemas/schemas/vscode-schemas",
   "vscode-theme-studio.development-mode": true
 }
