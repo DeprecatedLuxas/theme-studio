@@ -4,3 +4,4 @@ export * from "./dom";
 export * from "./detection";
 export * from "./version";
 export * from "./icons";
+export * from "./webbie";
