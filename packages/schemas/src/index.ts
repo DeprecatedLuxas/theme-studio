@@ -1,0 +1,1 @@
+export { default as ThemeStudioSchema } from '../schemas/theme-studio.json';
