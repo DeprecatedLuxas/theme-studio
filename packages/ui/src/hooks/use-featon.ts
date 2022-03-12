@@ -1,12 +1,19 @@
-import { FeatonOptions } from "@theme-studio/core";
+import {
+  featon,
+  FeatonOptions,
+  PartialRecord,
+  FeatonFeatures,
+} from "@theme-studio/core";
+import { useEffect, useState } from "react";
 
-type UseFeatonResult = {
-  supported: boolean;
-};
+type UseFeatonResult = PartialRecord<FeatonFeatures, boolean>;
 
-export function useFeaton({}: FeatonOptions): UseFeatonResult {
+export function useFeaton({ features }: FeatonOptions): UseFeatonResult {
+  const [supported, setSupported] = useState<UseFeatonResult>({});
 
-  return {
-    supported: false,
-  };
+  useEffect(() => {
+    setSupported(featon.check(features));
+  }, []);
+
+  return supported;
 }

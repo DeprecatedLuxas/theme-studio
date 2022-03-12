@@ -1,16 +1,15 @@
 import { FeatonFeatures } from "../featon/featon-features";
+import { Arrayable } from "./base";
 
 export interface FeatonFeature {
   type: FeatonFeatures;
-  runner: FeatonFeatureRunner;
+  runner: () => boolean;
 }
 
-export type FeatonFeatureRunner = boolean | (() => boolean);
 
-export interface FeatonDetectionOptions {}
-
-export interface CustomFeatonDetectionOptions {}
-
-export type FeatonOptions =
-  | CustomFeatonDetectionOptions
-  | FeatonDetectionOptions;
+export interface FeatonOptions {
+  /**
+   * The features to check.
+   */
+  features: Array<FeatonFeatures>;
+}
