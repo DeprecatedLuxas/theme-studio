@@ -18,5 +18,6 @@
   "name": "theme-studio",
   "dependencies": {
     "axios": "^0.26.0"
-  }
+  },
+  "packageManager": "yarn@1.22.17"
 }

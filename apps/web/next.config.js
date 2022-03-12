@@ -13,7 +13,7 @@ module.exports = withPlugins([withTM], {
     },
   },
   reactStrictMode: true,
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.tstudio$/,
       loader: "json-loader",
