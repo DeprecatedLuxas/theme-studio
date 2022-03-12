@@ -1,6 +1,9 @@
 import { WebbieStorage } from ".";
 
 export class LocalStorage extends WebbieStorage {
+  isSupported(): boolean {
+    throw new Error("Method not implemented.");
+  }
   getItem<T>(key: string): Promise<T> {
     throw new Error("Method not implemented.");
   }

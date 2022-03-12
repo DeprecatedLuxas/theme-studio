@@ -1,6 +1,9 @@
 import { WebbieStorage } from ".";
 
 export class SessionStorage extends WebbieStorage {
+  isSupported(): boolean {
+    throw new Error("Method not implemented.");
+  }
   getItem<T>(key: string): Promise<T> {
     throw new Error("Method not implemented.");
   }
@@ -19,4 +22,5 @@ export class SessionStorage extends WebbieStorage {
   keys(): Promise<string[]> {
     throw new Error("Method not implemented.");
   }
+
 }

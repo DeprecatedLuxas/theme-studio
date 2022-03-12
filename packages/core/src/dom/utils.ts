@@ -1,4 +1,4 @@
-import type { NodeSize } from "../types";
+import type { NodeSize, Nullable } from "../types";
 
 /**
  * Returns whether the window object is ready to use
@@ -62,4 +62,13 @@ export function getNodeWidth(node: HTMLElement): number {
   const leftBorder = getNodePx(node, "border-left-width");
   const rightBorder = getNodePx(node, "border-right-width");
   return node.clientWidth + leftBorder + rightBorder;
+}
+
+/**
+ * Gets the current active element from the document.
+ * @returns the active html element or null
+ */
+export function getActiveElement(): Nullable<HTMLElement> {
+  if (!isBrowser()) return null;
+  return document.activeElement as HTMLElement;
 }
