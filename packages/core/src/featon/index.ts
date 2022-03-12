@@ -5,6 +5,7 @@ import {
   FeatonWorker,
   FeatonLocalStorage,
   FeatonSessionStorage,
+  FeatonIndexedDB,
 } from "./features";
 
 class Featon {
@@ -22,6 +23,9 @@ class Featon {
   check(
     features: Array<FeatonFeatures>
   ): PartialRecord<FeatonFeatures, boolean> {
+    console.log(this.registeredFeatures);
+    console.log(features);
+
     return features.reduce(
       (acc, feature) => ({
         ...acc,
@@ -44,5 +48,6 @@ featon.register(FeatonFetch);
 featon.register(FeatonWorker);
 featon.register(FeatonLocalStorage);
 featon.register(FeatonSessionStorage);
+featon.register(FeatonIndexedDB);
 
 export { featon, FeatonFeatures };

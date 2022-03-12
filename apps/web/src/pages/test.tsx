@@ -3,12 +3,13 @@ import { useFeaton } from "@theme-studio/ui";
 import { useEffect } from "react";
 
 export default function Test() {
-  const { fetch, localStorage, sessionStorage, webWorker } = useFeaton({
+  const { fetch, localStorage, sessionStorage, webWorker, indexeddb } = useFeaton({
     features: [
       FeatonFeatures.FETCH,
       FeatonFeatures.LOCAL_STORAGE,
       FeatonFeatures.SESSION_STORAGE,
       FeatonFeatures.WEB_WORKER,
+      FeatonFeatures.INDEXED,
     ],
   });
   useEffect(() => {
@@ -21,6 +22,7 @@ export default function Test() {
       <p>{JSON.stringify(localStorage)}</p>
       <p>{JSON.stringify(sessionStorage)}</p>
       <p>{JSON.stringify(webWorker)}</p>
+      <p>{JSON.stringify(indexeddb)}</p>
     </div>
   );
 }
