@@ -16,6 +16,10 @@ class Featon {
   }
 
   register(feature: FeatonFeature) {
+    if (this.registeredFeatures.has(feature.type)) {
+      console.error(`Feature ${feature.type} already registered, skipping`);
+      return;
+    }
     console.log(`Registering featon for: ${feature.type}`);
     this.registeredFeatures.set(feature.type, feature);
   }
