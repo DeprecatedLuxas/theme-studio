@@ -1,1 +1,1 @@
-export { WarningIcon } from "./Warning";
+export { WarningIcon } from "./warning";
