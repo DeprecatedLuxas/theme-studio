@@ -7,8 +7,13 @@ const withTM = require("next-transpile-modules")([
 ]);
 
 module.exports = withPlugins([withTM], {
+  compiler: {
+    removeConsole: {
+      exclude: ["error"],
+    },
+  },
   reactStrictMode: true,
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.tstudio$/,
       loader: "json-loader",

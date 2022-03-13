@@ -11,3 +11,6 @@ export type IgnoreCase<T extends string> = string extends T
 export type Nullable<T> = T | null;
 export type Arrayable<T> = T | T[];
 export type Undefinable<T> = T | undefined;
+export type PartialRecord<K extends string | number | symbol, T> = {
+  [P in K]?: T;
+};

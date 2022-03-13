@@ -7,6 +7,7 @@ import { UserAgentParser, getAgent } from "@lib/detection";
 import {
   Button,
   CodeIcon,
+  Badge as B,
   Icon,
   KeyboardIcon,
   PaletteIcon,
@@ -17,10 +18,11 @@ export default function Home({
   isValidAgent,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <div className="min-h-screen h-auto dark:bg-gray-700 flex flex-col">
+    <div className="min-h-screen h-auto dark:bg-gray-700 bg-white bg-red-600 flex flex-col">
       <Header />
       <div className="max-w-screen-xl w-full mx-auto flex-1 px-10 md:px-20 py-20 md:py-36">
         <Badge className="mb-2 select-none">Beta v0.0.1</Badge>
+        <B className="mb-2 select-none">Beta v0.0.1</B>
         <h1 className="text-gray-900 dark:text-white font-roboto text-6xl font-extrabold mb-12 select-none">
           Powerful VSCode
           <br />

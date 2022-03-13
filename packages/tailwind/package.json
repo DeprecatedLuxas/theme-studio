@@ -1,0 +1,10 @@
+{
+  "name": "@theme-studio/tailwind",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "tailwind.config.js",
+    "postcss.config.js"
+  ]
+}
