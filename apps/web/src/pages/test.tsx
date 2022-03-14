@@ -10,7 +10,8 @@ export default function Test({}: InferGetServerSidePropsType<
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const agent = userion.parse(getAgentString(ctx.req), {
-    detections: [UserionDetections.DEVICE, UserionDetections.OS],
+    detections: [UserionDetections.DEVICE],
+    useMedia: false,
   });
   console.log(agent);
 

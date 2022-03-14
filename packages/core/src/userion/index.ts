@@ -6,6 +6,7 @@ import { UserionDeviceDetection } from "./detection";
 
 const defaultUserionOptions: UserionOptions = {
   detections: [UserionDetections.DEVICE],
+  useMedia: false,
 };
 
 class Userion {
@@ -34,27 +35,55 @@ class Userion {
     agent: string | null,
     options: UserionOptions = defaultUserionOptions
   ): UserionAgent {
-    const { detections } = options;
+    const { detections, useMedia } = options;
 
     if (!agent) return this.UNKNOWN_AGENT;
 
     const browser = isBrowser();
-    if (detections.includes(UserionDetections.MEDIA) && !browser) {
+    if (useMedia && !browser) {
       throw new Error("Media detection is only supported in browser");
     }
 
-    console.log(options);
 
     const userionAgent: UserionAgent = {
       agent,
-      device: "Unknown",
-      os: "Unknown",
     };
+
+    detections.forEach((detection) => {
+      const detector = this.registeredDetectors.get(detection);
+      if (!detector) {
+        console.error(`No detector found for ${detection}`);
+        return;
+      }
+
+      userionAgent[detection] = this.detect(detector, browser);
+    });
+
 
     return userionAgent;
   }
 
-  detect() {}
+  detect(detection: UserionDetection, browser: boolean = false): string {
+    const { type, checks } = detection;
+
+    const checksLength = checks.length;
+    
+    let i = 0;
+
+    // const agentsLength = deviceAgents.length;
+    // let i = 0;
+    // let match: RegExpExecArray | null = null;
+
+    // while (i < agentsLength && !match) {
+    //   const regex = deviceAgents[i];
+    //   match = regex.exec(userAgent);
+
+    //   i++;
+    // }
+
+    // match ? "mobile" : "desktop",
+    return "";
+  }
 
   // check(
   //   features: Array<FeatonFeatures>
