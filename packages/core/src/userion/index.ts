@@ -56,49 +56,31 @@ class Userion {
         return;
       }
 
-      userionAgent[detection] = this.detect(detector, browser);
+      userionAgent[detection] = this.detect(agent, detector, browser);
     });
 
 
     return userionAgent;
   }
 
-  detect(detection: UserionDetection, browser: boolean = false): string {
+  detect(agent: string, detection: UserionDetection, browser: boolean = false): string {
     const { type, checks } = detection;
 
     const checksLength = checks.length;
     
     let i = 0;
 
-    // const agentsLength = deviceAgents.length;
-    // let i = 0;
-    // let match: RegExpExecArray | null = null;
+    let match: RegExpExecArray | null = null;
 
-    // while (i < agentsLength && !match) {
-    //   const regex = deviceAgents[i];
-    //   match = regex.exec(userAgent);
+    while (i < checksLength && !match) {
+      const regex = checks[i];
+      match = regex.exec(agent);
+      i++;
+    }
 
-    //   i++;
-    // }
-
-    // match ? "mobile" : "desktop",
-    return "";
+    return match ? "mobile" : "desktop"; 
   }
 
-  // check(
-  //   features: Array<FeatonFeatures>
-  // ): PartialRecord<FeatonFeatures, boolean> {
-  //   console.log(this.registeredFeatures);
-  //   console.log(features);
-
-  //   return features.reduce(
-  //     (acc, feature) => ({
-  //       ...acc,
-  //       [feature]: this.run(this.registeredFeatures.get(feature)!),
-  //     }),
-  //     {}
-  //   );
-  // }
 }
 
 const userion = new Userion();
