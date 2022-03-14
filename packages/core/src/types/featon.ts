@@ -1,11 +1,9 @@
 import { FeatonFeatures } from "../featon/featon-features";
-import { Arrayable } from "./base";
 
 export interface FeatonFeature {
   type: FeatonFeatures;
   runner: () => boolean;
 }
-
 
 export interface FeatonOptions {
   /**

@@ -17,5 +17,5 @@
     "lib": ["ES2015", "DOM"],
     "module": "ESNext"
   },
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules", "tests"]
 }

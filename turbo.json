@@ -11,6 +11,10 @@
     },
     "clean": {
       "cache": false
+    },
+    "test": {
+      "outputs": [],
+      "dependsOn": ["build"]
     }
   }
 }
