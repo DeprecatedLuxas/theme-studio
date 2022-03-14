@@ -1,5 +1,5 @@
 import { IncomingMessage } from "http";
-import { isBrowser } from "../dom";
+import { isBrowser } from "../utils";
 import { UserionOptions, UserionAgent, UserionDetection } from "../types";
 import { UserionDetections } from "./userion-detections";
 import { UserionDeviceDetection } from "./detection";
@@ -90,8 +90,7 @@ class Userion {
     }
 
     const deviceMatch = match ? "mobile" : "desktop";
-    
-    
+
     if (deviceMatch === "mobile" && !matchedMedia) {
       return "mobile";
     }
