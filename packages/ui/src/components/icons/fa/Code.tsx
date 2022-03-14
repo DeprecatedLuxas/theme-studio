@@ -1,6 +1,6 @@
 import { IconObject } from "@theme-studio/core";
 
-export const CodeIcon: IconObject = {
+export const FaCodeIcon: IconObject = {
   credit:
     "Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.",
   viewBox: "0 0 640 512",

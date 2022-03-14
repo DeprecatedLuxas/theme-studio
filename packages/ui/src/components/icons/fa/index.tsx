@@ -1,3 +1,3 @@
-export { KeyboardIcon } from "./Keyboard";
-export { CodeIcon } from "./Code";
-export { PaletteIcon } from "./Palette";
+export { FaKeyboardIcon } from "./Keyboard";
+export { FaCodeIcon } from "./Code";
+export { FaPaletteIcon } from "./Palette";

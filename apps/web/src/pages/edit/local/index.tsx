@@ -26,7 +26,7 @@ import {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from "next/types";
-import { getAgent, UserAgentParser } from "@theme-studio/core";
+import { getAgent, UserAgentParser } from "@lib/detection";
 import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
 import Icon from "@components/Icon";
 
@@ -125,8 +125,6 @@ export default function Local({
   // If user is authenticated, redirect to homepage.
   if (user) router.push("/");
 
-
-  
   // TODO: Fix this, it renders the page before this pushes.
   // If the user doesn't have something in the storage, redirect to the setup page
   if (EditorHelper.compare(storage, EditorHelper.getFakeStorage())) {

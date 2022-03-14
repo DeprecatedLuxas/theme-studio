@@ -18,7 +18,6 @@ class Userion {
   private UNKNOWN_AGENT: UserionAgent = {
     agent: "",
     device: "Unknown",
-    os: "Unknown",
   };
 
   constructor() {
@@ -91,22 +90,23 @@ class Userion {
     }
 
     const deviceMatch = match ? "mobile" : "desktop";
-
-    if (deviceMatch === "mobile" && matchedMedia) {
+    
+    
+    if (deviceMatch === "mobile" && !matchedMedia) {
       return "mobile";
     }
 
     // Probably a desktop device with a mobile user agent
-    if (deviceMatch === "mobile" && !matchedMedia) {
+    if (deviceMatch === "mobile" && matchedMedia) {
       return "desktop";
     }
 
     // Probably spoofed or desktop screen is really small.
-    if (deviceMatch === "desktop" && matchedMedia) {
+    if (deviceMatch === "desktop" && !matchedMedia) {
       return "mobile";
     }
 
-    if (deviceMatch === "desktop" && !matchedMedia) {
+    if (deviceMatch === "desktop" && matchedMedia) {
       return "desktop";
     }
 
@@ -126,4 +126,4 @@ userion.register(UserionDeviceDetection);
 const getAgentString = (req: IncomingMessage): string | null =>
   req.headers["user-agent"] || null;
 
-export { userion, getAgentString };
+export { userion, getAgentString, UserionDetections };

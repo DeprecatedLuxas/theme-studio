@@ -1,6 +1,6 @@
 import { IconObject } from "@theme-studio/core";
 
-export const KeyboardIcon: IconObject = {
+export const FaKeyboardIcon: IconObject = {
   credit:
     "Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.",
   viewBox: "0 0 576 512",
