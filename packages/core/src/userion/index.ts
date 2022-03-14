@@ -9,6 +9,9 @@ const defaultUserionOptions: UserionOptions = {
   useMedia: false,
 };
 
+// TailwindCSS Small Screen Breakpoint
+const MEDIA_MATCH = "(min-width: 640px)";
+
 class Userion {
   private registeredDetectors: Map<UserionDetections, UserionDetection>;
 
@@ -32,7 +35,7 @@ class Userion {
   }
 
   parse(
-    agent: string | null,
+    agent?: string,
     options: UserionOptions = defaultUserionOptions
   ): UserionAgent {
     const { detections, useMedia } = options;
@@ -43,7 +46,6 @@ class Userion {
     if (useMedia && !browser) {
       throw new Error("Media detection is only supported in browser");
     }
-
 
     const userionAgent: UserionAgent = {
       agent,
@@ -56,18 +58,28 @@ class Userion {
         return;
       }
 
-      userionAgent[detection] = this.detect(agent, detector, browser);
+      userionAgent[detection] = this.detect(agent, detector, options, browser);
     });
-
 
     return userionAgent;
   }
 
-  detect(agent: string, detection: UserionDetection, browser: boolean = false): string {
+  // TODO: Clean this up.
+  detect(
+    agent: string,
+    detection: UserionDetection,
+    options: UserionOptions,
+    browser: boolean = false
+  ): string {
     const { type, checks } = detection;
-
+    const { useMedia } = options;
     const checksLength = checks.length;
-    
+    let matchedMedia = false;
+    if (type === UserionDetections.DEVICE && browser && useMedia) {
+      const mediaMatch = window.matchMedia(MEDIA_MATCH);
+      matchedMedia = mediaMatch.matches;
+    }
+
     let i = 0;
 
     let match: RegExpExecArray | null = null;
@@ -78,9 +90,28 @@ class Userion {
       i++;
     }
 
-    return match ? "mobile" : "desktop"; 
-  }
+    const deviceMatch = match ? "mobile" : "desktop";
 
+    if (deviceMatch === "mobile" && matchedMedia) {
+      return "mobile";
+    }
+
+    // Probably a desktop device with a mobile user agent
+    if (deviceMatch === "mobile" && !matchedMedia) {
+      return "desktop";
+    }
+
+    // Probably spoofed or desktop screen is really small.
+    if (deviceMatch === "desktop" && matchedMedia) {
+      return "mobile";
+    }
+
+    if (deviceMatch === "desktop" && !matchedMedia) {
+      return "desktop";
+    }
+
+    return deviceMatch;
+  }
 }
 
 const userion = new Userion();

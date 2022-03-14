@@ -2,7 +2,6 @@ import { UserionDetections } from "../userion/userion-detections";
 
 export interface UserionAgent {
   agent: string;
-  os?: string;
   device?: string;
 }
 
