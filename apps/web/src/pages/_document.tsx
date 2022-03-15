@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
           />
           <meta
             name="description"
-            content="VSCode Theme Studio is the most powerful editor to create VSCode Themes. It's a editor based in the browsers for Visual Studio Code Themes."
+            content="Theme Studio is the most powerful editor to create VSCode Themes. It's a editor based in the browsers for Visual Studio Code Themes."
           />
         </Head>
         <body>
