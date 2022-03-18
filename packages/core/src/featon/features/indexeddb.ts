@@ -1,7 +1,5 @@
 import { FeatonFeatures } from "../featon-features";
 
-
-// TODO: After this is done, IndexedDB still shows a db, but it's empty or glitched somehow?.
 export const FeatonIndexedDB = {
   type: FeatonFeatures.INDEXED,
   runner: () => {
@@ -9,21 +7,29 @@ export const FeatonIndexedDB = {
     if (!indexed) {
       return false;
     }
-    const dbName = "featon-" + Math.random();
+
+    const dbName = "__featon-" + Math.random();
+
     let supported: boolean = true;
 
     const idbReq = indexed.open(dbName);
 
     idbReq.onerror = () => {
-      if (idbReq.error && idbReq.error.name === "InvalidStateError") {
+      if (
+        idbReq.error &&
+        (idbReq.error.name === "InvalidStateError" ||
+          idbReq.error.name === "UnknownError")
+      ) {
         supported = false;
       } else {
         supported = true;
+        if (idbReq.result && idbReq.result.close) idbReq.result.close();
       }
     };
 
     idbReq.onsuccess = () => {
       supported = true;
+      idbReq.result.close();
     };
 
     if (supported) {

@@ -27,9 +27,6 @@ class Featon {
   check(
     features: Array<FeatonFeatures>
   ): PartialRecord<FeatonFeatures, boolean> {
-    console.log(this.registeredFeatures);
-    console.log(features);
-
     return features.reduce(
       (acc, feature) => ({
         ...acc,
@@ -40,9 +37,7 @@ class Featon {
   }
 
   private run(feature: FeatonFeature) {
-    return typeof feature.runner === "function"
-      ? feature.runner()
-      : feature.runner;
+    return feature.runner();
   }
 }
 
