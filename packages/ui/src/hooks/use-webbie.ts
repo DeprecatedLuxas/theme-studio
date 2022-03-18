@@ -11,6 +11,6 @@ type UseWebbieResult = {
 
 export function useWebbie(): UseWebbieResult {
   return {
-    type: StorageType.NULL,
+    type: StorageType.NONE,
   };
 }
