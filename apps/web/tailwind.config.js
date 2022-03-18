@@ -1,1 +1,1 @@
-module.exports = require("@theme-studio/tailwind/tailwind.config");
+module.exports = require("@theme-studio/config/tailwind/tailwind.config");
