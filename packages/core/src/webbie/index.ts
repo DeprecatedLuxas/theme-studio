@@ -1,2 +1,2 @@
 export * from "./webbie";
-export * from "./storage-type"
+export * from "./webbie-storage"

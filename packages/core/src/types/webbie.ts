@@ -1,17 +1,25 @@
-import { StorageType } from "../webbie";
+import { WebbieStorage } from "../webbie";
 
 export interface WebbieConfig {
   /**
    * The storage type to use.
    * @see {@link priority}
    */
-  type: StorageType;
+  type: WebbieStorage;
+
   /**
    * Priority to use when storing data.
-   * If IndexedDB is not supported, use the next in the list.
-   *
-   * If priority is not defined, the storage disables
-   * when its not supported.
+   * If first is not supported, use the next in the list.
+   * 
+   * Exclude the {@link type} from this list.
    */
-  priority?: Array<StorageType>;
+  priority?: Array<WebbieStorage>;
+
+  /**
+   * The name of the database to use.
+   * 
+   * @default "webbie-{UUID}"
+   */
+  name?: string;
+
 }

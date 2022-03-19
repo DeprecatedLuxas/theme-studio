@@ -1,4 +1,4 @@
-export enum StorageType {
+export enum WebbieStorage {
   LOCAL = "local",
   SESSION = "session",
   INDEXED = "indexedDB",

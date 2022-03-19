@@ -5,7 +5,4 @@ export class Webbie {
     this.options = options;
   }
 
-  static instance(options: WebbieConfig) {
-    return new Webbie(options);
-  }
 }
