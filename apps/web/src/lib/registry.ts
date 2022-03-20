@@ -17,22 +17,22 @@ import Validation from "./validation";
 import VariableSchema from "@schemas/tstudio-schema.json";
 import { BrowserColorNames } from "@theme-studio/core";
 
-import baseVars from "@variables/base.tstudio";
-import activityBarVars from "@variables/activitybar.tstudio";
-import titleBarVars from "@variables/titlebar.tstudio";
-import statusBarVars from "@variables/statusbar.tstudio";
-import menuBarVars from "@variables/menubar.tstudio";
-import gitVars from "@variables/git.tstudio";
-import sideBarVars from "@variables/sidebar.tstudio";
-import tabsVars from "@variables/tabs.tstudio";
-import toolbarVars from "@variables/toolbar.tstudio";
-import editorVars from "@variables/editor.tstudio";
-import breadcrumbsVar from "@variables/breadcrumbs.tstudio";
-import treeVars from "@variables/tree.tstudio";
-import listVars from "@variables/list.tstudio";
-import inputVars from "@variables/input.tstudio";
-import editorGroupVars from "@variables/editorgroup.tstudio";
-import buttonVars from "@variables/button.tstudio";
+import baseVars from "@variables/base.json";
+import activityBarVars from "@variables/activitybar.json";
+import titleBarVars from "@variables/titlebar.json";
+import statusBarVars from "@variables/statusbar.json";
+import menuBarVars from "@variables/menubar.json";
+import gitVars from "@variables/git.json";
+import sideBarVars from "@variables/sidebar.json";
+import tabsVars from "@variables/tabs.json";
+import toolbarVars from "@variables/toolbar.json";
+import editorVars from "@variables/editor.json";
+import breadcrumbsVar from "@variables/breadcrumbs.json";
+import treeVars from "@variables/tree.json";
+import listVars from "@variables/list.json";
+import inputVars from "@variables/input.json";
+import editorGroupVars from "@variables/editorgroup.json";
+import buttonVars from "@variables/button.json";
 
 enum Functions {
   TRANSPARENT = "transparent",
@@ -124,7 +124,11 @@ class Registry implements IRegistry {
         newGroup[key] = this.placeholderColor;
       }
 
-      if (Object.keys(BrowserColorNames).map((browserColorName) => browserColorName.toLowerCase()).includes(newGroup[key])) {
+      if (
+        Object.keys(BrowserColorNames)
+          .map((browserColorName) => browserColorName.toLowerCase())
+          .includes(newGroup[key])
+      ) {
         newGroup[key] = tinycolor(newGroup[key]).toHex8String();
       }
 
@@ -292,21 +296,21 @@ class Registry implements IRegistry {
 
 const registry = new Registry();
 
-registry.registerFile(baseVars);
-registry.registerFile(editorVars);
-registry.registerFile(activityBarVars);
-registry.registerFile(titleBarVars);
-registry.registerFile(statusBarVars);
-registry.registerFile(menuBarVars);
-registry.registerFile(gitVars);
-registry.registerFile(sideBarVars);
-registry.registerFile(tabsVars);
-registry.registerFile(toolbarVars);
-registry.registerFile(breadcrumbsVar);
-registry.registerFile(treeVars);
-registry.registerFile(listVars);
-registry.registerFile(inputVars);
-registry.registerFile(editorGroupVars);
-registry.registerFile(buttonVars);
+registry.registerFile(<Record<string, Variable>>baseVars);
+registry.registerFile(<Record<string, Variable>>editorVars);
+registry.registerFile(<Record<string, Variable>>activityBarVars);
+registry.registerFile(<Record<string, Variable>>titleBarVars);
+registry.registerFile(<Record<string, Variable>>statusBarVars);
+registry.registerFile(<Record<string, Variable>>menuBarVars);
+registry.registerFile(<Record<string, Variable>>gitVars);
+registry.registerFile(<Record<string, Variable>>sideBarVars);
+registry.registerFile(<Record<string, Variable>>tabsVars);
+registry.registerFile(<Record<string, Variable>>toolbarVars);
+registry.registerFile(<Record<string, Variable>>breadcrumbsVar);
+registry.registerFile(<Record<string, Variable>>treeVars);
+registry.registerFile(<Record<string, Variable>>listVars);
+registry.registerFile(<Record<string, Variable>>inputVars);
+registry.registerFile(<Record<string, Variable>>editorGroupVars);
+registry.registerFile(<Record<string, Variable>>buttonVars);
 
 export default registry;
