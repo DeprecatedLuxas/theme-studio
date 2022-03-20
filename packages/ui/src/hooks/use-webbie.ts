@@ -9,10 +9,7 @@ type UseWebbieResult = {
   type: WebbieStorage;
 };
 
-export function useWebbie<T extends string>(
-  options: WebbieOptions,
-  l: T
-): UseWebbieResult {
+export function useWebbie<T>(options: WebbieOptions): UseWebbieResult {
   return {
     type: WebbieStorage.NONE,
   };
