@@ -1,5 +1,5 @@
 export enum Category {
-  EXTENSION,
-  PRESET,
+  EXTENSIONS,
+  PRESETS,
   ICONS
 }

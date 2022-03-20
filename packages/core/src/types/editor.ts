@@ -4,10 +4,10 @@ export type Modes = "Full Screen" | "Zen Mode" | "Centered Layout";
 export type TreeLabel = string;
 
 export interface TreeNode {
-  type: "dir" | "file";
+  type: "folder" | "file";
   label: TreeLabel;
-  children: TreeNode[];
+  children?: TreeNode[];
   collapsed?: boolean;
-  active: boolean;
+  active?: boolean;
   icon: string;
 }

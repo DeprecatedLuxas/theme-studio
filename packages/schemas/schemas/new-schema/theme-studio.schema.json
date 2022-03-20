@@ -25,10 +25,10 @@
           "description": "The publisher of the expansion",
           "type": "string"
         },
-        "categories": {
+        "category": {
           "description": "The category used to categorize the expansion",
           "type": "string",
-          "enum": ["Themes", "Extensions", "Icons"]
+          "enum": ["Presets", "Extensions", "Icons"]
         },
         "description": {
           "description": "The description of the expansion",
