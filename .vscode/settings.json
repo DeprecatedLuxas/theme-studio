@@ -5,6 +5,11 @@
   },
   "json.schemas": [
     {
+      "fileMatch": ["package.json"],
+      "url": "/packages/schemas/schemas/new-schema/theme-studio.schema.json",
+      "schema": true
+    },
+    {
       "fileMatch": ["/*.theme-studio"],
       "url": "/packages/schemas/schemas/theme-studio.json"
     }

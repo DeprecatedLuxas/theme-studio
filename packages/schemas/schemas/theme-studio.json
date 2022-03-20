@@ -32,9 +32,15 @@
       "items": {
         "type": "string"
       }
+    },
+    "categories": {
+      "type": "array",
+      "default": ["Other"],
+      "items": {
+        "type": "string"
+      }
     }
   },
-
   "required": ["model"],
   "allOf": [
     {

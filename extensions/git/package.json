@@ -1,0 +1,141 @@
+{
+  "name": "git",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "theme-studio": {
+    "type": "extension",
+    "name": "Git",
+    "publisher": "lucasnorgaard",
+    "version": "1.0.0",
+    "description": "Git extension for VS Code",
+    "icon": "/icons/git.png",
+    "category": [
+      "Extensions"
+    ],
+    "contributes": {
+      "variables": [
+        {
+          "id": "gitDecoration.addedResourceForeground",
+          "description": "Color for added resources.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#587c0c",
+            "dark": "#81b88b",
+            "highContrast": "#1b5225",
+            "highContrastLight": "#374e06"
+          }
+        },
+        {
+          "id": "gitDecoration.modifiedResourceForeground",
+          "description": "Color for modified resources.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#895503",
+            "dark": "#E2C08D",
+            "highContrast": "#E2C08D",
+            "highContrastLight": "#895503"
+          }
+        },
+        {
+          "id": "gitDecoration.deletedResourceForeground",
+          "description": "Color for deleted resources.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#ad0707",
+            "dark": "#c74e39",
+            "highContrast": "#c74e39",
+            "highContrastLight": "#ad0707"
+          }
+        },
+        {
+          "id": "gitDecoration.renamedResourceForeground",
+          "description": "Color for renamed or copied resources.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#007100",
+            "dark": "#73C991",
+            "highContrast": "#73C991",
+            "highContrastLight": "#007100"
+          }
+        },
+        {
+          "id": "gitDecoration.untrackedResourceForeground",
+          "description": "Color for untracked resources.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#007100",
+            "dark": "#73C991",
+            "highContrast": "#73C991",
+            "highContrastLight": "#007100"
+          }
+        },
+        {
+          "id": "gitDecoration.ignoredResourceForeground",
+          "description": "Color for ignored resources.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#8E8E90",
+            "dark": "#8C8C8C",
+            "highContrast": "#A7A8A9",
+            "highContrastLight": "#8e8e90"
+          }
+        },
+        {
+          "id": "gitDecoration.stageModifiedResourceForeground",
+          "description": "Color for modified resources which have been staged.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#895503",
+            "dark": "#E2C08D",
+            "highContrast": "#E2C08D",
+            "highContrastLight": "#895503"
+          }
+        },
+        {
+          "id": "gitDecoration.stageDeletedResourceForeground",
+          "description": "Color for deleted resources which have been staged.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#ad0707",
+            "dark": "#c74e39",
+            "highContrast": "#c74e39",
+            "highContrastLight": "#ad0707"
+          }
+        },
+        {
+          "id": "gitDecoration.conflictingResourceForeground",
+          "description": "Color for resources with conflicts.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#ad0707",
+            "dark": "#e4676b",
+            "highContrast": "#c74e39",
+            "highContrastLight": "#ad0707"
+          }
+        },
+        {
+          "id": "gitDecoration.submoduleResourceForeground",
+          "description": "Color for submodule resources.",
+          "tab": "palette",
+          "group": "Git",
+          "values": {
+            "light": "#1258a7",
+            "dark": "#8db9e2",
+            "highContrast": "#8db9e2",
+            "highContrastLight": "#1258a7"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -3,10 +3,7 @@
   "description": "Theme Studio Extension Schema",
   "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
-    "configuration": {
+    "contributes": {
       "type": "object",
       "properties": {
         "commands": {
@@ -56,49 +53,26 @@
             }
           }
         },
-        "keybinds": {
+        "variables": {
+          "description": "List of variables to be added to the variable registry.",
           "type": "array",
           "items": {
-            "type": "object",
-            "required": ["command", "key"],
-            "properties": {
-              "command": {
-                "description": "Identifier of the command to execute",
-                "type": "string"
-              },
-              "key": {
-                "description": "Keybinding to execute the command",
-                "type": "string"
-              },
-              "when": {
-                "description": "(Optional) Condition which must be true to enable the command in the UI (menu and keybindings).",
-                "type": "string"
-              },
-              "mac": {
-                "description": "Mac specific key or key sequence.",
-                "type": "string"
-              },
-              "linux": {
-                "description": "Linux specific key or key sequence.",
-                "type": "string"
-              },
-              "win": {
-                "description": "Windows specific key or key sequence.",
-                "type": "string"
+            "allOf": [
+              {
+                "$ref": "theme-studio.schema.json/#/definitions/variable"
               }
-            }
+            ]
           }
         }
       }
+    },
+    "experimental": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["file-decorator"]
+      }
     }
-  },
-  "required": [
-    "name",
-    "identifier",
-    "keywords",
-    "description",
-    "version",
-    "icon",
-    "categories"
-  ]
+  }
 }

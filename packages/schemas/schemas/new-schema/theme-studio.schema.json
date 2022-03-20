@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "Theme Studio Schema",
+  "type": "object",
+  "properties": {
+    "theme-studio": {
+      "$ref": "#/definitions/theme-studio"
+    }
+  },
+  "required": ["theme-studio"],
+  "definitions": {
+    "theme-studio": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The type of the expansion",
+          "type": "string",
+          "enum": ["icons", "preset", "extension"]
+        },
+        "name": {
+          "description": "The name of the expansion",
+          "type": "string"
+        },
+        "publisher": {
+          "description": "The publisher of the expansion",
+          "type": "string"
+        },
+        "categories": {
+          "description": "The category used to categorize the expansion",
+          "type": "string",
+          "enum": ["Themes", "Extensions", "Icons"]
+        },
+        "description": {
+          "description": "The description of the expansion",
+          "type": "string"
+        },
+        "icon": {
+          "description": "The icon of the expansion",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version of the expansion",
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "extension"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./extension.schema.json"
+          }
+        }
+      ]
+    },
+    "variable": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the themable color",
+          "pattern": "^\\w+[.\\w+]*$",
+          "patternErrorMessage": "Identifiers must only contain letters, digits and dots and can not start with a dot"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the themable color"
+        },
+        "tab": {
+          "type": "string",
+          "description": "The tab where the themable color is placed under.",
+          "enum": ["palette", "editor", "syntax"]
+        },
+        "group": {
+          "type": "string",
+          "description": "The group where the themable color is placed under."
+        },
+        "values": {
+          "type": "object",
+          "description": "The values of the themable color",
+          "properties": {
+            "light": {
+              "$ref": "#/definitions/variable-color"
+            },
+            "dark": {
+              "$ref": "#/definitions/variable-color"
+            },
+            "highContrast": {
+              "$ref": "#/definitions/variable-color"
+            },
+            "highContrastLight": {
+              "$ref": "#/definitions/variable-color"
+            }
+          },
+          "required": ["light", "dark", "highContrast", "highContrastLight"]
+        }
+      },
+      "required": ["id", "description", "tab", "group", "values"]
+    },
+    "variable-color": {
+      "type": "string"
+    }
+  }
+}
