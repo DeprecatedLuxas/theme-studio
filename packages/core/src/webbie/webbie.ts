@@ -1,11 +1,8 @@
-import { WebbieConfig } from "../types";
+import { WebbieOptions } from "../types";
+import { WebbieStorage } from "./webbie-storage";
 
-export class Webbie {
-  constructor(private readonly options: WebbieConfig) {
+export class Webbie<T extends string> {
+  constructor(private readonly options: WebbieOptions, l: T) {
     this.options = options;
-  }
-
-  static instance(options: WebbieConfig) {
-    return new Webbie(options);
   }
 }

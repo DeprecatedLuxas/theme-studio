@@ -1,16 +1,16 @@
-import { StorageType } from "@theme-studio/core";
+import { WebbieOptions, WebbieStorage } from "@theme-studio/core";
 import { useContext } from "react";
 
 type UseWebbieResult = {
   /**
    * The type of storage that was supported,
-   * or `null` if no storage was supported.
+   * or `none` if no storage was supported.
    */
-  type: StorageType;
+  type: WebbieStorage;
 };
 
-export function useWebbie(): UseWebbieResult {
+export function useWebbie<T>(options: WebbieOptions): UseWebbieResult {
   return {
-    type: StorageType.NULL,
+    type: WebbieStorage.NONE,
   };
 }
