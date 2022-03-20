@@ -22,9 +22,10 @@ class Userion {
 
   constructor() {
     this.registeredDetectors = new Map();
+    this.register(UserionDeviceDetection);
   }
 
-  register(detector: UserionDetection) {
+  private register(detector: UserionDetection) {
     if (this.registeredDetectors.has(detector.type)) {
       console.error(`Detector ${detector.type} already registered, skipping`);
       return;
@@ -64,7 +65,7 @@ class Userion {
   }
 
   // TODO: Clean this up.
-  detect(
+  private detect(
     agent: string,
     detection: UserionDetection,
     options: UserionOptions,
@@ -114,8 +115,6 @@ class Userion {
 }
 
 const userion = new Userion();
-
-userion.register(UserionDeviceDetection);
 
 /**
  * Gets the user agent header from the request.
