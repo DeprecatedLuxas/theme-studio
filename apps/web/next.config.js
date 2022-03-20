@@ -11,6 +11,7 @@ module.exports = withPlugins([withTM], {
     removeConsole: {
       exclude: ["error"],
     },
+    swcMinify: true,
   },
   reactStrictMode: true,
   webpack: (config) => {
