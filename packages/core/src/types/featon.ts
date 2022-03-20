@@ -1,4 +1,5 @@
 import { FeatonFeatures } from "../featon/featon-features";
+import { PartialRecord } from "./base";
 
 export interface FeatonFeature {
   type: FeatonFeatures;
@@ -11,3 +12,5 @@ export interface FeatonOptions {
    */
   features: Array<FeatonFeatures>;
 }
+
+export type FeatonFeaturesResult = PartialRecord<FeatonFeatures, boolean>

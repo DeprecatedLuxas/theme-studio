@@ -1,4 +1,4 @@
-import { FeatonFeature, PartialRecord } from "../types";
+import { FeatonFeature, FeatonFeaturesResult } from "../types";
 import { FeatonFeatures } from "./featon-features";
 import {
   FeatonFetch,
@@ -26,7 +26,7 @@ class Featon {
 
   check(
     features: Array<FeatonFeatures>
-  ): PartialRecord<FeatonFeatures, boolean> {
+  ): FeatonFeaturesResult {
     return features.reduce(
       (acc, feature) => ({
         ...acc,

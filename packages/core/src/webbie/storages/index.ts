@@ -1,6 +1,5 @@
 export * from "./localStorage";
-export * from "./sesstionStorage";
-export * from "./IndexedDB";
+export * from "./indexedDB";
 
 export abstract class WebbieStorage {
   abstract isSupported(): boolean;

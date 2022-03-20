@@ -1,6 +1,7 @@
 import { WebbieStorage } from "../webbie";
+import { FeatonFeaturesResult } from "./featon";
 
-export interface WebbieConfig {
+export interface WebbieOptions {
   /**
    * The storage type to use.
    * @see {@link priority}
@@ -8,18 +9,29 @@ export interface WebbieConfig {
   type: WebbieStorage;
 
   /**
-   * Priority to use when storing data.
-   * If first is not supported, use the next in the list.
+   * Use a memory indexedDB
+   *
+   * If indexedDB is not available,
+   * the memory indexedDB will be used.
    * 
-   * Exclude the {@link type} from this list.
+   * If value is false, the localStorage
+   * will be used.
+   *
+   * @default false
    */
-  priority?: Array<WebbieStorage>;
+  useMemory?: boolean;
 
   /**
    * The name of the database to use.
-   * 
-   * @default "webbie-{UUID}"
    */
   name?: string;
 
+  /**
+   * Featon values to use.
+   *
+   * If not set, webbie will provide their own
+   * featon values.
+   */
+  featonValues?: FeatonFeaturesResult;
+  
 }
