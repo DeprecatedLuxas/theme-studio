@@ -41,7 +41,7 @@ class Userion {
     const { detections, useMedia } = options;
 
     if (!agent) return this.UNKNOWN_AGENT;
-
+    
     const browser = isBrowser();
     if (useMedia && !browser) {
       throw new Error("Media detection is only supported in browser");
@@ -91,6 +91,10 @@ class Userion {
     }
 
     const deviceMatch = match ? "mobile" : "desktop";
+
+    if (!useMedia) {
+      return deviceMatch;
+    }
 
     if (deviceMatch === "mobile" && !matchedMedia) {
       return "mobile";

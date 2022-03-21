@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES6",
-    "lib": ["ES2015", "DOM"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext"
   },
   "exclude": ["dist", "build", "node_modules", "tests"]

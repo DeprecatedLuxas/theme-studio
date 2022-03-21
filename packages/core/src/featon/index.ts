@@ -13,9 +13,14 @@ class Featon {
 
   constructor() {
     this.registeredFeatures = new Map();
+    this.register(FeatonFetch);
+    this.register(FeatonWorker);
+    this.register(FeatonLocalStorage);
+    this.register(FeatonSessionStorage);
+    this.register(FeatonIndexedDB);
   }
 
-  register(feature: FeatonFeature) {
+  private register(feature: FeatonFeature) {
     if (this.registeredFeatures.has(feature.type)) {
       console.error(`Feature ${feature.type} already registered, skipping`);
       return;
@@ -24,9 +29,7 @@ class Featon {
     this.registeredFeatures.set(feature.type, feature);
   }
 
-  check(
-    features: Array<FeatonFeatures>
-  ): FeatonFeaturesResult {
+  check(features: Array<FeatonFeatures>): FeatonFeaturesResult {
     return features.reduce(
       (acc, feature) => ({
         ...acc,
@@ -42,11 +45,5 @@ class Featon {
 }
 
 const featon = new Featon();
-
-featon.register(FeatonFetch);
-featon.register(FeatonWorker);
-featon.register(FeatonLocalStorage);
-featon.register(FeatonSessionStorage);
-featon.register(FeatonIndexedDB);
 
 export { featon, FeatonFeatures };
