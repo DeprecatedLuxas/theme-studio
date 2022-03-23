@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSSR } from "@theme-studio/ui"
+import { useSSR } from "@theme-studio/ui";
 
 export interface UsePortalOptions {
   id?: string;
@@ -14,14 +14,13 @@ function createDOMElement<K extends keyof HTMLElementTagNameMap>(
   return element;
 }
 
-
 function getPortalId(): string {
   return Math.random().toString(36).substr(2, 9);
 }
 
 export default function usePortal(options: UsePortalOptions) {
   const { id = getPortalId() } = options;
-  const { isSSR } = useSSR();
+  const isSSR = useSSR();
   const portalId: string = `tstudio-${id}`;
 
   const [portalEl, setPortalEl] = useState<HTMLDivElement | null>(
