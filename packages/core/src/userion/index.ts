@@ -42,7 +42,7 @@ class Userion {
     if (!agent) return this.UNKNOWN_AGENT;
 
     const browser = isBrowser();
-    if (useMedia && !true) {
+    if (useMedia && !browser) {
       throw new Error("Media detection is only supported in browser");
     }
 

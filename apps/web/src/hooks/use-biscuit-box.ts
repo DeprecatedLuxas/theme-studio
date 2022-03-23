@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useCallbackRef } from "./use-callback-ref";
+import { useCallbackRef } from "@theme-studio/ui";
 
 type UseBiscuitBoxProps = {
   onOpen?(): void;

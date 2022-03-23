@@ -1,10 +1,19 @@
-import { createDOMElement } from "@helpers/dom";
 import { useEffect, useState } from "react";
-import useSSR from "./use-ssr";
+import { useSSR } from "@theme-studio/ui"
 
 export interface UsePortalOptions {
   id?: string;
 }
+
+function createDOMElement<K extends keyof HTMLElementTagNameMap>(
+  id: string,
+  ele: K
+): HTMLElementTagNameMap[K] {
+  const element = document.createElement(ele);
+  element.setAttribute("id", id);
+  return element;
+}
+
 
 function getPortalId(): string {
   return Math.random().toString(36).substr(2, 9);
