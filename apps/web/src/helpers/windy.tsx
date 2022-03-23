@@ -2,7 +2,7 @@
 
 import { WindyElement, IntrinsicElements } from "@lib/types";
 import { ComponentType, forwardRef } from "react";
-import elements from "./elements";
+import { elements } from "@theme-studio/core";
 import classes from "tailwindcss-classnames";
 
 const cleanTemplate = (

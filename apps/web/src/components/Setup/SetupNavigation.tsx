@@ -1,7 +1,7 @@
 import Link from "next/link";
 import windy from "@helpers/windy";
 import { SetupConfig } from "@lib/types";
-import { encode } from "@helpers/encoding";
+import { encode } from "@theme-studio/core";
 import Icon from "@components/Icon";
 
 const SetupButton = windy.button`

@@ -1,5 +1,6 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import { decode } from "@helpers/encoding";
+import { decode } from "@theme-studio/core";
+
 import Divider from "@components/Divider";
 import { Button } from "@components/Forms";
 import VSCode from "@components/VSCode";

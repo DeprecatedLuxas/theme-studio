@@ -20,7 +20,6 @@ import useStorage from "@hooks/use-storage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
-import { encode } from "@helpers/encoding";
 import { getPropertyDifferences, __DEV__ } from "@lib/utils";
 import {
   GetServerSidePropsContext,
@@ -29,6 +28,7 @@ import {
 import { getAgent, UserAgentParser } from "@lib/detection";
 import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
 import Icon from "@components/Icon";
+import { encode } from "@theme-studio/core";
 
 export default function Local({
   isMobileAgent,
