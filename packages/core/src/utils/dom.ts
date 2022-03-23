@@ -1,5 +1,3 @@
-import type { NodeSize, Nullable } from "../types";
-
 /**
  * Returns whether the window object is ready to use
  * @returns boolean

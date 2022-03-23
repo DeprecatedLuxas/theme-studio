@@ -1,7 +1,6 @@
 import { FeatonFeature, FeatonFeaturesResult } from "../types";
 import { FeatonFeatures } from "./featon-features";
 import {
-  FeatonFetch,
   FeatonWorker,
   FeatonLocalStorage,
   FeatonSessionStorage,
@@ -13,7 +12,6 @@ class Featon {
 
   constructor() {
     this.registeredFeatures = new Map();
-    this.register(FeatonFetch);
     this.register(FeatonWorker);
     this.register(FeatonLocalStorage);
     this.register(FeatonSessionStorage);
@@ -25,7 +23,6 @@ class Featon {
       console.error(`Feature ${feature.type} already registered, skipping`);
       return;
     }
-    console.log(`Registering featon for: ${feature.type}`);
     this.registeredFeatures.set(feature.type, feature);
   }
 
