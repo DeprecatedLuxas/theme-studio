@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { isBrowser } from "@theme-studio/core";
 
-type UseSSRResult = { isSSR: boolean };
+type UseSSRResult = boolean;
 
 export function useSSR(): UseSSRResult {
   const [isSSR, setSSR] = useState<boolean>(false);
@@ -10,7 +10,5 @@ export function useSSR(): UseSSRResult {
     setSSR(isBrowser());
   }, []);
 
-  return {
-    isSSR: isSSR,
-  };
+  return isSSR;
 }

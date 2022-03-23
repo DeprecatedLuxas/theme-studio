@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef } from "react";
 
-export default function useIsMounted() {
+type UseIsMountedResult = () => boolean;
+
+export function useIsMounted(): UseIsMountedResult {
   const isMounted = useRef<boolean>(false);
 
   useEffect(() => {

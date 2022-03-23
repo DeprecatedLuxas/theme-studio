@@ -5,7 +5,7 @@ import useStorage from "@hooks/use-storage";
 import EditorHelper from "@helpers/editor-helper";
 import Navigation from "@components/Editor/Settings/Navigation";
 import { useCallback, useEffect, useState } from "react";
-import useIsMounted from "@hooks/use-is-mounted";
+import { useIsMounted } from "@theme-studio/ui";
 import GeneralTab from "@components/Editor/Settings/GeneralTab";
 import PersonalizationTab from "@components/Editor/Settings/PersonalizationTab";
 import { Button } from "@components/Forms";

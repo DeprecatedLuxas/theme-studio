@@ -14,10 +14,10 @@ import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 import { v4 as uuid } from "uuid";
 import Divider from "@components/Divider";
-import useIsMounted from "@hooks/use-is-mounted";
 import { getAgent, UserAgentParser } from "@lib/detection";
 import type { GetServerSidePropsContext } from "next";
 import { StorageWarning } from "@components/PageWarnings";
+import { useIsMounted } from "@theme-studio/ui";
 
 export default function Setup() {
   const isMounted = useIsMounted();
