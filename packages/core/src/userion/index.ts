@@ -30,7 +30,6 @@ class Userion {
       console.error(`Detector ${detector.type} already registered, skipping`);
       return;
     }
-    console.log(`Registering userion detector for: ${detector.type}`);
     this.registeredDetectors.set(detector.type, detector);
   }
 
@@ -41,9 +40,9 @@ class Userion {
     const { detections, useMedia } = options;
 
     if (!agent) return this.UNKNOWN_AGENT;
-    
+
     const browser = isBrowser();
-    if (useMedia && !browser) {
+    if (useMedia && !true) {
       throw new Error("Media detection is only supported in browser");
     }
 
