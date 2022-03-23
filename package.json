@@ -1,4 +1,5 @@
 {
+  "name": "theme-studio",
   "private": true,
   "repository": "https://github.com/DeprecatedLuxas/theme-studio.git",
   "author": "DeprecatedLuxas <lucasnrgaard@gmail.com>",
@@ -15,7 +16,6 @@
   "devDependencies": {
     "turbo": "^1.1.2"
   },
-  "name": "theme-studio",
   "dependencies": {
     "axios": "^0.26.0"
   },
