@@ -6,3 +6,4 @@ export * from "./icons";
 export * from "./webbie";
 export * from "./featon";
 export * from "./userion";
+export * from "./configuration";
