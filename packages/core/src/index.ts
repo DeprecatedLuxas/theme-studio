@@ -9,3 +9,4 @@ export * from "./featon"; // Feature Detection
 export * from "./tailwind";
 export * from "./utils";
 export * from "./types";
+export * from "./configuration";

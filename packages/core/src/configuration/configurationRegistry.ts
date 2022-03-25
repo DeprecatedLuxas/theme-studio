@@ -61,7 +61,7 @@ class ConfigurationRegistry implements IConfigurationRegistry {
       );
       return;
     }
-    
+
     this.configurations.push(configuration);
   }
 
@@ -70,20 +70,20 @@ class ConfigurationRegistry implements IConfigurationRegistry {
   }
 }
 
-export const registry = new ConfigurationRegistry();
+export const configurationRegistry = new ConfigurationRegistry();
 
-registry.registerSeciton({
+configurationRegistry.registerSeciton({
   id: "general",
   title: "General",
 });
 
-registry.registerSeciton({
+configurationRegistry.registerSeciton({
   id: "personalization",
   title: "Personalization",
   description: "This configuration section, is only for personalization",
 });
 
-registry.registerConfiguration({
+configurationRegistry.registerConfiguration({
   id: "name",
   title: "Theme Name",
   description: "The name of the theme",
@@ -94,7 +94,7 @@ registry.registerConfiguration({
   },
 });
 
-registry.registerConfiguration({
+configurationRegistry.registerConfiguration({
   id: "type",
   title: "Theme Type",
   description: "The type of the theme",
@@ -106,7 +106,7 @@ registry.registerConfiguration({
   },
 });
 
-registry.registerConfiguration({
+configurationRegistry.registerConfiguration({
   id: "sidebar-position",
   title: "Side Bar Position",
   description: "Side Bar Position of the VS Code Window",
@@ -118,7 +118,7 @@ registry.registerConfiguration({
   },
 });
 
-registry.registerConfiguration({
+configurationRegistry.registerConfiguration({
   id: "window-title",
   title: "Window Title",
   description: "The title of the VSCode Window",
