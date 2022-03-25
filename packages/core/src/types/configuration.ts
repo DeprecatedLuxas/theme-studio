@@ -23,5 +23,6 @@ export interface IConfigurationNode {
 export interface IConfigurationSection {
   id: string;
   title: string;
+  icon?: string;
   description?: string;
 }

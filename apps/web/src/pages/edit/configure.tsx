@@ -11,11 +11,11 @@ export default function Configure() {
   const { user, isLoading } = useUser();
 
   return (
-    <div>
-      <Configuration>
+    <Configuration>
+      <div className="w-full h-screen">
         <ConfigurationSidebar>
           <Link
-            href="https://github.com/DeprecatedLuxas/vscode-theme-studio/issues"
+            href="https://github.com/DeprecatedLuxas/theme-studio/issues"
             passHref
           >
             <a
@@ -28,7 +28,7 @@ export default function Configure() {
             </a>
           </Link>
         </ConfigurationSidebar>
-      </Configuration>
-    </div>
+      </div>
+    </Configuration>
   );
 }

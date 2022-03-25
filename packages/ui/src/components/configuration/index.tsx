@@ -4,7 +4,7 @@ import { ConfigurationProvider } from "../../providers/configuration-provider";
 export {
   ConfigurationSidebar,
   type ConfigurationSidebarProps,
-} from "./configurationSidebar";
+} from "./ConfigurationSidebar";
 
 export interface ConfigurationProps {
   children: ReactNode;
