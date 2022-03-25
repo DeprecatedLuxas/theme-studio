@@ -1,12 +1,9 @@
 export interface IConfiguration {
-  identifier?: string;
-  title?: string;
-  description?: string;
-  nodes: IConfigurationNodes;
-}
-
-export interface IConfigurationNodes {
-  [key: string]: IConfigurationNode;
+  id: string;
+  title: string;
+  description: string;
+  section: string;
+  node: IConfigurationNode
 }
 
 export interface IConfigurationNode {
@@ -19,8 +16,12 @@ export interface IConfigurationNode {
     | "object"
     | "array"
     | "null";
-  description: string;
   default?: any;
   enum?: any[];
-  
+}
+
+export interface IConfigurationSection {
+  id: string;
+  title: string;
+  description?: string;
 }

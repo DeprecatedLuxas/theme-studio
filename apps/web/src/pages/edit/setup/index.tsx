@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "@components/Forms";
 import { setupState } from "@recoil/atoms/setup";
 import { useRecoilState } from "recoil";
@@ -34,6 +34,11 @@ export default function Setup() {
   const [tab, setTab] = useState<number>(1);
   const router = useRouter();
 
+
+  useEffect(() => {
+    console.log(user);
+    
+  }, [user])
   const handleTabChange = useCallback((newTab: number) => {
     setTab(newTab);
   }, []);
