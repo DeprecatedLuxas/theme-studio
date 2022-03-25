@@ -23,19 +23,50 @@ export interface IConfigurationRegistry {
 }
 
 class ConfigurationRegistry implements IConfigurationRegistry {
-  constructor() {}
+  private readonly configurationSections: IConfigurationSection[];
+  private readonly configurations: IConfiguration[];
+
+  constructor() {
+    this.configurationSections = [];
+    this.configurations = [];
+  }
 
   registerSeciton(section: IConfigurationSection): void {
-    throw new Error("Method not implemented.");
-  }
-  getSections(): IConfigurationSection[] {
-    throw new Error("Method not implemented.");
+    if (this.configurationSections.some((s) => s.id === section.id)) {
+      console.error(
+        `Tried to register a configuration section with id "${section.id}" but this id is already registered.`
+      );
+      return;
+    }
+    this.configurationSections.push(section);
   }
 
-  registerConfiguration(configuration: IConfiguration): void {}
+  getSections(): IConfigurationSection[] {
+    return this.configurationSections;
+  }
+
+  registerConfiguration(configuration: IConfiguration): void {
+    if (this.configurations.some((c) => c.id === configuration.id)) {
+      console.error(
+        `Tried to register a configuration with id "${configuration.id}" but this id is already registered.`
+      );
+      return;
+    }
+
+    if (
+      !this.configurationSections.some((c) => c.id === configuration.section)
+    ) {
+      console.error(
+        `Tried to register a configuration with id "${configuration.id}" to a non existing section.`
+      );
+      return;
+    }
+    
+    this.configurations.push(configuration);
+  }
 
   getConfigurations(): IConfiguration[] {
-    return [];
+    return this.configurations;
   }
 }
 
