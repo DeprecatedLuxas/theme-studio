@@ -1,6 +1,5 @@
 export { Badge, type BadgeProps } from "./badge";
-export { Button } from "./forms";
-export { Icon } from "./icons";
+export { Icon, type IconProps } from "./icons";
 export { Divider, type DividerProps } from "./divider";
 export {
   Configuration,
