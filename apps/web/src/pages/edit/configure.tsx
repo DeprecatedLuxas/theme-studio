@@ -1,6 +1,7 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import {
+  Button,
   Configuration,
   ConfigurationSidebar,
   Icon,
@@ -28,7 +29,9 @@ export default function Configure() {
             </a>
           </Link>
         </ConfigurationSidebar>
-        <div className="bg-gray-700 flex-1 p-8">bgg</div>
+        <div className="bg-gray-700 flex-1 p-8">
+          <Button>gg</Button>
+        </div>
       </div>
     </Configuration>
   );

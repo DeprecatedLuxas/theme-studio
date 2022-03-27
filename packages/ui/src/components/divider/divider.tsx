@@ -1,12 +1,11 @@
 import { clsx } from "@theme-studio/core";
 import { HTMLAttributes, PropsWithChildren } from "react";
 
-interface Props {
-  className?: string;
-}
+interface IDividerProps {}
 
-export type DividerProps = Props &
-  Omit<HTMLAttributes<HTMLDivElement>, keyof Props>;
+export interface DividerProps
+  extends IDividerProps,
+    Omit<HTMLAttributes<HTMLDivElement>, keyof IDividerProps> {}
 
 export function Divider({
   className,

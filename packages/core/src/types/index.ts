@@ -8,3 +8,4 @@ export * from "./featon";
 export * from "./userion";
 export * from "./configuration";
 export * from "./fileExplorer";
+export * from "./tailwind";

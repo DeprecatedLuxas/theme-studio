@@ -90,7 +90,6 @@ export type TBackgroundColor =
   | 'bg-red-700'
   | 'bg-red-800'
   | 'bg-red-900'
-  | 'bg-test-100'
   | 'bg-titlebar'
   | 'bg-dialog-overlay'
 
@@ -207,9 +206,6 @@ export type TGradientColorStops =
   | 'from-red-900'
   | 'via-red-900'
   | 'to-red-900'
-  | 'from-test-100'
-  | 'via-test-100'
-  | 'to-test-100'
   | 'from-titlebar'
   | 'via-titlebar'
   | 'to-titlebar'
@@ -464,13 +460,6 @@ export type TBorderColor =
   | 'border-l-red-900'
   | 'border-x-red-900'
   | 'border-y-red-900'
-  | 'border-test-100'
-  | 'border-t-test-100'
-  | 'border-r-test-100'
-  | 'border-b-test-100'
-  | 'border-l-test-100'
-  | 'border-x-test-100'
-  | 'border-y-test-100'
   | 'border-titlebar'
   | 'border-t-titlebar'
   | 'border-r-titlebar'
@@ -651,7 +640,6 @@ export type TDivideColor =
   | 'divide-red-700'
   | 'divide-red-800'
   | 'divide-red-900'
-  | 'divide-test-100'
 
 export type TDivideOpacity =
   | 'divide-opacity-0'
@@ -707,17 +695,16 @@ export type TRingColor =
   | 'ring-red-700'
   | 'ring-red-800'
   | 'ring-red-900'
-  | 'ring-test-50'
-  | 'ring-test-100'
-  | 'ring-test-200'
-  | 'ring-test-300'
-  | 'ring-test-400'
-  | 'ring-test-500'
-  | 'ring-test-600'
-  | 'ring-test-700'
-  | 'ring-test-800'
-  | 'ring-test-900'
+  | 'ring-titlebar-50'
   | 'ring-titlebar-100'
+  | 'ring-titlebar-200'
+  | 'ring-titlebar-300'
+  | 'ring-titlebar-400'
+  | 'ring-titlebar-500'
+  | 'ring-titlebar-600'
+  | 'ring-titlebar-700'
+  | 'ring-titlebar-800'
+  | 'ring-titlebar-900'
   | 'ring-dialog-overlay'
 
 export type TRingWidth =
@@ -779,7 +766,6 @@ export type TRingOffsetColor =
   | 'ring-offset-red-700'
   | 'ring-offset-red-800'
   | 'ring-offset-red-900'
-  | 'ring-offset-test-100'
   | 'ring-offset-titlebar'
   | 'ring-offset-dialog-overlay'
 
@@ -836,7 +822,6 @@ export type TOutlineColor =
   | 'outline-red-700'
   | 'outline-red-800'
   | 'outline-red-900'
-  | 'outline-test-100'
   | 'outline-titlebar'
   | 'outline-dialog-overlay'
 
@@ -952,7 +937,6 @@ export type TBoxShadowColor =
   | 'shadow-red-700'
   | 'shadow-red-800'
   | 'shadow-red-900'
-  | 'shadow-test-100'
   | 'shadow-titlebar'
   | 'shadow-dialog-overlay'
 
@@ -2514,7 +2498,6 @@ export type TCaretColor =
   | 'caret-red-700'
   | 'caret-red-800'
   | 'caret-red-900'
-  | 'caret-test-100'
   | 'caret-titlebar'
   | 'caret-dialog-overlay'
 
@@ -2556,7 +2539,6 @@ export type TAccentColor =
   | 'accent-red-700'
   | 'accent-red-800'
   | 'accent-red-900'
-  | 'accent-test-100'
   | 'accent-auto'
   | 'accent-titlebar'
   | 'accent-dialog-overlay'
@@ -4005,7 +3987,6 @@ export type TFill =
   | 'fill-gray'
   | 'fill-blue'
   | 'fill-red'
-  | 'fill-test'
   | 'fill-titlebar'
   | 'fill-dialog-overlay'
 
@@ -4016,7 +3997,6 @@ export type TStroke =
   | 'stroke-gray'
   | 'stroke-blue'
   | 'stroke-red'
-  | 'stroke-test'
   | 'stroke-titlebar'
   | 'stroke-dialog-overlay'
 
@@ -4385,7 +4365,6 @@ export type TPlaceholderColor =
   | 'placeholder-red-700'
   | 'placeholder-red-800'
   | 'placeholder-red-900'
-  | 'placeholder-test-100'
   | 'placeholder-titlebar'
   | 'placeholder-dialog-overlay'
 
@@ -4438,7 +4417,6 @@ export type TTextColor =
   | 'text-red-700'
   | 'text-red-800'
   | 'text-red-900'
-  | 'text-test-100'
   | 'text-titlebar'
   | 'text-dialog-overlay'
 
@@ -4539,7 +4517,6 @@ export type TTextDecorationColor =
   | 'decoration-red-700'
   | 'decoration-red-800'
   | 'decoration-red-900'
-  | 'decoration-test-100'
   | 'decoration-titlebar'
   | 'decoration-dialog-overlay'
 
