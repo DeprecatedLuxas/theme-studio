@@ -3,7 +3,7 @@ export interface IConfiguration {
   title: string;
   description: string;
   section: string;
-  node: IConfigurationNode
+  node: IConfigurationNode;
 }
 
 export interface IConfigurationNode {
@@ -23,6 +23,5 @@ export interface IConfigurationNode {
 export interface IConfigurationSection {
   id: string;
   title: string;
-  icon?: string;
   description?: string;
 }

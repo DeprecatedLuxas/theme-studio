@@ -1,4 +1,4 @@
-import { tcx } from "@theme-studio/core";
+import { clsx } from "@theme-studio/core";
 import { HTMLAttributes, PropsWithChildren } from "react";
 
 interface Props {
@@ -12,5 +12,5 @@ export function Divider({
   className,
   ...props
 }: PropsWithChildren<DividerProps>) {
-  return <div role="separator" className={tcx(className)} {...props} />;
+  return <div role="separator" className={clsx(className, "")} {...props} />;
 }

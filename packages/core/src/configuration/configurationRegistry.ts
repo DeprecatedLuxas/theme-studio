@@ -80,7 +80,6 @@ configurationRegistry.registerSeciton({
 configurationRegistry.registerSeciton({
   id: "personalization",
   title: "Personalization",
-  description: "This configuration section, is only for personalization",
 });
 
 configurationRegistry.registerConfiguration({
