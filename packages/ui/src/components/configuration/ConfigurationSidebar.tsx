@@ -2,13 +2,14 @@ import { ReactNode } from "react";
 import { useConfiguration } from "../../hooks/use-configuration";
 import { Divider } from "../divider";
 import { clsx } from "@theme-studio/core";
+import { ConfigurationNode } from "./ConfigurationNode";
 
 export interface ConfigurationSidebarProps {
   children: ReactNode;
 }
 
 export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
-  const { sections } = useConfiguration();
+  const { sections, configurations } = useConfiguration();
   return (
     <div className="w-72 bg-white dark:bg-gray-900 p-2 flex flex-col h-full">
       <h1 className="text-2xl text-dark-700 dark:text-white mb-3">
@@ -19,7 +20,9 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
         {sections.map((section) => (
           <button
             key={section.id}
-            className={clsx("mb-2 bg-blue-800 rounded py-1 px-2 block w-full text-left")}
+            className={clsx(
+              "mb-2 bg-blue-800 rounded py-1 px-2 block w-full text-left"
+            )}
           >
             <h2 className="text-lg text-dark-700 dark:text-white">
               {section.title}
@@ -27,6 +30,7 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
           </button>
         ))}
       </div>
+      <ConfigurationNode node={configurations[0]} />
       <Divider className="my-3" />
       {children}
     </div>
