@@ -80,6 +80,7 @@ configurationRegistry.registerSeciton({
 configurationRegistry.registerSeciton({
   id: "personalization",
   title: "Personalization",
+  description: "Configure the visuals for this theme, can only be seen by you.",
 });
 
 configurationRegistry.registerConfiguration({

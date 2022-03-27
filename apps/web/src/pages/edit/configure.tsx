@@ -12,7 +12,7 @@ export default function Configure() {
 
   return (
     <Configuration>
-      <div className="w-full h-screen">
+      <div className="w-full h-screen flex">
         <ConfigurationSidebar>
           <Link
             href="https://github.com/DeprecatedLuxas/theme-studio/issues"
@@ -28,6 +28,7 @@ export default function Configure() {
             </a>
           </Link>
         </ConfigurationSidebar>
+        <div className="bg-gray-700 flex-1 p-8">bgg</div>
       </div>
     </Configuration>
   );
