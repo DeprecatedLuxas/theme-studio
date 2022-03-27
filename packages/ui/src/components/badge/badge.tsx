@@ -1,12 +1,7 @@
 import { DEV, tcx } from "@theme-studio/core";
 import { forwardRef, HTMLAttributes } from "react";
 
-export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  /**
-   * The classNames to apply to the badge.
-   */
-  className?: string;
-}
+export type BadgeProps = HTMLAttributes<HTMLDivElement>;
 
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, ...rest }, ref) => {
@@ -22,7 +17,3 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     );
   }
 );
-
-if (DEV) {
-  Badge.displayName = "Badge";
-}
