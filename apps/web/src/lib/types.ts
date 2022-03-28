@@ -4,7 +4,6 @@ import {
   ReactNode,
   RefAttributes,
 } from "react";
-import { MessageStatusEnum, MessagePositionEnum } from "./enums";
 import { TStudioActions } from "@generated/actions";
 import { Variables, VariablePossibleCategories } from "@generated/variables";
 import { Languages } from "@generated/languages";
@@ -158,29 +157,6 @@ export type IconTypes =
   | "modules"
   | "api";
 
-export type MessageStatus =
-  | MessageStatusEnum
-  | ""
-  | "error"
-  | "warning"
-  | "info"
-  | "success";
-
-export type MessagePosition =
-  | MessagePositionEnum
-  | "top"
-  | "top-right"
-  | "top-left"
-  | "bottom"
-  | "bottom-right"
-  | "bottom-left";
-
-export interface Message {
-  message: string;
-  status?: MessageStatus;
-  position?: MessagePosition;
-}
-
 export interface TreeViewItem {
   type: "dir" | "file";
   name: string;
@@ -218,7 +194,7 @@ export interface UserAgent {
 export interface IconAttributes {
   viewBox: string;
   size?: string;
-}     
+}
 
 export interface IconObject {
   attributes: IconAttributes;
