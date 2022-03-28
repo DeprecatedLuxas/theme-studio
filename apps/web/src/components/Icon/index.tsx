@@ -4,7 +4,6 @@ import {
   IconProviders,
   Icons,
 } from "@lib/types";
-import { __DEV__ } from "@lib/utils";
 import { SVGAttributes } from "react";
 import { AriaRole } from "react";
 import Codicons from "./Codicons";

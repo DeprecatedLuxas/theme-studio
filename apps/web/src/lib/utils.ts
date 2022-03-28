@@ -1,8 +1,4 @@
-import React from "react";
-
-export const __DEV__ = process.env.NODE_ENV !== "production";
-
-// TODO: Rewrite this. 
+// TODO: Rewrite this.
 export function getPropertyDifferences(obj1: any, obj2: any) {
   return Object.entries(obj1).reduce((diff, [key, value]) => {
     if (obj2.hasOwnProperty(key)) {
@@ -26,10 +22,6 @@ export function isBrowser(): boolean {
       window.document &&
       window.document.createElement
   );
-}
-
-export function clamp(value: number, min: number, max: number) {
-  return Math.min(Math.max(value, min), max);
 }
 
 export function getFileExtension(fileName: string) {
