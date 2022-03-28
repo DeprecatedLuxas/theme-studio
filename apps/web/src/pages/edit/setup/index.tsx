@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { Button } from "@components/Forms";
 import { setupState } from "@recoil/atoms/setup";
 import { useRecoilState } from "recoil";
 import {
@@ -9,15 +8,13 @@ import {
 } from "@components/Setup";
 import EditorHelper from "@helpers/editor-helper";
 import useStorage from "@hooks/use-storage";
-import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 import { v4 as uuid } from "uuid";
-import Divider from "@components/Divider";
 import { getAgent, UserAgentParser } from "@lib/detection";
 import type { GetServerSidePropsContext } from "next";
 import { StorageWarning } from "@components/PageWarnings";
-import { useIsMounted } from "@theme-studio/ui";
+import { useIsMounted, Divider, Spinner, Button } from "@theme-studio/ui";
 
 export default function Setup() {
   const isMounted = useIsMounted();
@@ -34,11 +31,9 @@ export default function Setup() {
   const [tab, setTab] = useState<number>(1);
   const router = useRouter();
 
-
   useEffect(() => {
     console.log(user);
-    
-  }, [user])
+  }, [user]);
   const handleTabChange = useCallback((newTab: number) => {
     setTab(newTab);
   }, []);

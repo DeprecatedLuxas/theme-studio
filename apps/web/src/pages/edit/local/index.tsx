@@ -1,5 +1,4 @@
 import { useUser } from "@auth0/nextjs-auth0";
-import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import VSCode from "@components/VSCode";
 import { Tab } from "@headlessui/react";
@@ -7,8 +6,6 @@ import { useCallback, useEffect, useReducer } from "react";
 import EditorHelper from "@helpers/editor-helper";
 import registry from "@lib/registry";
 import { reducer, RegistryContext } from "@contexts/RegistryContext";
-import Divider from "@components/Divider";
-import { Button } from "@components/Forms";
 import {
   Dialog,
   DialogBody,
@@ -20,15 +17,16 @@ import useStorage from "@hooks/use-storage";
 import PaletteTab from "@components/Editor/PaletteTab";
 import SyntaxTab from "@components/Editor/SyntaxTab";
 import EditorTab from "@components/Editor/EditorTab";
-import { getPropertyDifferences, __DEV__ } from "@lib/utils";
+import { getPropertyDifferences } from "@lib/utils";
 import {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from "next/types";
 import { getAgent, UserAgentParser } from "@lib/detection";
-import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
+import { MobileWarning } from "@components/PageWarnings";
 import Icon from "@components/Icon";
-import { encode } from "@theme-studio/core";
+import { Divider, Spinner, Button } from "@theme-studio/ui";
+import { encode, DEV } from "@theme-studio/core";
 
 export default function Local({
   isMobileAgent,
@@ -100,7 +98,7 @@ export default function Local({
   }, [state.variables]);
 
   useEffect(() => {
-    if (__DEV__) {
+    if (DEV) {
       console.log("A variable changed. Saving...");
     }
     handleSave();

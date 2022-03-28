@@ -1,7 +1,11 @@
-import { clsx } from "@theme-studio/core";
+import { clsx, TBackgroundColor, TMargin } from "@theme-studio/core";
 import { HTMLAttributes, PropsWithChildren } from "react";
 
-interface IDividerProps {}
+interface IDividerProps {
+  bg?: TBackgroundColor;
+  space?: TMargin;
+  color?: TBackgroundColor;
+}
 
 export interface DividerProps
   extends IDividerProps,
@@ -9,12 +13,15 @@ export interface DividerProps
 
 export function Divider({
   className,
+  space = "my-2",
+  bg = "bg-white",
+  color = "bg-gray-400",
   ...props
 }: PropsWithChildren<DividerProps>) {
   return (
     <div
       role="separator"
-      className={clsx(className, "w-auto bg-gray-700 h-0.5")}
+      className={clsx(className, "w-auto h-0.5", color, space)}
       {...props}
     />
   );

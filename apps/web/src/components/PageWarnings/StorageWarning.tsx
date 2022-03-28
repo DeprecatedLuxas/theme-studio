@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Button } from "@components/Forms";
+import { Button } from "@theme-studio/ui";
 
 export interface StorageWarningProps {
   clearStorage: Function;

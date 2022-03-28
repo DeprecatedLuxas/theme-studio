@@ -1,4 +1,4 @@
-import { Button } from "@components/Forms";
+
 import Link from "next/link";
 
 export default function NotSupportedPage() {

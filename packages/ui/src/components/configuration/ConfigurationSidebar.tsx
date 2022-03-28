@@ -15,7 +15,7 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
       <h1 className="text-2xl text-dark-700 dark:text-white mb-3">
         Theme Studio
       </h1>
-      <Divider className="my-3" />
+      <Divider space="my-3" color="bg-gray-700" />
       <div className="flex-1">
         {sections.map((section) => (
           <button
@@ -31,7 +31,7 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
         ))}
       </div>
       <ConfigurationNode node={configurations[0]} />
-      <Divider className="my-3" />
+      <Divider space="my-3" color="bg-gray-700" />
       {children}
     </div>
   );

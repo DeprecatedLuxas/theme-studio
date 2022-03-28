@@ -1,5 +1,4 @@
 import { useUser } from "@auth0/nextjs-auth0";
-import Spinner from "@components/Spinner";
 import { useRouter } from "next/router";
 import useStorage from "@hooks/use-storage";
 import EditorHelper from "@helpers/editor-helper";
@@ -8,7 +7,6 @@ import { useCallback, useEffect, useState } from "react";
 import { useIsMounted } from "@theme-studio/ui";
 import GeneralTab from "@components/Editor/Settings/GeneralTab";
 import PersonalizationTab from "@components/Editor/Settings/PersonalizationTab";
-import { Button } from "@components/Forms";
 import { usePrevious } from "@hooks/use-previous";
 import { ThemeStorage } from "@lib/types";
 import { useRecoilState } from "recoil";
@@ -16,6 +14,7 @@ import { setupState } from "@recoil/atoms/setup";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getAgent, UserAgentParser } from "@lib/detection";
 import { MobileWarning, UserAgentWarning } from "@components/PageWarnings";
+import { Spinner, Button } from "@theme-studio/ui";
 
 export default function LocalSettings({
   isMobileAgent,

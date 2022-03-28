@@ -1,6 +1,6 @@
-import { Button } from "@components/Forms";
+
 import { WebbieStorage } from "@theme-studio/core";
-import { useWebbie } from "@theme-studio/ui";
+import { useWebbie, Button } from "@theme-studio/ui";
 
 export default function Test1() {
   const {
