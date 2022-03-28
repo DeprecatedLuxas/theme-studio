@@ -52,7 +52,7 @@ export const Button = forwardRef<
           <Spinner
             className={clsx(
               loadingLabel ? "relative" : "absolute",
-              loadingLabel ? `mr-2` : "mr-0"
+              loadingLabel ? "mr-2" : "mr-0"
             )}
             size="sm"
           />
