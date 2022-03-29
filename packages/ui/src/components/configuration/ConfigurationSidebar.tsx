@@ -1,8 +1,7 @@
-import { ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
 import { useConfiguration } from "../../hooks/use-configuration";
 import { Divider } from "../divider";
 import { clsx } from "@theme-studio/core";
-import { ConfigurationNode } from "./ConfigurationNode";
 import { Tab } from "../";
 
 export interface ConfigurationSidebarProps {
@@ -19,24 +18,26 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
       <Divider space="my-3" color="bg-gray-700" />
       <div className="flex-1">
         <Tab.List>
-          <Tab>Tab #1</Tab>
-          <Tab>Tab #2</Tab>
-          <Tab>Tab #3</Tab>
+          {sections.map((section) => (
+            <Tab as={Fragment} key={section.id}>
+              {({ selected }) => (
+                <button
+                  className={clsx(
+                    "mb-2 rounded py-1 px-2 block w-full text-left hover:bg-blue-700",
+                    {
+                      "bg-blue-700": selected,
+                    }
+                  )}
+                >
+                  <h2 className="text-lg text-dark-700 dark:text-white">
+                    {section.title}
+                  </h2>
+                </button>
+              )}
+            </Tab>
+          ))}
         </Tab.List>
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            className={clsx(
-              "mb-2 bg-blue-800 rounded py-1 px-2 block w-full text-left"
-            )}
-          >
-            <h2 className="text-lg text-dark-700 dark:text-white">
-              {section.title}
-            </h2>
-          </button>
-        ))}
       </div>
-      <ConfigurationNode node={configurations[0]} />
       <Divider space="my-3" color="bg-gray-700" />
       {children}
     </div>

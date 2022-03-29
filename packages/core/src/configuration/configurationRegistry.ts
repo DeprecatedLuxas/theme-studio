@@ -83,6 +83,12 @@ configurationRegistry.registerSeciton({
   description: "Configure the visuals for this theme, can only be seen by you.",
 });
 
+configurationRegistry.registerSeciton({
+  id: "extensions",
+  title: "Extensions",
+  description: "Extensions are installed from the marketplace.",
+});
+
 configurationRegistry.registerConfiguration({
   id: "name",
   title: "Theme Name",
