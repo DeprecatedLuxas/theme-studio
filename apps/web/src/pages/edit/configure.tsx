@@ -29,7 +29,7 @@ export default function Configure() {
             </a>
           </Link>
         </ConfigurationSidebar>
-        <div className="bg-gray-700 flex-1 p-8">
+        <div className="bg-white dark:bg-gray-700 flex-1 p-8">
           <Tab.Panels>
             <Tab.Panel>
               <p>Tab #1 content</p>
