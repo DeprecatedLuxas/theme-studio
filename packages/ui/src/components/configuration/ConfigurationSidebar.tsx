@@ -9,7 +9,7 @@ export interface ConfigurationSidebarProps {
 }
 
 export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
-  const { sections, configurations } = useConfiguration();
+  const { sections } = useConfiguration();
   return (
     <div className="w-72 bg-white dark:bg-gray-900 p-2 flex flex-col h-full">
       <h1 className="text-2xl text-dark-700 dark:text-white mb-3">
