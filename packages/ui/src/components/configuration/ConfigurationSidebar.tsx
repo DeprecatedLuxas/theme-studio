@@ -16,7 +16,7 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
         Theme Studio
       </h1>
       <Divider space="my-3" color="bg-gray-700" />
-      <div className="flex-1">
+      <div className="flex-1 overflow-y-scroll scrollbar-hide">
         <Tab.List>
           {sections.map((section) => (
             <Tab as={Fragment} key={section.id}>
