@@ -15,7 +15,7 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
       <h1 className="text-2xl text-dark-700 dark:text-white mb-3">
         Theme Studio
       </h1>
-      <Divider space="my-3" color="bg-gray-700" />
+      <Divider space="my-3" color="bg-gray-400" darkColor="bg-gray-700" />
       <div className="flex-1 overflow-y-scroll scrollbar-hide">
         <Tab.List>
           {sections.map((section) => (
@@ -38,7 +38,7 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
           ))}
         </Tab.List>
       </div>
-      <Divider space="my-3" color="bg-gray-700" />
+      <Divider space="my-3" color="bg-gray-400" darkColor="bg-gray-700" />
       {children}
     </div>
   );

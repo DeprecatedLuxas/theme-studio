@@ -2,9 +2,9 @@ import { clsx, TBackgroundColor, TMargin } from "@theme-studio/core";
 import { HTMLAttributes, PropsWithChildren } from "react";
 
 interface IDividerProps {
-  bg?: TBackgroundColor;
   space?: TMargin;
   color?: TBackgroundColor;
+  darkColor?: TBackgroundColor;
 }
 
 export interface DividerProps
@@ -14,14 +14,16 @@ export interface DividerProps
 export function Divider({
   className,
   space = "my-2",
-  bg = "bg-white",
   color = "bg-gray-400",
+  darkColor,
   ...props
 }: PropsWithChildren<DividerProps>) {
   return (
     <div
       role="separator"
-      className={clsx(className, "w-auto h-0.5", color, space)}
+      className={clsx(className, "w-auto h-0.5", color, space, {
+        [`dark:${darkColor}`]: darkColor,
+      })}
       {...props}
     />
   );
