@@ -1,10 +1,10 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import {
-  Button,
   Configuration,
   ConfigurationSidebar,
   Icon,
+  Tab,
   VscFeedbackIcon,
 } from "@theme-studio/ui";
 
@@ -13,7 +13,7 @@ export default function Configure() {
 
   return (
     <Configuration>
-      <div className="w-full h-screen flex">
+      <Tab.Group as="div" className="w-full h-screen flex">
         <ConfigurationSidebar>
           <Link
             href="https://github.com/DeprecatedLuxas/theme-studio/issues"
@@ -30,9 +30,19 @@ export default function Configure() {
           </Link>
         </ConfigurationSidebar>
         <div className="bg-gray-700 flex-1 p-8">
-          <Button>gg</Button>
+          <Tab.Panels>
+            <Tab.Panel>
+              <p>Tab #1 content</p>
+            </Tab.Panel>
+            <Tab.Panel>
+              <p>Tab #2 content</p>
+            </Tab.Panel>
+            <Tab.Panel>
+              <p>Tab #3 content</p>
+            </Tab.Panel>
+          </Tab.Panels>
         </div>
-      </div>
+      </Tab.Group>
     </Configuration>
   );
 }

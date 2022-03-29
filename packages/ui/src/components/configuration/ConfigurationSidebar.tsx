@@ -3,6 +3,7 @@ import { useConfiguration } from "../../hooks/use-configuration";
 import { Divider } from "../divider";
 import { clsx } from "@theme-studio/core";
 import { ConfigurationNode } from "./ConfigurationNode";
+import { Tab } from "../";
 
 export interface ConfigurationSidebarProps {
   children: ReactNode;
@@ -17,6 +18,11 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
       </h1>
       <Divider space="my-3" color="bg-gray-700" />
       <div className="flex-1">
+        <Tab.List>
+          <Tab>Tab #1</Tab>
+          <Tab>Tab #2</Tab>
+          <Tab>Tab #3</Tab>
+        </Tab.List>
         {sections.map((section) => (
           <button
             key={section.id}

@@ -9,5 +9,6 @@ export {
 } from "./configuration";
 export { Button, type ButtonProps } from "./button";
 export { Spinner, type SpinnerProps } from "./spinner";
+export * from "@headlessui/react";
 export * from "./icons/fa";
 export * from "./icons/vsc";
