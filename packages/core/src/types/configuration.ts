@@ -19,9 +19,3 @@ export interface ConfigurationNode {
   default?: any;
   enum?: any[];
 }
-
-export interface ConfigurationSection {
-  id: string;
-  title: string;
-  description?: string;
-}

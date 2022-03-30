@@ -25,7 +25,7 @@ export function ConfigurationSidebar({
       <div className="flex-1 overflow-y-scroll scrollbar-hide">
         <Tab.List>
           {sections.map((section) => (
-            <Tab as={Fragment} key={section.id}>
+            <Tab as={Fragment} key={section}>
               {({ selected }) => (
                 <button
                   className={clsx(
@@ -43,7 +43,7 @@ export function ConfigurationSidebar({
                       }
                     )}
                   >
-                    {section.title}
+                    {section}
                   </h2>
                 </button>
               )}

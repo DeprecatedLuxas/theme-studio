@@ -1,33 +1,27 @@
-import {
-  configurationRegistry,
-  type Configuration,
-  type ConfigurationSection,
-} from "@theme-studio/core";
+import { configurationRegistry, type Configuration } from "@theme-studio/core";
 import { createContext, FC } from "react";
 
 type Context = {
-  sections: ConfigurationSection[];
+  sections: string[];
   configurations: Configuration[];
-  getConfigurationsBySectionId: (sectionId: string) => Configuration[];
 };
 
 export const ConfigurationContext = createContext<Context>({
   sections: [],
   configurations: [],
-  getConfigurationsBySectionId: (sectionId: string) => [],
 });
 
 export const ConfigurationProvider: FC = ({ children }) => {
+  const configurations = configurationRegistry.getConfigurations();
   return (
     <ConfigurationContext.Provider
       value={{
-        sections: configurationRegistry.getSections(),
-        configurations: configurationRegistry.getConfigurations(),
-        getConfigurationsBySectionId: (sectionId: string) => {
-          return configurationRegistry
-            .getConfigurations()
-            .filter((configuration) => configuration.section === sectionId);
-        },
+        sections: [
+          ...new Set(
+            configurations.map((configuration) => configuration.section)
+          ),
+        ],
+        configurations: configurations,
       }}
     >
       {children}

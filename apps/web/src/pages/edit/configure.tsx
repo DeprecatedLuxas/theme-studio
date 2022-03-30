@@ -12,7 +12,6 @@ import {
 
 export default function Configure() {
   const { user, isLoading } = useUser();
-  const { configurations, sections } = useConfiguration();
 
   return (
     <Configuration>
@@ -20,7 +19,6 @@ export default function Configure() {
         <ConfigurationSidebar
           onDone={() => {
             console.log("Hey");
-            
           }}
         >
           <Link
