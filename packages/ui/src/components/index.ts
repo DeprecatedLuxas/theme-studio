@@ -12,5 +12,6 @@ export {
 export { Button, type ButtonProps } from "./button";
 export { Spinner, type SpinnerProps } from "./spinner";
 export * from "@headlessui/react";
+export * from "react-select";
 export * from "./icons/fa";
 export * from "./icons/vsc";

@@ -1,9 +1,41 @@
 import { type Configuration } from "@theme-studio/core";
+import { ComponentType } from "react";
+import { StringEnumNode, StringNode } from "./nodes";
 
 export interface ConfigurationNodeProps {
   node: Configuration;
 }
 
+export function getComponentNode({ node }: Configuration): ComponentType<any> {
+  switch (node.type) {
+    case "string":
+      if (node.enum) {
+        return StringEnumNode;
+      }
+      return StringNode;
+
+    case "array":
+    case "boolean":
+    case "number":
+    case "object":
+    case "integer":
+    case "null":
+    default:
+      throw new Error(`Unsupported configuration type: ${node.type}`);
+  }
+}
+
 export function ConfigurationNode({ node }: ConfigurationNodeProps) {
-  return <div>{JSON.stringify(node)}</div>;
+  const ComponentNode = getComponentNode(node);
+  return (
+    <div className="w-fit">
+      <h3 className="text-xl text-dark-700 dark:text-white mb-1">
+        {node.title}
+      </h3>
+      <p className="text-dark-700 dark:text-gray-400 mb-1">
+        {node.description}
+      </p>
+      <ComponentNode node={node.node} />
+    </div>
+  );
 }

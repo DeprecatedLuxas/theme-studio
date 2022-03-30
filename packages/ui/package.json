@@ -6,7 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
-    "@theme-studio/core": "*"
+    "@theme-studio/core": "*",
+    "react-select": "^5.2.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.39",
