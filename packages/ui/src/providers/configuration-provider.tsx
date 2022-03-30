@@ -1,18 +1,20 @@
 import {
   configurationRegistry,
-  IConfiguration,
-  IConfigurationSection,
+  type Configuration,
+  type ConfigurationSection,
 } from "@theme-studio/core";
 import { createContext, FC } from "react";
 
-type IConfigurationContext = {
-  sections: IConfigurationSection[];
-  configurations: IConfiguration[];
+type Context = {
+  sections: ConfigurationSection[];
+  configurations: Configuration[];
+  getConfigurationsBySectionId: (sectionId: string) => Configuration[];
 };
 
-export const ConfigurationContext = createContext<IConfigurationContext>({
+export const ConfigurationContext = createContext<Context>({
   sections: [],
   configurations: [],
+  getConfigurationsBySectionId: (sectionId: string) => [],
 });
 
 export const ConfigurationProvider: FC = ({ children }) => {
@@ -21,6 +23,11 @@ export const ConfigurationProvider: FC = ({ children }) => {
       value={{
         sections: configurationRegistry.getSections(),
         configurations: configurationRegistry.getConfigurations(),
+        getConfigurationsBySectionId: (sectionId: string) => {
+          return configurationRegistry
+            .getConfigurations()
+            .filter((configuration) => configuration.section === sectionId);
+        },
       }}
     >
       {children}

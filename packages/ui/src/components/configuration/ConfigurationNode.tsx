@@ -1,7 +1,7 @@
-import { type IConfiguration } from "@theme-studio/core";
+import { type Configuration } from "@theme-studio/core";
 
 export interface ConfigurationNodeProps {
-  node: IConfiguration;
+  node: Configuration;
 }
 
 export function ConfigurationNode({ node }: ConfigurationNodeProps) {

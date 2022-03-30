@@ -2,19 +2,27 @@ import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import {
   Configuration,
+  Configurator,
   ConfigurationSidebar,
   Icon,
   Tab,
+  useConfiguration,
   VscFeedbackIcon,
 } from "@theme-studio/ui";
 
 export default function Configure() {
   const { user, isLoading } = useUser();
+  const { configurations, sections } = useConfiguration();
 
   return (
     <Configuration>
       <Tab.Group as="div" className="w-full h-screen flex">
-        <ConfigurationSidebar>
+        <ConfigurationSidebar
+          onDone={() => {
+            console.log("Hey");
+            
+          }}
+        >
           <Link
             href="https://github.com/DeprecatedLuxas/theme-studio/issues"
             passHref
@@ -22,26 +30,14 @@ export default function Configure() {
             <a
               target="_blank"
               rel="noopener"
-              className="flex items-center bg-blue-700 rounded w-full px-2 py-1 text-white font-roboto"
+              className="flex items-center justify-center bg-blue-700 h-full rounded p-3 text-white"
+              title="Feedback"
             >
-              <Icon icon={VscFeedbackIcon} className="mr-3" />
-              Feedback
+              <Icon icon={VscFeedbackIcon} />
             </a>
           </Link>
         </ConfigurationSidebar>
-        <div className="bg-white dark:bg-gray-700 flex-1 p-8">
-          <Tab.Panels>
-            <Tab.Panel>
-              <p>Tab #1 content</p>
-            </Tab.Panel>
-            <Tab.Panel>
-              <p>Tab #2 content</p>
-            </Tab.Panel>
-            <Tab.Panel>
-              <p>Tab #3 content</p>
-            </Tab.Panel>
-          </Tab.Panels>
-        </div>
+        <Configurator />
       </Tab.Group>
     </Configuration>
   );

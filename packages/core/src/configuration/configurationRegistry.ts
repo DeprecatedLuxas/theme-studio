@@ -1,37 +1,18 @@
-import { IConfiguration, IConfigurationSection } from "../types";
+import { Configuration, ConfigurationSection } from "../types";
 
-export interface IConfigurationRegistry {
-  /**
-   * Register a configuration to the registry.
-   */
-  registerSeciton(section: IConfigurationSection): void;
-
-  /**
-   * Returns all configuration sections contributed to this registry.
-   */
-  getSections(): IConfigurationSection[];
-
-  /**
-   * Register a configuration to the registry.
-   */
-  registerConfiguration(configuration: IConfiguration): void;
-
-  /**
-   * Returns all configuration nodes contributed to this registry.
-   */
-  getConfigurations(): IConfiguration[];
-}
-
-class ConfigurationRegistry implements IConfigurationRegistry {
-  private readonly configurationSections: IConfigurationSection[];
-  private readonly configurations: IConfiguration[];
+class ConfigurationRegistry {
+  private readonly configurationSections: ConfigurationSection[];
+  private readonly configurations: Configuration[];
 
   constructor() {
     this.configurationSections = [];
     this.configurations = [];
   }
 
-  registerSeciton(section: IConfigurationSection): void {
+  /**
+   * Register a configuration to the registry.
+   */
+  registerSection(section: ConfigurationSection): void {
     if (this.configurationSections.some((s) => s.id === section.id)) {
       console.error(
         `Tried to register a configuration section with id "${section.id}" but this id is already registered.`
@@ -41,11 +22,17 @@ class ConfigurationRegistry implements IConfigurationRegistry {
     this.configurationSections.push(section);
   }
 
-  getSections(): IConfigurationSection[] {
+  /**
+   * Returns all configuration sections contributed to this registry.
+   */
+  getSections(): ConfigurationSection[] {
     return this.configurationSections;
   }
 
-  registerConfiguration(configuration: IConfiguration): void {
+  /**
+   * Register a configuration to the registry.
+   */
+  registerConfiguration(configuration: Configuration): void {
     if (this.configurations.some((c) => c.id === configuration.id)) {
       console.error(
         `Tried to register a configuration with id "${configuration.id}" but this id is already registered.`
@@ -65,25 +52,28 @@ class ConfigurationRegistry implements IConfigurationRegistry {
     this.configurations.push(configuration);
   }
 
-  getConfigurations(): IConfiguration[] {
+  /**
+   * Returns all configuration nodes contributed to this registry.
+   */
+  getConfigurations(): Configuration[] {
     return this.configurations;
   }
 }
 
 export const configurationRegistry = new ConfigurationRegistry();
 
-configurationRegistry.registerSeciton({
+configurationRegistry.registerSection({
   id: "general",
   title: "General",
 });
 
-configurationRegistry.registerSeciton({
+configurationRegistry.registerSection({
   id: "personalization",
   title: "Personalization",
   description: "Configure the visuals for this theme, can only be seen by you.",
 });
 
-configurationRegistry.registerSeciton({
+configurationRegistry.registerSection({
   id: "extensions",
   title: "Extensions",
   description: "Extensions are installed from the marketplace.",

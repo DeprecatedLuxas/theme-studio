@@ -3,18 +3,24 @@ import { useConfiguration } from "../../hooks/use-configuration";
 import { Divider } from "../divider";
 import { clsx } from "@theme-studio/core";
 import { Tab } from "../";
+import { Button } from "../button";
 
 export interface ConfigurationSidebarProps {
   children: ReactNode;
+  onDone: () => void;
 }
 
-export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
+export function ConfigurationSidebar({
+  children,
+  onDone,
+}: ConfigurationSidebarProps) {
   const { sections } = useConfiguration();
   return (
     <div className="w-72 bg-[#f3f3f3] dark:bg-gray-900 p-2 flex flex-col h-full">
-      <h1 className="text-2xl text-dark-700 dark:text-white mb-3">
-        Theme Studio
-      </h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl text-dark-700 dark:text-white">Theme Studio</h1>
+        {children}
+      </div>
       <Divider space="my-3" color="bg-gray-400" darkColor="bg-gray-700" />
       <div className="flex-1 overflow-y-scroll scrollbar-hide">
         <Tab.List>
@@ -46,7 +52,7 @@ export function ConfigurationSidebar({ children }: ConfigurationSidebarProps) {
         </Tab.List>
       </div>
       <Divider space="my-3" color="bg-gray-400" darkColor="bg-gray-700" />
-      {children}
+      <Button onClick={onDone}>Done</Button>
     </div>
   );
 }

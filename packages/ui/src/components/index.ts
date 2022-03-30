@@ -6,6 +6,8 @@ export {
   type ConfigurationProps,
   ConfigurationSidebar,
   type ConfigurationSidebarProps,
+  Configurator,
+  type ConfiguratorProps,
 } from "./configuration";
 export { Button, type ButtonProps } from "./button";
 export { Spinner, type SpinnerProps } from "./spinner";

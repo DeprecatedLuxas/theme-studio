@@ -1,12 +1,12 @@
-export interface IConfiguration {
+export interface Configuration {
   id: string;
   title: string;
   description: string;
   section: string;
-  node: IConfigurationNode;
+  node: ConfigurationNode;
 }
 
-export interface IConfigurationNode {
+export interface ConfigurationNode {
   type:
     | "string"
     | "number"
@@ -20,7 +20,7 @@ export interface IConfigurationNode {
   enum?: any[];
 }
 
-export interface IConfigurationSection {
+export interface ConfigurationSection {
   id: string;
   title: string;
   description?: string;
