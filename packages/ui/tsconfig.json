@@ -16,7 +16,8 @@
     "target": "ES6",
     "lib": ["ES2015", "DOM"],
     "module": "ESNext",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "downlevelIteration": true
   },
   "exclude": ["dist", "build", "node_modules"]
 }
