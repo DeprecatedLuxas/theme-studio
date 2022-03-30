@@ -1,7 +1,8 @@
-import type { Configuration, ConfigurationSection } from "@theme-studio/core";
+import type { Configuration } from "@theme-studio/core";
+import { ConfigurationNode } from "./ConfigurationNode";
 
 interface ConfigurationRootProps {
-  section: ConfigurationSection;
+  section: string;
   configurations: Configuration[];
 }
 
@@ -10,8 +11,13 @@ export function ConfigurationRoot({
   configurations,
 }: ConfigurationRootProps) {
   return (
-    <div className="h-full bg-green-600">
-      {!configurations.length && <p>Hello</p>}
+    <div className="h-full">
+      <h1 className="text-4xl text-dark-700 dark:text-white mb-4">{section}</h1>
+      <div className="">
+        {configurations.map((configuration) => (
+          <ConfigurationNode node={configuration} />
+        ))}
+      </div>
     </div>
   );
 }
