@@ -9,6 +9,7 @@ export {
   Configurator,
   type ConfiguratorProps,
 } from "./configuration";
+export { Input, type InputProps } from "./input";
 export { Button, type ButtonProps } from "./button";
 export { Spinner, type SpinnerProps } from "./spinner";
 export * from "@headlessui/react";
