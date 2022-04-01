@@ -6,7 +6,6 @@ import {
   ConfigurationSidebar,
   Icon,
   Tab,
-  useConfiguration,
   VscFeedbackIcon,
 } from "@theme-studio/ui";
 
