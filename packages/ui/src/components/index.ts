@@ -8,7 +8,7 @@ export {
   type ConfigurationSidebarProps,
   Configurator,
   type ConfiguratorProps,
-} from "./configuration";
+} from "./Configuration";
 export { Input, type InputProps } from "./Input";
 export { Button, type ButtonProps } from "./Button";
 export { Spinner, type SpinnerProps } from "./Spinner";
