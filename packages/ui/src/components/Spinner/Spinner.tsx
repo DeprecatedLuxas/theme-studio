@@ -1,4 +1,4 @@
-import { clsx } from "@theme-studio/core";
+import { clsx, DEV } from "@theme-studio/core";
 import { forwardRef, HTMLAttributes } from "react";
 
 interface ISpinnerProps {
@@ -56,3 +56,7 @@ export const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(
     );
   }
 );
+
+if (DEV) {
+  Spinner.displayName = "Spinner";
+}

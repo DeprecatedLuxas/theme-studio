@@ -1,4 +1,4 @@
-import { clsx } from "@theme-studio/core";
+import { clsx, DEV } from "@theme-studio/core";
 import { forwardRef, HTMLAttributes, InputHTMLAttributes } from "react";
 import { classNames } from "react-select/dist/declarations/src/utils";
 
@@ -37,3 +37,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     />
   );
 });
+
+if (DEV) {
+  Input.displayName = "Input";
+}

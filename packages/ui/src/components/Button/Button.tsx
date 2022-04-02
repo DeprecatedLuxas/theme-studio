@@ -1,4 +1,4 @@
-import { clsx, TBackgroundColor, TTextColor } from "@theme-studio/core";
+import { clsx, DEV, TBackgroundColor, TTextColor } from "@theme-studio/core";
 import { forwardRef, HTMLAttributes, PropsWithChildren } from "react";
 import { Spinner } from "../Spinner";
 
@@ -64,3 +64,7 @@ export const Button = forwardRef<
     );
   }
 );
+
+if (DEV) {
+  Button.displayName = "Button";
+}

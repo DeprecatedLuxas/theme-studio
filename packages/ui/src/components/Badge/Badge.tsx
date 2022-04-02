@@ -1,4 +1,4 @@
-import { clsx } from "@theme-studio/core";
+import { clsx, DEV } from "@theme-studio/core";
 import { forwardRef, HTMLAttributes } from "react";
 
 interface IBadgeProps {}
@@ -21,3 +21,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     );
   }
 );
+
+if (DEV) {
+  Badge.displayName = "Badge";
+}

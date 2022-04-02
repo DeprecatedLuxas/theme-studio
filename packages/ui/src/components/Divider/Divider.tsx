@@ -1,4 +1,4 @@
-import { clsx, TBackgroundColor, TMargin } from "@theme-studio/core";
+import { clsx, DEV, TBackgroundColor, TMargin } from "@theme-studio/core";
 import { forwardRef, HTMLAttributes, PropsWithChildren } from "react";
 
 interface IDividerProps {
@@ -28,3 +28,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     );
   }
 );
+
+if (DEV) {
+  Divider.displayName = "Divider";
+}
