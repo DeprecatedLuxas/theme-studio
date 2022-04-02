@@ -1,5 +1,4 @@
 const plugin = require("tailwindcss/plugin");
-const colors = require("tailwindcss/colors");
 const scrollBarPlugin = require("./plugins/scrollbar.plugin");
 
 module.exports = {
