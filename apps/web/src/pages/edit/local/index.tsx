@@ -25,7 +25,7 @@ import {
 import { getAgent, UserAgentParser } from "@lib/detection";
 import { MobileWarning } from "@components/PageWarnings";
 import Icon from "@components/Icon";
-import { Divider, Spinner, Button } from "@theme-studio/ui";
+import { Divider, Spinner, Button, Heading } from "@theme-studio/ui";
 import { encode, DEV } from "@theme-studio/core";
 
 export default function Local({
@@ -169,7 +169,7 @@ export default function Local({
       <div className="flex h-screen">
         <div className="flex flex-col p-2 bg-gray-900 w-72">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl text-white font-roboto">Theme Studio</h1>
+            <Heading className="text-2xl text-white font-roboto">Theme Studio</Heading>
             <button
               className="p-1 text-gray-600 rounded hover:bg-gray-600 hover:text-gray-400"
               onClick={handleSettings}

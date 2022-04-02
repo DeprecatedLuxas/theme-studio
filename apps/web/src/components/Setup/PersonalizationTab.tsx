@@ -3,6 +3,7 @@ import { setupState } from "@recoil/atoms/setup";
 import Select, { SingleValue } from "react-select";
 import { useCallback } from "react";
 import { SideBarPlacement } from "@lib/types";
+import { Heading } from "@theme-studio/ui";
 
 
 export default function PersonalizationTab() {
@@ -29,11 +30,11 @@ export default function PersonalizationTab() {
 
   return (
     <div className="flex flex-col">
-      <h1 className="font-roboto mb-4 text-3xl">
+      <Heading className="font-roboto mb-4 text-3xl">
         Personalization
-      </h1>
+      </Heading>
       <section>
-        <h2>Sidebar Placement</h2>
+        <Heading type="h2">Sidebar Placement</Heading>
         <section className="w-48">
           <Select
             options={[

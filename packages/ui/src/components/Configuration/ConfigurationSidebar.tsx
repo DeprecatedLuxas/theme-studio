@@ -4,6 +4,7 @@ import { Divider } from "../Divider";
 import { clsx } from "@theme-studio/core";
 import { Tab } from "../";
 import { Button } from "../Button";
+import { Heading } from "../Heading";
 
 export interface ConfigurationSidebarProps {
   children: ReactNode;
@@ -18,7 +19,9 @@ export function ConfigurationSidebar({
   return (
     <div className="w-72 bg-[#f3f3f3] dark:bg-gray-900 p-2 flex flex-col h-full">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl text-dark-700 dark:text-white">Theme Studio</h1>
+        <Heading className="text-2xl text-dark-700 dark:text-white">
+          Theme Studio
+        </Heading>
         {children}
       </div>
       <Divider space="my-3" color="bg-gray-400" darkColor="bg-gray-700" />
@@ -35,7 +38,8 @@ export function ConfigurationSidebar({
                     }
                   )}
                 >
-                  <h2
+                  <Heading 
+                  type="h2"
                     className={clsx(
                       "group-hover:text-white text-lg text-dark-900 text-white",
                       {
@@ -44,7 +48,7 @@ export function ConfigurationSidebar({
                     )}
                   >
                     {section}
-                  </h2>
+                  </Heading>
                 </button>
               )}
             </Tab>

@@ -4,7 +4,7 @@ import useStorage from "@hooks/use-storage";
 import EditorHelper from "@helpers/editor-helper";
 import Navigation from "@components/Editor/Settings/Navigation";
 import { useCallback, useEffect, useState } from "react";
-import { useIsMounted } from "@theme-studio/ui";
+import { Heading, useIsMounted } from "@theme-studio/ui";
 import GeneralTab from "@components/Editor/Settings/GeneralTab";
 import PersonalizationTab from "@components/Editor/Settings/PersonalizationTab";
 import { usePrevious } from "@hooks/use-previous";
@@ -86,7 +86,7 @@ export default function LocalSettings({
       <div className="h-screen w-full flex justify-center items-center bg-gray-700">
         <div className="max-w-4xl w-full bg-white h-96 rounded p-4 flex flex-col">
           <div>
-            <h1 className="text-2xl mb-4">Settings</h1>
+            <Heading className="text-2xl mb-4">Settings</Heading>
           </div>
           <Navigation onClick={handleTabChange} currentTab={tab} />
           <div className="flex-1">

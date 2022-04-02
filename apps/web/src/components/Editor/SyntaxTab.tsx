@@ -1,6 +1,7 @@
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
 import { VariablePossibleCategories, Variables } from "@lib/types";
+import { Heading } from "@theme-studio/ui";
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import Variable from "./Variable";
@@ -14,9 +15,9 @@ export default function SyntaxTab() {
 
   if (!Object.keys(syntax!).length) {
     return (
-      <h4 className="text-white text-lg">
+      <Heading type="h4" className="text-white text-lg">
         There is no variables specified for this tab.
-      </h4>
+      </Heading>
     );
   }
   return (

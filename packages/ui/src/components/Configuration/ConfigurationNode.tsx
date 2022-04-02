@@ -1,5 +1,6 @@
 import { type Configuration } from "@theme-studio/core";
 import { ComponentType } from "react";
+import { Heading } from "../Heading";
 import { StringEnumNode, StringNode } from "./nodes";
 
 export interface ConfigurationNodeProps {
@@ -29,9 +30,9 @@ export function ConfigurationNode({ node }: ConfigurationNodeProps) {
   const ComponentNode = getComponentNode(node);
   return (
     <div className="w-fit">
-      <h3 className="text-xl text-dark-700 dark:text-white mb-1">
+      <Heading type="h3" className="text-xl text-dark-700 dark:text-white mb-1">
         {node.title}
-      </h3>
+      </Heading>
       <p className="text-dark-700 dark:text-gray-400 mb-1">
         {node.description}
       </p>

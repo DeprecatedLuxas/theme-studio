@@ -1,6 +1,7 @@
 import useRegistry from "@hooks/use-registry";
 import registry from "@lib/registry";
 import { VariablePossibleCategories, Variables } from "@lib/types";
+import { Heading } from "@theme-studio/ui";
 import { useState } from "react";
 import Variable from "./Variable";
 import VariableGroup from "./VariableGroup";
@@ -13,9 +14,9 @@ export default function PaletteTab() {
 
   if (!Object.keys(palette!).length) {
     return (
-      <h4 className="text-white text-lg">
+      <Heading type="h4" className="text-white text-lg">
         There is no variables specified for this tab.
-      </h4>
+      </Heading>
     );
   }
 

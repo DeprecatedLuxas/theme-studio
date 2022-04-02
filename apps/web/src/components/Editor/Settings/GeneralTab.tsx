@@ -4,10 +4,10 @@ import { useRecoilState } from "recoil";
 import { setupState } from "@recoil/atoms/setup";
 import Select, { SingleValue } from "react-select";
 import { ThemeType } from "@lib/types";
+import { Heading } from "@theme-studio/ui";
 
 export default function GeneralTab() {
   const [config, setConfig] = useRecoilState(setupState);
-
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +40,7 @@ export default function GeneralTab() {
   return (
     <div>
       <section className="mb-4 h-16">
-        <h2>Theme Name</h2>
+        <Heading type="h2">Theme Name</Heading>
         <Input
           placeholder="Theme Name"
           border="border-gray-400"
@@ -49,7 +49,7 @@ export default function GeneralTab() {
         />
       </section>
       <section>
-        <h2>Theme Type</h2>
+        <Heading type="h2">Theme Type</Heading>
         <section className="w-48">
           <Select
             options={[
