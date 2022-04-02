@@ -3,7 +3,7 @@ import { useConfiguration } from "../../hooks/use-configuration";
 import { Divider } from "../divider";
 import { clsx } from "@theme-studio/core";
 import { Tab } from "../";
-import { Button } from "../button";
+import { Button } from "../Button";
 
 export interface ConfigurationSidebarProps {
   children: ReactNode;

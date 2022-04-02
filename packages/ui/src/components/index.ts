@@ -10,7 +10,7 @@ export {
   type ConfiguratorProps,
 } from "./configuration";
 export { Input, type InputProps } from "./input";
-export { Button, type ButtonProps } from "./button";
+export { Button, type ButtonProps } from "./Button";
 export { Spinner, type SpinnerProps } from "./spinner";
 export * from "@headlessui/react";
 export * from "react-select";
