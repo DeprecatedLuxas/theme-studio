@@ -1,6 +1,6 @@
 import { Fragment, ReactNode } from "react";
 import { useConfiguration } from "../../hooks/use-configuration";
-import { Divider } from "../divider";
+import { Divider } from "../Divider";
 import { clsx } from "@theme-studio/core";
 import { Tab } from "../";
 import { Button } from "../Button";
