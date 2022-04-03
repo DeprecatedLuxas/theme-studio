@@ -21,7 +21,7 @@ export default function Home() {
           Theme editor
         </Heading>
         {device === "desktop" ? (
-          <Link href="/edit/setup">
+          <Link href="/edit/configure">
             <a className="py-2 px-2 bg-blue-700 text-white font-bold rounded">
               Get Started
             </a>
