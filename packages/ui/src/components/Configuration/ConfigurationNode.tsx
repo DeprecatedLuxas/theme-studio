@@ -29,7 +29,7 @@ export function getComponentNode({ node }: Configuration): ComponentType<any> {
 export function ConfigurationNode({ node }: ConfigurationNodeProps) {
   const ComponentNode = getComponentNode(node);
   return (
-    <div className="w-fit">
+    <div className="w-56 py-2">
       <Heading type="h3" className="text-xl text-dark-700 dark:text-white mb-1">
         {node.title}
       </Heading>

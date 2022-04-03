@@ -7,7 +7,6 @@ import {
   Icon,
   Tab,
   VscFeedbackIcon,
-  useConfiguration,
 } from "@theme-studio/ui";
 
 export default function Configure() {

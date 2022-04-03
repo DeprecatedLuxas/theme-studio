@@ -1,9 +1,14 @@
-import Select, { SingleValue } from "react-select";
+import Select, { SingleValue, StylesConfig } from "react-select";
 import { BaseNodeProps } from ".";
 import { useConfiguration } from "../../../hooks";
 import { ConfigurationActionTypes } from "../../../providers/configuration-provider";
 
 export interface StringEnumNodeProps extends BaseNodeProps {}
+
+const selectStyles: StylesConfig = {
+  
+}
+
 
 export function StringEnumNode({ id, node }: StringEnumNodeProps) {
   const { dispatch } = useConfiguration();

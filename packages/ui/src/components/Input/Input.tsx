@@ -1,42 +1,24 @@
 import { clsx, DEV } from "@theme-studio/core";
-import { forwardRef, HTMLAttributes, InputHTMLAttributes } from "react";
-import { classNames } from "react-select/dist/declarations/src/utils";
+import { forwardRef, InputHTMLAttributes } from "react";
 
-interface IInputProps {
-  disabled?: InputHTMLAttributes<HTMLInputElement>["disabled"];
-  readOnly?: InputHTMLAttributes<HTMLInputElement>["readOnly"];
-  type?: string;
-}
+interface IInputProps {}
 
 export interface InputProps
   extends IInputProps,
-    Omit<HTMLAttributes<HTMLInputElement>, keyof IInputProps> {}
+    Omit<InputHTMLAttributes<HTMLInputElement>, keyof IInputProps> {}
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const {
-    className,
-    readOnly,
-    disabled,
-    "aria-label": ariaLabel,
-    "aria-describedby": ariaDescribedBy,
-    type = "text",
-    ...rest
-  } = props;
-  return (
-    <input
-      ref={ref}
-      readOnly={readOnly}
-      aria-readonly={readOnly}
-      disabled={disabled}
-      aria-disabled={disabled}
-      aria-label={ariaLabel}
-      aria-describedby={ariaDescribedBy}
-      type={type}
-      className={clsx("", className)}
-      {...rest}
-    />
-  );
-});
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, disabled, ...props }, ref) => {
+    return (
+      <input
+        ref={ref}
+        disabled={disabled}
+        className={clsx("", className)}
+        {...props}
+      />
+    );
+  }
+);
 
 if (DEV) {
   Input.displayName = "Input";
