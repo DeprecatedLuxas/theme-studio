@@ -6,7 +6,7 @@ import { ConfigurationRoot } from "./ConfigurationRoot";
 export interface ConfiguratorProps {}
 
 export function Configurator() {
-  const { sections, getConfigurationsBySectionId } = useConfiguration();
+  const { sections, getConfigurationsBySection } = useConfiguration();
 
   return (
     <div className="bg-white dark:bg-gray-700 flex-1 p-8 overflow-y-scroll scrollbar-hide">
@@ -15,7 +15,7 @@ export function Configurator() {
           <Tab.Panel key={idx} className="h-full">
             <ConfigurationRoot
               section={section}
-              configurations={getConfigurationsBySectionId(section)}
+              configurations={getConfigurationsBySection(section)}
             />
           </Tab.Panel>
         ))}
