@@ -55,7 +55,7 @@ configurationRegistry.registerConfiguration({
 });
 
 configurationRegistry.registerConfiguration({
-  id: "sidebar-position",
+  id: "sidebarPosition",
   title: "Side Bar Position",
   description: "Side Bar Position of the VS Code Window",
   section: "Personalization",
@@ -67,13 +67,12 @@ configurationRegistry.registerConfiguration({
 });
 
 configurationRegistry.registerConfiguration({
-  id: "window-title",
+  id: "windowTitle",
   title: "Window Title",
   description: "The title of the VSCode Window",
   section: "Personalization",
   node: {
     type: "string",
-    enum: ["left", "right"],
-    default: "left",
+    default: "$(dirty)$(fileName) - $(workspaceName) - $(appName)",
   },
 });

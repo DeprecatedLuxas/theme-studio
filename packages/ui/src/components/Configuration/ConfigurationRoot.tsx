@@ -15,8 +15,8 @@ export function ConfigurationRoot({
     <div className="h-full">
       <Heading className="text-4xl text-dark-700 dark:text-white mb-4">{section}</Heading>
       <div className="">
-        {configurations.map((configuration) => (
-          <ConfigurationNode node={configuration} />
+        {configurations.map((configuration, idx) => (
+          <ConfigurationNode key={`configuration-node-${idx}`} node={configuration} />
         ))}
       </div>
     </div>

@@ -36,7 +36,7 @@ export function ConfigurationNode({ node }: ConfigurationNodeProps) {
       <p className="text-dark-700 dark:text-gray-400 mb-1">
         {node.description}
       </p>
-      <ComponentNode node={node.node} />
+      <ComponentNode node={node.node} id={node.id} />
     </div>
   );
 }
